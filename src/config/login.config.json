@@ -1,0 +1,11 @@
+{
+  "background": "",
+  "slogan": "",
+  "loginWays": {
+    "account": true,
+    "message": false,
+    "qrCode": false
+  },
+  "hasValidateCode": false,
+  "hasForgetPassword": false
+}

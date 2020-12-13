@@ -1,0 +1,13 @@
+<!--viewtab-未使用不做更改-->
+<nz-layout class="layout">
+  <nz-sider nzTheme="light">
+    <ul>
+      <li *ngFor="let item of dataDictionaryList.items">
+        <a (click)="showDataDictionary(item)" href="javascript:">{{item.Code}} - {{item.Name}}</a>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-content>
+    <div>{{pickedDataDictionary}}</div>
+  </nz-content>
+</nz-layout>

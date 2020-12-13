@@ -1,0 +1,77 @@
+[
+  {
+    "Name": "系统管理",
+    "AuthName": "",
+    "Children": [
+      {
+        "Name": "部门管理",
+        "ComponentSelector": "py-department-management",
+        "AuthName": "System:Department"
+      },
+      {
+        "Name": "角色管理",
+        "ComponentSelector": "py-role-management",
+        "AuthName": "System:Role"
+      },
+      {
+        "Name": "组织机构管理",
+        "ComponentSelector": "py-organization-management",
+        "AuthName": "System:Organization"
+      },
+      {
+        "Name": "数据字典",
+        "ComponentSelector": "py-data-dictionary",
+        "AuthName": "System:DataDic"
+      },
+      {
+        "Name": "公示公告",
+        "ComponentSelector": "py-announcement-management",
+        "AuthName": "System:Announcement"
+      },
+      {
+        "Name": "快捷入口",
+        "ComponentSelector": "py-quick-entrance",
+        "AuthName": ""
+      },
+      {
+        "Name": "权限管理",
+        "ComponentSelector": "py-authority-management",
+        "AuthName": "System:Authority"
+      },
+      {
+        "Name": "业务日志",
+        "ComponentSelector": "py-business-log",
+        "AuthName": "System:BusinessLog"
+      },
+      {
+        "Name": "消息模板",
+        "ComponentSelector": "py-message-template",
+        "AuthName": "System:MsgTemplate"
+      },
+      {
+        "Name": "流程管理",
+        "ComponentSelector": "py-process-management",
+        "AuthName": "System:Process"
+      },
+      {
+        "Name": "报表管理",
+        "ComponentSelector": "py-report-management",
+        "AuthName": "System:Report"
+      }
+    ]
+  },
+  {
+    "Name": "demo",
+    "AuthName": "",
+    "Children": [
+      {
+        "Name": "我的Tab页",
+        "ComponentSelector": "app-my-tab-view",
+        "AuthName": "",
+        "Props": {
+          "titleName": "通过参数传入的标题"
+        }
+      }
+    ]
+  }
+]
