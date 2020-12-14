@@ -1,0 +1,74 @@
+<div id="main1">
+  <nz-layout>
+    <nz-header>
+      <div class="button1">
+        <button nz-button nzType="primary" class="header-button" style="background-color: #067BFF;color: #ffffff" (click)="showNeedsList()">
+          <a >历史审批</a></button>
+        <nz-modal [(nzVisible)]="isVisible2" nzTitle="历史审批" (nzOnCancel)="handleCancel()" [nzStyle]="{width: '70%' }">
+          <div>
+            <p>niinininininin</p>
+          </div>
+          <div *nzModalFooter>
+            <button nz-button nzType="default" (click)="handleCancel()">取消</button>
+            <button nz-button nzType="primary" (click)="handleOk()" >提交</button>
+          </div>
+        </nz-modal>
+      </div>
+    </nz-header>
+    <nz-content>
+      <nz-table #basicTable [nzData]="listOfData">
+        <thead>
+        <tr>
+          <th>部门名称</th>
+          <th>申请人</th>
+          <th>申请时间</th>
+          <th>所属部门/中心</th>
+          <th>申请简介</th>
+          <th>申请人数</th>
+          <th>审批人</th>
+          <th>审批状态</th>
+          <th>审批备注</th>
+          <th>操作</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let data of basicTable.data">
+          <td>{{ data.name }}</td>
+          <td>{{ data.age }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td style="color: #4da2fd">未审批</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>
+
+            <a (click)="showModal()" style="color: rgba(16, 16, 16, 100)">查看</a>
+            <nz-modal [(nzVisible)]="isVisible" nzTitle="招聘需求" (nzOnCancel)="handleCancel()" >
+              <div >
+                <p>招聘岗位：<span>前端开发工程师</span></p>
+                <p>工作经验：<span>4年</span></p>
+                <p>学历：<span>本科</span></p>
+                <p>薪资待遇：<span>4k-6k</span></p>
+                <p>工作地点：<span>天府新谷</span></p>
+                <p>招聘人数：<span>5</span></p>
+                <p>发布时间：<span>2020-12-10</span></p>
+              </div>
+              <div *nzModalFooter>
+                <button nz-button nzType="default" (click)="handleCancel()">取消</button>
+                <button nz-button nzType="primary" (click)="handleOk()">确定</button>
+              </div>
+            </nz-modal>
+
+            <a (click)="showSuccess()" style="color: #4da2fd" (click)="createMessage('success')"> | 通过</a>
+            <a (click)="showDeleteConfirm()" style="color: coral"> | 驳回</a>
+          </td>
+        </tr>
+        </tbody>
+      </nz-table>
+    </nz-content>
+  </nz-layout>
+</div>
+

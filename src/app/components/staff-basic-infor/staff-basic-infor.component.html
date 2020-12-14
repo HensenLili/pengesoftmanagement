@@ -1,0 +1,74 @@
+<body>
+   
+    
+    <div >
+        <header class="header1">
+            <b>基础信息</b>
+            <button nz-button (click)="show()" *ngIf="isEdit">编辑</button>
+            <div *ngIf="isButton">
+                <button nz-button  (click)="ok()"> 确定 </button>
+                <button  nz-button (click)="cancel()"> 取消</button>
+            </div>
+        </header>
+        
+        <div>  <hr/>  </div>
+        <!-- 基础信息 -->
+        <div  *ngIf="isShow">
+            <article>
+                <ul>
+                    <li>姓名：张三</li>
+                    <li>毕业时间：</li>
+                    <li>性别：男</li>
+                    <li>籍贯:</li>
+                    <li>民族：汉</li>
+                    <li>身份证号码：</li>
+                    <li>毕业院校：家里蹲大学</li>
+                    <li>生日：</li>
+                    <li>文化程度：</li>
+                    <li>年龄</li>
+                    <li>所学专业：</li>
+                    <li>政治面貌：</li>
+                </ul>
+            </article>
+            <!-- 在职信息 -->
+            <aside>
+                <header>
+                    <i nz-icon nzType="profile" nzTheme="outline"></i> <b>在职信息</b>
+                </header>
+                <ul>
+                    <li>部门：IT部</li>
+                    <li>鹏业工龄：</li>
+                    <li>岗位：</li>
+                    <li>职业工龄:</li>
+                    <li>岗位类型：</li>
+                    <li>合同类型：</li>
+                    <li>用工形式：</li>
+                    <li>转正时间：</li>
+                    <li>入职时间：</li>
+                    <li>试用期：xx - xx</li>
+                    <li>参加工作时间：</li>
+                    <li>实习协议：</li>
+                </ul>
+            </aside>
+            <!-- 联系信息 -->
+            <main>
+                <header>
+                    <i nz-icon nzType="phone" nzTheme="outline"></i> <b>联系信息</b>
+                </header>
+                <ul>
+                    <li>联系电话</li>
+                    <li>身份证地址：</li>
+                    <li>紧急联系人：</li>
+                    <li>现住地址</li>
+                    <li>紧急联系人电话：</li>
+                </ul>
+            </main>
+        </div>
+        <div *ngIf="isChange">
+            <app-staff-basic-change></app-staff-basic-change>
+        </div>
+    
+    
+    </div>
+      
+    </body>

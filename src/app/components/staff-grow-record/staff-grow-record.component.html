@@ -1,0 +1,58 @@
+<body>
+    <nz-timeline nzMode="alternate">
+        <nz-timeline-item>
+            <div class="div1">
+                奖惩记录
+                <div>
+                <button nz-button nzType="default"  (click)="reward()"> 查看</button>
+                 <button nz-button (click)="addReward()">添加</button>
+                </div>
+            </div>
+        </nz-timeline-item>
+        <nz-timeline-item nzColor="green">
+            <div class="div2">
+                培训记录
+                <div>
+                <button nz-button nzType="default" (click)="train()">查看</button>
+                 <button nz-button (click)="addTrain()">添加</button>
+                </div>
+            </div>
+    </nz-timeline-item>
+        <nz-timeline-item [nzDot]="dotTemplate">
+            <div class="div3">
+                异动记录
+                <div>
+                <button nz-button nzType="default" (click)="move()">查看</button>
+                 <button nz-button >添加</button>
+                </div>
+            </div>
+            </nz-timeline-item>
+        <nz-timeline-item nzColor="red">
+            <div class="div4">
+                薪资记录
+                <div>
+                <button nz-button nzType="default" (click)="salary()">查看</button>
+                 <button nz-button >添加</button>
+                </div>
+            </div>
+        </nz-timeline-item>
+        
+      </nz-timeline>
+      <ng-template #dotTemplate>
+        <i nz-icon nzType="clock-circle-o" style="font-size: 16px;"></i>
+      </ng-template>
+    
+      <nz-modal [(nzVisible)]="isReward" nzTitle="奖惩记录" (nzOnCancel)="rewardCancel()" (nzOnOk)="rewardOk()">
+          暂无
+        </nz-modal>
+        <nz-modal [(nzVisible)]="isTrain" nzTitle="培训记录" (nzOnCancel)="trainCancel()" (nzOnOk)="trainOk()">
+            暂无
+        </nz-modal>
+          <nz-modal [(nzVisible)]="isMove" nzTitle="异动记录" (nzOnCancel)="moveCancel()" (nzOnOk)="moveOk()">
+              暂无
+          </nz-modal>
+          <nz-modal [(nzVisible)]="isSalary" nzTitle="薪资记录" (nzOnCancel)="salaryCancel()" (nzOnOk)="salaryOk()">
+            暂无
+          </nz-modal>
+</body>
+
