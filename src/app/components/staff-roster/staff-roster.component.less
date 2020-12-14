@@ -1,3 +1,144 @@
-.staffroster{
-  position: relative;
+
+
+*{
+  margin: 0;
+  padding:0;
+}
+ul{
+  li{
+      list-style: none;
+  }
+}
+body{
+    width: 88%;
+  /* height: 100%; */
+  margin: 25px;
+  position: absolute;
+  top: 52px;
+  left: 186px;
+}
+header{
+  button{
+      width:105px;
+      height:30px;
+      margin:0 15px;
+      background-color:white;
+      color:#8A8A8A;
+      border:1px solid #8A8A8A;
+      border-radius:4px;
+  }
+  .warnButton{
+      background-color:#FFFBE6;
+  }
+  .warn{
+      margin:0 5px;
+      color:#FAAD14;
+  }
+  .classButton{
+      border:0px;
+      color:#366CB3;
+  }
+  .up{
+      margin: 0 5px;
+  }
+
+  nav{
+      transition: all linear 1s;
+      ul{
+          margin:25px 15px;
+          display:flex;
+          justify-content: space-between;
+          li{
+              float:left;
+              width:220px;
+              height:40px;
+              border-radius: 4px;
+          
+              display:flex;
+              justify-content: space-between;
+
+          }
+          b{
+              
+              color:white;
+              font-size:14px;
+              margin:auto 10px;
+  
+          }
+          .li1{
+              background-color:#2366A7;
+          }
+          .li2{
+              background-color:#49A782;
+          }
+          .li3{
+              background-color: #3992C1;
+          }
+          i{
+              color:white;
+              font-size:25px;
+              margin:auto 10px;
+           
+          }
+      }
+  }
+}
+
+
+main{
+  margin:15px 0;
+ .search{
+  width:250px;
+  height:32px;
+  display:flex;
+  justify-content: space-between;
+  .refresh{
+      width:30px;
+      height:30px;
+      border:1px solid white;
+      border-radius: 20px;
+      color:white;
+      background-color: #34CC5F;
+  }
+      .department{
+          width:150px;
+          height:30px;
+          border:1px solid #8A8A8A;
+          border-radius:4px;
+          margin:0 15px;
+          display:flex;
+          input{
+              width:110px;
+              height:28px;
+              border:0px;
+          }
+          button{
+              width:20px;
+              height:20px;
+               margin-left:5px;
+              border:0px;
+              i{
+                  font-size:15px;
+              }
+          }
+      }
+ }
+ 
+  .search-box {
+      padding: 8px;
+    }
+
+    .search-box input {
+      width: 188px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .search-box button {
+      width: 90px;
+    }
+
+    .search-button {
+      margin-right: 8px;
+    }
 }
