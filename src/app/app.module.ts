@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {Component, CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -7,50 +7,129 @@ import {MyHomeComponent} from './views/my-home/my-home.component';
 import {PengesoftNgLibModule} from 'pengesoft-ng-lib';
 import {NzMessageModule} from 'ng-zorro-antd/message';
 import {NzModalModule} from 'ng-zorro-antd/modal';
-import {NzIconModule} from 'ng-zorro-antd/icon';
 import {registerLocaleData} from '@angular/common';
+import {CommonModule} from '@angular/common';
 
 import zh from '@angular/common/locales/zh';
 import {MyTabViewComponent} from './views/my-tab-view/my-tab-view.component';
 import {NzLayoutModule} from 'ng-zorro-antd/layout';
-import { ContainerComponent } from './views/container/container.component';
-import { OrganizeManageComponent } from './views/organize-manage/organize-manage.component';
-import { RecruitManageComponent } from './views/recruit-manage/recruit-manage.component';
-import { TrainingManageComponent } from './views/training-manage/training-manage.component';
-import { StaffManageComponent } from './views/staff-manage/staff-manage.component';
-import { AwardpunishManageComponent } from './views/awardpunish-manage/awardpunish-manage.component';
-import {NzMenuModule} from "ng-zorro-antd/menu";
-import {FormsModule} from "@angular/forms";
-import {NzSwitchModule} from "ng-zorro-antd/switch";
-import { StaffRosterComponent } from './components/staff-roster/staff-roster.component';
-import { StaffContractComponent } from './components/staff-contract/staff-contract.component';
-registerLocaleData(zh);
+import { EmployeesComponent } from './components/employees/employees.component';
+// import { RosterComponent } from './components/roster/roster.component';
+import { RecruitInterviewComponent } from './components/recruit-interview/recruit-interview.component';
+import { RecruitNeedslistComponent } from './components/recruit-needslist/recruit-needslist.component';
+import { RecruitNeedsTableComponent } from './components/recruit-needs-table/recruit-needs-table.component';
+// 导航模块
+import { NzMenuModule } from 'ng-zorro-antd/menu';
+// 搜索框模块
+import { NzInputModule } from 'ng-zorro-antd/input';
+// 招聘模块
+// 引入招聘需求组件
+import { RecruitManagementComponent } from './components/recruit-management/recruit-management.component';
+// 引入人才库组件
+import { RecruitTalentPoolComponent } from './components/recruit-talent-pool/recruit-talent-pool.component';
+// 引入表格模块
+import {NzTableModule} from 'ng-zorro-antd/table';
+// 引入面包屑导航模块
+import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
+// 引入select选择器模块
+import { NzSelectModule } from 'ng-zorro-antd/select';
+// 上传模块
+import { NzUploadModule } from 'ng-zorro-antd/upload';
+// 引入tab模块
+import { NzTabsModule } from 'ng-zorro-antd/tabs';
 
+// 引入头像模块
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+// 引入按键模块
+import { NzButtonModule } from 'ng-zorro-antd/button';
+// 引入小图标模块
+import { NzIconModule } from 'ng-zorro-antd/icon';
+// 引入基础信息组件
+// import { BasicInforComponent } from './components/basic-infor/basic-infor.component';
+// 引入栅栏模块
+import {NzGridModule} from 'ng-zorro-antd/grid';
+// 引入下拉菜单模块
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+// 引入抽屉模块
+import { NzDrawerModule } from 'ng-zorro-antd/drawer';
+// 引入表单模块
+import { NzFormModule } from 'ng-zorro-antd/form';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {NzRadioModule} from 'ng-zorro-antd/radio';
+import {NzDatePickerModule} from 'ng-zorro-antd/date-picker';
+import {NzInputNumberModule} from 'ng-zorro-antd/input-number';
+import { RecruitApprovalComponent } from './components/recruit-approval/recruit-approval.component';
+import { RecruitOfferComponent } from './components/recruit-offer/recruit-offer.component';
+import { RouterModule } from "@angular/router";
+
+import { ContainerComponent } from './views/container/container.component';
+import { StaffManageComponent } from './views/staff-manage/staff-manage.component'
+import { OrganizeManageComponent } from './views/organize-manage/organize-manage.component';
+import { AwardpunishManageComponent } from './views/awardpunish-manage/awardpunish-manage.component';
+import { RecruitManageComponent } from './views/recruit-manage/recruit-manage.component';
+import { TrainingManageComponent } from './views/training-manage/training-manage.component'
+import {StaffRosterComponent} from "./components/staff-roster/staff-roster.component";
+import {StaffContractComponent} from "./components/staff-contract/staff-contract.component";
+
+registerLocaleData(zh);
 @NgModule({
   declarations: [
     AppComponent,
     MyHomeComponent,
     MyTabViewComponent,
+    EmployeesComponent,
     ContainerComponent,
+    StaffManageComponent,
     OrganizeManageComponent,
+    AwardpunishManageComponent,
     RecruitManageComponent,
     TrainingManageComponent,
-    StaffManageComponent,
-    AwardpunishManageComponent,
+    // RosterComponent,
+    // BasicInforComponent,
+    RecruitManagementComponent,
+    RecruitTalentPoolComponent,
+    RecruitInterviewComponent,
+    RecruitNeedslistComponent,
+    RecruitNeedsTableComponent,
+    RecruitApprovalComponent,
+    RecruitOfferComponent,
+
     StaffRosterComponent,
-    StaffContractComponent,
+    StaffContractComponent
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     PengesoftNgLibModule.forRoot(),
     NzMessageModule,
     NzModalModule,
-    NzIconModule,
     NzLayoutModule,
+    NzAvatarModule,
+    NzButtonModule,
+    NzIconModule,
+    NzTableModule,
     NzMenuModule,
+    NzInputModule,
+    NzGridModule,
+    NzDropDownModule,
+    NzDrawerModule,
+    NzFormModule,
+    CommonModule,
     FormsModule,
-    NzSwitchModule
+    NzBreadCrumbModule,
+    NzSelectModule,
+    NzRadioModule,
+    NzDatePickerModule,
+    NzUploadModule,
+    NzTabsModule,
+    NzInputNumberModule,
+    ReactiveFormsModule
+  ],
+  schemas: [
+     CUSTOM_ELEMENTS_SCHEMA
   ],
   providers: [],
   bootstrap: [AppComponent]
