@@ -25,7 +25,8 @@ public inputdepartment:any ='';
  public inputphone:any = '';
  public inputdate:any = '';
  public inputsex:any = '';
- listOfData=[];
+ listOfData=[
+ ];
  listOfDisplayData = [...this.listOfData];
  
 

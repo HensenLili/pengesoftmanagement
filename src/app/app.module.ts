@@ -42,6 +42,23 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzTimelineModule } from 'ng-zorro-antd/timeline';
 //引入选择器模块
 import { NzSelectModule } from 'ng-zorro-antd/select';
+//引入输入框模块
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { StaffEmployeeComponent } from './components/staff-employee/staff-employee.component';
+import { StaffBasicInforComponent } from './components/staff-basic-infor/staff-basic-infor.component';
+import { StaffExperienceComponent } from './components/staff-experience/staff-experience.component';
+import { StaffGrowRecordComponent } from './components/staff-grow-record/staff-grow-record.component';
+import { StaffCertificateComponent } from './components/staff-certificate/staff-certificate.component';
+import { StaffEntryComponent } from './components/staff-entry/staff-entry.component';
+import { StaffFormalComponent } from './components/staff-formal/staff-formal.component';
+import { StaffFormalModalComponent } from './components/staff-formal-modal/staff-formal-modal.component';
+import { StaffMoveComponent } from './components/staff-move/staff-move.component';
+import { StaffMoveModalComponent } from './components/staff-move-modal/staff-move-modal.component';
+import { StaffLeaveComponent } from './components/staff-leave/staff-leave.component';
+import { StaffLeaveModalComponent } from './components/staff-leave-modal/staff-leave-modal.component';
+import { StaffMoveHistoryComponent } from './components/staff-move-history/staff-move-history.component';
+import { StaffBasicChangeComponent } from './components/staff-basic-change/staff-basic-change.component';
+import { StaffContractRenewComponent } from './components/staff-contract-renew/staff-contract-renew.component';
 registerLocaleData(zh);
 
 @NgModule({
@@ -57,6 +74,21 @@ registerLocaleData(zh);
     AwardpunishManageComponent,
     StaffRosterComponent,
     StaffContractComponent,
+    StaffEmployeeComponent,
+    StaffBasicInforComponent,
+    StaffExperienceComponent,
+    StaffGrowRecordComponent,
+    StaffCertificateComponent,
+    StaffEntryComponent,
+    StaffFormalComponent,
+    StaffFormalModalComponent,
+    StaffMoveComponent,
+    StaffMoveModalComponent,
+    StaffLeaveComponent,
+    StaffLeaveModalComponent,
+    StaffMoveHistoryComponent,
+    StaffBasicChangeComponent,
+    StaffContractRenewComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,7 +109,9 @@ registerLocaleData(zh);
     ReactiveFormsModule,
     NzTabsModule,
     NzTimelineModule ,
-    NzSelectModule
+    NzSelectModule,
+    NzInputModule,
+    NzFormModule
   ],
   providers: [],
   bootstrap: [AppComponent]

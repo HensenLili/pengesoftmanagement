@@ -16,7 +16,13 @@ import {StaffManageComponent} from "./views/staff-manage/staff-manage.component"
 import {AwardpunishManageComponent} from "./views/awardpunish-manage/awardpunish-manage.component";
 import {StaffRosterComponent} from "./components/staff-roster/staff-roster.component";
 import {StaffContractComponent} from "./components/staff-contract/staff-contract.component";
-import {RecruitDemandComponent} from "./components/recruit-demand/recruit-demand.component";
+import { StaffEmployeeComponent } from './components/staff-employee/staff-employee.component';
+import { StaffContractRenewComponent } from './components/staff-contract-renew/staff-contract-renew.component';
+import { StaffEntryComponent } from './components/staff-entry/staff-entry.component';
+import { StaffMoveComponent } from './components/staff-move/staff-move.component';
+import { StaffFormalComponent } from './components/staff-formal/staff-formal.component';
+import { StaffLeaveComponent } from './components/staff-leave/staff-leave.component';
+import { StaffMoveHistoryComponent } from './components/staff-move-history/staff-move-history.component';
 
 const routes: Routes = [
   {
@@ -39,12 +45,7 @@ const routes: Routes = [
       {
         path: 'recruit',
         component: RecruitManageComponent,
-        children:[
-          {
-            path: 'recruitdemand',
-            component: RecruitDemandComponent
-          }
-        ]
+        children:[]
       },
       {
         path: 'training',
@@ -55,9 +56,18 @@ const routes: Routes = [
         component: StaffManageComponent,
         children:[
           {path:'staffroster', component:StaffRosterComponent},
-          {path:'staffcontract',component:StaffContractComponent}
+          { path:'employee', component:StaffEmployeeComponent} ,
+          {path:'staffcontract',component:StaffContractComponent},
+          {path:'staffcontractrenew',component:StaffContractRenewComponent},
+          {path:'staffentry',component:StaffEntryComponent},
+          {path:'staffmove',component:StaffMoveComponent},
+          {path:'staffformal',component:StaffFormalComponent},
+          {path:'staffleave',component:StaffLeaveComponent},
+          {path:'staffmovehistory',component:StaffMoveHistoryComponent}
         ]
-      },{
+     
+      },
+      {
         path: 'awardpunish',
         component: AwardpunishManageComponent
       }

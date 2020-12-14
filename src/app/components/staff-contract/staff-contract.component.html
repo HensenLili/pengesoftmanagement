@@ -1,6 +1,101 @@
-<div class="staffcontaract" >
-  <a routerLink="/staff/staffroster">
-    <p>staff-contract works!</p>
-  </a>
+<body>
 
-</div>
+<nz-tabset nzType="card">
+  <nz-tab nzTitle="合同管理">
+      <!-- 合同管理表头 -->
+      <nz-table #nzTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
+          <thead>
+            <tr>
+              <th nzCustomFilter>
+                姓名
+                <nz-filter-trigger [(nzVisible)]="isSearch" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menu">
+                  <i nz-icon nzType="search"></i>
+                </nz-filter-trigger>
+              </th>
+              <th>部门</th>
+              <th>职位</th>
+              <th>手机号码</th>
+              <th>合同类型</th>
+              <th>合同期限</th>
+              <th>合同签订日期</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <!-- 合同管理表体 -->
+          <tbody>
+            <tr *ngFor="let data of nzTable.data">
+              <td>{{ data.Name }}</td>
+              <td>{{ data.Department.Name }}</td>
+              <td>{{ data.Postion.Name }}</td>
+              <td>{{data.PhoneNumber}}</td>
+              <td>{{ data.contracts.Type}}</td>
+              <td>{{ data.contracts.EfficacyTime}}-{{data.contracts.LoseEfficacyTime}}</td>
+              <td>{{ data.contracts.SignTime}}</td>
+              <td>
+                  <button nz-button nzType="primary" (click)="addContract()"> 续签合同</button>
+              </td>
+            </tr>
+          </tbody>
+        </nz-table>
+
+        <!-- 下拉搜索 -->
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+          <div class="ant-table-filter-dropdown">
+            <div class="search-box">
+              <input type="text" nz-input placeholder="搜索名字" [(ngModel)]="searchValue" />
+              <button nz-button nzSize="small" nzType="primary" (click)="search()" class="search-button">
+                搜索
+              </button>
+              <button nz-button nzSize="small" (click)="reset()">取消</button>
+            </div>
+          </div>
+        </nz-dropdown-menu>
+        <!-- 合同续签弹窗 -->
+        <nz-modal [(nzVisible)]="isAdd" nzTitle="合同续签" (nzOnCancel)="addCancel()" (nzOnOk)="addOk()">
+          <form nz-form>
+              <nz-form-item>
+                <nz-form-label [nzSpan]="6" >姓名</nz-form-label>
+                <nz-form-control [nzSpan]="14">
+                  <input nz-input type="text" >
+                </nz-form-control>
+              </nz-form-item >
+              <nz-form-item>
+                  <nz-form-label [nzSpan]="6" >续签合同类型</nz-form-label>
+                  <nz-form-control [nzSpan]="14">
+                    <input nz-input type="text" >
+                  </nz-form-control>
+                </nz-form-item >
+                <nz-form-item>
+                  <nz-form-label [nzSpan]="6" >开始日期</nz-form-label>
+                  <nz-form-control [nzSpan]="14">
+                    <input nz-input type="date" >
+                  </nz-form-control>
+                </nz-form-item >
+                <nz-form-item>
+                  <nz-form-label [nzSpan]="6" >结束日期</nz-form-label>
+                  <nz-form-control [nzSpan]="14">
+                    <input nz-input type="date" >
+                  </nz-form-control>
+                </nz-form-item >
+                <nz-form-item>
+                  <nz-form-label [nzSpan]="6" >签署日期</nz-form-label>
+                  <nz-form-control [nzSpan]="14">
+                    <input nz-input type="date" >
+                  </nz-form-control>
+                </nz-form-item >
+                <nz-form-item>
+                  <nz-form-label [nzSpan]="6" >操作人</nz-form-label>
+                  <nz-form-control [nzSpan]="14">
+                    <input nz-input type="text" >
+                  </nz-form-control>
+                </nz-form-item >
+
+              </form>
+        </nz-modal>
+
+  </nz-tab>
+ 
+</nz-tabset>
+
+  
+</body>

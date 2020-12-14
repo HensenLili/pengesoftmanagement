@@ -1,7 +1,7 @@
 <body> 
 
   <header>
-  <button>新增员工</button>
+  <button><a [routerLink]="['/staff/employee']">新增员工</a></button>
   <button>导入</button>
   <button>导出</button>
   <button>生日名单</button>
@@ -58,7 +58,7 @@
       <thead>
         <tr>
           <th nzCustomFilter >
-            姓名
+            <a >姓名</a>
             <nz-filter-trigger [(nzVisible)]="isname" [nzActive]="inputname.length > 0" [nzDropdownMenu]="menu1">
               <i nz-icon nzType="search"></i>
             </nz-filter-trigger>
