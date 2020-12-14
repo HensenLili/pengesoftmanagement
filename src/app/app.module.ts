@@ -22,7 +22,8 @@ import {NzMenuModule} from "ng-zorro-antd/menu";
 import {NzSwitchModule} from "ng-zorro-antd/switch";
 import { StaffRosterComponent } from './components/staff-roster/staff-roster.component';
 import { StaffContractComponent } from './components/staff-contract/staff-contract.component';
-import {RecruitDemandComponent} from './components/recruit-demand/recruit-demand.component'
+import {RecruitDemandComponent} from './components/recruit-demand/recruit-demand.component';
+import {NgxEchartsModule} from "ngx-echarts";
 //引入头像模块
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 //引入按键模块
@@ -81,7 +82,8 @@ registerLocaleData(zh);
     NzTabsModule,
     NzTimelineModule,
     NzSelectModule,
-    NzGridModule
+    NzGridModule,
+    NgxEchartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
