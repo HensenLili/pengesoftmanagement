@@ -1,4 +1,4 @@
-<body> 
+<body>
 
   <header>
   <button>新增员工</button>
@@ -6,12 +6,12 @@
   <button>导出</button>
   <button>生日名单</button>
   <button class="warnButton"><i nz-icon nzType="exclamation-circle" nzTheme="fill" class="warn"></i>员工提醒</button>
-  <button nz-button nz-dropdown [nzDropdownMenu]="menu">   
-      更多  
-   <i nz-icon nzType="down"></i>  
+  <button nz-button nz-dropdown [nzDropdownMenu]="menu">
+      更多
+   <i nz-icon nzType="down"></i>
    </button>
   <button class="classButton" (click)="isnav()">收起分类<i nz-icon nzType="up" nzTheme="outline" class="up" *ngIf="navflag"></i></button>
-  
+
   <!-- 更多下拉 -->
   <nz-dropdown-menu #menu="nzDropdownMenu">
       <ul nz-menu>
@@ -20,14 +20,14 @@
         <li nz-menu-item>menu4 3rd menu item</li>
       </ul>
     </nz-dropdown-menu>
-  
+
     <!-- 员工分类导航 -->
   <nav [hidden]="navflag">
       <ul>
-          <li class="li1"><i nz-icon nzType="team" nzTheme="outline"></i>  
+          <li class="li1"><i nz-icon nzType="team" nzTheme="outline"></i>
               <b>总员工246</b>
           </li>
-          <li class="li2"><i nz-icon nzType="user" nzTheme="outline"></i> 
+          <li class="li2"><i nz-icon nzType="user" nzTheme="outline"></i>
               <b>正式203</b>
               </li>
           <li class="li3"><i nz-icon nzType="schedule" nzTheme="outline"> </i>
@@ -36,13 +36,16 @@
           <li class="li1"><i nz-icon nzType="user-add" nzTheme="outline"></i>
               <b>待入职6</b>
           </li>
-          <li class="li2"><i nz-icon nzType="user-delete" nzTheme="outline"></i>
-              <b>离职3</b>
+          <li class="li4"><i nz-icon nzType="user-add" nzTheme="outline"></i>
+              <b>新入职</b>
           </li>
+        <li class="li2"><i nz-icon nzType="user-delete" nzTheme="outline"></i>
+              <b>离职3</b>
+        </li>
       </ul>
   </nav>
   </header>
-  
+
   <main>
       <!-- 部门搜索 -->
      <div class="search">
@@ -52,7 +55,7 @@
          </div>
        <button (click)="refresh()" class='refresh'><i nz-icon nzType="redo" nzTheme="outline"></i></button>
      </div>
-  
+
      <nz-table #nzTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
          <!-- 表头 -->
       <thead>
@@ -109,7 +112,7 @@
         </tr>
       </tbody>
     </nz-table>
-  
+
       <!-- 下拉名字搜索 -->
     <nz-dropdown-menu #menu1="nzDropdownMenu">
       <div class="ant-table-filter-dropdown">
@@ -122,7 +125,7 @@
         </div>
       </div>
     </nz-dropdown-menu>
-  
+
      <!-- 下拉证件类型搜索 -->
      <nz-dropdown-menu #menu2="nzDropdownMenu">
       <div class="ant-table-filter-dropdown">
@@ -135,7 +138,7 @@
         </div>
       </div>
     </nz-dropdown-menu>
-  
+
      <!-- 下拉证件号搜索 -->
      <nz-dropdown-menu #menu3="nzDropdownMenu">
       <div class="ant-table-filter-dropdown">
@@ -184,12 +187,12 @@
         </div>
       </div>
     </nz-dropdown-menu>
-  
-  
-  
-  
-  
+
+
+
+
+
   </main>
-  
-  
+
+
   </body>

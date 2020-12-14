@@ -22,6 +22,7 @@ import {NzMenuModule} from "ng-zorro-antd/menu";
 import {NzSwitchModule} from "ng-zorro-antd/switch";
 import { StaffRosterComponent } from './components/staff-roster/staff-roster.component';
 import { StaffContractComponent } from './components/staff-contract/staff-contract.component';
+import {RecruitDemandComponent} from './components/recruit-demand/recruit-demand.component'
 //引入头像模块
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 //引入按键模块
@@ -42,6 +43,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzTimelineModule } from 'ng-zorro-antd/timeline';
 //引入选择器模块
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import {NzGridModule} from "ng-zorro-antd/grid";
 registerLocaleData(zh);
 
 @NgModule({
@@ -57,6 +59,7 @@ registerLocaleData(zh);
     AwardpunishManageComponent,
     StaffRosterComponent,
     StaffContractComponent,
+    RecruitDemandComponent
   ],
   imports: [
     BrowserModule,
@@ -72,12 +75,13 @@ registerLocaleData(zh);
     NzAvatarModule,
     NzButtonModule,
     NzDropDownModule,
-    NzTableModule ,
+    NzTableModule,
     FormsModule,
     ReactiveFormsModule,
     NzTabsModule,
-    NzTimelineModule ,
-    NzSelectModule
+    NzTimelineModule,
+    NzSelectModule,
+    NzGridModule
   ],
   providers: [],
   bootstrap: [AppComponent]
