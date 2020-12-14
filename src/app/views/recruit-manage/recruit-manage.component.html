@@ -2,29 +2,29 @@
 <div class="wrapper">
   <ul nz-menu nzMode="inline" >
     <li nz-menu-item nz-tooltip nzTooltipPlacement="right" nzSelected routerLink="recruitManagement">
-    <li nz-menu-item nz-tooltip nzTooltipPlacement="right" nzSelected routerLink="recruitdemand">
       <i nz-icon nzType="mail"></i>
       <span>招聘需求</span>
     </li>
-    <li nz-menu-item nz-tooltip nzTooltipPlacement="right" >
+    <li nz-menu-item nz-tooltip nzTooltipPlacement="right" routerLink="talentPool">
       <i nz-icon nzType="mail"></i>
       <span>人才库</span>
     </li>
-    <li nz-menu-item nz-tooltip nzTooltipPlacement="right" >
+    <li nz-menu-item nz-tooltip nzTooltipPlacement="right" routerLink="recruitInterview">
       <i nz-icon nzType="mail"></i>
       <span>面试邀约</span>
     </li>
-    <li nz-menu-item nz-tooltip nzTooltipPlacement="right" >
+    <li nz-menu-item nz-tooltip nzTooltipPlacement="right" routerLink="recruitOffer">
       <i nz-icon nzType="mail"></i>
       <span>发放offer</span>
     </li>
-    <li nz-menu-item nz-tooltip nzTooltipPlacement="right" >
+    <li nz-menu-item nz-tooltip nzTooltipPlacement="right" routerLink="recruitNeeds">
       <i nz-icon nzType="mail"></i>
       <span>招聘申请</span>
     </li>
-    <li nz-menu-item nz-tooltip nzTooltipPlacement="right" >
+    <li nz-menu-item nz-tooltip nzTooltipPlacement="right" routerLink="recruitApproval">
       <i nz-icon nzType="mail"></i>
       <span>招聘审批</span>
     </li>
   </ul>
 </div>
+<router-outlet></router-outlet>

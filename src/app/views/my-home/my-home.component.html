@@ -1,3 +1,82 @@
 <!--工作台-->
 <nz-layout class="content">
+  <ul >
+    <li class="li1"><i nz-icon nzType="team" nzTheme="outline"></i>
+      <b>总员工 246</b>
+      <>
+    <li class="li2"><i nz-icon nzType="user" nzTheme="outline"></i>
+      <b>正式 203</b>
+      <>
+    <li class="li3"><i nz-icon nzType="schedule" nzTheme="outline"> </i>
+      <b>试用期 24</b>
+      <>
+    <li class="li1"><i nz-icon nzType="user-add" nzTheme="outline"></i>
+      <b>待入职 0</b>
+      <>
+    <li class="li4"><i nz-icon nzType="user-add" nzTheme="outline"></i>
+      <b>新入职 0</b>
+      <>
+    <li class="li2"><i nz-icon nzType="user-delete" nzTheme="outline"></i>
+      <b>离职 0</b>
+      <>
+  </ul>
+
+  <div nz-row>
+    <div nz-col [nzSpan]="14" >
+      <div class="message">
+        <div class="messagetitle">
+          <i nz-icon nzType="exclamation-circle" nzTheme="outline"></i>
+          <p>待办事项</p>
+        </div>
+        <div>
+          <ul class="todolist">
+            <li>
+              <span>0</span><br/>
+              <span>待入职</span>
+              <>
+            <li>
+              <span>0</span><br/>
+              <span>转正办理</span>
+              <>
+            <li>
+              <span>0</span><br/>
+              <span>合同到期</span>
+              <>
+            <li>
+              <span>0</span><br/>
+              <span>待审批</span>
+              <>
+            <li>
+              <span>0</span><br/>
+              <span>带邀约</span>
+              <>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div nz-col [nzSpan]="10" >
+      <div class="message">
+        <div class="messagetitle">
+          <i nz-icon nzType="exclamation-circle" nzTheme="outline"></i>
+          <p>招聘进度</p>
+        </div>
+        <div class="todo">
+        <span>没有招聘进度？
+          <a>新增招聘计划</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div nz-row>
+    <div nz-col [nzSpan]="9" >
+      <div echarts [options]="option" style="height: 400px;width: 100%;margin: 25px 25px;background-color: white"></div>
+    </div>
+    <div nz-col [nzSpan]="10" >
+      <div echarts [options]="option2" style="height: 400px;width: 100%;margin: 25px 50px;background-color: white"></div>
+    </div>
+    <div nz-col [nzSpan]="5" >
+
+    </div>
+
+  </div>
 </nz-layout>

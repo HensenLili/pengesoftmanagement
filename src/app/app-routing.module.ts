@@ -75,9 +75,7 @@ const routes: Routes = [
           {
             path: 'recruitApproval',component: RecruitApprovalComponent
           }
-        ]
-        component: RecruitManageComponent,
-        children:[]
+        ],
       },
       {
         path: 'training',
