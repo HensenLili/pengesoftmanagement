@@ -24,6 +24,8 @@ import {FormsModule} from "@angular/forms";
 import {NzSwitchModule} from "ng-zorro-antd/switch";
 import { StaffRosterComponent } from './components/staff-roster/staff-roster.component';
 import { StaffContractComponent } from './components/staff-contract/staff-contract.component';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { RecruitDemandComponent } from './components/recruit-demand/recruit-demand.component';
 registerLocaleData(zh);
 
 @NgModule({
@@ -39,6 +41,7 @@ registerLocaleData(zh);
     AwardpunishManageComponent,
     StaffRosterComponent,
     StaffContractComponent,
+    RecruitDemandComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ registerLocaleData(zh);
     NzLayoutModule,
     NzMenuModule,
     FormsModule,
-    NzSwitchModule
+    NzSwitchModule,
+    NzGridModule
   ],
   providers: [],
   bootstrap: [AppComponent]

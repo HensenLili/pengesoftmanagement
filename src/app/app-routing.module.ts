@@ -16,6 +16,7 @@ import {StaffManageComponent} from "./views/staff-manage/staff-manage.component"
 import {AwardpunishManageComponent} from "./views/awardpunish-manage/awardpunish-manage.component";
 import {StaffRosterComponent} from "./components/staff-roster/staff-roster.component";
 import {StaffContractComponent} from "./components/staff-contract/staff-contract.component";
+import {RecruitDemandComponent} from "./components/recruit-demand/recruit-demand.component";
 
 const routes: Routes = [
   {
@@ -37,7 +38,13 @@ const routes: Routes = [
       },
       {
         path: 'recruit',
-        component: RecruitManageComponent
+        component: RecruitManageComponent,
+        children:[
+          {
+            path: 'recruitdemand',
+            component: RecruitDemandComponent
+          }
+        ]
       },
       {
         path: 'training',
