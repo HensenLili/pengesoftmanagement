@@ -1,0 +1,112 @@
+<div class="work">
+    <header>
+       <div><i nz-icon nzType="highlight" nzTheme="outline"></i><b>工作经历</b></div>
+        <div><button nz-button (click)="addWork()"><i nz-icon nzType="plus-circle" nzTheme="outline"></i></button><span>添加</span></div>
+    </header>
+    <div>  <hr/>  </div>
+    <article>
+        <ul>
+            <li>开始时间：</li>
+            <li>结束时间：</li>
+            <li>任职公司：</li>
+            <li>职位：</li>
+        </ul>
+    </article>
+
+    <nz-modal [(nzVisible)]="isWork" nzTitle="添加工作经历" (nzOnCancel)="workCancel()" (nzOnOk)="workOk()">
+        <form nz-form >
+            <nz-form-item>
+              <nz-form-label [nzSm]="7">开始时间</nz-form-label>
+              <nz-form-control [nzSm]="12">
+                <input nz-input type="date"/>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+             <nz-form-label [nzSm]="7">结束时间</nz-form-label>
+             <nz-form-control [nzSm]="12">
+               <input nz-input type="date"/>
+             </nz-form-control>
+           </nz-form-item>
+           <nz-form-item>
+             <nz-form-label [nzSm]="7">任职公司</nz-form-label>
+             <nz-form-control [nzSm]="12">
+               <input type="text" nz-input/>
+             </nz-form-control>
+           </nz-form-item>
+           <nz-form-item>
+            <nz-form-label [nzSm]="7">职位</nz-form-label>
+            <nz-form-control [nzSm]="12">
+              <input type="text" nz-input/>
+            </nz-form-control>
+          </nz-form-item>
+           </form>
+      </nz-modal>
+</div>
+
+
+<div class="education">
+    <header>
+       <div><i nz-icon nzType="file-search" nzTheme="outline"></i><b>教育经历</b></div>
+        <div><button nz-button (click)="addWork()"><i nz-icon nzType="plus-circle" nzTheme="outline"></i></button><span>添加</span></div>
+    </header>
+    <div>  <hr/>  </div>
+    <article>
+        <ul>
+            <li>学历：</li>
+            <li>学位：</li>
+            <li>学校名称：</li>
+            <li>专业名称：</li>
+            <li>教育形式：</li>
+            <li>开始时间：</li>
+            <li>结束时间：</li>
+        </ul>
+    </article>
+
+    <nz-modal [(nzVisible)]="isWork" nzTitle="添加工作经历" (nzOnCancel)="workCancel()" (nzOnOk)="workOk()">
+        <form nz-form >
+            <nz-form-item>
+              <nz-form-label [nzSm]="7">学历</nz-form-label>
+              <nz-form-control [nzSm]="12">
+                <input nz-input type="text"/>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+             <nz-form-label [nzSm]="7">学位</nz-form-label>
+             <nz-form-control [nzSm]="12">
+               <input nz-input type="text"/>
+             </nz-form-control>
+           </nz-form-item>
+           <nz-form-item>
+             <nz-form-label [nzSm]="7">学校名称</nz-form-label>
+             <nz-form-control [nzSm]="12">
+               <input type="text" nz-input/>
+             </nz-form-control>
+           </nz-form-item>
+           <nz-form-item>
+            <nz-form-label [nzSm]="7">专业名称</nz-form-label>
+            <nz-form-control [nzSm]="12">
+              <input type="text" nz-input/>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label [nzSm]="7">教育形式</nz-form-label>
+            <nz-form-control [nzSm]="12">
+              <input type="radio" nz-input/>全日制
+              <input type="radio" nz-input/>非全日制
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label [nzSm]="7">开始时间</nz-form-label>
+            <nz-form-control [nzSm]="12">
+              <input type="date" nz-input/>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label [nzSm]="7">结束时间</nz-form-label>
+            <nz-form-control [nzSm]="12">
+              <input type="date" nz-input/>
+            </nz-form-control>
+          </nz-form-item>
+           </form>
+      </nz-modal>
+</div>

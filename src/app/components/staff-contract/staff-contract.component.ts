@@ -11,12 +11,20 @@ export class StaffContractComponent implements OnInit {
   public searchValue = '';
   public isSearch = false;
   public isAdd = false;
-  listOfData = [ ];
+  listOfData = [{
+    name:'11',
+    department:'ww',
+    job:'ss',
+    phone:'123',
+    type:'qq',
+    date:"11",
+    time:'11'
+  }];
   listOfDisplayData = [...this.listOfData];
 
   constructor(private staffSvr:StaffServiceSvr) { }
   ngOnInit(): void {
-    this.getAll();
+    // this.getAll();
   }
 
   getAll(){
