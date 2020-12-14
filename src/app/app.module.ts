@@ -7,7 +7,6 @@ import {MyHomeComponent} from './views/my-home/my-home.component';
 import {PengesoftNgLibModule} from 'pengesoft-ng-lib';
 import {NzMessageModule} from 'ng-zorro-antd/message';
 import {NzModalModule} from 'ng-zorro-antd/modal';
-import {NzIconModule} from 'ng-zorro-antd/icon';
 import {registerLocaleData} from '@angular/common';
 
 import zh from '@angular/common/locales/zh';
@@ -20,10 +19,29 @@ import { TrainingManageComponent } from './views/training-manage/training-manage
 import { StaffManageComponent } from './views/staff-manage/staff-manage.component';
 import { AwardpunishManageComponent } from './views/awardpunish-manage/awardpunish-manage.component';
 import {NzMenuModule} from "ng-zorro-antd/menu";
-import {FormsModule} from "@angular/forms";
 import {NzSwitchModule} from "ng-zorro-antd/switch";
 import { StaffRosterComponent } from './components/staff-roster/staff-roster.component';
 import { StaffContractComponent } from './components/staff-contract/staff-contract.component';
+//引入头像模块
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+//引入按键模块
+import { NzButtonModule } from 'ng-zorro-antd/button';
+//引入小图标模块
+import { NzIconModule } from 'ng-zorro-antd/icon';
+//引入下拉菜单模块
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+//引入表格
+import { NzTableModule } from 'ng-zorro-antd/table';
+//引入表单
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+//引入标签页模块
+import { NzTabsModule } from 'ng-zorro-antd/tabs';
+//引入表单模块
+import { NzFormModule } from 'ng-zorro-antd/form';
+//引入时间轴模块
+import { NzTimelineModule } from 'ng-zorro-antd/timeline';
+//引入选择器模块
+import { NzSelectModule } from 'ng-zorro-antd/select';
 registerLocaleData(zh);
 
 @NgModule({
@@ -50,7 +68,16 @@ registerLocaleData(zh);
     NzLayoutModule,
     NzMenuModule,
     FormsModule,
-    NzSwitchModule
+    NzSwitchModule,
+    NzAvatarModule,
+    NzButtonModule,
+    NzDropDownModule,
+    NzTableModule ,
+    FormsModule,
+    ReactiveFormsModule,
+    NzTabsModule,
+    NzTimelineModule ,
+    NzSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
