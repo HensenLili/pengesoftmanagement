@@ -1,0 +1,75 @@
+<div class="cert">
+    <header>
+       <div><i nz-icon nzType="verified" nzTheme="outline"></i> <b>证书管理</b></div>
+        <div><button nz-button (click)="addCert()"><i nz-icon nzType="plus-circle" nzTheme="outline"></i></button><span>添加</span></div>
+    </header>
+    <div>  <hr/>  </div>
+    <article>
+        <ul>
+            <li>证书名称：</li>
+            <li>级别：</li>
+            <li>颁发时间：</li>
+        </ul>
+    </article>
+
+    <nz-modal [(nzVisible)]="isCert" nzTitle="添加证书" (nzOnCancel)="certCancel()" (nzOnOk)="certOk()">
+        <form nz-form >
+            <nz-form-item>
+              <nz-form-label [nzSm]="7">证书名称</nz-form-label>
+              <nz-form-control [nzSm]="12">
+                <input nz-input type="text"/>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+             <nz-form-label [nzSm]="7">级别</nz-form-label>
+             <nz-form-control [nzSm]="12">
+               <input nz-input type="text"/>
+             </nz-form-control>
+           </nz-form-item>
+           <nz-form-item>
+             <nz-form-label [nzSm]="7">颁发时间</nz-form-label>
+             <nz-form-control [nzSm]="12">
+               <input type="date" nz-input/>
+             </nz-form-control>
+           </nz-form-item>
+           </form>
+      </nz-modal>
+</div>
+
+
+<div class="language">
+    <header>
+       <div><i nz-icon nzType="phone" nzTheme="outline"></i> <b>语言证书</b></div>
+        <div><button nz-button (click)="addLanguage()"><i nz-icon nzType="plus-circle" nzTheme="outline"></i></button><span>添加</span></div>
+    </header>
+    <div>  <hr/>  </div>
+    <article>
+        <ul>
+            <li>语言：</li>
+            <li>级别：</li>
+            <li>阅读能力：</li>
+            <li>口语能力：</li>
+            <li>写作能力：</li>
+            <li>颁发日期：</li>
+            <li>证书名称：</li>
+            
+        </ul>
+    </article>
+
+    <nz-modal [(nzVisible)]="isLanguage" nzTitle="添加工作经历" (nzOnCancel)="languageCancel()" (nzOnOk)="languageOk()">
+        <form nz-form >
+            <nz-form-item>
+              <nz-form-label [nzSm]="7">语言</nz-form-label>
+              <nz-form-control [nzSm]="12">
+                <nz-select ngModel="English">
+                    <nz-option nzValue="中文" nzLabel="chinese"></nz-option>
+                    <nz-option nzValue="英语" nzLabel="English"></nz-option>
+                    <nz-option nzValue="日语" nzLabel="Japanese" ></nz-option>
+                    <nz-option nzValue="韩语" nzLabel="Korean" ></nz-option>
+                    <nz-option nzValue="其它小语种" nzLabel="other" ></nz-option>
+                  </nz-select>
+              </nz-form-control>
+            </nz-form-item>
+           </form>
+      </nz-modal>
+</div>

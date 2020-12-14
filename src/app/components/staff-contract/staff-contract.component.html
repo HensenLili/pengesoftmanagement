@@ -24,13 +24,13 @@
           <!-- 合同管理表体 -->
           <tbody>
             <tr *ngFor="let data of nzTable.data">
-              <td>{{ data.Name }}</td>
-              <td>{{ data.Department.Name }}</td>
-              <td>{{ data.Postion.Name }}</td>
-              <td>{{data.PhoneNumber}}</td>
-              <td>{{ data.contracts.Type}}</td>
-              <td>{{ data.contracts.EfficacyTime}}-{{data.contracts.LoseEfficacyTime}}</td>
-              <td>{{ data.contracts.SignTime}}</td>
+              <td>{{ data.name }}</td>
+              <td>{{ data.department }}</td>
+              <td>{{ data.job }}</td>
+              <td>{{data.phone}}</td>
+              <td>{{ data.type}}</td>
+              <td>{{ data.date}}</td>
+              <td>{{ data.time}}</td>
               <td>
                   <button nz-button nzType="primary" (click)="addContract()"> 续签合同</button>
               </td>
