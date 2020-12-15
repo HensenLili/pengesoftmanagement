@@ -11,14 +11,16 @@ export class StaffContractComponent implements OnInit {
   public searchValue = '';
   public isSearch = false;
   public isAdd = false;
+  public isChange = false;
+  public isOver = false;
   listOfData = [{
-    name:'11',
-    department:'ww',
-    job:'ss',
-    phone:'123',
-    type:'qq',
-    date:"11",
-    time:'11'
+    name:'张三',
+    department:'IT部',
+    job:'开发',
+    phone:'123456789',
+    signDate:'2017.11.16',
+    endDate:'2020.11.16',
+    status:'已过期'
   }];
   listOfDisplayData = [...this.listOfData];
 
@@ -56,6 +58,26 @@ export class StaffContractComponent implements OnInit {
   }
   addOk(){
     this.isAdd = false;
+  }
+  //变更合同弹窗
+  changeContract(){
+    this.isChange = true;
+  }
+  changeOk(){
+    this.isChange=false;
+  }
+  changeCancel(){
+    this.isChange = false;
+  }
+  //终止合同弹窗
+  overContract(){
+    this.isOver = true;
+  }
+  overOk(){
+    this.isOver = false;
+  }
+  overCancel(){
+    this.isOver =false;
   }
  
 }

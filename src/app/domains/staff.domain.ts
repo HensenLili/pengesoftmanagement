@@ -1,165 +1,46 @@
-import { DataPacket, Department, QueryDataList } from 'pengesoft-ng-lib';
-import { Contract } from './contract.domian';
-import { Position } from './position.domain';
-import { SkillCertificate } from './skillCertificate.domain';
-import { WorkExperience } from './workExperience.domain';
+import { DataPacket } from 'pengesoft-ng-lib';
 
+/**
+ * 员工基础信息
+ */
 export class Staff extends DataPacket {
-  /**
-   * 工号.
-   */
-  StaffId: string;
-  /**
-   * 生日.
-   */
-  Birth: Date | undefined;
-  /**
-   * 身份证号码.
-   */
-  IdCard: string;
-  /**
-   * 身份证正面.
-   */
-  PositiveImg: string;
-  /**
-   * 身份证反面.
-   */
-  VersoImg: string;
-  /**
-   * 年龄.
-   */
-  Age: string;
-  /**
-   * 婚姻状况.
-   */
-  MaritalStatus: string;
-  /**
-   * 性别.
-   */
-  Gender: string;
-  /**
-   * 学历.
-   */
-  Education: string;
-  /**
-   * 政治面貌.
-   */
-  Political: string;
-  /**
-   * 民族.
-   */
-  Nation: string;
-  /**
-   * 户籍地址.
-   */
-  PermanentAdress: string;
-  /**
-   * 家庭电话.
-   */
-  HouserPhoneNumber: string;
-  /**
-   * 手机号码.
-   */
-  PhoneNumber: string;
-  /**
-   * 个人邮箱.
-   */
-  Email: string;
-  /**
-   * 微信.
-   */
-  Wechat: string;
-  /**
-   * qq.
-   */
-  QQ: string;
-  /**
-   * 工作性质.
-   */
-  WorNature: number;
-  /**
-   * 工作状态.
-   */
-  WorkStatus: number;
-  /**
-   * 入职时间.
-   */
-  EntryTime: Date | undefined;
-  /**
-   * 银行卡账户.
-   */
-  BankCard: string;
-  /**
-   * 开户行名称.
-   */
-  BankName: string;
-  /**
-   * 银行卡图片.
-   */
-  BankImg: string;
-  /**
-   * 开户银行地址.
-   */
-  BankAddress: string;
-  /**
-   * 紧急联系人姓名.
-   */
-  UrgentName: string;
-  /**
-   * 紧急联系人电话.
-   */
-  UrgentTel: string;
-  /**
-   * 与紧急联系人关系.
-   */
-  UrgentRel: string;
-  /**
-   * 岗位编号.
-   */
-  PositionId: string;
-  /**
-   * 姓名.
-   */
-  Name: string;
-  /**
-   * 部门编号.
-   */
-  NodeId: number;
-  /**
-   * 合同.
-   */
-  Contracts: Array<Contract>;
-  /**
-   * 工作经历.
-   */
-  WorkExperiences: Array<WorkExperience>;
-  /**
-   * 证书.
-   */
-  Certificate: Array<SkillCertificate>;
-  /**
-   * 工作岗位.
-   */
-  Position: Position;
-  /**
-   * 部门.
-   */
-  Department: Department;
-  /**
-   * 最高学位.
-   */
-  Degree: string;
+  StaffId?: string; // 工号
+  Birth?: Date | string; // 生日
+  IdCard?: string; // 身份证号码
+  Age?: number; // 年龄
+  PyDays?: number; // 鹏业工龄
+  WorkDays?: number; // 职业工龄
+  MaritalStatus?: string; // 婚姻状况
+  Gender?: string; // 性别
+  Political?: string; // 政治面貌
+  Nation?: string; // 民族
+  PermanentAdress?: string; // 户籍地址
+  HouserPhoneNumber?: string; // 家庭电话
+  PhoneNumber?: string; // 手机号码
+  Email?: string; // 个人邮箱
+  Wechat?: string; // 微信
+  QQ?: string; // qq
+  WorNature?: number; // 工作性质
+  WorkStatus?: number; // 工作状态
+  EntryTime?: Date | string; // 入职时间
+  UrgentName?: string; // 紧急联系人姓名
+  UrgentTel?: string; // 紧急联系人电话
+  UrgentRel?: string; // 与紧急联系人关系
+  PositionId?: string; // 岗位编号
+  Name?: string; // 姓名
+  NodeId?: number; // 部门编号
+  Degree?: string; // 最高学位
+  Position?: Array<Position>; // 岗位
 
-  constructor(options: any | {
+  constructor(options: {
     StaffId?: string;
-    Birth?: Date | undefined;
+    Birth?: Date | string;
     IdCard?: string;
-    PositiveImg?: string;
-    VersoImg?: string;
-    Age?: string;
+    Age?: number;
+    PyDays?: number;
+    WorkDays?: number;
     MaritalStatus?: string;
     Gender?: string;
-    Education?: string;
     Political?: string;
     Nation?: string;
     PermanentAdress?: string;
@@ -170,34 +51,25 @@ export class Staff extends DataPacket {
     QQ?: string;
     WorNature?: number;
     WorkStatus?: number;
-    EntryTime?: Date | undefined;
-    BankCard?: string;
-    BankName?: string;
-    BankImg?: string;
-    BankAddress?: string;
+    EntryTime?: Date | string;
     UrgentName?: string;
     UrgentTel?: string;
     UrgentRel?: string;
     PositionId?: string;
     Name?: string;
     NodeId?: number;
-    Contracts?: Array<Contract>;
-    WorkExperiences?: Array<WorkExperience>;
-    Certificate?: Array<SkillCertificate>;
-    Position?: Position;
-    Department?: Department;
     Degree?: string;
+    Position?: Position;
   } = {}) {
     super();
     this.StaffId = options.StaffId || '';
-    this.Birth = this.newDate(options.Birth);
+    this.Birth = this.newDate(options.Birth)||'';
     this.IdCard = options.IdCard || '';
-    this.PositiveImg = options.PositiveImg || '';
-    this.VersoImg = options.VersoImg || '';
-    this.Age = options.Age || '';
+    this.Age = !options.Age ? 0 : Number.parseFloat(options.Age.toString());
+    this.PyDays = !options.PyDays ? 0 : Number.parseFloat(options.PyDays.toString());
+    this.WorkDays = !options.WorkDays ? 0 : Number.parseFloat(options.WorkDays.toString());
     this.MaritalStatus = options.MaritalStatus || '';
     this.Gender = options.Gender || '';
-    this.Education = options.Education || '';
     this.Political = options.Political || '';
     this.Nation = options.Nation || '';
     this.PermanentAdress = options.PermanentAdress || '';
@@ -208,41 +80,14 @@ export class Staff extends DataPacket {
     this.QQ = options.QQ || '';
     this.WorNature = !options.WorNature ? 0 : Number.parseFloat(options.WorNature.toString());
     this.WorkStatus = !options.WorkStatus ? 0 : Number.parseFloat(options.WorkStatus.toString());
-    this.EntryTime = this.newDate(options.EntryTime);
-    this.BankCard = options.BankCard || '';
-    this.BankName = options.BankName || '';
-    this.BankImg = options.BankImg || '';
-    this.BankAddress = options.BankAddress || '';
+    this.EntryTime = this.newDate(options.EntryTime) ||'';
     this.UrgentName = options.UrgentName || '';
     this.UrgentTel = options.UrgentTel || '';
     this.UrgentRel = options.UrgentRel || '';
     this.PositionId = options.PositionId || '';
     this.Name = options.Name || '';
     this.NodeId = !options.NodeId ? 0 : Number.parseFloat(options.NodeId.toString());
-    this.Contracts = options.Contracts || '';
-    this.WorkExperiences = options.WorkExperiences || '';
-    this.Certificate = options.Certificate || '';
-    this.Position = new Position(options.Position || {});
-    this.Department = new Department(options.Department || {});
     this.Degree = options.Degree || '';
-  }
-}
-
-
-/**
- * 员工基础信息列表
- */
-
-export class StaffList extends QueryDataList<Staff> {
-
-  constructor(options: any | {
-    _Items?: Array<Staff>
-  } = {}) {
-    super();
-    if (options._Items) {
-      for (const item of options._Items) {
-        this.append(new Staff(item));
-      }
-    }
+    this.Position = new Array<Position>(options?.Position);
   }
 }

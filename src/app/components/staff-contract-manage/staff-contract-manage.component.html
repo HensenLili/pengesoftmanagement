@@ -1,0 +1,67 @@
+<div class="work">
+    <header>
+       <div><i nz-icon nzType="highlight" nzTheme="outline"></i><b>合同档案</b></div>
+        <div><button nz-button (click)="addContract()"><i nz-icon nzType="plus-circle" nzTheme="outline"></i></button><span>添加</span></div>
+    </header>
+    <div *ngFor="let date of contractList">
+       {{date.name}}
+    </div>
+</div>
+
+<nz-modal [(nzVisible)]="isadd" nzTitle="添加合同协议" (nzOnCancel)="addCancel()" (nzOnOk)="addOk()">
+<form nz-form>
+ <nz-form-item>
+    <nz-form-label [nzSpan]="6">合同类型</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+        <nz-select ngModel="nzValue">
+            <nz-option nzValue="internship" nzLabel="实习协议"></nz-option>
+            <nz-option nzValue="labor" nzLabel="劳动合同"></nz-option>
+            <nz-option nzValue="part-time" nzLabel="兼职协议" ></nz-option>
+          </nz-select>
+    </nz-form-control>
+ </nz-form-item>
+ <nz-form-item>
+    <nz-form-label [nzSpan]="6">合同开始日期</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+        <nz-select ngModel="nzValue">
+           <input nz-input type="date"> 
+          </nz-select>
+    </nz-form-control>
+ </nz-form-item>
+ <nz-form-item>
+    <nz-form-label [nzSpan]="6">合同结束日期</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+        <nz-select ngModel="nzValue">
+           <input nz-input type="date"> 
+          </nz-select>
+    </nz-form-control>
+ </nz-form-item>
+ <nz-form-item>
+    <nz-form-label [nzSpan]="6">签署日期</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+        <nz-select ngModel="nzValue">
+           <input nz-input type="date"> 
+          </nz-select>
+    </nz-form-control>
+ </nz-form-item>
+ <nz-form-item>
+    <nz-form-label [nzSpan]="6">合同状态</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+        <input nz-input type="radio" name="work" value="生效">生效
+        <input nz-input type="radio" name="failure" value="失效">失效
+    </nz-form-control>
+ </nz-form-item>
+ <nz-form-item>
+    <nz-form-label [nzSpan]="6">附件</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+        <nz-upload
+        nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+        [nzHeaders]="{ authorization: 'authorization-text' }"
+        (nzChange)="handleChange($event)"
+      >
+        <button nz-button class="up"><i nz-icon nzType="upload">上传附件</i></button>
+      </nz-upload>
+    </nz-form-control>
+ </nz-form-item>
+</form>
+</nz-modal>
