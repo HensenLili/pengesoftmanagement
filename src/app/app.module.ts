@@ -93,13 +93,9 @@ import { StaffLeaveModalComponent } from './components/staff-leave-modal/staff-l
 import { StaffMoveHistoryComponent } from './components/staff-move-history/staff-move-history.component';
 import { StaffBasicChangeComponent } from './components/staff-basic-change/staff-basic-change.component';
 import { StaffContractRenewComponent } from './components/staff-contract-renew/staff-contract-renew.component';
-import { TrainingManageComponent } from './views/training-manage/training-manage.component'
-import {StaffRosterComponent} from "./components/staff-roster/staff-roster.component";
-import {StaffContractComponent} from "./components/staff-contract/staff-contract.component";
 // 引入卡片模块
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzStatisticModule } from 'ng-zorro-antd/statistic';
-import { TrainingManageComponent } from './views/training-manage/training-manage.component';
 import { TrainingManageComponent } from './views/training-manage/training-manage.component'
 import {NzCalendarModule} from "ng-zorro-antd/calendar";
 import {NzListModule} from "ng-zorro-antd/list";
