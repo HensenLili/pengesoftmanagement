@@ -30,17 +30,17 @@ export class StaffEntryComponent extends  CoreComponent implements OnInit {
   workStatus:number;
   listOfData = [];
   listOfDisplayData = [...this.listOfData];
-  
 
-  constructor( 
+
+  constructor(
     private injector: Injector,
     private staffSvr: StaffServiceSvr,
     private modal:NzModalService
-    ) {  
-    
+    ) {
+
     super(injector);
   }
- 
+
     ngOnInit(): void {
 
       this.getAll()
@@ -56,12 +56,13 @@ export class StaffEntryComponent extends  CoreComponent implements OnInit {
       this.staff = new Staff({
         "StaffId":"11"
       })
+      console.log(this.staff)
       this.staffSvr.addStaff(this.staff).then(res=>{
         console.log(res);
       })
       // this.staffSvr.findCount(0,11,0,0,'',0).then(res=>{
       //   console.log(res);
-        
+
       // })
     }
   setOfCheckedId = new Set<number>();
@@ -112,7 +113,7 @@ export class StaffEntryComponent extends  CoreComponent implements OnInit {
     this.isFormal= false;
   }
   commitFormal(){
-    
+
   }
   //调动弹窗
   showMove(data:Staff): void {

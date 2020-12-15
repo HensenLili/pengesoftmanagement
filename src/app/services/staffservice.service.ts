@@ -25,12 +25,12 @@ export class StaffServiceSvr {
   }
 
   /**
-   * 
+   *
    */
   findCount(workNature?: number, workStatus?: number, nodeId?: number, age?: number, degree?: string, yearRange?: number): Promise<Result>{
     const httpParams = new FormData()
     httpParams.append('workNature', workNature.toString());
-    httpParams.append('workStatus', workStatus.toString()) 
+    httpParams.append('workStatus', workStatus.toString())
     httpParams.append('nodeId', nodeId.toString())
     httpParams.append('age', age.toString())
     httpParams.append('degree', degree)
@@ -41,7 +41,7 @@ export class StaffServiceSvr {
   }
 
   /**
-   * 
+   *
    */
   addStaff(staff: Staff): Promise<Result>{
     const httpParams = new HttpParams()
@@ -52,7 +52,7 @@ export class StaffServiceSvr {
   }
 
   /**
-   * 
+   *
    */
   updateStaffPosition(staffId: string, positionId: number): Promise<Result>{
     const httpParams = new HttpParams()
@@ -64,7 +64,7 @@ export class StaffServiceSvr {
   }
 
   /**
-   * 
+   *
    */
   findByCondition(staff: Staff, departmentName?: string, positionName?: string, yearRange?: number): Promise<Result>{
     console.log(staff,departmentName)
@@ -79,7 +79,7 @@ export class StaffServiceSvr {
   }
 
   /**
-   * 
+   *
    */
   GetVersion(): Promise<string>{
     const httpParams = new HttpParams();
@@ -89,7 +89,7 @@ export class StaffServiceSvr {
   }
 
   /**
-   * 
+   *
    */
   findAllStaff(): Promise<Result>{
     const httpParams = new HttpParams();
@@ -99,7 +99,7 @@ export class StaffServiceSvr {
   }
 
   /**
-   * 
+   *
    */
   updateStaff(staff: Staff): Promise<Result>{
     const httpParams = new HttpParams()

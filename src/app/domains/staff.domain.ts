@@ -59,7 +59,7 @@ export class Staff extends DataPacket {
     Name?: string;
     NodeId?: number;
     Degree?: string;
-    Position?: Position;
+    Position?: Position[];
   } = {}) {
     super();
     this.StaffId = options.StaffId || '';
@@ -88,6 +88,6 @@ export class Staff extends DataPacket {
     this.Name = options.Name || '';
     this.NodeId = !options.NodeId ? 0 : Number.parseFloat(options.NodeId.toString());
     this.Degree = options.Degree || '';
-    this.Position = new Array<Position>(options?.Position);
+    this.Position =options.Position? new Array<Position>(...options?.Position) :[];
   }
 }
