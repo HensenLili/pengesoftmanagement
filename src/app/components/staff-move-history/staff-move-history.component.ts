@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { copyFileSync } from 'fs';
+import { Staff } from 'src/app/domains/staff.domain';
+import { StaffServiceSvr } from '../../services/staffservice.service';
 @Component({
   selector: 'app-staff-move-history',
   templateUrl: './staff-move-history.component.html',
@@ -13,54 +15,52 @@ export class StaffMoveHistoryComponent implements OnInit {
   listOfCurrentPageData= [];
  
 
-  listOfData= [
-    {
-      id: 1,
-      moveTime:"2010.11.01",
-      name: "张三",
-      department: "IT部",
-      job:"开发",
-      phone:123456789,
-      moveType:"转正",
-      operator:"孟"
-    },
-    {
-      id: 1,
-      moveTime:"2010.11.01",
-      name: "张三",
-      department: "IT部",
-      job:"开发",
-      phone:123456789,
-      moveType:"离职",
-      operator:"孟"
-    },
-    {
-      id: 1,
-      moveTime:"2011.11.01",
-      name: "张三",
-      department: "IT部",
-      job:"开发",
-      phone:123456789,
-      moveType:"调动",
-      operator:"孟"
-    },
-    {
-      id: 1,
-      moveTime:"2010.11.01",
-      name: "李四",
-      department: "IT部",
-      job:"开发",
-      phone:123456789,
-      moveType:"入职",
-      operator:"孟"
-    }
-  
-   
-  ];
-  listOfDisplayData = [...this.listOfData];
+  public staff:Staff;
+  public staffenter:Staff;
+  public staffformal:Staff;
+  public staffmove:Staff;
+  public staffleave:Staff;
+  public listOfData:any=[];
+  public listOfDisplayData:Array<Staff> = []
 
+  ngOnInit(): void {
+    this.getAll();
+  }
+  constructor(private staffSvr : StaffServiceSvr) { }
+  getAll(){
+    // 入职
+    this.staffenter = new Staff({
+      "WorkStatus":11
+    })
+    this.staffSvr.findByCondition(this.staffenter,'','',0).then(res=>{
+      this.listOfData = res.data;
+    })
+    // 转正
+    this.staffformal = new Staff({
+      "WorkStatus":21
+    })
+    this.staffSvr.findByCondition(this.staffformal,'','',0).then(res=>{
+      this.listOfData = [...this.listOfData,...res.data];
+    })
+    // 调动
+    this.staffmove = new Staff({
+      "WorkStatus":31
+    })
+    this.staffSvr.findByCondition(this.staffmove,'','',0).then(res=>{
+      this.listOfData = [...this.listOfData,...res.data];
+    })
+    // 离职
+    this.staffleave = new Staff({
+      "WorkStatus":99
+    })
+    this.staffSvr.findByCondition(this.staffleave,'','',0).then(res=>{
+      this.listOfDisplayData = [...this.listOfData,...res.data];
+      console.log(this.listOfDisplayData,111);
+    })
+
+    
+  }
   setOfCheckedId = new Set<number>();
-
   listOfSelection = [
     {
       text: 'Select All Row',
@@ -83,7 +83,7 @@ export class StaffMoveHistoryComponent implements OnInit {
       }
     }
   ];
-  constructor() { }
+
   updateCheckedSet(id: number, checked: boolean): void {
     if (checked) {
       this.setOfCheckedId.add(id);
@@ -113,6 +113,5 @@ export class StaffMoveHistoryComponent implements OnInit {
   }
 
 
-  ngOnInit(): void {
-  }
+ 
 }

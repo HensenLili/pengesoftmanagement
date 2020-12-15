@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NzFormModule } from 'ng-zorro-antd/form';
-import { from } from 'rxjs';
 import { StaffServiceSvr } from '../../services/staffservice.service';
 import{Router,NavigationExtras  } from '@angular/router'
 import { Staff } from 'src/app/domains/staff.domain';
