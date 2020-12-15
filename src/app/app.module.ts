@@ -54,6 +54,8 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzDrawerModule } from 'ng-zorro-antd/drawer';
 // 引入表单模块
 import { NzFormModule } from 'ng-zorro-antd/form';
+// 引入气泡卡片
+import { NzPopoverModule } from 'ng-zorro-antd/popover';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NzRadioModule} from 'ng-zorro-antd/radio';
 import {NzDatePickerModule} from 'ng-zorro-antd/date-picker';
@@ -90,7 +92,9 @@ import { StaffLeaveModalComponent } from './components/staff-leave-modal/staff-l
 import { StaffMoveHistoryComponent } from './components/staff-move-history/staff-move-history.component';
 import { StaffBasicChangeComponent } from './components/staff-basic-change/staff-basic-change.component';
 import { StaffContractRenewComponent } from './components/staff-contract-renew/staff-contract-renew.component';
-import { TrainingManageComponent } from './views/training-manage/training-manage.component'
+import { TrainingManageComponent } from './views/training-manage/training-manage.component';
+import { StaffContractManageComponent } from './components/staff-contract-manage/staff-contract-manage.component'
+import { from } from 'rxjs';
 
 registerLocaleData(zh);
 
@@ -106,8 +110,6 @@ registerLocaleData(zh);
     AwardpunishManageComponent,
     RecruitManageComponent,
     TrainingManageComponent,
-    // RosterComponent,
-    // BasicInforComponent,
     RecruitManagementComponent,
     RecruitTalentPoolComponent,
     RecruitInterviewComponent,
@@ -134,7 +136,8 @@ registerLocaleData(zh);
     StaffMoveHistoryComponent,
     StaffBasicChangeComponent,
     StaffContractRenewComponent,
-    StaffContractComponent
+    StaffContractComponent,
+    StaffContractManageComponent
 
 
   ],
@@ -182,7 +185,8 @@ registerLocaleData(zh);
     NzTabsModule,
     NzInputNumberModule,
     ReactiveFormsModule,
-    NgxEchartsModule
+    NgxEchartsModule,
+    NzPopoverModule 
   ],
   schemas: [
      CUSTOM_ELEMENTS_SCHEMA
