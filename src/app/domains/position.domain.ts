@@ -1,56 +1,41 @@
+import { DataPacket, Department, NorDataList } from 'pengesoft-ng-lib';
+
 
 /**
- * 岗位信息.
+ * 岗位信息
  */
-
-import { DataPacket, QueryDataList } from 'pengesoft-ng-lib';
-
 export class Position extends DataPacket {
-  /**
-   * id.
-   */
-  PositionId: string;
-  /**
-   * 所属部门id.
-   */
-  NodeId: number;
-  /**
-   * 岗位类别id.
-   */
-  PositionTypeId: string;
-  /**
-   * 岗位名称.
-   */
-  name: string;
-  /**
-   * 岗位描述.
-   */
-  Description: string;
+  PositionId: string; // id
+  NodeId: number; // 所属部门id
+  PositionTypeId: string; // 岗位类别id
+  Name: string; // 岗位名称
+  Description: string; // 岗位描述
+  Department: Department; // 所属部门
 
-  constructor(options: any | {
+  constructor(options: {
     PositionId?: string;
     NodeId?: number;
     PositionTypeId?: string;
-    name?: string;
+    Name?: string;
     Description?: string;
+    Department?: Department;
   } = {}) {
     super();
     this.PositionId = options.PositionId || '';
     this.NodeId = !options.NodeId ? 0 : Number.parseFloat(options.NodeId.toString());
     this.PositionTypeId = options.PositionTypeId || '';
-    this.name = options.name || '';
+    this.Name = options.Name || '';
     this.Description = options.Description || '';
+    this.Department = new Department(options?.Department);
   }
 }
-
 
 /**
  * 岗位信息列表
  */
+export class PositionList extends NorDataList<Position> {
 
-export class PositionList extends QueryDataList<Position> {
-
-  constructor(options: any | {
+  constructor(options: {
     _Items?: Array<Position>
   } = {}) {
     super();

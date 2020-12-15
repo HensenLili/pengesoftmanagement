@@ -1,11 +1,25 @@
 <body>
 
   <header>
-  <button><a [routerLink]="['/staff/employee']">新增员工</a></button>
+  <button>新增员工</button>
   <button>导入</button>
   <button>导出</button>
   <button>生日名单</button>
-  <button class="warnButton"><i nz-icon nzType="exclamation-circle" nzTheme="fill" class="warn"></i>员工提醒</button>
+  <button class="warnButton" nz-button nz-popover nzPopoverTitle="注意!" [nzPopoverContent]="attention" nzPopoverPlacement="bottom">
+    <i nz-icon nzType="exclamation-circle" nzTheme="fill" class="warn"></i>
+    员工提醒
+  </button>
+
+  <ng-template #attention class="attention">
+    <div>
+      <ul>
+        <li>有<span>1</span>名员工合同即将到期，<a>立即处理</a></li>
+        <li>有<span>0</span>名员即将结束试用期，<a>立即处理</a></li>
+      </ul>
+    </div>
+  </ng-template>
+
+
   <button nz-button nz-dropdown [nzDropdownMenu]="menu">
       更多
    <i nz-icon nzType="down"></i>
@@ -22,7 +36,7 @@
     </nz-dropdown-menu>
 
     <!-- 员工分类导航 -->
-  <nav [hidden]="navflag">
+  <nav [hidden]="true">
       <ul>
           <li class="li1"><i nz-icon nzType="team" nzTheme="outline"></i>
               <b>总员工246</b>
@@ -53,7 +67,6 @@
           <input type="text" nz-input placeholder="  请选择部门" [(ngModel)]="inputdepartment" ng-change="searchDepartment()"/>
           <button nz-button nzType="default" nzShape="circle" (click)="searchDepartment()"><i nz-icon nzType="search"></i></button>
          </div>
-       <button (click)="refresh()" class='refresh'><i nz-icon nzType="redo" nzTheme="outline"></i></button>
      </div>
 
      <nz-table #nzTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
@@ -61,7 +74,7 @@
       <thead>
         <tr>
           <th nzCustomFilter >
-            <a >姓名</a>
+            姓名
             <nz-filter-trigger [(nzVisible)]="isname" [nzActive]="inputname.length > 0" [nzDropdownMenu]="menu1">
               <i nz-icon nzType="search"></i>
             </nz-filter-trigger>
@@ -75,36 +88,24 @@
             </th>
           <th nzCustomFilter>
               证件号
-           <nz-filter-trigger [(nzVisible)]="isidnumber" [nzActive]="inputidnumber.length > 0" [nzDropdownMenu]="menu3">
-               <i nz-icon nzType="search"></i>
-          </nz-filter-trigger>
           </th>
           <th nzCustomFilter>
               手机号
-           <nz-filter-trigger [(nzVisible)]="isphone" [nzActive]="inputphone.length > 0" [nzDropdownMenu]="menu4">
-               <i nz-icon nzType="search"></i>
-          </nz-filter-trigger>
           </th>
           <th nzCustomFilter>
               入职日期
-           <nz-filter-trigger [(nzVisible)]="isdate" [nzActive]="inputdate.length > 0" [nzDropdownMenu]="menu5">
-               <i nz-icon nzType="search"></i>
-          </nz-filter-trigger>
           </th>
           <th nzCustomFilter>
               性别
-           <nz-filter-trigger [(nzVisible)]="issex" [nzActive]="inputsex.length > 0" [nzDropdownMenu]="menu6">
-               <i nz-icon nzType="search"></i>
-          </nz-filter-trigger>
           </th>
         </tr>
       </thead>
       <!-- 表体 -->
       <tbody>
         <tr *ngFor="let data of nzTable.data">
-          <td>{{ data.Name }}</td>
-          <td>{{ data.Department.Name }}</td>
-          <td>身份证</td>
+          <td (click)=(Onclick(data))>{{ data.Name }}</td>
+          <td>{{ data.Position.Department.Name}}</td>
+          <td>{{data.Position.Name}}</td>
           <td>{{ data.IdCard }}</td>
           <td>{{ data.PhoneNumber }}</td>
           <td>{{ data.EntryTime }}</td>
@@ -140,7 +141,7 @@
     </nz-dropdown-menu>
 
      <!-- 下拉证件号搜索 -->
-     <nz-dropdown-menu #menu3="nzDropdownMenu">
+     <!-- <nz-dropdown-menu #menu3="nzDropdownMenu">
       <div class="ant-table-filter-dropdown">
         <div class="search-box">
           <input type="text" nz-input placeholder="搜索证件号" [(ngModel)]="inputidnumber"/>
@@ -150,9 +151,9 @@
           <button nz-button nzSize="small" (click)="reset3()">取消</button>
         </div>
       </div>
-    </nz-dropdown-menu>
+    </nz-dropdown-menu> -->
      <!-- 下拉手机号搜索 -->
-     <nz-dropdown-menu #menu4="nzDropdownMenu">
+     <!-- <nz-dropdown-menu #menu4="nzDropdownMenu">
       <div class="ant-table-filter-dropdown">
         <div class="search-box">
           <input type="text" nz-input placeholder="搜索手机号" [(ngModel)]="inputphone"/>
@@ -162,9 +163,9 @@
           <button nz-button nzSize="small" (click)="reset4()">取消</button>
         </div>
       </div>
-    </nz-dropdown-menu>
+    </nz-dropdown-menu> -->
      <!-- 下拉入职日期搜索 -->
-     <nz-dropdown-menu #menu5="nzDropdownMenu">
+     <!-- <nz-dropdown-menu #menu5="nzDropdownMenu">
       <div class="ant-table-filter-dropdown">
         <div class="search-box">
           <input type="text" nz-input placeholder="搜索入职日期" [(ngModel)]="inputdate"/>
@@ -174,9 +175,9 @@
           <button nz-button nzSize="small" (click)="reset5()">取消</button>
         </div>
       </div>
-    </nz-dropdown-menu>
+    </nz-dropdown-menu> -->
    <!-- 下拉性别搜索 -->
-   <nz-dropdown-menu #menu6="nzDropdownMenu">
+   <!-- <nz-dropdown-menu #menu6="nzDropdownMenu">
       <div class="ant-table-filter-dropdown">
         <div class="search-box">
           <input type="text" nz-input placeholder="搜索性别" [(ngModel)]="inputsex"/>
@@ -186,7 +187,7 @@
           <button nz-button nzSize="small" (click)="reset6()">取消</button>
         </div>
       </div>
-    </nz-dropdown-menu>
+    </nz-dropdown-menu> -->
 
 
 
