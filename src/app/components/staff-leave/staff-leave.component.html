@@ -29,8 +29,6 @@
                     <th>离职时间</th>
                     <th>离职类型</th>
                     <th>离职原因</th>
-                    <th>最后工作日</th>
-                    <th>薪资结算日</th>
                     <th>操作人</th>
                   </tr>
                 </thead>
@@ -38,17 +36,16 @@
                 <tbody>
                   <tr *ngFor="let data of rowSelectionTable.data">
                     <td [nzChecked]="setOfCheckedId.has(data.id)" (nzCheckedChange)="onItemChecked(data.id, $event)"></td>
-                    <td>{{ data.name }}</td>
-                    <td>{{ data.department }}</td>
-                    <td>{{ data.job }}</td>
-                    <td>{{ data.phone }}</td>
-                    <td>{{ data.leaveTime }}</td>
-                    <td>{{ data.leaveType }}</td>
-                    <td>{{ data.leaveReason }}</td>
-                    <td>{{ data.lastWork }}</td>
-                    <td>{{ data.salaryDate }}</td>
-                    <td>{{ data.salaryDate }}</td>
-                    <td>{{data.operator}}</td>
+                    <td>{{ data.Name }}</td>
+                    <td *ngIf="data.Position!=null">{{ data.Position.Department.Name }}</td>
+                    <td *ngIf="data.Position!=null"></td>
+                    <td *ngIf="data.Position!=null">{{ data.Position.Name }}</td>
+                    <td *ngIf="data.Position!=null"></td>
+                    <td>{{ data.PhoneNumber }}</td>
+                    <td>{{ data.EntryTime }}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                   </tr>
                 </tbody>
               </nz-table>

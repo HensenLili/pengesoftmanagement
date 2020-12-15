@@ -35,7 +35,8 @@
               <tr *ngFor="let data of rowSelectionTable.data">
                 <td [nzChecked]="setOfCheckedId.has(data.id)" (nzCheckedChange)="onItemChecked(data.id, $event)"></td>
                 <td>{{ data.Name }}</td>
-                <td>{{ data.Position.Department.Name }}</td>
+                <td *ngIf="data.Position!=null">{{ data.Position.Department.Name }}</td>
+                <td *ngIf="data.Position==null"></td>
                 <td>{{ data.EntryTime }}</td>
                 <td>{{ data.Degree }}</td>
                 <td>{{ data.Age }}</td>

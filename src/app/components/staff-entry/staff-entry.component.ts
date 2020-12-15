@@ -28,8 +28,8 @@ export class StaffEntryComponent extends  CoreComponent implements OnInit {
   formGroup:FormGroup;
   staff:Staff;
   workStatus:number;
-  listOfData = [];
-  listOfDisplayData = [...this.listOfData];
+  public listOfData:any=[];
+  public listOfDisplayData:Array<Staff> = []
 
 
   constructor(
@@ -52,6 +52,8 @@ export class StaffEntryComponent extends  CoreComponent implements OnInit {
         "WorkStatus":11
       })
       this.staffSvr.findByCondition(this.staff,'','',0).then(res=>{
+        this.listOfData = res.data;
+        this.listOfDisplayData = [...this.listOfData]
         console.log(res);
       })
 

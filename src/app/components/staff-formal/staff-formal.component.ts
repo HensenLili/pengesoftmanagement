@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Staff } from 'src/app/domains/staff.domain';
+import { StaffServiceSvr } from '../../services/staffservice.service';
 @Component({
   selector: 'app-staff-formal',
   templateUrl: './staff-formal.component.html',
@@ -9,46 +10,27 @@ export class StaffFormalComponent implements OnInit {
 
   checked = false;
   indeterminate = false;
+  public staff:Staff;
   listOfCurrentPageData= [];
+  public listOfData:any=[];
+ public listOfDisplayData:Array<Staff> = []
  
-
-  listOfData = [
-    {
-      id: 1,
-      name: "张三",
-      department: "IT部",
-      job:"开发",
-      formaltime:"2020.11.11 15:45",
-      operator:"孟"
-    },
-    {
-      id: 1,
-      name: "张三",
-      department: "IT部",
-      job:"开发",
-      formaltime:"2020.11.11 15:45",
-      operator:"孟"
-    },
-    {
-      id: 1,
-      name: "张三",
-      department: "IT部",
-      job:"开发",
-      formaltime:"2020.11.11 15:45",
-      operator:"孟"
-    },
-    {
-      id: 1,
-      name: "张三",
-      department: "IT部",
-      job:"开发",
-      formaltime:"2020.11.11 15:45",
-      operator:"孟"
-    }
+ constructor( private staffSvr : StaffServiceSvr,) { }
+  ngOnInit(): void {
+    this.getAll();
+  }
+  getAll(){
+     
+    this.staff = new Staff({
+      "WorkStatus":21
+    })
+    this.staffSvr.findByCondition(this.staff,'','',0).then(res=>{
+      this.listOfData = res.data;
+      this.listOfDisplayData = [...this.listOfData]
+      console.log(res);
+    })
   
-   
-  ];
-  listOfDisplayData = [...this.listOfData];
+  }
 
   setOfCheckedId = new Set<number>();
 
@@ -75,10 +57,7 @@ export class StaffFormalComponent implements OnInit {
     }
   ];
 
-  constructor() { }
-  ngOnInit(): void {
-  }
-  
+ 
   updateCheckedSet(id: number, checked: boolean): void {
     if (checked) {
       this.setOfCheckedId.add(id);

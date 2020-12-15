@@ -33,11 +33,13 @@
                 <tbody>
                   <tr *ngFor="let data of rowSelectionTable.data">
                     <td [nzChecked]="setOfCheckedId.has(data.id)" (nzCheckedChange)="onItemChecked(data.id, $event)"></td>
-                    <td>{{ data.moveTime }}</td>
-                    <td>{{ data.name }}</td>
-                    <td>{{ data.department }}</td>
-                    <td>{{ data.job }}</td>
-                    <td>{{ data.phone }}</td>
+                    <td></td>
+                    <td>{{ data.Name }}</td>
+                    <td *ngIf="data.Position!=null">{{ data.Position.Department.Name }}</td>
+                    <td *ngIf="data.Position==null"></td>
+                    <td *ngIf="data.Position!=null">{{ data.Position.Name }}</td>
+                    <td *ngIf="data.Position==null"></td>
+                    <td>{{ data.PhoneNumber }}</td>
                     <td>{{ data.moveType }}</td>
                     <td>{{data.operator}}</td>
                   </tr>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Staff } from 'src/app/domains/staff.domain';
+import { StaffServiceSvr } from '../../services/staffservice.service';
 @Component({
   selector: 'app-staff-leave',
   templateUrl: './staff-leave.component.html',
@@ -10,68 +11,32 @@ export class StaffLeaveComponent implements OnInit {
   
   checked = false;
   indeterminate = false;
+  public staff:Staff;
   listOfCurrentPageData=[];
  
-
-  listOfData=[
-    {
-      id: 1,
-      name: "张三",
-      department: "IT部",
-      job:"开发",
-      phone:123456789,
-      leaveTime:"2010.11.01",
-      leaveType:"合同到期",
-      leaveReason:"不续签想去其他公司发展",
-      lastWork:"2020.11.05",
-      salaryDate:"2020.11.10",
-      operator:"孟"
-    },
-    {
-      id: 1,
-      name: "张三",
-      department: "IT部",
-      job:"开发",
-      phone:123456789,
-      leaveTime:"2010.11.01",
-      leaveType:"合同到期",
-      leaveReason:"不续签想去其他公司发展",
-      lastWork:"2020.11.05",
-      salaryDate:"2020.11.10",
-      operator:"孟"
-    },
-    {
-      id: 1,
-      name: "张三",
-      department: "IT部",
-      job:"开发",
-      phone:123456789,
-      leaveTime:"2010.11.01",
-      leaveType:"合同到期",
-      leaveReason:"不续签想去其他公司发展",
-      lastWork:"2020.11.05",
-      salaryDate:"2020.11.10",
-      operator:"孟"
-    },
-    {
-      id: 1,
-      name: "张三",
-      department: "IT部",
-      job:"开发",
-      phone:123456789,
-      leaveTime:"2010.11.01",
-      leaveType:"合同到期",
-      leaveReason:"不续签想去其他公司发展",
-      lastWork:"2020.11.05",
-      salaryDate:"2020.11.10",
-      operator:"孟"
-    }
-  
-   
-  ];
-  listOfDisplayData = [...this.listOfData];
+  public listOfData:any=[];
+  public listOfDisplayData:Array<Staff> = []
 
   setOfCheckedId = new Set<number>();
+
+  
+  constructor(private staffSvr : StaffServiceSvr) { }
+
+  ngOnInit(): void {
+    this.getAll();
+  }
+  getAll(){
+     
+    this.staff = new Staff({
+      "WorkStatus":99
+    })
+    this.staffSvr.findByCondition(this.staff,'','',0).then(res=>{
+      this.listOfData = res.data;
+      this.listOfDisplayData = [...this.listOfData]
+      console.log(res);
+    })
+  
+  }
 
   listOfSelection = [
     {
@@ -96,10 +61,6 @@ export class StaffLeaveComponent implements OnInit {
     }
   ];
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 
   updateCheckedSet(id: number, checked: boolean): void {

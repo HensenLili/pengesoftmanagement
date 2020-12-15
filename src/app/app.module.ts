@@ -102,7 +102,6 @@ import {NzListModule} from "ng-zorro-antd/list";
 import { StatementComponent } from './views/statement/statement.component';
 import { StatementRecruitComponent } from './components/statement-recruit/statement-recruit.component';
 import { StaffContractManageComponent } from './components/staff-contract-manage/staff-contract-manage.component'
-import { from } from 'rxjs';
 
 registerLocaleData(zh);
 

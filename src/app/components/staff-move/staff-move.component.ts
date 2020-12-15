@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Staff } from 'src/app/domains/staff.domain';
+import { StaffServiceSvr } from '../../services/staffservice.service';
 @Component({
   selector: 'app-staff-move',
   templateUrl: './staff-move.component.html',
@@ -11,57 +12,27 @@ export class StaffMoveComponent implements OnInit {
   checked = false;
   indeterminate = false;
   listOfCurrentPageData = [];
- 
+  public staff:Staff;
+  public listOfData:any=[];
+  public listOfDisplayData:Array<Staff> = []
 
-  listOfData = [
-    {
-      id: 1,
-      name: "张三",
-      department: "IT部",
-      job:"开发",
-      removeTime:"2010.11.01",
-      removeType:"调岗",
-      newDepartment:"人事部",
-      newJob:"xx",
-      operator:"孟"
-    },
-    {
-      id: 1,
-      name: "张三",
-      department: "IT部",
-      job:"开发",
-      removeTime:"2010.11.01",
-      removeType:"调岗",
-      newDepartment:"人事部",
-      newJob:"xx",
-      operator:"孟"
-    },
-      {
-        id: 1,
-        name: "张三",
-        department: "IT部",
-        job:"开发",
-        removeTime:"2010.11.01",
-        removeType:"调岗",
-        newDepartment:"人事部",
-        newJob:"xx",
-        operator:"孟"
-      },
-      {
-        id: 1,
-        name: "张三",
-        department: "IT部",
-        job:"开发",
-        removeTime:"2010.11.01",
-        removeType:"调岗",
-        newDepartment:"人事部",
-        newJob:"xx",
-        operator:"孟"
-      }
+
+  ngOnInit(): void {
+    this.getAll();
+  }
+  constructor(private staffSvr : StaffServiceSvr) { }
+  getAll(){
+     
+    this.staff = new Staff({
+      "WorkStatus":31
+    })
+    this.staffSvr.findByCondition(this.staff,'','',0).then(res=>{
+      this.listOfData = res.data;
+      this.listOfDisplayData = [...this.listOfData]
+      console.log(res);
+    })
   
-   
-  ];
-  listOfDisplayData = [...this.listOfData];
+  }
 
   setOfCheckedId = new Set<number>();
 
@@ -87,7 +58,7 @@ export class StaffMoveComponent implements OnInit {
       }
     }
   ];
-  constructor() { }
+ 
   updateCheckedSet(id: number, checked: boolean): void {
     if (checked) {
       this.setOfCheckedId.add(id);
@@ -117,7 +88,5 @@ export class StaffMoveComponent implements OnInit {
   }
 
 
-  ngOnInit(): void {
-  }
 
 }
