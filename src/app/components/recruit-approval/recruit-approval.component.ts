@@ -1,23 +1,25 @@
 import {Component, Injector, OnInit} from '@angular/core';
 import {NzModalService} from "ng-zorro-antd/modal";
 import {ActivatedRoute, Router} from "@angular/router";
-import {CoreComponent, TabView} from "pengesoft-ng-lib";
+import {CoreComponent, Dynamic, TabView} from "pengesoft-ng-lib";
 import {NzMessageService} from "ng-zorro-antd/message";
+import {keyframes} from "@angular/animations";
 interface Person {
   key: string;
   name: string;
   age: number;
   address: string;
+  note: string;
 }
 @TabView('招聘审批')
-
+@Dynamic()
 @Component({
   selector: 'app-recruit-approval',
   templateUrl: './recruit-approval.component.html',
   styleUrls: ['./recruit-approval.component.less']
 })
 export class RecruitApprovalComponent extends CoreComponent implements OnInit {
-
+  editId: string | null = null;
   isVisible = false;
   isVisible2 = false;
   listOfData: Person[] = [
@@ -25,19 +27,22 @@ export class RecruitApprovalComponent extends CoreComponent implements OnInit {
       key: '1',
       name: 'John Brown',
       age: 32,
-      address: 'New York No. 1 Lake Park'
+      address: 'New York No. 1 Lake Park',
+      note: ''
     },
     {
       key: '2',
       name: 'Jim Green',
       age: 42,
-      address: 'London No. 1 Lake Park'
+      address: 'London No. 1 Lake Park',
+      note: ''
     },
     {
       key: '3',
       name: 'Joe Black',
       age: 32,
-      address: 'Sidney No. 1 Lake Park'
+      address: 'Sidney No. 1 Lake Park',
+      note: ''
     }
   ];
   constructor(
@@ -51,6 +56,14 @@ export class RecruitApprovalComponent extends CoreComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  startEdit(key: string): void {
+    this.editId = key;
+  }
+
+  stopEdit(): void {
+    this.editId = null;
   }
   showNeedsList(): void{
     this.isVisible2 = true;

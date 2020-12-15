@@ -8,20 +8,57 @@
         <h3> 招聘计划 <span>(5)</span></h3>
       </div>
       <div class="clear"></div>
-      <div class="button1">
-<!--        <button nz-button nzType="primary" class="header-button" style="background-color: #067BFF;color: #ffffff"   pyTabLink="app-recruit-needs-table">-->
-<!--          <a >添加需求</a></button>-->
-<!--        <nz-modal [(nzVisible)]="isVisible2" nzTitle="添加需求" (nzOnCancel)="handleCancel()" [nzStyle]="{width: '70%' }">-->
-<!--          <div>-->
-<!--            <app-recruit-needs-table></app-recruit-needs-table>-->
-<!--          </div>-->
-<!--          <div *nzModalFooter>-->
-<!--            <button nz-button nzType="default" (click)="handleCancel()">取消</button>-->
-<!--            <button nz-button nzType="primary" (click)="handleOk()" >提交</button>-->
-<!--          </div>-->
-<!--        </nz-modal>-->
-        <button nz-button nzType="default" class="header-button" pyTabLink="app-recruit-talent-pool">人才库</button>
-        <button nz-button nzType="default" class="header-button" pyTabLink="app-recruit-interview">面试管理</button>
+      <div nz-row>
+        <div class="button1" nz-col nzSpan="2">
+          <button nz-button nzType="primary" class="header-button" style="background-color: #067BFF;color: #ffffff" >
+            <a routerLink="../recruitNeeds">添加需求</a></button>
+          <!--        <nz-modal [(nzVisible)]="isVisible2" nzTitle="添加需求" (nzOnCancel)="handleCancel()" [nzStyle]="{width: '70%' }">-->
+          <!--          <div>-->
+          <!--            <app-recruit-needs-table></app-recruit-needs-table>-->
+          <!--          </div>-->
+          <!--          <div *nzModalFooter>-->
+          <!--            <button nz-button nzType="default" (click)="handleCancel()">取消</button>-->
+          <!--            <button nz-button nzType="primary" (click)="handleOk()" >提交</button>-->
+          <!--          </div>-->
+          <!--        </nz-modal>-->
+        </div>
+        <div nz-col nzSpan="4" style="margin-top: 16px">
+          <nz-form-item>
+            <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="email">选择状态</nz-form-label>
+            <nz-form-control [nzSm]="14" [nzXs]="24" >
+              <nz-select ngModel="全部">
+                <nz-option nzValue="完成" nzLabel="完成"></nz-option>
+                <nz-option nzValue="未完成" nzLabel="未完成"></nz-option>
+                <nz-option nzValue="全部" nzLabel="全部"></nz-option>
+              </nz-select>
+            </nz-form-control>
+          </nz-form-item>
+
+        </div>
+        <div nz-col nzSpan="6" style="margin-top: 16px">
+          <nz-form-item >
+            <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="email">时间</nz-form-label>
+            <nz-form-control [nzSm]="14" [nzXs]="24">
+                <nz-select ngModel="全部" style="width: 150px">
+                  <nz-option nzValue="近一个月" nzLabel="近一个月"></nz-option>
+                  <nz-option nzValue="近三个月" nzLabel="近三个月"></nz-option>
+                  <nz-option nzValue="近半年" nzLabel="近半年"></nz-option>
+                  <nz-option nzValue="全部" nzLabel="全部"></nz-option>
+                </nz-select>
+            </nz-form-control>
+          </nz-form-item>
+
+        </div>
+
+        <div nz-col nzSpan="5" style="margin-top: 16px" nzOffset="6">
+          <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+            <input type="text" nz-input placeholder="请输入搜索内容" />
+          </nz-input-group>
+          <ng-template #suffixIconButton>
+            <button nz-button nzType="primary" nzSearch><i nz-icon nzType="search"></i></button>
+          </ng-template>
+        </div>
+
 
       </div>
     </nz-header>
@@ -35,8 +72,9 @@
           <th>薪资待遇</th>
           <th>工作地点</th>
           <th>招聘人数</th>
-          <th>需求人</th>
+          <th>需求部门</th>
           <th>发布时间</th>
+          <th>状态</th>
           <th>操作</th>
 
         </tr>
@@ -51,25 +89,50 @@
           <td>{{ data.address }}</td>
           <td>{{ data.address }}</td>
           <td>{{ data.address }}</td>
+          <td><i nz-icon [nzType]="'check-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#52c41a'"></i></td>
           <td>
 
            <a (click)="showModal()">查看</a>
             <nz-modal [(nzVisible)]="isVisible" nzTitle="招聘需求" (nzOnCancel)="handleCancel()" >
               <div >
-                <p>招聘岗位：<span>前端开发工程师</span></p>
-                <p>工作经验：<span>4年</span></p>
-                <p>学历：<span>本科</span></p>
-                <p>薪资待遇：<span>4k-6k</span></p>
-                <p>工作地点：<span>天府新谷</span></p>
-                <p>招聘人数：<span>5</span></p>
-                <p>发布时间：<span>2020-12-10</span></p>
+                <p><b>招聘岗位：</b><span>前端开发工程师</span></p>
+                <p><b>工作经验：</b><span>4年</span></p>
+                <p><b>学历：</b><span>本科</span></p>
+                <p><b>薪资待遇：</b><span>4k-6k</span></p>
+                <p><b>需求部门：</b><span>技术部</span></p>
+                <p><b>工作地点：</b><span>天府新谷</span></p>
+                <p><b>招聘人数：</b><span>5</span></p>
+                <P><b>招聘原因：</b>缺少人员进行业务开发</P>
+                <p><b>发布时间：</b><span>2020-12-10</span></p>
+                <hr>
+                <p><b>工作职责：</b>1.负责前端相关开发工作，熟练使用HTML5/CSS3/jquery开发符合标准的前端页面；
+
+                  2.熟练掌握Vue.js，了解框架底层实现原理；
+
+                  3.开发过大型系统类项目，与后台工程师深度交流合作，一起研讨技术实现方案；
+
+                  5.精通一门后端语言，如 NODEJS/PHP等；责任感强， 有良好的服务意识与团队合作意识，抗压能力强；
+
+                  6.有h5游戏框架如cocos creator、egret、layabox等项目经验优先；
+
+                  7.有完整的React Native项目开发经验优先；</p>
+                <hr>
+                <p><b>招聘要求：</b>1.本科学历，3年以上的前端开发的经验
+
+                  2.具有优秀的团队沟通协调能力和需求分析能力
+
+                  3.熟悉各种浏览器和各手机设置的兼容性
+
+                  4.团队意识强、性格开朗，紧急时刻有抗压精神；</p>
+
+
               </div>
               <div *nzModalFooter>
                 <button nz-button nzType="default" (click)="handleCancel()">取消</button>
                 <button nz-button nzType="primary" (click)="handleOk()">确定</button>
               </div>
             </nz-modal>
-            <a (click)="showDeleteConfirm()"> | 删除</a>
+            <a (click)="showCompletefirm()" style="color: #34CC5F"> | 完成</a>
           </td>
         </tr>
         </tbody>

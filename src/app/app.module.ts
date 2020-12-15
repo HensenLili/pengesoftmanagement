@@ -46,6 +46,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 // 引入小图标模块
 import { NzIconModule } from 'ng-zorro-antd/icon';
 // 引入基础信息组件
+// import { BasicInforComponent } from './components/basic-infor/basic-infor.component';
 // 引入栅栏模块
 import {NzGridModule} from 'ng-zorro-antd/grid';
 // 引入下拉菜单模块
@@ -93,6 +94,13 @@ import { StaffMoveHistoryComponent } from './components/staff-move-history/staff
 import { StaffBasicChangeComponent } from './components/staff-basic-change/staff-basic-change.component';
 import { StaffContractRenewComponent } from './components/staff-contract-renew/staff-contract-renew.component';
 import { TrainingManageComponent } from './views/training-manage/training-manage.component'
+import {StaffRosterComponent} from "./components/staff-roster/staff-roster.component";
+import {StaffContractComponent} from "./components/staff-contract/staff-contract.component";
+// 引入卡片模块
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzStatisticModule } from 'ng-zorro-antd/statistic';
+import { TrainingManageComponent } from './views/training-manage/training-manage.component';
+import { TrainingManageComponent } from './views/training-manage/training-manage.component'
 import {NzCalendarModule} from "ng-zorro-antd/calendar";
 import {NzListModule} from "ng-zorro-antd/list";
 import { StatementComponent } from './views/statement/statement.component';
@@ -114,6 +122,8 @@ registerLocaleData(zh);
     AwardpunishManageComponent,
     RecruitManageComponent,
     TrainingManageComponent,
+    // RosterComponent,
+    // BasicInforComponent,
     RecruitManagementComponent,
     RecruitTalentPoolComponent,
     RecruitInterviewComponent,
@@ -172,11 +182,11 @@ registerLocaleData(zh);
     NzAvatarModule,
     NzButtonModule,
     NzDropDownModule,
-    NzTableModule,
+    NzTableModule ,
     FormsModule,
     ReactiveFormsModule,
     NzTabsModule,
-    NzTimelineModule,
+    NzTimelineModule ,
     NzSelectModule,
     NzGridModule,
     NgxEchartsModule,
@@ -193,10 +203,14 @@ registerLocaleData(zh);
     NzInputNumberModule,
     ReactiveFormsModule,
     NgxEchartsModule,
+    NzStatisticModule,
+    NzCardModule,
+    NgxEchartsModule,
     NzPopoverModule,
     NgxEchartsModule,
     NzCalendarModule,
-    NzListModule
+    NzListModule,
+    NzPopoverModule
   ],
   schemas: [
      CUSTOM_ELEMENTS_SCHEMA

@@ -55,13 +55,28 @@ const routes: Routes = [
         path: 'recruit',
         component: RecruitManageComponent,
         children:[
-          {path: 'recruitManagement', component: RecruitManagementComponent},
-          {path: 'talentPool', component: RecruitTalentPoolComponent},
-          {path:'addResume', component:RecruitNeedslistComponent},
-          {path: 'recruitInterview',component: RecruitInterviewComponent},
-          {path: 'recruitOffer',component: RecruitOfferComponent},
-          {path: 'recruitNeeds',component: RecruitNeedsTableComponent},
-          {path: 'recruitApproval',component: RecruitApprovalComponent}
+          {
+            path: 'recruitManagement',
+            component: RecruitManagementComponent
+          },
+          {
+            path: 'talentPool',component: RecruitTalentPoolComponent
+          },
+          {
+            path:'addResume', component:RecruitNeedslistComponent
+          },
+          {
+            path: 'recruitInterview',component: RecruitInterviewComponent
+          },
+          {
+            path: 'recruitOffer',component: RecruitOfferComponent
+          },
+          {
+            path: 'recruitNeeds',component: RecruitNeedsTableComponent
+          },
+          {
+            path: 'recruitApproval',component: RecruitApprovalComponent
+          },
         ],
       },
       {
