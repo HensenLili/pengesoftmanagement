@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-staff-basic-infor',
@@ -12,7 +12,7 @@ export class StaffBasicInforComponent implements OnInit {
   public isButton = false;
   public isEdit = true;
   constructor() { }
-
+  @Input() mes:object
   ngOnInit(): void {
   }
 

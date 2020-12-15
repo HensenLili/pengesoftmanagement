@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { copyFileSync } from 'fs';
 import { Staff } from 'src/app/domains/staff.domain';
 import { StaffServiceSvr } from '../../services/staffservice.service';
 @Component({
@@ -9,11 +8,11 @@ import { StaffServiceSvr } from '../../services/staffservice.service';
 })
 export class StaffMoveHistoryComponent implements OnInit {
 
- 
+
   checked = false;
   indeterminate = false;
   listOfCurrentPageData= [];
- 
+
 
   public staff:Staff;
   public staffenter:Staff;
@@ -58,7 +57,7 @@ export class StaffMoveHistoryComponent implements OnInit {
       console.log(this.listOfDisplayData,111);
     })
 
-    
+
   }
   setOfCheckedId = new Set<number>();
   listOfSelection = [
@@ -113,5 +112,5 @@ export class StaffMoveHistoryComponent implements OnInit {
   }
 
 
- 
+
 }

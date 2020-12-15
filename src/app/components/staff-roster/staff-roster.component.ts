@@ -11,7 +11,7 @@ import { Staff } from 'src/app/domains/staff.domain';
 export class StaffRosterComponent implements OnInit {
 
   public navflag:boolean = false;
- 
+
 //定义每个下拉搜索的开关状态
  public isname=false;
  public isidtype = false;
@@ -29,7 +29,7 @@ public inputdepartment:any ='';
  public inputsex:any = '';
  public listOfData:any=[];
  public listOfDisplayData:Array<Staff> = []
- 
+
 
 constructor(
   private staffSvr : StaffServiceSvr,
@@ -43,12 +43,12 @@ ngOnInit(): void {
 getAll(){
   this.staffSvr.findAllStaff().then(res=>{
     this.listOfData = res.data
-    console.log(this.listOfData);
+    // console.log(this.listOfData);
     this.listOfDisplayData = [...this.listOfData]
   },err=>{
-    console.log(err);  
+    console.log(err);
   })
-  
+
 }
 
  //部门搜索  确定
@@ -73,13 +73,13 @@ reset1(): void {
   this.navflag  = !this.navflag;
   // console.log(this.navflag);
 }
-Onclick(data:Staff){
-  console.log(data)
-  let extra:NavigationExtras={
-    queryParams:{"data":data}
-  }
-  this.route.navigate(['/staff/employee'],extra)
-}
+// Onclick(data:Staff){
+//   console.log(data)
+//   let extra:NavigationExtras={
+//     queryParams:{"data":data}
+//   }
+//   // this.route.navigate(['/staff/employee'],extra)
+// }
 
 
 }

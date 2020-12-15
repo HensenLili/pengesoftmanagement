@@ -8,13 +8,13 @@
                 <button  nz-button (click)="cancel()"> 取消</button>
             </div>
         </header>
-        
+
         <div>  <hr/>  </div>
         <!-- 基础信息 -->
         <div  *ngIf="isShow">
             <article>
                 <ul>
-                    <li>姓名：张三</li>
+                    <li>姓名：{{this.mes.Name}}</li>
                     <li>毕业时间：</li>
                     <li>性别：男</li>
                     <li>籍贯:</li>
@@ -65,8 +65,8 @@
         <div *ngIf="isChange">
             <app-staff-basic-change></app-staff-basic-change>
         </div>
-    
-    
+
+
     </div>
-      
+
     </body>

@@ -90,7 +90,7 @@
       <!-- 表体 -->
       <tbody>
         <tr *ngFor="let data of nzTable.data">
-          <td (click)=(Onclick(data))>{{ data.Name }}</td>
+          <td><a routerLink="/staff/employee" [queryParams]="data">{{ data.Name }}</a></td>
          <td *ngIf="data.Position!=null">{{ data.Position.Department.Name}}</td>
          <td *ngIf="data.Position==null"></td>
          <td *ngIf="data.Position!=null">{{data.Position.Name}}</td>
