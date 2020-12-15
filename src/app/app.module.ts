@@ -91,6 +91,10 @@ import { StaffMoveHistoryComponent } from './components/staff-move-history/staff
 import { StaffBasicChangeComponent } from './components/staff-basic-change/staff-basic-change.component';
 import { StaffContractRenewComponent } from './components/staff-contract-renew/staff-contract-renew.component';
 import { TrainingManageComponent } from './views/training-manage/training-manage.component'
+import {NzCalendarModule} from "ng-zorro-antd/calendar";
+import {NzListModule} from "ng-zorro-antd/list";
+import { StatementComponent } from './views/statement/statement.component';
+import { StatementRecruitComponent } from './components/statement-recruit/statement-recruit.component';
 
 registerLocaleData(zh);
 
@@ -134,7 +138,9 @@ registerLocaleData(zh);
     StaffMoveHistoryComponent,
     StaffBasicChangeComponent,
     StaffContractRenewComponent,
-    StaffContractComponent
+    StaffContractComponent,
+    StatementComponent,
+    StatementRecruitComponent
 
 
   ],
@@ -170,7 +176,7 @@ registerLocaleData(zh);
     NzSelectModule,
     NzGridModule,
     NgxEchartsModule,
-    NzTimelineModule ,
+    NzTimelineModule,
     NzSelectModule,
     NzInputModule,
     NzFormModule,
@@ -182,7 +188,9 @@ registerLocaleData(zh);
     NzTabsModule,
     NzInputNumberModule,
     ReactiveFormsModule,
-    NgxEchartsModule
+    NgxEchartsModule,
+    NzCalendarModule,
+    NzListModule
   ],
   schemas: [
      CUSTOM_ELEMENTS_SCHEMA

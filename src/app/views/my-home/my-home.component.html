@@ -55,7 +55,7 @@
     </div>
   </div>
   <div nz-col [nzSpan]="10" >
-    <div class="message">
+    <div class="recuitmessage">
       <div class="messagetitle">
         <i nz-icon nzType="exclamation-circle" nzTheme="outline"></i>
         <p>招聘进度</p>
@@ -68,93 +68,46 @@
   </div>
 </div>
   <div nz-row>
-    <div nz-col [nzSpan]="9" >
-    <div echarts [options]="option" style="height: 400px;width: 100%;margin: 25px 25px;background-color: white"></div>
+    <div nz-col [nzSpan]="7" >
+    <div echarts [options]="option" style="height: 320px;width: 86%;margin: 15px 25px;background-color: white"></div>
     </div>
-    <div nz-col [nzSpan]="10" >
-    <div echarts [options]="option2" style="height: 400px;width: 100%;margin: 25px 50px;background-color: white"></div>
+    <div nz-col [nzSpan]="7" >
+    <div echarts [options]="option2" style="height: 320px;width: 100%;margin: 15px 0 15px -25px;background-color: white"></div>
     </div>
     <div nz-col [nzSpan]="5" >
-
+      <div class="newmassage">
+        <div class="messagetitle">
+          <i nz-icon nzType="exclamation-circle" nzTheme="outline"></i>
+          <p>今日提醒</p>
+        </div>
+      <nz-list nzBordered nzSize="small">
+        <nz-list-item *ngFor="let item of data">{{data}}</nz-list-item>
+      </nz-list>
+      </div>
+    </div>
+    <div nz-col [nzSpan]="5" >
+      <div [ngStyle]="{ width: '300px', border: '1px solid #d9d9d9', borderRadius: '4px',position:'relative',left: '62px',top: '15px'}">
+        <nz-calendar [nzFullscreen]="false" (nzSelectChange)="onValueChange($event)" (nzPanelChange)="onPanelChange($event)" ></nz-calendar>
+      </div>
     </div>
 
   </div>
-  <ul >
-    <li class="li1"><i nz-icon nzType="team" nzTheme="outline"></i>
-      <b>总员工 246</b>
-      <>
-    <li class="li2"><i nz-icon nzType="user" nzTheme="outline"></i>
-      <b>正式 203</b>
-      <>
-    <li class="li3"><i nz-icon nzType="schedule" nzTheme="outline"> </i>
-      <b>试用期 24</b>
-      <>
-    <li class="li1"><i nz-icon nzType="user-add" nzTheme="outline"></i>
-      <b>待入职 0</b>
-      <>
-    <li class="li4"><i nz-icon nzType="user-add" nzTheme="outline"></i>
-      <b>新入职 0</b>
-      <>
-    <li class="li2"><i nz-icon nzType="user-delete" nzTheme="outline"></i>
-      <b>离职 0</b>
-      <>
-  </ul>
-
   <div nz-row>
     <div nz-col [nzSpan]="14" >
-      <div class="message">
-        <div class="messagetitle">
-          <i nz-icon nzType="exclamation-circle" nzTheme="outline"></i>
-          <p>待办事项</p>
-        </div>
-        <div>
-          <ul class="todolist">
-            <li>
-              <span>0</span><br/>
-              <span>待入职</span>
-              <>
-            <li>
-              <span>0</span><br/>
-              <span>转正办理</span>
-              <>
-            <li>
-              <span>0</span><br/>
-              <span>合同到期</span>
-              <>
-            <li>
-              <span>0</span><br/>
-              <span>待审批</span>
-              <>
-            <li>
-              <span>0</span><br/>
-              <span>带邀约</span>
-              <>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div nz-col [nzSpan]="10" >
-      <div class="message">
-        <div class="messagetitle">
-          <i nz-icon nzType="exclamation-circle" nzTheme="outline"></i>
-          <p>招聘进度</p>
-        </div>
-        <div class="todo">
-        <span>没有招聘进度？
-          <a>新增招聘计划</a></span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div nz-row>
-    <div nz-col [nzSpan]="9" >
-      <div echarts [options]="option" style="height: 400px;width: 100%;margin: 25px 25px;background-color: white"></div>
-    </div>
-    <div nz-col [nzSpan]="10" >
-      <div echarts [options]="option2" style="height: 400px;width: 100%;margin: 25px 50px;background-color: white"></div>
-    </div>
-    <div nz-col [nzSpan]="5" >
+      <div class="card-container">
+        <nz-tabset nzType="card">
+          <nz-tab *ngFor="let tab of tabs" [nzTitle]="'招聘' + tab + '报表'">
+            <p>招聘周报表{{ tab }}</p>
 
+          </nz-tab>
+        </nz-tabset>
+      </div>
+
+    </div>
+    <div nz-col [nzSpan]="10" >
+    <div class="quickmenu">
+    <P>快捷入口</P>
+    </div>
     </div>
 
   </div>

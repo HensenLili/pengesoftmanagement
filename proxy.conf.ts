@@ -1,5 +1,5 @@
 const DEV_SERVER = {
-  SOURCE1: 'http://192.168.3.174:8086',
+  SOURCE1: 'http://192.168.3.174:8085',
 }; // 用于配置多个, 方便切换
 
 module.exports = {

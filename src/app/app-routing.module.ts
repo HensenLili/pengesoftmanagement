@@ -30,6 +30,8 @@ import { StaffMoveComponent } from './components/staff-move/staff-move.component
 import { StaffFormalComponent } from './components/staff-formal/staff-formal.component';
 import { StaffLeaveComponent } from './components/staff-leave/staff-leave.component';
 import { StaffMoveHistoryComponent } from './components/staff-move-history/staff-move-history.component';
+import {StatementComponent} from "./views/statement/statement.component";
+import {StatementRecruitComponent} from "./components/statement-recruit/statement-recruit.component";
 
 const routes: Routes = [
   {
@@ -85,6 +87,16 @@ const routes: Routes = [
       {
         path: 'awardpunish',
         component: AwardpunishManageComponent
+      },{
+        path: 'statement',
+        component:StatementComponent,
+        children:[
+          {
+            path: 'staterecruit',
+            component: StatementRecruitComponent
+          }
+
+        ]
       }
     ]
   }
