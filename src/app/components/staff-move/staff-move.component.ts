@@ -29,7 +29,7 @@ export class StaffMoveComponent implements OnInit {
     this.staffSvr.findByCondition(this.staff,'','',0).then(res=>{
       this.listOfData = res.data;
       this.listOfDisplayData = [...this.listOfData]
-      console.log(res);
+      console.log(this.listOfDisplayData,33333);
     })
   
   }

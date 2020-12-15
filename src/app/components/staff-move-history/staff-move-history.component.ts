@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { copyFileSync } from 'fs';
 import { Staff } from 'src/app/domains/staff.domain';
 import { StaffServiceSvr } from '../../services/staffservice.service';
 @Component({

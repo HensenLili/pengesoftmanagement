@@ -12,14 +12,13 @@ export class StaffMoveModalComponent extends  CoreComponent implements OnInit {
 
   staff:Staff
   formGroup:FormGroup;
-  itemDepartment:'';
   constructor(
     private modal:NzModalRef,
     private injector:Injector
   ) {
     super(injector);
     this.formGroup = this.formBuilder.group({
-      itemDepartment:''
+     
     })
    }
 
@@ -27,5 +26,8 @@ export class StaffMoveModalComponent extends  CoreComponent implements OnInit {
   }
   Onclick(){
     this.modal.destroy({StaffId:this.staff.StaffId})
+  }
+  cancel(){
+    this.modal.destroy(null)
   }
 }
