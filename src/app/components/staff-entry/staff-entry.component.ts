@@ -47,22 +47,14 @@ export class StaffEntryComponent extends  CoreComponent implements OnInit {
     }
 
     getAll(){
-      // this.staffSvr.findAllStaff().then(res=>{
-      //   this.listOfData = res.data;
-      //   console.log(this.listOfData)
-      // },err=>{
-      //   console.log(err)
-      // })
+     
       this.staff = new Staff({
-        "StaffId":"11"
+        "WorkStatus":11
       })
-      this.staffSvr.addStaff(this.staff).then(res=>{
+      this.staffSvr.findByCondition(this.staff,'','',0).then(res=>{
         console.log(res);
       })
-      // this.staffSvr.findCount(0,11,0,0,'',0).then(res=>{
-      //   console.log(res);
-        
-      // })
+    
     }
   setOfCheckedId = new Set<number>();
 

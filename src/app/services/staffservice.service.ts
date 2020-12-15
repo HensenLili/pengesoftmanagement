@@ -70,8 +70,8 @@ export class StaffServiceSvr {
     console.log(staff,departmentName)
     const httpParams = new FormData()
     httpParams.append('staff', staff.toString())
-    httpParams.append('departmentName', departmentName.toString())
-    httpParams.append('positionName', positionName.toString())
+    httpParams.append('departmentName', departmentName)
+    httpParams.append('positionName', positionName)
     httpParams.append('yearRange', yearRange.toString());
     return this.request.post<Result>(this.baseUrl + 'findByCondition', httpParams).then((res) => {
       return new Result(res);

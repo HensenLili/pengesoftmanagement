@@ -80,24 +80,11 @@
             </nz-filter-trigger>
           </th>
           <th>部门</th>
-          <th nzCustomFilter>
-             证件类型
-              <nz-filter-trigger [(nzVisible)]="isidtype" [nzActive]="inputidtype.length > 0" [nzDropdownMenu]="menu2">
-                <i nz-icon nzType="search"></i>
-              </nz-filter-trigger>
-            </th>
-          <th nzCustomFilter>
-              证件号
-          </th>
-          <th nzCustomFilter>
-              手机号
-          </th>
-          <th nzCustomFilter>
-              入职日期
-          </th>
-          <th nzCustomFilter>
-              性别
-          </th>
+          <th> 证件类型 </th>
+          <th> 证件号 </th>
+          <th> 手机号 </th>
+          <th>入职日期</th>
+          <th> 性别 </th>
         </tr>
       </thead>
       <!-- 表体 -->
@@ -126,69 +113,6 @@
         </div>
       </div>
     </nz-dropdown-menu>
-
-     <!-- 下拉证件类型搜索 -->
-     <nz-dropdown-menu #menu2="nzDropdownMenu">
-      <div class="ant-table-filter-dropdown">
-        <div class="search-box">
-          <input type="text" nz-input placeholder="搜索证件类型" [(ngModel)]="inputidtype"/>
-          <button nz-button nzSize="small" nzType="primary" (click)="searchIdtype()" class="search-button">
-            搜索
-          </button>
-          <button nz-button nzSize="small" (click)="reset2()">取消</button>
-        </div>
-      </div>
-    </nz-dropdown-menu>
-
-     <!-- 下拉证件号搜索 -->
-     <!-- <nz-dropdown-menu #menu3="nzDropdownMenu">
-      <div class="ant-table-filter-dropdown">
-        <div class="search-box">
-          <input type="text" nz-input placeholder="搜索证件号" [(ngModel)]="inputidnumber"/>
-          <button nz-button nzSize="small" nzType="primary" (click)="searchIdnumber()" class="search-button">
-            搜索
-          </button>
-          <button nz-button nzSize="small" (click)="reset3()">取消</button>
-        </div>
-      </div>
-    </nz-dropdown-menu> -->
-     <!-- 下拉手机号搜索 -->
-     <!-- <nz-dropdown-menu #menu4="nzDropdownMenu">
-      <div class="ant-table-filter-dropdown">
-        <div class="search-box">
-          <input type="text" nz-input placeholder="搜索手机号" [(ngModel)]="inputphone"/>
-          <button nz-button nzSize="small" nzType="primary" (click)="searchPhone()" class="search-button">
-            搜索
-          </button>
-          <button nz-button nzSize="small" (click)="reset4()">取消</button>
-        </div>
-      </div>
-    </nz-dropdown-menu> -->
-     <!-- 下拉入职日期搜索 -->
-     <!-- <nz-dropdown-menu #menu5="nzDropdownMenu">
-      <div class="ant-table-filter-dropdown">
-        <div class="search-box">
-          <input type="text" nz-input placeholder="搜索入职日期" [(ngModel)]="inputdate"/>
-          <button nz-button nzSize="small" nzType="primary" (click)="searchDate()" class="search-button">
-            搜索
-          </button>
-          <button nz-button nzSize="small" (click)="reset5()">取消</button>
-        </div>
-      </div>
-    </nz-dropdown-menu> -->
-   <!-- 下拉性别搜索 -->
-   <!-- <nz-dropdown-menu #menu6="nzDropdownMenu">
-      <div class="ant-table-filter-dropdown">
-        <div class="search-box">
-          <input type="text" nz-input placeholder="搜索性别" [(ngModel)]="inputsex"/>
-          <button nz-button nzSize="small" nzType="primary" (click)="searchSex()" class="search-button">
-            搜索
-          </button>
-          <button nz-button nzSize="small" (click)="reset6()">取消</button>
-        </div>
-      </div>
-    </nz-dropdown-menu> -->
-
 
 
 

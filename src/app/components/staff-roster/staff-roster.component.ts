@@ -38,7 +38,6 @@ constructor(
   ) { }
 ngOnInit(): void {
   this.getAll();
-  console.log(this.listOfDisplayData[1]);
 
 }
 
@@ -47,7 +46,6 @@ getAll(){
     this.listOfData = res.data
     console.log(this.listOfData);
     this.listOfDisplayData = [...this.listOfData]
-    console.log(this.listOfDisplayData[1]);
   },err=>{
     console.log(err);  
   })
@@ -70,60 +68,6 @@ reset1(): void {
   this.searchName();
 }
 
-//证件类型搜索  确定
-searchIdtype(): void {
-this.isidtype = false;
-this.listOfDisplayData = this.listOfData.filter(item => item.idtype.indexOf(this.inputidtype) !== -1);
-}
-//证件类型搜索 取消
-  reset2(): void {
-this.inputidtype = '';
-this.searchIdtype();
-}
-
-// //证件号搜索  确定
-// searchIdnumber(): void {
-// this.isidnumber = false;
-// this.listOfDisplayData = this.listOfData.filter(item => String(item.idnumber).indexOf(this.inputidnumber) !== -1);
-// }
-// //证件号搜索 取消
-//  reset3(): void {
-// this.inputidtype = '';
-// this.searchIdtype();
-// }
-
-// //手机号搜索  确定
-//  searchPhone(): void {
-// this.isidnumber = false;
-// this.listOfDisplayData = this.listOfData.filter(item => String(item.phone).indexOf(this.inputphone) !== -1);
-// }
-// //手机号搜索 取消
-//  reset4(): void {
-// this.inputphone = '';
-// this.searchPhone();
-// }
-
-// //入职日期搜索  确定
-// searchDate(): void {
-// this.isidnumber = false;
-// this.listOfDisplayData = this.listOfData.filter(item => String(item.dateOfEntry).indexOf(this.inputdate) !== -1);
-// }
-// //手机号搜索 取消
-//   reset5(): void {
-// this.inputdate = '';
-// this.searchDate();
-// }
-
-// //性别搜索  确定
-//  searchSex(): void {
-// this.isidnumber = false;
-// this.listOfDisplayData = this.listOfData.filter(item => String(item.sex).indexOf(this.inputsex) !== -1);
-// }
-// //新版搜索 取消
-//  reset6(): void {
-// this.inputsex = '';
-// this.searchSex();
-// }
 
  // 收起分类点击事件
  isnav(){
