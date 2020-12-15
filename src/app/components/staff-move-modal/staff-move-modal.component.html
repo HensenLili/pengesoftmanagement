@@ -10,7 +10,7 @@
       <nz-form-control [nzSm]="12">
         <input nz-input type="radio" name="move" value="调岗">调岗
         <input nz-input type="radio" name="up" value="晋升">晋升
-        <input nz-input type="radio" move="down" value="降职">降职
+        <input nz-input type="radio" name="down" value="降职">降职
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
@@ -43,6 +43,9 @@
         <textarea rows="4" nz-input ></textarea>
       </nz-form-control>
     </nz-form-item>
-    <div> <button nz-button nzType="primary"(click)='Onclick()'>提交</button>   </div>
+    <div class="button">
+      <button nz-button nzType="primary" (click)='Onclick()'>提交</button> 
+      <button  nz-button (click)="cancel()">取消</button>
+  </div>
   </form>
 

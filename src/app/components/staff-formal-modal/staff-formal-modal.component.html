@@ -1,25 +1,25 @@
-<body>
+<div>
  
 <form nz-form  >
     <nz-form-item>
       <nz-form-label [nzSm]="7">姓名</nz-form-label>
       <nz-form-control [nzSm]="12">
-        <input nz-input type="text" placeholder="{{staff.Name}}" formControlName="ItemName" />
+        <input nz-input type="text" placeholder="{{staff.Name}}"  />
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
       <nz-form-label [nzSm]="7">操作人</nz-form-label>
       <nz-form-control [nzSm]="12">
-        <input nz-input type="text" formControlName="operator" />
+        <input nz-input type="text" />
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
       <nz-form-label [nzSm]="7">转正日期</nz-form-label>
       <nz-form-control [nzSm]="12">
-        <input type="date" nz-input formControlName="formalDate" />
+        <input type="date" nz-input  />
       </nz-form-control>
     </nz-form-item>
-    <div>
+    <div class="button">
         <button nz-button nzType="primary" (click)='Onclick()'>提交</button> 
         <button  nz-button (click)="cancel()">取消</button>
     </div>
@@ -28,4 +28,4 @@
     
   </form>
    
-</body>
+</div>

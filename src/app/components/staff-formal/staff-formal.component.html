@@ -12,16 +12,11 @@
                     </button>
                </nav>
                
-               <nz-table #rowSelectionTable nzShowSizeChanger [nzData]="listOfData" (nzCurrentPageDataChange)="onCurrentPageDataChange($event)">
+               <nz-table #nz [nzData]="listOfDisplayData" >
                 <!-- 已转正表头 -->
                 <thead>
                   <tr>
-                    <th
-                      [nzSelections]="listOfSelection"
-                      [(nzChecked)]="checked"
-                      [nzIndeterminate]="indeterminate"
-                      (nzCheckedChange)="onAllChecked($event)"
-                    ></th>
+                   
                     <th>姓名</th>
                     <th>部门</th>
                     <th>职位</th>
@@ -31,15 +26,12 @@
                 </thead>
                 <!-- 已转正表体 -->
                 <tbody>
-                  <tr *ngFor="let data of rowSelectionTable.data">
-                    <td [nzChecked]="setOfCheckedId.has(data.id)" (nzCheckedChange)="onItemChecked(data.id, $event)"></td>
-                    <td>{{ data.Name }}</td>
-                     <td *ngIf="data.Position!=null">{{ data.Position.Department.Name }}</td> 
-                     <td *ngIf="data.Position==null"></td> 
-                    <td *ngIf="data.Position!=null">{{ data.Position.Name }}</td>
-                    <td *ngIf="data.Position==null"></td>
-                    <td>{{ data.EntryTime}}</td>
-                    <td></td>
+                  <tr *ngFor="let data of nz.data">
+                    <td>{{ data.StaffName }}</td>
+                    <td>{{ data.DepartmentName }}</td> 
+                    <td>{{data.PositionName}}</td> 
+                    <td>{{ data.RegularTime}}</td>
+                    <td>{{data.OperatorId}}</td>
                   </tr>
                 </tbody>
               </nz-table>

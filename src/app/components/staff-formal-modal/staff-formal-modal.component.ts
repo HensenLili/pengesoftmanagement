@@ -12,28 +12,21 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class StaffFormalModalComponent extends  CoreComponent implements OnInit {
 
   staff:Staff
-  ItemName:''
-  operator:''
-  formalDate:''
-  // formGroup:FormGroup;
+ 
   constructor(
     private modal:NzModalRef,
     private injector:Injector
     ) { 
     super(injector);
-    // this.formGroup = this.formBuilder.group({
-    //   ItemName: '',
-    //   operator:'',
-    //   formalDate:""
-    // })
+  
   }
 
   ngOnInit(): void {
   }
   Onclick(){
-    this.modal.destroy({StaffId:this.staff.StaffId,WorNature:13})
+    this.modal.destroy(this.staff.StaffId)
   }
   cancel(){
-    
+    this.modal.destroy(null)
   }
 }

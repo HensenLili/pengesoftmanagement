@@ -12,13 +12,11 @@
             </button>
           </nav>
 
-          <nz-table #rowSelectionTable nzShowSizeChanger [nzData]="listOfData"
-            (nzCurrentPageDataChange)="onCurrentPageDataChange($event)">
+          <nz-table #nz  [nzData]="listOfData">
             <!-- 已入职表头 -->
             <thead>
               <tr>
-                <th [nzSelections]="listOfSelection" [(nzChecked)]="checked" [nzIndeterminate]="indeterminate"
-                  (nzCheckedChange)="onAllChecked($event)"></th>
+
                 <th>姓名</th>
                 <th>部门</th>
                 <th>入职时间</th>
@@ -32,8 +30,7 @@
             </thead>
             <!-- 已入职表体 -->
             <tbody>
-              <tr *ngFor="let data of rowSelectionTable.data">
-                <td [nzChecked]="setOfCheckedId.has(data.id)" (nzCheckedChange)="onItemChecked(data.id, $event)"></td>
+              <tr *ngFor="let data of nz.data">
                 <td>{{ data.Name }}</td>
                 <td *ngIf="data.Position!=null">{{ data.Position.Department.Name }}</td>
                 <td *ngIf="data.Position==null"></td>
@@ -46,7 +43,7 @@
                 <td>
                   <button nz-button nzType="primary" (click)="showFormal(data)">转正</button>
                   <button nz-button nzType="primary" (click)="showMove(data)">调动</button>
-                  <button nz-button nzType="primary" (click)="showLeave()">离职</button>
+                  <button nz-button nzType="primary" (click)="showLeave(data)">离职</button>
                 </td>
               </tr>
             </tbody>
@@ -54,56 +51,6 @@
         </nz-tab>
 
 
-        <!-- 离职弹窗 -->
-        <nz-modal [(nzVisible)]="isLeave" nzTitle="离职" (nzOnCancel)="LeaveCancel()" (nzOnOk)="LeaveOk()">
-          <form nz-form >
-            <nz-form-item>
-              <nz-form-label [nzSm]="7">姓名</nz-form-label>
-              <nz-form-control [nzSm]="12">
-                <input nz-input />
-              </nz-form-control>
-            </nz-form-item>
-            <nz-form-item>
-              <nz-form-label [nzSm]="7">离职类型</nz-form-label>
-              <nz-form-control [nzSm]="12">
-                <input nz-input type="radio" name="active" value="主动离职">主动离职
-                <input nz-input type="radio" name="overTime" value="合同到期">合同到期
-                <input nz-input type="radio" move="auto" value="自离">自离
-                <input nz-input type="radio" move="other" value="其他">其他
-              </nz-form-control>
-            </nz-form-item>
-            <nz-form-item>
-              <nz-form-label [nzSm]="7">离职原因</nz-form-label>
-              <nz-form-control [nzSm]="12">
-                <textarea rows="4" nz-input [(ngModel)]="leaveReason"></textarea>
-              </nz-form-control>
-            </nz-form-item>
-            <nz-form-item>
-              <nz-form-label [nzSm]="7">操作人</nz-form-label>
-              <nz-form-control [nzSm]="12">
-                <input nz-input />
-              </nz-form-control>
-            </nz-form-item>
-            <nz-form-item>
-              <nz-form-label [nzSm]="7">离职日期</nz-form-label>
-              <nz-form-control [nzSm]="12">
-                <input type="date" nz-input />
-              </nz-form-control>
-            </nz-form-item>
-            <nz-form-item>
-              <nz-form-label [nzSm]="7">最后工作日</nz-form-label>
-              <nz-form-control [nzSm]="12">
-                <input type="date" nz-input />
-              </nz-form-control>
-            </nz-form-item>
-            <nz-form-item>
-              <nz-form-label [nzSm]="7">薪资结算日期</nz-form-label>
-              <nz-form-control [nzSm]="12">
-                <input type="date" nz-input />
-              </nz-form-control>
-            </nz-form-item>
-          </form>
-        </nz-modal>
         <!-- 下拉导出 -->
         <nz-dropdown-menu #outmenu="nzDropdownMenu">
           <ul nz-menu class="outdrop">
