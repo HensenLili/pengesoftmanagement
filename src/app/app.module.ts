@@ -97,7 +97,6 @@ import {NzCalendarModule} from "ng-zorro-antd/calendar";
 import {NzListModule} from "ng-zorro-antd/list";
 import { StatementComponent } from './views/statement/statement.component';
 import { StatementRecruitComponent } from './components/statement-recruit/statement-recruit.component';
-import { TrainingManageComponent } from './views/training-manage/training-manage.component';
 import { StaffContractManageComponent } from './components/staff-contract-manage/staff-contract-manage.component'
 import { from } from 'rxjs';
 
@@ -142,7 +141,7 @@ registerLocaleData(zh);
     StaffBasicChangeComponent,
     StaffContractRenewComponent,
     StaffContractComponent,
-    StaffContractManageComponent
+    StaffContractManageComponent,
     StaffContractComponent,
     StatementComponent,
     StatementRecruitComponent
@@ -194,7 +193,7 @@ registerLocaleData(zh);
     NzInputNumberModule,
     ReactiveFormsModule,
     NgxEchartsModule,
-    NzPopoverModule
+    NzPopoverModule,
     NgxEchartsModule,
     NzCalendarModule,
     NzListModule
