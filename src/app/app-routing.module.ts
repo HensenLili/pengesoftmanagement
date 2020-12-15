@@ -74,7 +74,7 @@ const routes: Routes = [
           },
           {
             path: 'recruitApproval',component: RecruitApprovalComponent
-          }
+          },
         ],
       },
       {
@@ -85,7 +85,7 @@ const routes: Routes = [
         path: 'staff',
         component: StaffManageComponent,
         children:[
-          {path:'staffroster', component:StaffRosterComponent},
+          {path:'staffroster', component :StaffRosterComponent},
           { path:'employee', component:StaffEmployeeComponent} ,
           {path:'staffcontract',component:StaffContractComponent},
           {path:'staffcontractrenew',component:StaffContractRenewComponent},

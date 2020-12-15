@@ -116,6 +116,9 @@ import { StaffContractRenewComponent } from './components/staff-contract-renew/s
 import { TrainingManageComponent } from './views/training-manage/training-manage.component'
 import {StaffRosterComponent} from "./components/staff-roster/staff-roster.component";
 import {StaffContractComponent} from "./components/staff-contract/staff-contract.component";
+// 引入卡片模块
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzStatisticModule } from 'ng-zorro-antd/statistic';
 
 registerLocaleData(zh);
 @NgModule({
@@ -201,7 +204,9 @@ registerLocaleData(zh);
     NzTabsModule,
     NzInputNumberModule,
     ReactiveFormsModule,
-    NgxEchartsModule
+    NgxEchartsModule,
+    NzStatisticModule,
+    NzCardModule
   ],
   schemas: [
      CUSTOM_ELEMENTS_SCHEMA

@@ -70,10 +70,10 @@ export class RecruitManagementComponent extends CoreComponent implements OnInit 
   }
 
 //  删除招聘需求
-  showDeleteConfirm(): void {
+  showCompletefirm(): void {
     this.modal.confirm({
-      nzTitle: '你确定要删除这条招聘需求吗',
-      nzContent: '<b style="color: red;">招聘岗位：前端开发 <br>需求人：赵三</b>',
+      nzTitle: '你已完成了这项招聘需求吗？',
+      nzContent: '<b style="color: red;">招聘岗位：前端开发 <br>需求部门：市场 <br>申请时间：2020-12-12</b>',
       nzOkText: '确定',
       nzOkType: 'danger',
       nzOnOk: () => console.log('OK'),

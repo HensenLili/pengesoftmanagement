@@ -29,7 +29,6 @@
           <th>审批状态</th>
           <th>审批备注</th>
           <th>操作</th>
-
         </tr>
         </thead>
         <tbody>
@@ -40,9 +39,11 @@
           <td>{{ data.address }}</td>
           <td>{{ data.address }}</td>
           <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
           <td style="color: #4da2fd">未审批</td>
-          <td>{{ data.address }}</td>
-          <td>{{ data.address }}</td>
+          <td>
+            <input [hidden]="editId !== data.key" type="text" nz-input [(ngModel)]="data.note" (blur)="stopEdit()" />
+          </td>
           <td>
 
             <a (click)="showModal()" style="color: rgba(16, 16, 16, 100)">查看</a>
