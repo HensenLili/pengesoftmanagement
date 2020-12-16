@@ -1,0 +1,38 @@
+<div>
+    <form nz-form >
+        <nz-form-item>
+          <nz-form-label [nzSpan]="6" >姓名</nz-form-label>
+          <nz-form-control [nzSpan]="14">
+            <input nz-input type="text" >
+          </nz-form-control>
+        </nz-form-item >
+        <nz-form-item>
+            <nz-form-label [nzSpan]="6" >变更合同类型</nz-form-label>
+            <nz-form-control [nzSpan]="14">
+              <input nz-input type="text" >
+            </nz-form-control>
+          </nz-form-item >
+          <nz-form-item>
+            <nz-form-label [nzSpan]="6" >变更日期</nz-form-label>
+            <nz-form-control [nzSpan]="14">
+              <input nz-input type="date" >
+            </nz-form-control>
+          </nz-form-item >
+          <nz-form-item>
+            <nz-form-label [nzSpan]="6" >附件</nz-form-label>
+            <nz-form-control [nzSpan]="14">
+              <nz-upload
+              nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+              [nzHeaders]="{ authorization: 'authorization-text' }"
+              (nzChange)="handleChange($event)"
+            >
+              <button nz-button><i nz-icon nzType="upload"></i>上传附件</button>
+            </nz-upload>
+            </nz-form-control>
+          </nz-form-item >
+          <div class="button">
+            <button nz-button nzType="primary" (click)='Onclick()'>提交</button>
+            <button  nz-button (click)="cancel()">取消</button>
+        </div>
+        </form>
+</div>
