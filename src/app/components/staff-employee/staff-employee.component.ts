@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import { StaffServiceSvr } from '../../services/staffservice.service';
 import { Staff } from 'src/app/domains/staff.domain';
 import {ActivatedRoute} from '@angular/router'
-import { from } from 'rxjs';
 
 @Component({
   selector: 'app-staff-employee',

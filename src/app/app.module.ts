@@ -45,8 +45,6 @@ import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 // 引入小图标模块
 import { NzIconModule } from 'ng-zorro-antd/icon';
-// 引入基础信息组件
-// import { BasicInforComponent } from './components/basic-infor/basic-infor.component';
 // 引入栅栏模块
 import {NzGridModule} from 'ng-zorro-antd/grid';
 // 引入下拉菜单模块
@@ -101,7 +99,10 @@ import {NzCalendarModule} from "ng-zorro-antd/calendar";
 import {NzListModule} from "ng-zorro-antd/list";
 import { StatementComponent } from './views/statement/statement.component';
 import { StatementRecruitComponent } from './components/statement-recruit/statement-recruit.component';
-import { StaffContractManageComponent } from './components/staff-contract-manage/staff-contract-manage.component'
+import { StaffContractRenewModalComponent } from './components/staff-contract-renew-modal/staff-contract-renew-modal.component';
+import { StaffContractChangeModalComponent } from './components/staff-contract-change-modal/staff-contract-change-modal.component';
+import { StaffContractOverModalComponent } from './components/staff-contract-over-modal/staff-contract-over-modal.component';
+
 
 registerLocaleData(zh);
 
@@ -146,10 +147,13 @@ registerLocaleData(zh);
     StaffBasicChangeComponent,
     StaffContractRenewComponent,
     StaffContractComponent,
-    StaffContractManageComponent,
     StaffContractComponent,
     StatementComponent,
-    StatementRecruitComponent
+    StatementRecruitComponent,
+    StaffContractRenewModalComponent,
+    StaffContractChangeModalComponent,
+    StaffContractOverModalComponent,
+ 
 
 
   ],

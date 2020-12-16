@@ -43,7 +43,7 @@ ngOnInit(): void {
 getAll(){
   this.staffSvr.findAllStaff().then(res=>{
     this.listOfData = res.data
-    console.log(this.listOfData);
+    console.log(res);
     this.listOfDisplayData = [...this.listOfData]
   },err=>{
     console.log(err);

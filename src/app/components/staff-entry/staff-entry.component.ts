@@ -6,6 +6,7 @@ import { StaffServiceSvr } from '../../services/staffservice.service';
 import{NzModalRef,NzModalService} from 'ng-zorro-antd/modal'
 import {StaffFormalModalComponent} from '../staff-formal-modal/staff-formal-modal.component'
 import {StaffMoveModalComponent} from '../staff-move-modal/staff-move-modal.component'
+import {StaffLeaveModalComponent} from '../staff-leave-modal/staff-leave-modal.component'
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -109,8 +110,8 @@ export class StaffEntryComponent extends  CoreComponent implements OnInit {
   //离职弹窗
   showLeave(data:Staff): void {
     let editModal=this.modal.create({
-      nzTitle:"调动",
-      nzContent:StaffMoveModalComponent,
+      nzTitle:"离职",
+      nzContent:StaffLeaveModalComponent,
       nzComponentParams:{
         staff:data
       },
