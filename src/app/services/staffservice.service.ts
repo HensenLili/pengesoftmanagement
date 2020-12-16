@@ -117,12 +117,12 @@ export class StaffServiceSvr {
   /**
    *
    */
-  makeStaffRegular(staffId: string, date: string,file: File): Promise<Result>{
-    const httpParams = new HttpParams()
-      .append('staffId', staffId.toString())
-      .append('date', date)
-      .append('file', File.toString());
-    return this.request.post<Result>(this.baseUrl + 'makeStaffRegular', httpParams).then((res) => {
+  makeStaffRegular(staffId: string, date: string, file: File): Promise<Result>{
+    const formData = new FormData()
+      formData.append('staffId', staffId.toString())
+      formData.append('date', date)
+      formData.append('memoryFile', file);
+    return this.request.post<Result>(this.baseUrl + 'makeStaffRegular', formData).then((res) => {
       return new Result(res);
     });
   }
@@ -134,7 +134,7 @@ export class StaffServiceSvr {
     const httpParams = new HttpParams()
       .append('staffId', staffId.toString())
       .append('date', date.toString())
-      .append('file', File.toString());
+      .append('memoryFile', File.toString());
     return this.request.post<Result>(this.baseUrl + 'makeStaffLeave', httpParams).then((res) => {
       return new Result(res);
     });

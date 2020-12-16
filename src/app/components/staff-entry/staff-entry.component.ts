@@ -19,7 +19,7 @@ export class StaffEntryComponent extends  CoreComponent implements OnInit {
   public file:File;
   public date:Date;
   public dataTime:Date
-  datepost:Date
+  datepost:string
   formGroup:FormGroup;
    public staff:Staff;
   workStatus:number;
@@ -72,14 +72,15 @@ export class StaffEntryComponent extends  CoreComponent implements OnInit {
     this.file = res[1]
     this.date = res[2]
     this.dataTime = this.date
-      console.log('dateTime:',  this.datePipe.transform(this.dataTime, 'yyyy-MM-dd HH:mm:ss'));
+      this.datepost = this.datePipe.transform(this.dataTime, 'yyyy-MM-dd HH:mm:ss');
+      console.log(this.datepost.toString())
     // console.log(this.staff,11)
     // console.log(this.file,22)
     // console.log(this.date,33)
     // this.datepost = new Date(this.date.toString())
     // console.log(this.datepost)
     // console.log(new Date().toString())
-    this.staffSvr.makeStaffRegular(this.staff.toString(),this.dataTime.toString(),this.file).then(res => {
+    this.staffSvr.makeStaffRegular(this.staff.toString(),this.datepost.toString(),this.file).then(res => {
       console.log(res,222)
     })
     this.getAll();
