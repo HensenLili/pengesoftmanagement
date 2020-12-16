@@ -24,9 +24,15 @@ export class StaffContractRenewModalComponent    extends  CoreComponent  impleme
   }
 
   Onclick(){
-    this.modal.destroy(this.contract.ContractId)
+    this.modal.destroy({ContractId:this.contract.ContractId,file:this.file})
   }
   cancel(){
     this.modal.destroy(null)
+  }
+
+  uploaderImage(ele: HTMLInputElement): void{
+    const files = ele.files[0];
+    this.file = files;
+    console.log(files);
   }
 }

@@ -33,7 +33,8 @@
           <nz-form-item>
             <nz-form-label [nzSpan]="6" >附件</nz-form-label>
             <nz-form-control [nzSpan]="14">
-              <input nz-input type="file" >
+              <button nz-button nzType="primary" (click)="uploader.click()"  style="margin-bottom: 30px"><i nz-icon nzType="upload" nzTheme="outline"></i>上传简历</button>
+                <input type="file" hidden nz-input #uploader (change)="uploaderImage(uploader)">
             </nz-form-control>
           </nz-form-item >
           <div class="button">

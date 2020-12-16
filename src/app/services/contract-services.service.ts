@@ -28,10 +28,10 @@ export class ContractServiceSvr {
    * 
    */
   addContract(contract: Contract, memoryFile:File): Promise<Result>{
-    const httpParams = new HttpParams()
-      .append('contract', contract.toString())
-      .append('memoryFile', memoryFile.toString());
-    return this.request.post<Result>(this.baseUrl + 'addContract', httpParams).then((res) => {
+    const formData = new FormData()
+    formData.append('contract', contract.toString())
+    formData .append('memoryFile', memoryFile);
+    return this.request.post<Result>(this.baseUrl + 'addContract', formData).then((res) => {
       return new Result(res);
     });
   }

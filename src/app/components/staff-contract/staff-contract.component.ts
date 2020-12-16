@@ -94,13 +94,11 @@ export class StaffContractComponent implements OnInit {
   editModal.afterClose.subscribe(res=>{
     console.log(res)
    this.contract = new Contract({
-    "ContractId":res.toString(),
-    "Status":1,
-    "ContractTime":'5',
-    "SignTime":'1'
+    "ContractId":"555"
    })
-    // this.contractSvr.addContract(this.contract,file).then(res => {
-    // })
+    this.contractSvr.addContract(this.contract,res.file).then(res => {
+      console.log(res,22222)
+    })
   })
 }
 
