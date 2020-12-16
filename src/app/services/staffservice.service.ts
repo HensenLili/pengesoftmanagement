@@ -27,14 +27,14 @@ export class StaffServiceSvr {
   /**
    *
    */
-  findCount(workNature?: number, workStatus?: number, nodeId?: number, age?: number, degree?: string, yearRange?: number): Promise<Result>{
-    const httpParams = new FormData()
-    httpParams.append('workNature', workNature.toString());
-    httpParams.append('workStatus', workStatus.toString())
-    httpParams.append('nodeId', nodeId.toString())
-    httpParams.append('age', age.toString())
-    httpParams.append('degree', degree)
-    httpParams.append('yearRange', yearRange.toString());
+  findCount(workNature: number, workStatus: number, nodeId: number, age: number, degree: string, yearRange: number): Promise<Result>{
+    const httpParams = new HttpParams()
+      .append('workNature', workNature.toString())
+      .append('workStatus', workStatus.toString())
+      .append('nodeId', nodeId.toString())
+      .append('age', age.toString())
+      .append('degree', degree.toString())
+      .append('yearRange', yearRange.toString());
     return this.request.post<Result>(this.baseUrl + 'findCount', httpParams).then((res) => {
       return new Result(res);
     });
@@ -66,13 +66,12 @@ export class StaffServiceSvr {
   /**
    *
    */
-  findByCondition(staff: Staff, departmentName?: string, positionName?: string, yearRange?: number): Promise<Result>{
-    console.log(staff,departmentName)
-    const httpParams = new FormData()
-    httpParams.append('staff', staff.toString())
-    httpParams.append('departmentName', departmentName)
-    httpParams.append('positionName', positionName)
-    httpParams.append('yearRange', yearRange.toString());
+  findByCondition(staff: Staff, departmentName: string, positionName: string, yearRange: number): Promise<Result>{
+    const httpParams = new HttpParams()
+      .append('staff', staff.toString())
+      .append('departmentName', departmentName.toString())
+      .append('positionName', positionName.toString())
+      .append('yearRange', yearRange.toString());
     return this.request.post<Result>(this.baseUrl + 'findByCondition', httpParams).then((res) => {
       return new Result(res);
     });
@@ -94,6 +93,49 @@ export class StaffServiceSvr {
   findAllStaff(): Promise<Result>{
     const httpParams = new HttpParams();
     return this.request.post<Result>(this.baseUrl + 'findAllStaff', httpParams).then((res) => {
+      return new Result(res);
+    });
+  }
+
+  /**
+   *
+   */
+  makeStaffJobTransfer(staffId: string, date: string, transferType: number, beforeId: string, afterId: string, transferFile: File, salaryFile: File): Promise<Result>{
+    const httpParams = new HttpParams()
+      .append('staffId', staffId.toString())
+      .append('date', date.toString())
+      .append('transferType', transferType.toString())
+      .append('beforeId', beforeId.toString())
+      .append('afterId', afterId.toString())
+      .append('transferFile', transferFile.toString())
+      .append('salaryFile', salaryFile.toString());
+    return this.request.post<Result>(this.baseUrl + 'makeStaffJobTransfer', httpParams).then((res) => {
+      return new Result(res);
+    });
+  }
+
+  /**
+   *
+   */
+  makeStaffRegular(staffId: string, date: string,file: File): Promise<Result>{
+    const httpParams = new HttpParams()
+      .append('staffId', staffId.toString())
+      .append('date', date)
+      .append('file', File.toString());
+    return this.request.post<Result>(this.baseUrl + 'makeStaffRegular', httpParams).then((res) => {
+      return new Result(res);
+    });
+  }
+
+  /**
+   *
+   */
+  makeStaffLeave(staffId: string, date: string, file: File): Promise<Result>{
+    const httpParams = new HttpParams()
+      .append('staffId', staffId.toString())
+      .append('date', date.toString())
+      .append('file', File.toString());
+    return this.request.post<Result>(this.baseUrl + 'makeStaffLeave', httpParams).then((res) => {
       return new Result(res);
     });
   }

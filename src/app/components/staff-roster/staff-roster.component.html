@@ -88,19 +88,19 @@
         </tr>
       </thead>
       <!-- 表体 -->
-      <tbody>
-        <tr *ngFor="let data of nzTable.data">
-          <td><a routerLink="/staff/employee" [queryParams]="data">{{ data.Name }}</a></td>
+       <tbody>
+       <tr *ngFor="let data of nzTable.data" >
+         <td><a routerLink="/staff/employee" [queryParams]="data">{{ data.Name }}</a></td>
          <td *ngIf="data.Position!=null">{{ data.Position.Department.Name}}</td>
          <td *ngIf="data.Position==null"></td>
          <td *ngIf="data.Position!=null">{{data.Position.Name}}</td>
          <td *ngIf="data.Position==null"></td>
-          <td>{{ data.IdCard }}</td>
-          <td>{{ data.PhoneNumber }}</td>
-          <td>{{ data.EntryTime }}</td>
-          <td>{{ data.Gender }}</td>
-        </tr>
-      </tbody>
+         <td>{{ data.IdCard }}</td>
+         <td>{{ data.PhoneNumber }}</td>
+         <td>{{ data.EntryTime }}</td>
+         <td>{{ data.Gender }}</td>
+       </tr>
+       </tbody>
     </nz-table>
 
       <!-- 下拉名字搜索 -->
