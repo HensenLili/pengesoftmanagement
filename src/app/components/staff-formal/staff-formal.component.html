@@ -11,12 +11,12 @@
                        <i nz-icon nzType="down"></i>
                     </button>
                </nav>
-               
+
                <nz-table #nz [nzData]="listOfDisplayData" >
                 <!-- 已转正表头 -->
                 <thead>
                   <tr>
-                   
+
                     <th>姓名</th>
                     <th>部门</th>
                     <th>职位</th>
@@ -28,17 +28,17 @@
                 <tbody>
                   <tr *ngFor="let data of nz.data">
                     <td>{{ data.StaffName }}</td>
-                    <td>{{ data.DepartmentName }}</td> 
-                    <td>{{data.PositionName}}</td> 
+                    <td>{{ data.DepartmentName }}</td>
+                    <td>{{data.PositionName}}</td>
                     <td>{{ data.RegularTime}}</td>
-                    <td>{{data.OperatorId}}</td>
+                    <td>{{data.OperatorName}}</td>
                   </tr>
                 </tbody>
               </nz-table>
             </nz-tab>
 
 
-           
+
           </nz-tabset>
 
           <!-- 下拉导出 -->

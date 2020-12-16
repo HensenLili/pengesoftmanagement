@@ -89,7 +89,7 @@ export class StaffEntryComponent extends  CoreComponent implements OnInit {
 
       this.staffSvr.updateStaff(res).then(res => {
       })
-      this.getAll();
+      // this.getAll();
     })
   }
 
@@ -107,7 +107,7 @@ export class StaffEntryComponent extends  CoreComponent implements OnInit {
       console.log(res)
       this.staffSvr.updateStaff(res).then(res => {
       })
-      this.getAll();
+      // this.getAll();
     })
   }
 
