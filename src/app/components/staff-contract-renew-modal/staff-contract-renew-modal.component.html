@@ -7,39 +7,39 @@
           </nz-form-control>
         </nz-form-item >
         <nz-form-item>
-            <nz-form-label [nzSpan]="6" >续签合同类型</nz-form-label>
+            <nz-form-label [nzSpan]="6" >续签合同类型 </nz-form-label>
             <nz-form-control [nzSpan]="14">
-              <input nz-input type="text" >
+             <input nz-input type="text" [(ngModel)]="type" [ngModelOptions]="{standalone: true}">
             </nz-form-control>
           </nz-form-item >
           <nz-form-item>
             <nz-form-label [nzSpan]="6" >续签合同编号</nz-form-label>
             <nz-form-control [nzSpan]="14">
-              <input nz-input type="number" >
+              <input nz-input type="text" [(ngModel)]="ContractId" [ngModelOptions]="{standalone: true}">
             </nz-form-control>
           </nz-form-item >
           <nz-form-item>
             <nz-form-label [nzSpan]="6" >开始日期</nz-form-label>
             <nz-form-control [nzSpan]="14">
-              <input nz-input type="date" >
+              <input nz-input type="date" [(ngModel)]="EfficacyTime" [ngModelOptions]="{standalone: true}">
             </nz-form-control>
           </nz-form-item >
           <nz-form-item>
             <nz-form-label [nzSpan]="6" >结束日期</nz-form-label>
             <nz-form-control [nzSpan]="14">
-              <input nz-input type="date" >
+              <input nz-input type="date" [(ngModel)]="LoseEfficacyTime" [ngModelOptions]="{standalone: true}">
             </nz-form-control>
           </nz-form-item >
           <nz-form-item>
             <nz-form-label [nzSpan]="6" >签署日期</nz-form-label>
             <nz-form-control [nzSpan]="14">
-              <input nz-input type="date" >
+              <input nz-input type="date" [(ngModel)]="SignTime" [ngModelOptions]="{standalone: true}">
             </nz-form-control>
           </nz-form-item >
           <nz-form-item>
             <nz-form-label [nzSpan]="6" >附件</nz-form-label>
             <nz-form-control [nzSpan]="14">
-              <button nz-button nzType="primary" (click)="uploader.click()"  style="margin-bottom: 30px"><i nz-icon nzType="upload" nzTheme="outline"></i>上传简历</button>
+              <button nz-button nzType="primary" (click)="uploader.click()"  style="margin-bottom: 30px"><i nz-icon nzType="upload" nzTheme="outline"></i>上传附件</button>
                 <input type="file" hidden nz-input #uploader (change)="uploaderImage(uploader)">
             </nz-form-control>
           </nz-form-item >

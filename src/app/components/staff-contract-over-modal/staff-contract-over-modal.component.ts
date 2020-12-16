@@ -10,6 +10,8 @@ import{NzModalRef} from 'ng-zorro-antd/modal'
 export class StaffContractOverModalComponent extends  CoreComponent implements OnInit {
 
   public contract:Contract;
+  public file:File;
+  public LoseEfficacyTime:string;
   constructor(
     private modal:NzModalRef,
     private injector:Injector
@@ -21,9 +23,19 @@ export class StaffContractOverModalComponent extends  CoreComponent implements O
   ngOnInit(): void {
   }
   Onclick(){
-    this.modal.destroy(this.contract.ContractId)
+    this.modal.destroy({
+      ContractId:this.contract.ContractId,
+      StaffId:this.contract.StaffId,
+      LoseEfficacyTime:this.LoseEfficacyTime,
+      file:this.file
+    })
   }
   cancel(){
     this.modal.destroy(null)
+  }
+  uploaderImage(ele: HTMLInputElement): void{
+    const files = ele.files[0];
+    this.file = files;
+    console.log(files);
   }
 }

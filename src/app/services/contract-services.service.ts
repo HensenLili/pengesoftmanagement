@@ -27,11 +27,11 @@ export class ContractServiceSvr {
   /**
    * 
    */
-  addContract(contract: Contract, memoryFile:File): Promise<Result>{
+  addContract(contract: Contract, memoryFile: File): Promise<Result>{
     const formData = new FormData()
-    formData.append('contract', contract.toString())
-    formData .append('memoryFile', memoryFile);
-    return this.request.post<Result>(this.baseUrl + 'addContract', formData).then((res) => {
+    formData .append('contract', contract.toString())
+    formData .append('memoryFile', memoryFile.toString());
+    return this.request.post<Result>(this.baseUrl + 'addContract', formData ).then((res) => {
       return new Result(res);
     });
   }
@@ -39,7 +39,7 @@ export class ContractServiceSvr {
   /**
    * 
    */
-  findByCondition(contract?: Contract, staffName?: string, positionName?: string, yearRange?: number): Promise<Result>{
+  findByCondition(contract: Contract, staffName: string, positionName: string, yearRange: number): Promise<Result>{
     const httpParams = new HttpParams()
       .append('contract', contract.toString())
       .append('staffName', staffName.toString())
@@ -63,10 +63,11 @@ export class ContractServiceSvr {
   /**
    * 
    */
-  updateContract(Contract: Contract): Promise<Result>{
-    const httpParams = new HttpParams()
-      .append('Contract', Contract.toString());
-    return this.request.post<Result>(this.baseUrl + 'updateContract', httpParams).then((res) => {
+  updateContract(Contract: Contract, contractFile: File): Promise<Result>{
+    const formData  = new FormData()
+    formData .append('Contract', Contract.toString())
+    formData .append('contractFile', contractFile.toString());
+    return this.request.post<Result>(this.baseUrl + 'updateContract', formData ).then((res) => {
       return new Result(res);
     });
   }
