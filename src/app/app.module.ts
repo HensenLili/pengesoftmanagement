@@ -103,6 +103,8 @@ import { StaffContractRenewModalComponent } from './components/staff-contract-re
 import { StaffContractChangeModalComponent } from './components/staff-contract-change-modal/staff-contract-change-modal.component';
 import { StaffContractOverModalComponent } from './components/staff-contract-over-modal/staff-contract-over-modal.component';
 import {StaffContractManageComponent} from "./components/staff-contract-manage/staff-contract-manage.component";
+import { OrganizeUnitComponent } from './components/organize-unit/organize-unit.component';
+import { OrganizeDepartmentComponent } from './components/organize-department/organize-department.component';
 
 
 registerLocaleData(zh);
@@ -154,7 +156,9 @@ registerLocaleData(zh);
     StaffContractRenewModalComponent,
     StaffContractChangeModalComponent,
     StaffContractOverModalComponent,
-    StaffContractManageComponent
+    StaffContractManageComponent,
+    OrganizeUnitComponent,
+    OrganizeDepartmentComponent
 
 
 
