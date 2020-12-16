@@ -11,6 +11,12 @@ export class StaffContractRenewModalComponent    extends  CoreComponent  impleme
 
   public contract:Contract;
   public file:File;
+  public ContractId:string;
+  public type:string;
+  public EfficacyTime:Date;
+  public LoseEfficacyTime:Date;
+  public SignTime:Date;
+
   constructor(
     private modal:NzModalRef,
     private injector:Injector
@@ -23,12 +29,23 @@ export class StaffContractRenewModalComponent    extends  CoreComponent  impleme
   
   }
 
+  
   Onclick(){
-    this.modal.destroy({ContractId:this.contract.ContractId,file:this.file})
+    this.modal.destroy({
+      ContractId:this.ContractId,
+      StaffId:this.contract.StaffId,
+      Type:this.type,
+      file:this.file,
+      EfficacyTime:this.EfficacyTime,
+      LoseEfficacyTime:this.LoseEfficacyTime,
+      SignTime:this.SignTime
+    })
   }
   cancel(){
     this.modal.destroy(null)
+   
   }
+
 
   uploaderImage(ele: HTMLInputElement): void{
     const files = ele.files[0];

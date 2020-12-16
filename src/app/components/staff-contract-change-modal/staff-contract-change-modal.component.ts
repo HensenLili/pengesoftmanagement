@@ -1,9 +1,8 @@
 import { Component, OnInit ,Injector} from '@angular/core';
 import { CoreComponent } from 'pengesoft-ng-lib';
-import { Staff } from 'src/app/domains/staff.domain';
 import{NzModalRef} from 'ng-zorro-antd/modal'
-import { NzUploadChangeParam } from 'ng-zorro-antd/upload';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { Contract } from 'src/app/domains/contract.domain';
 @Component({
   selector: 'app-staff-contract-change-modal',
   templateUrl: './staff-contract-change-modal.component.html',
@@ -11,7 +10,9 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 })
 export class StaffContractChangeModalComponent   extends  CoreComponent implements OnInit {
 
-  staff:Staff
+  public contract:Contract;
+  public file:File;
+  public Type:string;
   constructor(
     private modal:NzModalRef,
     private injector:Injector,
@@ -24,20 +25,20 @@ export class StaffContractChangeModalComponent   extends  CoreComponent implemen
   }
 
   Onclick(){
-    this.modal.destroy(this.staff.StaffId)
+    this.modal.destroy({
+      ContractId:this.contract.ContractId,
+      StaffId:this.contract.StaffId,
+      Type:this.Type,
+      file:this.file
+    })
   }
   cancel(){
     this.modal.destroy(null)
   }
-
-  handleChange(info: NzUploadChangeParam): void {
-    if (info.file.status !== 'uploading') {
-      console.log(info.file, info.fileList);
-    }
-    if (info.file.status === 'done') {
-      this.msg.success(`${info.file.name} file uploaded successfully`);
-    } else if (info.file.status === 'error') {
-      this.msg.error(`${info.file.name} file upload failed.`);
-    }
+  uploaderImage(ele: HTMLInputElement): void{
+    const files = ele.files[0];
+    this.file = files;
+    console.log(files);
   }
+
 }

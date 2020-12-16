@@ -94,7 +94,12 @@ export class StaffContractComponent implements OnInit {
   editModal.afterClose.subscribe(res=>{
     console.log(res)
    this.contract = new Contract({
-    "ContractId":"555"
+    "ContractId":res.ContractId,
+    "StaffId":res.StaffId,
+    "Type":res.Type,
+    "EfficacyTime":res.EfficacyTime,
+    "LoseEfficacyTime":res.LoseEfficacyTime,
+    "SignTime":res.SignTime
    })
     this.contractSvr.addContract(this.contract,res.file).then(res => {
       console.log(res,22222)
@@ -103,19 +108,24 @@ export class StaffContractComponent implements OnInit {
 }
 
   //变更合同弹窗
- changeContract(data:Staff): void {
+ changeContract(data:Contract): void {
   let editModal=this.modal.create({
     nzTitle:"合同变更",
     nzContent:StaffContractChangeModalComponent,
     nzComponentParams:{
-      // staff:data
+      contract:data
     },
     nzFooter:null
   })
   editModal.afterClose.subscribe(res=>{
     console.log(res)
-
-    this.staffSvr.updateStaff(res).then(res => {
+    this.contract = new Contract({
+      "StaffId":res.StaffId,
+      "ContractId":res.ContractId,
+      "Type":res.Type
+    })
+    this.contractSvr.updateContract(this.contract,res.file).then(res => {
+      console.log(res)
     })
   })
 }
@@ -133,10 +143,12 @@ export class StaffContractComponent implements OnInit {
     editModal.afterClose.subscribe(res=>{
       console.log(res)
       this.contract = new Contract({
-        "ContractId":res.toString(),
-        "Status":2
+        "ContractId":res.ContractId,
+        "StaffId":res.StaffId,
+        "Status":2,
+        "LoseEfficacyTime":res.LoseEfficacyTime
       })
-      this.contractSvr.updateContract(this.contract).then(res => {
+      this.contractSvr.updateContract(this.contract,res.file).then(res => {
         console.log(res,222)
       })
     })
