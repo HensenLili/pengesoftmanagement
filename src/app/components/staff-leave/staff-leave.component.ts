@@ -8,34 +8,34 @@ import { StaffServiceSvr } from '../../services/staffservice.service';
 })
 export class StaffLeaveComponent implements OnInit {
 
-  
+
   checked = false;
   indeterminate = false;
   public staff:Staff;
   listOfCurrentPageData=[];
- 
+
   public listOfData:any=[];
   public listOfDisplayData:Array<Staff> = []
 
   setOfCheckedId = new Set<number>();
 
-  
+
   constructor(private staffSvr : StaffServiceSvr) { }
 
   ngOnInit(): void {
     this.getAll();
   }
   getAll(){
-     
+
     this.staff = new Staff({
       "WorkStatus":99
     })
-    this.staffSvr.findByCondition(this.staff,'','',0).then(res=>{
+    this.staffSvr.findByCondition(this.staff,'','').then(res=>{
       this.listOfData = res.data;
       this.listOfDisplayData = [...this.listOfData]
       console.log(res);
     })
-  
+
   }
 
   listOfSelection = [

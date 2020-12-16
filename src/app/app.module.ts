@@ -105,6 +105,8 @@ import { StaffContractOverModalComponent } from './components/staff-contract-ove
 import {StaffContractManageComponent} from "./components/staff-contract-manage/staff-contract-manage.component";
 import { OrganizeUnitComponent } from './components/organize-unit/organize-unit.component';
 import { OrganizeDepartmentComponent } from './components/organize-department/organize-department.component';
+import { TrainingPlanComponent } from './components/training-plan/training-plan.component';
+import { TrainingLogComponent } from './components/training-log/training-log.component';
 
 
 registerLocaleData(zh);
@@ -158,7 +160,9 @@ registerLocaleData(zh);
     StaffContractOverModalComponent,
     StaffContractManageComponent,
     OrganizeUnitComponent,
-    OrganizeDepartmentComponent
+    OrganizeDepartmentComponent,
+    TrainingPlanComponent,
+    TrainingLogComponent
 
 
 

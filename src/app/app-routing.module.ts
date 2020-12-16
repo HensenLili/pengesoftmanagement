@@ -34,6 +34,8 @@ import {StatementComponent} from "./views/statement/statement.component";
 import {StatementRecruitComponent} from "./components/statement-recruit/statement-recruit.component";
 import {OrganizeUnitComponent} from "./components/organize-unit/organize-unit.component";
 import {OrganizeDepartmentComponent} from "./components/organize-department/organize-department.component";
+import {TrainingPlanComponent} from "./components/training-plan/training-plan.component";
+import {TrainingLogComponent} from "./components/training-log/training-log.component";
 
 const routes: Routes = [
   {
@@ -93,7 +95,17 @@ const routes: Routes = [
       },
       {
         path: 'training',
-        component: TrainingManageComponent
+        component: TrainingManageComponent,
+        children:[
+          {
+            path: 'trainingplan',
+            component: TrainingPlanComponent
+          },
+          {
+            path: 'traininglog',
+            component: TrainingLogComponent
+          }
+        ]
       },
       {
         path: 'staff',
