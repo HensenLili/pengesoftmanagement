@@ -16,7 +16,7 @@
     <nz-form-item>
       <nz-form-label [nzSm]="7">转正日期</nz-form-label>
       <nz-form-control [nzSm]="12">
-        <input type="date" nz-input  />
+        <nz-date-picker [(ngModel)]="date" (ngModelChange)="onChange($event)" [ngModelOptions]="{standalone: true}"></nz-date-picker>
       </nz-form-control>
     </nz-form-item>
   <button nz-button nzType="primary" (click)="uploader.click()"><i nz-icon nzType="upload" nzTheme="outline"></i>上传简历</button>

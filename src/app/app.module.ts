@@ -205,7 +205,7 @@ registerLocaleData(zh);
     NgxEchartsModule,
     NzCalendarModule,
     NzListModule,
-    NzPopoverModule
+    NzPopoverModule,
   ],
   schemas: [
      CUSTOM_ELEMENTS_SCHEMA

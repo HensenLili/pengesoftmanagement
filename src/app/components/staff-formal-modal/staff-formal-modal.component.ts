@@ -2,8 +2,7 @@ import { Component, OnInit,Injector } from '@angular/core';
 import { CoreComponent } from 'pengesoft-ng-lib';
 import { Staff } from 'src/app/domains/staff.domain';
 import{NzModalRef} from 'ng-zorro-antd/modal'
-import { FormGroup, FormBuilder } from '@angular/forms';
-import {NzUploadFile} from "ng-zorro-antd/upload";
+
 
 @Component({
   selector: 'app-staff-formal-modal',
@@ -13,7 +12,8 @@ import {NzUploadFile} from "ng-zorro-antd/upload";
 export class StaffFormalModalComponent extends  CoreComponent implements OnInit {
     file:File
 
-  staff:Staff
+    staff:Staff
+    date:Date
 
   constructor(
     private modal:NzModalRef,
@@ -25,8 +25,15 @@ export class StaffFormalModalComponent extends  CoreComponent implements OnInit 
 
   ngOnInit(): void {
   }
+  onChange(result: Date): void {
+    // console.log(result);
+    this.date = result
+    // console.log(result)
+  }
+
   Onclick(){
-    this.modal.destroy(this.staff.StaffId)
+    this.modal.destroy([this.staff.StaffId,this.file,this.date])
+    // console.log(this.date)
   }
   cancel(){
     this.modal.destroy(null)

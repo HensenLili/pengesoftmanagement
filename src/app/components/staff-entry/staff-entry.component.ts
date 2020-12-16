@@ -6,15 +6,20 @@ import { StaffServiceSvr } from '../../services/staffservice.service';
 import{NzModalRef,NzModalService} from 'ng-zorro-antd/modal'
 import {StaffFormalModalComponent} from '../staff-formal-modal/staff-formal-modal.component'
 import {StaffMoveModalComponent} from '../staff-move-modal/staff-move-modal.component'
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-staff-entry',
   templateUrl: './staff-entry.component.html',
-  styleUrls: ['./staff-entry.component.less']
+  styleUrls: ['./staff-entry.component.less'],
+  providers: [DatePipe]
 })
 export class StaffEntryComponent extends  CoreComponent implements OnInit {
 
-
+  public file:File;
+  public date:Date;
+  public dataTime:Date
+  datepost:Date
   formGroup:FormGroup;
    public staff:Staff;
   workStatus:number;
@@ -25,7 +30,8 @@ export class StaffEntryComponent extends  CoreComponent implements OnInit {
   constructor(
     private injector: Injector,
     private staffSvr: StaffServiceSvr,
-    private modal:NzModalService
+    private modal:NzModalService,
+    private datePipe: DatePipe
     ) {
 
     super(injector);
@@ -35,7 +41,6 @@ export class StaffEntryComponent extends  CoreComponent implements OnInit {
 
       this.getAll()
     }
-
     getAll(){
 
       this.staff = new Staff({
@@ -63,11 +68,18 @@ export class StaffEntryComponent extends  CoreComponent implements OnInit {
   })
   editModal.afterClose.subscribe(res=>{
     console.log(res)
-    this.staff = new Staff({
-      "StaffId":res.toString(),
-      "WorkStatus":21})
-      console.log(this.staff)
-    this.staffSvr.updateStaff(this.staff).then(res => {
+    this.staff = res[0].toString()
+    this.file = res[1]
+    this.date = res[2]
+    this.dataTime = this.date
+      console.log('dateTime:',  this.datePipe.transform(this.dataTime, 'yyyy-MM-dd HH:mm:ss'));
+    // console.log(this.staff,11)
+    // console.log(this.file,22)
+    // console.log(this.date,33)
+    // this.datepost = new Date(this.date.toString())
+    // console.log(this.datepost)
+    // console.log(new Date().toString())
+    this.staffSvr.makeStaffRegular(this.staff.toString(),this.dataTime.toString(),this.file).then(res => {
       console.log(res,222)
     })
     this.getAll();
