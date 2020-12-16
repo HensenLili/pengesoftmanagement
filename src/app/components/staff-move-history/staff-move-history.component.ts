@@ -31,28 +31,28 @@ export class StaffMoveHistoryComponent implements OnInit {
     this.staffenter = new Staff({
       "WorkStatus":11
     })
-    this.staffSvr.findByCondition(this.staffenter,'','',0).then(res=>{
+    this.staffSvr.findByCondition(this.staffenter,'','').then(res=>{
       this.listOfData = res.data;
     })
     // 转正
     this.staffformal = new Staff({
       "WorkStatus":21
     })
-    this.staffSvr.findByCondition(this.staffformal,'','',0).then(res=>{
+    this.staffSvr.findByCondition(this.staffformal,'','').then(res=>{
       this.listOfData = [...this.listOfData,...res.data];
     })
     // 调动
     this.staffmove = new Staff({
       "WorkStatus":31
     })
-    this.staffSvr.findByCondition(this.staffmove,'','',0).then(res=>{
+    this.staffSvr.findByCondition(this.staffmove,'','').then(res=>{
       this.listOfData = [...this.listOfData,...res.data];
     })
     // 离职
     this.staffleave = new Staff({
       "WorkStatus":99
     })
-    this.staffSvr.findByCondition(this.staffleave,'','',0).then(res=>{
+    this.staffSvr.findByCondition(this.staffleave,'','').then(res=>{
       this.listOfDisplayData = [...this.listOfData,...res.data];
       console.log(this.listOfDisplayData,111);
     })

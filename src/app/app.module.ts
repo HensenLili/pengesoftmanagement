@@ -102,6 +102,11 @@ import { StatementRecruitComponent } from './components/statement-recruit/statem
 import { StaffContractRenewModalComponent } from './components/staff-contract-renew-modal/staff-contract-renew-modal.component';
 import { StaffContractChangeModalComponent } from './components/staff-contract-change-modal/staff-contract-change-modal.component';
 import { StaffContractOverModalComponent } from './components/staff-contract-over-modal/staff-contract-over-modal.component';
+import {StaffContractManageComponent} from "./components/staff-contract-manage/staff-contract-manage.component";
+import { OrganizeUnitComponent } from './components/organize-unit/organize-unit.component';
+import { OrganizeDepartmentComponent } from './components/organize-department/organize-department.component';
+import { TrainingPlanComponent } from './components/training-plan/training-plan.component';
+import { TrainingLogComponent } from './components/training-log/training-log.component';
 import { AwardPunishModalComponent } from './components/award-punish-modal/award-punish-modal.component';
 
 
@@ -154,8 +159,13 @@ registerLocaleData(zh);
     StaffContractRenewModalComponent,
     StaffContractChangeModalComponent,
     StaffContractOverModalComponent,
-    AwardPunishModalComponent,
- 
+    StaffContractManageComponent,
+    OrganizeUnitComponent,
+    OrganizeDepartmentComponent,
+    TrainingPlanComponent,
+    TrainingLogComponent,
+    AwardPunishModalComponent
+
 
 
   ],

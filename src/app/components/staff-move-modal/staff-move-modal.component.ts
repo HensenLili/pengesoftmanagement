@@ -14,18 +14,23 @@ export class StaffMoveModalComponent extends  CoreComponent implements OnInit {
   formGroup:FormGroup;
   constructor(
     private modal:NzModalRef,
-    private injector:Injector
+    private injector:Injector,
   ) {
     super(injector);
     this.formGroup = this.formBuilder.group({
-     
+      movename:'',
+      movedate:'',
+      movedepartment:'',
+      moveposition:'',
+      moveremark:''
     })
    }
 
   ngOnInit(): void {
   }
   Onclick(){
-    this.modal.destroy({StaffId:this.staff.StaffId})
+    this.modal.destroy(this.formGroup)
+    console.log(this.formGroup)
   }
   cancel(){
     this.modal.destroy(null)

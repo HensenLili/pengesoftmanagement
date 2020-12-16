@@ -32,6 +32,10 @@ import { StaffLeaveComponent } from './components/staff-leave/staff-leave.compon
 import { StaffMoveHistoryComponent } from './components/staff-move-history/staff-move-history.component';
 import {StatementComponent} from "./views/statement/statement.component";
 import {StatementRecruitComponent} from "./components/statement-recruit/statement-recruit.component";
+import {OrganizeUnitComponent} from "./components/organize-unit/organize-unit.component";
+import {OrganizeDepartmentComponent} from "./components/organize-department/organize-department.component";
+import {TrainingPlanComponent} from "./components/training-plan/training-plan.component";
+import {TrainingLogComponent} from "./components/training-log/training-log.component";
 
 const routes: Routes = [
   {
@@ -49,7 +53,17 @@ const routes: Routes = [
       },
       {
         path:'organization',
-        component:OrganizeManageComponent
+        component:OrganizeManageComponent,
+        children:[
+          {
+            path: 'organizeunit',
+            component: OrganizeUnitComponent
+          },
+          {
+            path: 'organizedepartment',
+            component: OrganizeDepartmentComponent
+          }
+        ]
       },
       {
         path: 'recruit',
@@ -81,7 +95,17 @@ const routes: Routes = [
       },
       {
         path: 'training',
-        component: TrainingManageComponent
+        component: TrainingManageComponent,
+        children:[
+          {
+            path: 'trainingplan',
+            component: TrainingPlanComponent
+          },
+          {
+            path: 'traininglog',
+            component: TrainingLogComponent
+          }
+        ]
       },
       {
         path: 'staff',

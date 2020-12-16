@@ -47,7 +47,7 @@ export class StaffEntryComponent extends  CoreComponent implements OnInit {
       this.staff = new Staff({
         "WorkStatus":11
       })
-      this.staffSvr.findByCondition(this.staff,'','',0).then(res=>{
+      this.staffSvr.findByCondition(this.staff,'','').then(res=>{
         this.listOfData = res.data;
         this.listOfDisplayData = [...this.listOfData]
         console.log(this.listOfDisplayData,2222)
@@ -101,7 +101,7 @@ export class StaffEntryComponent extends  CoreComponent implements OnInit {
     editModal.afterClose.subscribe(res=>{
       console.log(res)
 
-      this.staffSvr.updateStaff(res).then(res => {
+      this.staffSvr.updateStaff(res,null).then(res => {
       })
       // this.getAll();
     })
@@ -119,7 +119,7 @@ export class StaffEntryComponent extends  CoreComponent implements OnInit {
     })
     editModal.afterClose.subscribe(res=>{
       console.log(res)
-      this.staffSvr.updateStaff(res).then(res => {
+      this.staffSvr.updateStaff(res,null).then(res => {
       })
       // this.getAll();
     })

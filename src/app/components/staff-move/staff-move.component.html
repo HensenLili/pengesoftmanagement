@@ -11,7 +11,7 @@
                        <i nz-icon nzType="down"></i>
                     </button>
                </nav>
-               
+
                <nz-table #rowSelectionTable nzShowSizeChanger [nzData]="listOfData" (nzCurrentPageDataChange)="onCurrentPageDataChange($event)">
                 <!-- 已调动表头 -->
                 <thead>
@@ -36,16 +36,14 @@
                 <tbody>
                   <tr *ngFor="let data of rowSelectionTable.data">
                     <td [nzChecked]="setOfCheckedId.has(data.id)" (nzCheckedChange)="onItemChecked(data.id, $event)"></td>
-                    <td>{{ data.Name }}</td>
-                    <td *ngIf="data.Position!=null">{{ data.Position.Department.Name }}</td>
-                    <td *ngIf="data.Position==null"></td> 
-                    <td *ngIf="data.Position!=null">{{ data.Position.Name }}</td>
-                    <td *ngIf="data.Position==null"></td> 
-                    <td>{{ data.removeTime }}</td>
-                    <td>{{ data.removeType }}</td>
-                    <td>{{ data.newDepartment }}</td>
-                    <td>{{ data.newJob }}</td>
-                    <td>{{data.operator}}</td>
+                    <td>{{ data.StaffName }}</td>
+                    <td >{{data.BeforeDepartment}}</td>
+                    <td >{{data.BeforePosition}}</td>
+                    <td >{{data.TransferTime}}</td>
+                    <td >{{data.TransferType == 1?"降职":"升职"}}</td>
+                    <td>{{ data.AfterPosition }}</td>
+                    <td>{{ data.AfterDepartment }}</td>
+                    <td>{{ data.OperatorName }}</td>
                   </tr>
                 </tbody>
               </nz-table>
