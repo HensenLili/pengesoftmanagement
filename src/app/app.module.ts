@@ -102,6 +102,7 @@ import { StatementRecruitComponent } from './components/statement-recruit/statem
 import { StaffContractRenewModalComponent } from './components/staff-contract-renew-modal/staff-contract-renew-modal.component';
 import { StaffContractChangeModalComponent } from './components/staff-contract-change-modal/staff-contract-change-modal.component';
 import { StaffContractOverModalComponent } from './components/staff-contract-over-modal/staff-contract-over-modal.component';
+import {StaffContractManageComponent} from "./components/staff-contract-manage/staff-contract-manage.component";
 
 
 registerLocaleData(zh);
@@ -153,7 +154,8 @@ registerLocaleData(zh);
     StaffContractRenewModalComponent,
     StaffContractChangeModalComponent,
     StaffContractOverModalComponent,
- 
+    StaffContractManageComponent
+
 
 
   ],

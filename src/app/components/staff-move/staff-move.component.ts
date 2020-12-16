@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Staff } from 'src/app/domains/staff.domain';
 import { StaffServiceSvr } from '../../services/staffservice.service';
+import {TransferRecordServiceSvr} from "../../services/transferrecord-service.service";
 @Component({
   selector: 'app-staff-move',
   templateUrl: './staff-move.component.html',
@@ -8,7 +9,7 @@ import { StaffServiceSvr } from '../../services/staffservice.service';
 })
 export class StaffMoveComponent implements OnInit {
 
- 
+
   checked = false;
   indeterminate = false;
   listOfCurrentPageData = [];
@@ -20,18 +21,19 @@ export class StaffMoveComponent implements OnInit {
   ngOnInit(): void {
     this.getAll();
   }
-  constructor(private staffSvr : StaffServiceSvr) { }
+  constructor(private staffSvr : StaffServiceSvr,
+              private transferSvr : TransferRecordServiceSvr) { }
   getAll(){
-     
+
     this.staff = new Staff({
       "WorkStatus":31
     })
-    this.staffSvr.findByCondition(this.staff,'','',0).then(res=>{
+    this.transferSvr.findByCondition('','').then(res=>{
       this.listOfData = res.data;
       this.listOfDisplayData = [...this.listOfData]
-      console.log(this.listOfDisplayData,33333);
+      console.log(res,33333);
     })
-  
+
   }
 
   setOfCheckedId = new Set<number>();
@@ -58,7 +60,7 @@ export class StaffMoveComponent implements OnInit {
       }
     }
   ];
- 
+
   updateCheckedSet(id: number, checked: boolean): void {
     if (checked) {
       this.setOfCheckedId.add(id);

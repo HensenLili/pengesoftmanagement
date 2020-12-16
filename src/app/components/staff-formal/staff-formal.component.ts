@@ -20,13 +20,13 @@ export class StaffFormalComponent extends  CoreComponent  implements OnInit {
   public listOfData:any=[];
  public listOfDisplayData:Array<Staff> = []
 
- 
- constructor( 
+
+ constructor(
    private staffSvr : StaffServiceSvr,
    private regularSvr : RegularRecordServiceSvr,
    private modal:NzModalService,
    private injector: Injector,
-  ) { 
+  ) {
     super(injector);
   }
   ngOnInit(): void {
@@ -43,7 +43,7 @@ export class StaffFormalComponent extends  CoreComponent  implements OnInit {
       this.listOfDisplayData = [...this.listOfData]
       console.log(res);
     })
-  
+
   }
   getRegularRecord(){
     this.regularSvr.findByCondition('','').then(res=>{
@@ -52,7 +52,7 @@ export class StaffFormalComponent extends  CoreComponent  implements OnInit {
       console.log(res)
     })
   }
- 
+
 
   //调动弹窗
   showMove(data:Staff): void {
@@ -67,8 +67,8 @@ export class StaffFormalComponent extends  CoreComponent  implements OnInit {
     editModal.afterClose.subscribe(res=>{
       console.log(res)
 
-      this.staffSvr.updateStaff(res).then(res => {
-      })
+      // this.staffSvr.makeStaffJobTransfer().then(res => {
+      // })
       // this.getAll();
     })
   }
