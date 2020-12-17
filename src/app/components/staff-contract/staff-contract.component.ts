@@ -21,7 +21,7 @@ export class StaffContractComponent implements OnInit {
   public isOver = false;
   public contract:Contract;
   public staff:Staff;
-  public Name:string;
+  public staffName:string;
   public dataend:{};
   public listOfData:any=[];
   public listOfDisplayData:Array<Staff> = []
@@ -158,15 +158,15 @@ export class StaffContractComponent implements OnInit {
   
  //姓名搜索 
  searchName(event):void {
-  this.Name= event.target.value
-  this.staff =new Staff({
-    "Name":this.Name
+  this.staffName= event.target.value
+  this.contract =new Contract({
   })
- console.log(this.Name)
- this.staffSvr.findByCondition(this.staff,'','').then(res=>{
+ console.log(this.staff)
+ this.contractSvr.findByCondition(this.contract,this.staffName,'',0).then(res=>{
    console.log(res)
    this.listOfData = res.data;
    this.listOfDisplayData = [...this.listOfData]
+   
    console.log(this.listOfDisplayData,11111);
    
  })
