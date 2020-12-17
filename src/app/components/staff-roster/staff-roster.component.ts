@@ -32,6 +32,12 @@ public inputdepartment:any ='';
  public inputsex:any = '';
  public listOfData:any=[];
  public listOfDisplayData:Array<Staff> = []
+  public count
+  public official
+  public try
+  public wait
+  public practice
+  public leave
 
 
 constructor(
@@ -41,7 +47,17 @@ constructor(
   ) { }
 ngOnInit(): void {
   this.getAll();
+  this.count = this.staffSvr.findCount(0,0,0,0,'','')
 
+  this.official = this.staffSvr.findCount(43,0,0,0,'','')
+
+  this.try = this.staffSvr.findCount(20,0,0,0,'','')
+
+  this.wait = this.staffSvr.findCount(10,0,0,0,'','')
+
+  this.practice = this.staffSvr.findCount(20,0,0,0,'','')
+
+  this.leave = this.staffSvr.findCount(99,0,0,0,'','')
 }
 
 getAll(){

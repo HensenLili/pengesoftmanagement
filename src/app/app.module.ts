@@ -110,6 +110,8 @@ import { TrainingLogComponent } from './components/training-log/training-log.com
 import { AwardPunishModalComponent } from './components/award-punish-modal/award-punish-modal.component';
 import { StaffAddModalComponent } from './components/staff-add-modal/staff-add-modal.component';
 import { StaffAddFormalModalComponent } from './components/staff-add-formal-modal/staff-add-formal-modal.component';
+import {NzCascaderModule} from "ng-zorro-antd/cascader";
+
 
 registerLocaleData(zh);
 
@@ -163,6 +165,7 @@ registerLocaleData(zh);
     OrganizeUnitComponent,
     OrganizeDepartmentComponent,
     TrainingPlanComponent,
+    TrainingLogComponent
     TrainingLogComponent,
     AwardPunishModalComponent,
     StaffAddModalComponent,
@@ -207,6 +210,7 @@ registerLocaleData(zh);
     NzPopoverModule,
     NzCalendarModule,
     NzListModule,
+    NzCascaderModule,
   ],
   schemas: [
      CUSTOM_ELEMENTS_SCHEMA,
