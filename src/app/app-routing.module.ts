@@ -36,6 +36,7 @@ import {OrganizeUnitComponent} from "./components/organize-unit/organize-unit.co
 import {OrganizeDepartmentComponent} from "./components/organize-department/organize-department.component";
 import {TrainingPlanComponent} from "./components/training-plan/training-plan.component";
 import {TrainingLogComponent} from "./components/training-log/training-log.component";
+import { RecruitResumeShowComponent } from './components/recruit-resume-show/recruit-resume-show.component';
 
 const routes: Routes = [
   {
@@ -91,6 +92,9 @@ const routes: Routes = [
           {
             path: 'recruitApproval',component: RecruitApprovalComponent
           },
+          {
+            path: 'recruitResumeShow',component: RecruitResumeShowComponent
+          }
         ],
       },
       {
