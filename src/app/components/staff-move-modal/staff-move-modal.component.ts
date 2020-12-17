@@ -138,7 +138,8 @@ export class StaffMoveModalComponent extends  CoreComponent implements OnInit {
 
   staff:Staff
   formGroup:FormGroup;
-  public staffname :''
+  public staffname :'';
+  public radioValue=[];
   constructor(
     private modal:NzModalRef,
     private injector:Injector,

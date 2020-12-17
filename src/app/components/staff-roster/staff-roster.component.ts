@@ -3,6 +3,8 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { StaffServiceSvr } from '../../services/staffservice.service';
 import{Router,NavigationExtras  } from '@angular/router'
 import { Staff } from 'src/app/domains/staff.domain';
+import{NzModalRef,NzModalService} from 'ng-zorro-antd/modal'
+import{StaffAddModalComponent}from '../../components/staff-add-modal/staff-add-modal.component'
 @Component({
   selector: 'app-staff-roster',
   templateUrl: './staff-roster.component.html',
@@ -11,7 +13,8 @@ import { Staff } from 'src/app/domains/staff.domain';
 export class StaffRosterComponent implements OnInit {
 
   public navflag:boolean = false;
-
+  public staff:Staff;
+  public DepartmentName:string;
 //定义每个下拉搜索的开关状态
  public isname=false;
  public isidtype = false;
@@ -39,7 +42,8 @@ public inputdepartment:any ='';
 
 constructor(
   private staffSvr : StaffServiceSvr,
-  private route :Router
+  private route :Router,
+  private modal:NzModalService
   ) { }
 ngOnInit(): void {
   this.getAll();
@@ -66,10 +70,48 @@ getAll(){
   })
 
 }
+//新增员工弹窗
+add(): void {
+  let editModal=this.modal.create({
+    nzTitle:"新增员工",
+    nzContent:StaffAddModalComponent,
+    nzComponentParams:{ 
+    },
+    nzFooter:null
+  })
+ 
+  editModal.afterClose.subscribe(res=>{
+    console.log(res)
+    this.staff =new Staff({
+      "StaffId":res.StaffId,
+      "Name":res.Name,
+      "IdCard":res.IdCard,
+      "Gender":res.Gender,
+      "PhoneNumber":res.PhoneNumber,
+      "EntryTime":res.EntryTime
+    })
+    this.staffSvr.addStaff(this.staff,res.file).then(res=>{
+      console.log(res,555);
+     
 
- //部门搜索  确定
- searchDepartment():void {
-  this.listOfDisplayData = this.listOfData.filter(item=> item.department.indexOf(this.inputdepartment) !== -1);
+      
+    })
+    })
+   
+}
+
+ //部门搜索 
+ searchDepartment(event):void {
+   this.staff =new Staff({
+     
+   })
+   this.DepartmentName = event.target.value
+   console.log(this.DepartmentName,55566);
+  this.staffSvr.findByCondition(this.staff,this.DepartmentName,'').then(res=>{
+    console.log(res)
+    this.listOfData = res.data;
+    this.listOfDisplayData = [...this.listOfData]
+  })
 }
 
 //名字搜索  确定
