@@ -92,6 +92,7 @@ add(): void {
     })
     this.staffSvr.addStaff(this.staff,res.file).then(res=>{
       console.log(res,555);
+      this.getAll();
      
 
       
