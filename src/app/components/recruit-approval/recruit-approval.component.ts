@@ -3,14 +3,9 @@ import {NzModalService} from "ng-zorro-antd/modal";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CoreComponent, Dynamic, TabView} from "pengesoft-ng-lib";
 import {NzMessageService} from "ng-zorro-antd/message";
+import {ApplyServiceSvr} from "../../services/recruit-apply.service";
+import { Apply } from "../../domains/apply.domain";
 import {keyframes} from "@angular/animations";
-interface Person {
-  key: string;
-  name: string;
-  age: number;
-  address: string;
-  note: string;
-}
 @TabView('招聘审批')
 @Dynamic()
 @Component({
@@ -22,41 +17,29 @@ export class RecruitApprovalComponent extends CoreComponent implements OnInit {
   editId: string | null = null;
   isVisible = false;
   isVisible2 = false;
-  listOfData: Person[] = [
-    {
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-      note: ''
-    },
-    {
-      key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-      note: ''
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
-      note: ''
-    }
-  ];
+  listOfData = [];
   constructor(
     private injector: Injector,
     private modal: NzModalService,
     private message: NzMessageService,
     private router: Router,
-    private  route: ActivatedRoute
+    private  route: ActivatedRoute,
+    private  getApplyDataSvr: ApplyServiceSvr
   ) {
     super(injector);
   }
 
   ngOnInit(): void {
+    this.getAllApplyData();
   }
+
+  getAllApplyData():void{
+    this.getApplyDataSvr.gainApply().then(res=>{
+      console.log(res);
+      this.listOfData = res.data;
+    })
+  }
+
 
   startEdit(key: string): void {
     this.editId = key;
@@ -85,15 +68,17 @@ export class RecruitApprovalComponent extends CoreComponent implements OnInit {
     this.isVisible2 = false;
   }
   // 审批通过提示
-  createMessage(): void {
-  }
-  showSuccess(type: string): void{
-
+  showSuccess(id,status,mes): void{
+      const Id = Number(id);
+    console.log(Id);
     this.modal.success({
       nzTitle: '你确定要通过这条申请吗',
-      nzContent: '<b style="color: red;">招聘岗位：前端开发 <br>需求人：赵三</b>',
       nzOkText: '通过',
       nzOnOk: () => {
+        this.getApplyDataSvr.dealApply(Id,status,mes).then(res=>{
+          console.log(res);
+          this.getAllApplyData();
+        });
         this.message.create('success', `审批通过！`);
         console.log('OK');
       },
@@ -101,14 +86,19 @@ export class RecruitApprovalComponent extends CoreComponent implements OnInit {
       nzOnCancel: () => console.log('Cancel')
     });
   }
-//  删除招聘需求
-  showDeleteConfirm(): void {
+//  驳回招聘需求
+  showDeleteConfirm(id,status,mes): void {
     this.modal.confirm({
-      nzTitle: '你确定要删除这条招聘需求吗',
-      nzContent: '<b style="color: red;">招聘岗位：前端开发 <br>需求人：赵三</b>',
+      nzTitle: '你确定要驳回这条招聘需求吗',
       nzOkText: '确定',
       nzOkType: 'danger',
-      nzOnOk: () => console.log('OK'),
+      nzOnOk: () => {
+        this.getApplyDataSvr.dealApply(id,status,mes).then(res=>{
+          console.log(res);
+          this.getAllApplyData();
+        });
+        this.message.create('success', `驳回成功！`);
+      },
       nzCancelText: '取消',
       nzOnCancel: () => console.log('Cancel')
     });

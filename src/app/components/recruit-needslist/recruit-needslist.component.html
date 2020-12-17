@@ -20,7 +20,7 @@
 
 
 <!--   基本信息-->
-      <form nz-form [nzLayout]="'inline'" [formGroup]="resumeData" (ngSubmit)="submitForm()">
+
         <div style="width: 100%;">
           <div nz-row>
             <div nz-col nzSpan="11">
@@ -155,188 +155,6 @@
             </div>
           </div>
 
-<!--          <div nz-row>-->
-<!--            <div nz-col nzSpan="8">-->
-<!--              <nz-form-item>-->
-<!--                <nz-form-label [nzSpan]="6" nzFor="email">性别</nz-form-label>-->
-<!--                <nz-form-control [nzSpan]="14">-->
-<!--                  <nz-radio-group formControlName="sex">-->
-<!--                    <label nz-radio nzValue="A">男</label>-->
-<!--                    <label nz-radio nzValue="B">女</label>-->
-<!--                  </nz-radio-group>-->
-<!--                </nz-form-control>-->
-<!--              </nz-form-item>-->
-<!--            </div>-->
-<!--            <div nz-col nzSpan="8">-->
-<!--              <nz-form-item>-->
-<!--                <nz-form-label [nzSpan]="6" nzFor="email">最高学历</nz-form-label>-->
-<!--                <nz-form-control [nzSpan]="14">-->
-<!--                  <input nz-input name="name" type="text" formControlName="highestEducation">-->
-<!--                </nz-form-control>-->
-<!--              </nz-form-item>-->
-<!--            </div>-->
-<!--          </div>-->
-
-<!--          <div nz-row>-->
-<!--            <div nz-col nzSpan="8">-->
-<!--              <nz-form-item>-->
-<!--                <nz-form-label [nzSpan]="6" nzFor="email">出生日期</nz-form-label>-->
-<!--                <nz-form-control [nzSpan]="14">-->
-<!--                  <nz-date-picker formControlName="birthDate"></nz-date-picker>-->
-<!--                </nz-form-control>-->
-<!--              </nz-form-item>-->
-<!--            </div>-->
-<!--            <div nz-col nzSpan="8">-->
-<!--              <nz-form-item>-->
-<!--                <nz-form-label [nzSpan]="6" nzFor="email">籍贯</nz-form-label>-->
-<!--                <nz-form-control [nzSpan]="14">-->
-<!--                  <input nz-input name="name" type="text" formControlName="nativePlace">-->
-<!--                </nz-form-control>-->
-<!--              </nz-form-item>-->
-<!--            </div>-->
-<!--          </div>-->
-
-<!--          <div nz-row>-->
-<!--            <div nz-col nzSpan="8">-->
-<!--              <nz-form-item>-->
-<!--                <nz-form-label [nzSpan]="6" nzFor="email">居住地</nz-form-label>-->
-<!--                <nz-form-control [nzSpan]="14">-->
-<!--                  <input nz-input name="name" type="text" formControlName="live">-->
-<!--                </nz-form-control>-->
-<!--              </nz-form-item>-->
-<!--            </div>-->
-<!--            <div nz-col nzSpan="8">-->
-<!--              <nz-form-item>-->
-<!--                <nz-form-label [nzSpan]="6" nzFor="email">工作状态</nz-form-label>-->
-<!--                <nz-form-control [nzSpan]="14">-->
-<!--                  <input nz-input name="name" type="text" formControlName="workCondition">-->
-<!--                </nz-form-control>-->
-<!--              </nz-form-item>-->
-<!--            </div>-->
-<!--          </div>-->
-
-
-<!--          <div nz-row>-->
-<!--            <div nz-col nzSpan="8">-->
-<!--              <nz-form-item>-->
-<!--                <nz-form-label [nzSpan]="6" nzFor="email">期望薪资</nz-form-label>-->
-<!--                <nz-form-control [nzSpan]="14">-->
-<!--                  <input nz-input name="name" type="text" formControlName="salaryExpectation">-->
-<!--                </nz-form-control>-->
-<!--              </nz-form-item>-->
-<!--            </div>-->
-<!--            <div nz-col nzSpan="10">-->
-<!--              <nz-form-item>-->
-<!--                <nz-form-label [nzSpan]="6" nzFor="email">婚姻状态</nz-form-label>-->
-<!--                <nz-form-control [nzSpan]="14">-->
-<!--                  <nz-radio-group formControlName="marriage">-->
-<!--                    <label nz-radio nzValue="未婚">未婚</label>-->
-<!--                    <label nz-radio nzValue="已婚">已婚</label>-->
-<!--                    <label nz-radio nzValue="已婚已育">已婚已育</label>-->
-<!--                  </nz-radio-group>-->
-<!--                </nz-form-control>-->
-<!--              </nz-form-item>-->
-<!--            </div>-->
-<!--          </div>-->
-
-<!--          <div nz-row>-->
-<!--            <div nz-col nzSpan="8">-->
-<!--              <nz-form-item>-->
-<!--                <nz-form-label [nzSpan]="6" nzFor="email">民族</nz-form-label>-->
-<!--                <nz-form-control [nzSpan]="14">-->
-<!--                  <input nz-input name="name" type="text" formControlName="nation">-->
-<!--                </nz-form-control>-->
-<!--              </nz-form-item>-->
-<!--            </div>-->
-<!--            <div nz-col nzSpan="10">-->
-<!--              <nz-form-item>-->
-<!--                <nz-form-label [nzSpan]="6" nzFor="email">政治面貌</nz-form-label>-->
-<!--                <nz-form-control [nzSpan]="14">-->
-<!--                  <nz-radio-group formControlName="politicalOutlook">-->
-<!--                    <label nz-radio nzValue="群众">群众</label>-->
-<!--                    <label nz-radio nzValue="团员">团员</label>-->
-<!--                    <label nz-radio nzValue="党员">党员</label>-->
-<!--                  </nz-radio-group>-->
-<!--                </nz-form-control>-->
-<!--              </nz-form-item>-->
-<!--            </div>-->
-<!--          </div>-->
-
-
-
-<!--          &lt;!&ndash;          教育经历&ndash;&gt;-->
-
-<!--          <div class="head2" nz-row>-->
-<!--            <h3 ><strong>教育经历</strong> </h3>-->
-<!--          </div>-->
-<!--          <div nz-row>-->
-<!--            <div nz-col nzSpan="8">-->
-<!--              <nz-form-item>-->
-<!--                <nz-form-label [nzSpan]="6" nzFor="email">毕业学校</nz-form-label>-->
-<!--                <nz-form-control [nzSpan]="14">-->
-<!--                  <input nz-input name="name" type="text" formControlName="school">-->
-<!--                </nz-form-control>-->
-<!--              </nz-form-item>-->
-<!--            </div>-->
-<!--            <div nz-col nzSpan="10">-->
-<!--              <nz-form-item>-->
-<!--                <nz-form-label [nzSpan]="6" nzFor="email">学历水平</nz-form-label>-->
-<!--                <nz-form-control [nzSpan]="14">-->
-<!--                  <nz-radio-group formControlName="education">-->
-<!--                    <label nz-radio nzValue="专科">专科</label>-->
-<!--                    <label nz-radio nzValue="本科">本科</label>-->
-<!--                    <label nz-radio nzValue="研究生">研究生</label>-->
-<!--                  </nz-radio-group>-->
-<!--                </nz-form-control>-->
-<!--              </nz-form-item>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div nz-row>-->
-<!--            <div nz-col nzSpan="8">-->
-<!--              <nz-form-item>-->
-<!--                <nz-form-label [nzSpan]="6" nzFor="email">专业</nz-form-label>-->
-<!--                <nz-form-control [nzSpan]="14">-->
-<!--                  <input nz-input name="name" type="text" formControlName="major">-->
-<!--                </nz-form-control>-->
-<!--              </nz-form-item>-->
-<!--            </div>-->
-<!--            <div nz-col nzSpan="8">-->
-<!--              <nz-form-item>-->
-<!--                <nz-form-label [nzSpan]="6" nzFor="email">毕业时间</nz-form-label>-->
-<!--                <nz-form-control [nzSpan]="14">-->
-<!--                  <nz-date-picker formControlName="graduationTime"></nz-date-picker>-->
-<!--                </nz-form-control>-->
-<!--              </nz-form-item>-->
-<!--            </div>-->
-<!--          </div>-->
-
-<!--          <div class="head2" nz-row>-->
-<!--            <h3 ><strong>工作经验</strong> </h3>-->
-<!--          </div>-->
-<!--          <div nz-row>-->
-<!--            <nz-form-item>-->
-<!--              <nz-form-label [nzSpan]="0" nzFor="email">工作经验</nz-form-label>-->
-<!--              <nz-form-control [nzSpan]="14">-->
-<!--                <textarea rows="4" nz-input formControlName="workExperience"></textarea>-->
-<!--              </nz-form-control>-->
-<!--            </nz-form-item>-->
-<!--          </div>-->
-
-<!--          <div class="head2" nz-row>-->
-<!--            <h3 ><strong>项目经验</strong> </h3>-->
-<!--          </div>-->
-<!--          <div nz-row>-->
-<!--            <nz-form-item>-->
-<!--              <nz-form-label [nzSpan]="0" nzFor="email">项目经验</nz-form-label>-->
-<!--              <nz-form-control [nzSpan]="14">-->
-<!--                <textarea rows="4" nz-input formControlName="projectExperience"></textarea>-->
-<!--              </nz-form-control>-->
-<!--            </nz-form-item>-->
-<!--          </div>-->
-
-<!--          <div class="head2" nz-row>-->
-<!--            <h3 ><strong>上传简历</strong> </h3>-->
-<!--          </div>-->
           <div style="margin-top: 20px;margin-bottom: 30px">
             <nz-upload
               nzAction="../uploads"
@@ -347,7 +165,7 @@
             </nz-upload>
           </div>
         </div>
-      </form>
+        <button nz-button nzType="primary">提交</button>
     </nz-content>
   </nz-layout>
 </div>

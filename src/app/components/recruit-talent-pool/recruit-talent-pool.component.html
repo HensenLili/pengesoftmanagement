@@ -24,19 +24,19 @@
                 <ng-template #i1><i nz-icon nzType="home"></i></ng-template>
               </nz-col>
               <nz-col [nzSpan]="5">
-                <nz-statistic [nzValue]="(1213121)!" [nzTitle]="'初试阶段'" [nzPrefix]="i2"></nz-statistic>
+                <nz-statistic [nzValue]="(7)!" [nzTitle]="'初试阶段'" [nzPrefix]="i2"></nz-statistic>
                 <ng-template #i2><i nz-icon nzType="like"></i></ng-template>
               </nz-col>
               <nz-col [nzSpan]="5">
-                <nz-statistic [nzValue]="(1128 )!" [nzTitle]="'复试阶段'" [nzPrefix]="i3"></nz-statistic>
+                <nz-statistic [nzValue]="(11 )!" [nzTitle]="'复试阶段'" [nzPrefix]="i3"></nz-statistic>
                 <ng-template #i3><i nz-icon nzType="highlight"></i></ng-template>
               </nz-col>
               <nz-col [nzSpan]="5">
-                <nz-statistic [nzValue]="(1128 )!" [nzTitle]="'面试阶段'" [nzPrefix]="i4"></nz-statistic>
+                <nz-statistic [nzValue]="(11 )!" [nzTitle]="'面试阶段'" [nzPrefix]="i4"></nz-statistic>
                 <ng-template #i4><i nz-icon nzType="user"></i></ng-template>
               </nz-col>
               <nz-col [nzSpan]="4">
-                <nz-statistic [nzValue]="(1128)!" [nzTitle]="'二面阶段'" [nzPrefix]="i5"></nz-statistic>
+                <nz-statistic [nzValue]="(15)!" [nzTitle]="'二面阶段'" [nzPrefix]="i5"></nz-statistic>
                 <ng-template #i5><i nz-icon nzType="team"></i></ng-template>
               </nz-col>
 
@@ -51,133 +51,265 @@
               <div style="" class="addButton">
                 <button nz-button nzType="primary" (click)="openAdd()"><a>新增简历</a></button>
 
-                <nz-modal [(nzVisible)]="isVisible" nzTitle="新增简历" (nzOnCancel)="handleCancel()" [nzStyle]="{width: '55%'}">
-                  <div >
+                <nz-modal [(nzVisible)]="isVisible" nzTitle="新增简历" (nzOnCancel)="handleCancel()"  >
+                  <form nz-form [nzLayout]="'inline'" [formGroup]="resumeData" (ngSubmit)="submitForm()">
+                  <div>
+                    <div id="addResume">
 
-                    <app-recruit-needslist></app-recruit-needslist>
+                          <div class="head1">
+                            <h3 ><strong>人才库录入</strong> </h3>
+                          </div>
+
+                          <!--   基本信息-->
+
+                          <div style="width: 100%;">
+                            <div nz-row>
+                              <div nz-col nzSpan="11">
+                                <nz-form-item>
+                                  <nz-form-label [nzSpan]="" nzFor="email" style="margin-right: 20px">选择招聘来源渠道</nz-form-label>
+                                  <nz-form-control [nzSpan]="">
+                                    <nz-select ngModel="Boos直聘" formControlName="ChannelId">
+                                      <nz-option nzValue="Boos直聘" nzLabel="Boos直聘"></nz-option>
+                                      <nz-option nzValue="智联招聘" nzLabel="智联招聘"></nz-option>
+                                      <nz-option nzValue="58同城" nzLabel="58同城"></nz-option>
+                                    </nz-select>
+                                  </nz-form-control>
+                                </nz-form-item>
+                              </div>
+
+
+                              <div nz-col nzSpan="10" nzOffset="3">
+                                <nz-form-item>
+                                  <nz-form-label [nzSpan]="" nzFor="email" style="margin-right: 20px">选择职位</nz-form-label>
+                                  <nz-form-control [nzSpan]="">
+                                    <nz-select ngModel="Java开发" formControlName="PositionId">
+                                      <nz-option nzValue="7" nzLabel="Java开发"></nz-option>
+                                      <nz-option nzValue="8" nzLabel="前端开发"></nz-option>
+                                    </nz-select>
+                                  </nz-form-control>
+                                </nz-form-item>
+                              </div>
+                            </div>
+                            <div class="head2" nz-row style="margin-top: 20px">
+                              <h3 ><strong>基本信息</strong> </h3>
+                            </div>
+
+
+
+                            <div nz-row>
+                              <div nz-col nzSpan="12">
+                                <nz-form-item>
+                                  <nz-form-label [nzSpan]="6" nzFor="email">姓名</nz-form-label>
+                                  <nz-form-control [nzSpan]="14">
+                                    <input nz-input name="name" type="text" formControlName="Name">
+                                  </nz-form-control>
+                                </nz-form-item>
+                              </div>
+                              <div nz-col nzSpan="12">
+                                <nz-form-item>
+                                  <nz-form-label [nzSpan]="6" nzFor="email">年龄</nz-form-label>
+                                  <nz-form-control [nzSpan]="14">
+                                    <input nz-input name="name" type="text" formControlName="Age">
+                                  </nz-form-control>
+                                </nz-form-item>
+                              </div>
+                            </div>
+
+                            <div nz-row style="margin-top: 20px">
+                              <div nz-col nzSpan="12">
+                                <nz-form-item>
+                                  <nz-form-label [nzSpan]="6" nzFor="email">性别</nz-form-label>
+                                  <nz-form-control [nzSpan]="14">
+                                    <input nz-input name="name" type="text" formControlName="Gender">
+                                  </nz-form-control>
+                                </nz-form-item>
+                              </div>
+                              <div nz-col nzSpan="12">
+                                <nz-form-item>
+                                  <nz-form-label [nzSpan]="6" nzFor="email">电话</nz-form-label>
+                                  <nz-form-control [nzSpan]="14">
+                                    <input nz-input name="name" type="text" formControlName="PhoneNumber">
+                                  </nz-form-control>
+                                </nz-form-item>
+                              </div>
+                            </div>
+
+                            <div nz-row style="margin-top: 20px">
+                              <div nz-col nzSpan="12">
+                                <nz-form-item>
+                                  <nz-form-label [nzSpan]="6" nzFor="email">邮箱</nz-form-label>
+                                  <nz-form-control [nzSpan]="14">
+                                    <input nz-input name="name" type="email" formControlName="Email">
+                                  </nz-form-control>
+                                </nz-form-item>
+                              </div>
+                              <div nz-col nzSpan="12">
+                                <nz-form-item>
+                                  <nz-form-label [nzSpan]="6" nzFor="email">学校</nz-form-label>
+                                  <nz-form-control [nzSpan]="14">
+                                    <input nz-input name="name" type="text" formControlName="School">
+                                  </nz-form-control>
+                                </nz-form-item>
+                              </div>
+                            </div>
+
+                            <div nz-row style="margin-top: 20px">
+                              <div nz-col nzSpan="12" nzOffset="">
+                                <nz-form-item>
+                                  <nz-form-label [nzSpan]="" nzFor="email" style="">简历放到</nz-form-label>
+                                  <nz-form-control [nzSpan]="">
+                                    <nz-select ngModel="入库" formControlName="RecruitStage">
+                                      <nz-option nzValue="入库" nzLabel="入库"></nz-option>
+                                      <nz-option nzValue="初试通过" nzLabel="初试通过"></nz-option>
+                                      <nz-option nzValue="复试通过" nzLabel="复试通过"></nz-option>
+                                      <nz-option nzValue="面试通过" nzLabel="面试通过"></nz-option>
+                                      <nz-option nzValue="未初试" nzLabel="未初试"></nz-option>
+                                    </nz-select>
+                                  </nz-form-control>
+                                </nz-form-item>
+                              </div>
+                              <div nz-col nzSpan="12" nzOffset="">
+                                <nz-form-item>
+                                  <nz-form-label [nzSpan]="" nzFor="email" style="">学历</nz-form-label>
+                                  <nz-form-control [nzSpan]="">
+                                    <nz-select ngModel="大专" formControlName="Education">
+                                      <nz-option nzValue="大专" nzLabel="大专"></nz-option>
+                                      <nz-option nzValue="本科" nzLabel="本科"></nz-option>
+                                      <nz-option nzValue="研究生" nzLabel="研究生"></nz-option>
+                                      <nz-option nzValue="博士" nzLabel="博士"></nz-option>
+                                    </nz-select>
+                                  </nz-form-control>
+                                </nz-form-item>
+                              </div>
+                            </div>
+
+                            <div nz-row style="margin-top: 20px">
+                              <div nz-col nzSpan="24">
+                                <nz-form-item>
+                                  <nz-form-label  nzFor="email">招聘方式</nz-form-label>
+                                  <nz-form-control >
+                                    <nz-radio-group formControlName="RecruitForm">
+                                      <label nz-radio nzValue="校招">校招</label>
+                                      <label nz-radio nzValue="社招">社招</label>
+                                      <label nz-radio nzValue="猎头">猎头</label>
+                                    </nz-radio-group>
+                                  </nz-form-control>
+                                </nz-form-item>
+                              </div>
+                            </div>
+                            <div nz-row>
+                              <div nz-col nzSpan="12">
+                                <nz-form-item>
+                                  <nz-form-label [nzSpan]="10" nzFor="email" style="">是否内推</nz-form-label>
+                                  <nz-form-control >
+                                    <nz-radio-group formControlName="Recommend">
+                                      <label nz-radio nzValue="1">是</label>
+                                      <label nz-radio nzValue="0">否</label>
+                                    </nz-radio-group>
+                                  </nz-form-control>
+                                </nz-form-item>
+                              </div>
+                            </div>
+
+                            <div nz-row style="margin-top: 20px">
+                              <div nz-col nzSpan="24">
+
+                                  <button nz-button nzType="primary" (click)="uploader.click()"  style="margin-bottom: 30px"><i nz-icon nzType="upload" nzTheme="outline"></i>上传简历</button>
+                                  <input type="file" hidden nz-input #uploader (change)="uploaderImage(uploader)">
+
+                              </div>
+                            </div>
+
+
+<!--                            <div style="margin-top: 20px;margin-bottom: 30px">-->
+<!--                              <nz-upload-->
+<!--                                nzAction="../uploads"-->
+<!--                                [nzHeaders]="{ authorization: 'authorization-text' }"-->
+<!--                                (nzChange)="handleChange($event)"-->
+<!--                              >-->
+<!--                                <button nz-button><i nz-icon nzType="upload"></i>上传简历</button>-->
+<!--                              </nz-upload>-->
+<!--                            </div>-->
+<!--                          </div>-->
+<!--                          <button nz-button nzType="primary">提交</button>-->
+                    </div>
+
+
 
                   </div>
-                  <div *nzModalFooter>
-                    <button nz-button nzType="default" (click)="handleCancel()">取消</button>
-                    <button nz-button nzType="primary" (click)="handleOk()">提交</button>
                   </div>
-
+                    <div *nzModalFooter>
+                      <button nz-button nzType="default" (click)="handleCancel()">取消</button>
+                      <button nz-button nzType="primary" (click)="handleOkAddResume()">提交</button>
+                    </div>
+                </form>
                 </nz-modal>
 
               </div>
             </div>
             <div nz-col nzSpan="4">
               <nz-form-item>
-                <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="email">排序方式</nz-form-label>
+                <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="name">排序方式</nz-form-label>
                 <nz-form-control [nzSm]="14" [nzXs]="24" >
-                  <nz-select ngModel="全部">
-                    <nz-option nzValue="年龄" nzLabel="年龄"></nz-option>
-                    <nz-option nzValue="简历接收时间" nzLabel="简历接收时间"></nz-option>
-                    <nz-option nzValue="全部" nzLabel="全部"></nz-option>
+                  <nz-select [(ngModel)]="orderData" (ngModelChange)="searchTalentPool(searchType,searchValue,orderData)">
+                    <nz-option nzValue="Age" nzLabel="年龄"></nz-option>
+                    <nz-option nzValue="reciveTime" nzLabel="简历接收时间"></nz-option>
+                    <nz-option nzValue="" nzLabel="全部"></nz-option>
                   </nz-select>
                 </nz-form-control>
               </nz-form-item>
             </div>
+
+
+            <div nz-col nzSpan="2" nzOffset="10">
+              <nz-select [(ngModel)]="searchType" style="width: 100px;">
+                <nz-option nzValue="allData" nzLabel="全部数据"></nz-option>
+                <nz-option nzValue="positionTypeName" nzLabel="职位类型"></nz-option>
+                <nz-option nzValue="name" nzLabel="姓名"></nz-option>
+                <nz-option nzValue="education" nzLabel="学历"></nz-option>
+<!--                <nz-option nzValue="Age" nzLabel="年龄"></nz-option>-->
+                <nz-option nzValue="school" nzLabel="学校"></nz-option>
+<!--                <nz-option nzValue="PhoneNumber" nzLabel="手机号码"></nz-option>-->
+                <nz-option nzValue="positionName" nzLabel="应聘职位"></nz-option>
+<!--                <nz-option nzValue="reciveTime" nzLabel="时间"></nz-option>-->
+<!--                <nz-option nzValue="RecruitStage" nzLabel="状态"></nz-option>-->
+              </nz-select>
+            </div>
+
+            <div nz-col nzSpan="6">
+              <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+                <input type="text" nz-input placeholder="input search text" [(ngModel)]="searchValue" (keypress)="searchTalentPool(searchType,searchValue,orderData)"/>
+              </nz-input-group>
+              <ng-template #suffixIconButton>
+                <button nz-button nzType="primary" nzSearch (click)="searchTalentPool(searchType,searchValue,orderData)"><i nz-icon nzType="search"></i></button>
+              </ng-template>
+            </div>
+
+
           </div>
+
+
+
           <div class="talent-pool-table">
             <nz-table nzTemplateMode #colList [nzData]="listOfDisplayData" nzTableLayout="fixed" [nzPageSize]="5">
               <thead>
               <tr>
-                <th>职位类别<br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()" name="position"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search" ></i>
-                  </ng-template>
-                </th>
-                <th>姓名
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchName()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>性别
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>学历
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>年龄
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>学校
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>手机号码
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>应聘职位
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>简历接受时间
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>状态
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
+                <th>职位类别</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>学历</th>
+                <th>年龄</th>
+                <th>学校</th>
+                <th>手机号码</th>
+                <th>应聘职位</th>
+                <th>简历接受时间</th>
+                <th>状态</th>
                 <th>操作</th>
               </tr>
               </thead>
               <tbody>
               <tr *ngFor="let data of colList.data">
-                <td>{{data.PositionName}}</td>
+                <td>{{data.PositionTypeName}}</td>
                 <td>{{data.Name}}</td>
                 <td>{{data.Gender}}</td>
                 <td>{{data.Education}}</td>
@@ -185,26 +317,100 @@
                 <td>{{data.School}}</td>
                 <td>{{data.PhoneNumber}}</td>
                 <td>{{data.PositionName}}</td>
-                <td>{{data.Revicetime}}</td>
-                <td ><p *ngIf="data.RecruitStage.StartScreen == 1">新增简历</p>
-                  <p *ngIf="data.RecruitStage.FirstScreen == 1">初试通过</p>
-                  <p *ngIf="data.RecruitStage.SeconScreen == 1">复试通过</p>
-                  <p *ngIf="data.RecruitStage.LastScreen == 1">面试通过</p>
-                </td>
+                <td>{{data.ReviceTime}}</td>
+                <td >{{data.RecruitStage}}</td>
                 <td>
-                  <a nz-dropdown [nzDropdownMenu]="menu">
-                    <i nz-icon nzType="caret-down" nzTheme="fill"></i>
+                  <a  routerLink="../recruitResumeShow" [queryParams]="{id:data.Id}">查看 | </a>
+
+                  <a  *ngIf="data.RecruitStage === '全部通过'" nzTooltipTitle = '进入offer页查看' nzTooltipPlacement="top" nz-tooltip>
+                    offer
+<!--                    <i nz-icon nzType="caret-down" nzTheme="fill"></i>-->
+                  </a>
+<!--                  <a  *ngIf="data.RecruitStage === '全部通过'">-->
+<!--                  发offer-->
+<!--                  &lt;!&ndash;                    <i nz-icon nzType="caret-down" nzTheme="fill"></i>&ndash;&gt;-->
+<!--                </a>-->
+                  <a nz-dropdown *ngIf="data.RecruitStage === '初试'" [nzDropdownMenu]="menu1">
+                    状态改变
+                    <!--                    <i nz-icon nzType="caret-down" nzTheme="fill"></i>-->
                   </a>
 
-                  <nz-dropdown-menu #menu="nzDropdownMenu">
+
+                  <nz-dropdown-menu  #menu1="nzDropdownMenu">
                     <ul nz-menu nzSelectable>
-                      <li nz-menu-item>初筛通过</li>
-                      <li nz-menu-item>复试通过</li>
-                      <li nz-menu-item>面试通过</li>
-                      <li nz-menu-item>二面通过</li>
-                      <li nz-menu-item nzDanger>筛选淘汰</li>
+                      <!--                      <li nz-menu-item (click)="changeStage(data.Id,'初试')">初试</li>-->
+                      <li nz-menu-item (click)="changeStage(data.Id,'复试')">复试通过</li>
+                      <li nz-menu-item (click)="changeStage(data.Id,'面试')">面试通过</li>
+                      <li nz-menu-item (click)="changeStage(data.Id,'二面')">二面通过</li>
+                      <li nz-menu-item nzDanger (click)="changeStage(data.Id,'淘汰')">筛选淘汰</li>
+                      <!--                      <li nz-menu-item nzDanger (click)="changeStage(data.Id,'淘汰')">筛选淘汰</li>-->
                     </ul>
                   </nz-dropdown-menu>
+
+                  <a nz-dropdown *ngIf="data.RecruitStage === '复试'" [nzDropdownMenu]="menu2">
+                    状态改变
+                    <!--                    <i nz-icon nzType="caret-down" nzTheme="fill"></i>-->
+                  </a>
+
+
+                  <nz-dropdown-menu  #menu2="nzDropdownMenu">
+                    <ul nz-menu nzSelectable>
+                      <!--                      <li nz-menu-item (click)="changeStage(data.Id,'初试')">初试</li>-->
+                      <li nz-menu-item (click)="changeStage(data.Id,'面试')">复试通过</li>
+                      <li nz-menu-item (click)="changeStage(data.Id,'二面')">面试通过</li>
+                      <li nz-menu-item (click)="changeStage(data.Id,'全部通过')">二面通过</li>
+<!--                      <li nz-menu-item (click)="changeStage(data.Id,'全部通过')">全部通过</li>-->
+                      <li nz-menu-item nzDanger (click)="changeStage(data.Id,'淘汰')">筛选淘汰</li>
+                      <!--                      <li nz-menu-item nzDanger (click)="changeStage(data.Id,'淘汰')">筛选淘汰</li>-->
+                    </ul>
+                  </nz-dropdown-menu>
+
+
+                  <a nz-dropdown *ngIf="data.RecruitStage === '面试'" [nzDropdownMenu]="menu3">
+                    状态改变
+                    <!--                    <i nz-icon nzType="caret-down" nzTheme="fill"></i>-->
+                  </a>
+
+
+                  <nz-dropdown-menu  #menu3="nzDropdownMenu">
+                    <ul nz-menu nzSelectable>
+                      <li nz-menu-item (click)="changeStage(data.Id,'二面')">面试通过</li>
+                      <li nz-menu-item (click)="changeStage(data.Id,'全部通过')">二面通过</li>
+<!--                      <li nz-menu-item (click)="changeStage(data.Id,'全部通过 ')">全部通过</li>-->
+                      <li nz-menu-item nzDanger (click)="changeStage(data.Id,'淘汰')">筛选淘汰</li>
+                    </ul>
+                  </nz-dropdown-menu>
+
+                  <a nz-dropdown *ngIf="data.RecruitStage === '二面'" [nzDropdownMenu]="menu4">
+                    状态改变
+                    <!--                    <i nz-icon nzType="caret-down" nzTheme="fill"></i>-->
+                  </a>
+
+
+                  <nz-dropdown-menu  #menu4="nzDropdownMenu">
+                    <ul nz-menu nzSelectable>
+                      <li nz-menu-item (click)="changeStage(data.Id,'全部通过')">全部通过</li>
+                      <li nz-menu-item nzDanger (click)="changeStage(data.Id,'淘汰')">筛选淘汰</li>
+                    </ul>
+                  </nz-dropdown-menu>
+
+                  <a nz-dropdown [nzDropdownMenu]="menu5" *ngIf="data.RecruitStage == '面试淘汰'||data.RecruitStage == '初试淘汰'||data.RecruitStage == '二面淘汰'||data.RecruitStage == '复试淘汰'">
+                    状态改变
+                    <!--                    <i nz-icon nzType="caret-down" nzTheme="fill"></i>-->
+                  </a>
+
+                  <nz-dropdown-menu #menu5="nzDropdownMenu">
+                    <ul nz-menu nzSelectable>
+                      <li nz-menu-item (click)="changeStage(data.d,'初试')">初试</li>
+                      <li nz-menu-item (click)="changIeStage(data.Id,'复试')">复试</li>
+                      <li nz-menu-item (click)="changeStage(data.Id,'面试')">面试</li>
+                      <li nz-menu-item (click)="changeStage(data.Id,'二面')">二面</li>
+                      <!--                      <li nz-menu-item nzDanger>筛选淘汰</li>-->
+                    </ul>
+                  </nz-dropdown-menu>
+
+
+
                 </td>
               </tr>
               </tbody>
@@ -213,121 +419,90 @@
         </nz-tab>
 
 
-        <nz-tab nzTitle="初试">
+        <nz-tab nzTitle="初试" (nzClick)="getStageData('初试')">
           <div nz-row>
             <div nz-col nzSpan="4">
               <nz-form-item>
                 <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="email">排序方式</nz-form-label>
                 <nz-form-control [nzSm]="14" [nzXs]="24" >
-                  <nz-select ngModel="全部">
-                    <nz-option nzValue="年龄" nzLabel="年龄"></nz-option>
-                    <nz-option nzValue="简历接收时间" nzLabel="简历接收时间"></nz-option>
-                    <nz-option nzValue="全部" nzLabel="全部"></nz-option>
+                  <nz-select [(ngModel)]="orderData2" (ngModelChange)="searchData(searchType2,searchValueOne,orderData2,'初试')">
+                    <nz-option nzValue="Age" nzLabel="年龄"></nz-option>
+                    <nz-option nzValue="reciveTime" nzLabel="简历接收时间"></nz-option>
+                    <nz-option nzValue="" nzLabel="全部"></nz-option>
                   </nz-select>
                 </nz-form-control>
               </nz-form-item>
             </div>
+
+            <div nz-col nzSpan="2" nzOffset="10">
+              <nz-select [(ngModel)]="searchType2" style="width: 100px;">
+                <nz-option nzValue="allData" nzLabel="全部数据"></nz-option>
+                <nz-option nzValue="positionTypeName" nzLabel="职位类型"></nz-option>
+                <nz-option nzValue="name" nzLabel="姓名"></nz-option>
+                <nz-option nzValue="education" nzLabel="学历"></nz-option>
+                <!--                <nz-option nzValue="Age" nzLabel="年龄"></nz-option>-->
+                <nz-option nzValue="school" nzLabel="学校"></nz-option>
+                <!--                <nz-option nzValue="PhoneNumber" nzLabel="手机号码"></nz-option>-->
+                <nz-option nzValue="positionName" nzLabel="应聘职位"></nz-option>
+                <!--                <nz-option nzValue="reciveTime" nzLabel="时间"></nz-option>-->
+                <!--                <nz-option nzValue="RecruitStage" nzLabel="状态"></nz-option>-->
+              </nz-select>
+            </div>
+
+            <div nz-col nzSpan="6">
+              <nz-input-group nzSearch [nzAddOnAfter]="chushi">
+                <input type="text" nz-input placeholder="input search text" [(ngModel)]="searchValueOne" (keypress)="searchData(searchType2,searchValueOne,orderData2,'初试')"/>
+              </nz-input-group>
+              <ng-template #chushi>
+                <button nz-button nzType="primary" nzSearch (click)="searchData(searchType2,searchValueOne,orderData2,'初试')"><i nz-icon nzType="search"></i></button>
+              </ng-template>
+            </div>
+
+
           </div>
           <div class="talent-pool-table">
-            <nz-table nzTemplateMode #colList [nzData]="listOfDisplayData" nzTableLayout="fixed">
+            <nz-table nzTemplateMode #FirstList [nzData]="firstListData" nzTableLayout="fixed">
               <thead>
               <tr>
-                <th>职位类别<br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()" name="position"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search" ></i>
-                  </ng-template>
-                </th>
-                <th>姓名
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchName()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>性别
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>学历
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>年龄
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>手机号码
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>应聘职位
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>简历接受时间
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
+                <th>职位类别</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>学历</th>
+                <th>年龄</th>
+                <th>学校</th>
+                <th>手机号码</th>
+                <th>应聘职位</th>
+                <th>简历接受时间</th>
+                <th>状态</th>
                 <th>操作</th>
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let data of colList.data">
-                <td>{{data.position}}</td>
-                <td>{{data.name}}</td>
-                <td>{{data.sex}}</td>
-                <td>{{data.education}}</td>
-                <td>{{data.age}}</td>
-                <td>{{data.phone}}</td>
-                <td>{{data.applied}}</td>
-                <td>{{data.time}}</td>
+              <tr *ngFor="let data of FirstList.data">
+                <td>{{data.PositionTypeName}}</td>
+                <td>{{data.Name}}</td>
+                <td>{{data.Gender}}</td>
+                <td>{{data.Education}}</td>
+                <td>{{data.Age}}</td>
+                <td>{{data.School}}</td>
+                <td>{{data.PhoneNumber}}</td>
+                <td>{{data.PositionName}}</td>
+                <td>{{data.ReviceTime}}</td>
+                <td >{{data.RecruitStage}}</td>
                 <td>
+                  <a  routerLink="../recruitResumeShow" [queryParams]="{id:data.Id}">查看 | </a>
+
                   <a nz-dropdown [nzDropdownMenu]="menu">
-                    <i nz-icon nzType="caret-down" nzTheme="fill"></i>
+                    状态改变
+                    <!--                    <i nz-icon nzType="caret-down" nzTheme="fill"></i>-->
                   </a>
 
                   <nz-dropdown-menu #menu="nzDropdownMenu">
                     <ul nz-menu nzSelectable>
-                      <li nz-menu-item>初筛通过</li>
-                      <li nz-menu-item>复试通过</li>
-                      <li nz-menu-item>面试通过</li>
-                      <li nz-menu-item>二面通过</li>
-                      <li nz-menu-item nzDanger>筛选淘汰</li>
+                      <li nz-menu-item (click)="changeStage(data.Id,'复试')">复试通过</li>
+                      <li nz-menu-item (click)="changeStage(data.Id,'面试')">面试通过</li>
+                      <li nz-menu-item (click)="changeStage(data.Id,'二面')">二面通过</li>
+                      <li nz-menu-item nzDanger (click)="changeStage(data.Id,'淘汰')">筛选淘汰</li>
                     </ul>
                   </nz-dropdown-menu>
                 </td>
@@ -338,121 +513,90 @@
         </nz-tab>
 
 
-        <nz-tab nzTitle="复试">
+        <nz-tab nzTitle="复试" (nzClick)="getStageData('复试')">
           <div nz-row>
             <div nz-col nzSpan="4">
               <nz-form-item>
                 <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="email">排序方式</nz-form-label>
                 <nz-form-control [nzSm]="14" [nzXs]="24" >
-                  <nz-select ngModel="全部">
-                    <nz-option nzValue="年龄" nzLabel="年龄"></nz-option>
-                    <nz-option nzValue="简历接收时间" nzLabel="简历接收时间"></nz-option>
-                    <nz-option nzValue="全部" nzLabel="全部"></nz-option>
+                  <nz-select ngModel="全部" [(ngModel)]="orderData3" (ngModelChange)="searchData(searchType3,searchValueFu,orderData3,'复试')">
+                    <nz-option nzValue="Age" nzLabel="年龄"></nz-option>
+                    <nz-option nzValue="reciveTime" nzLabel="简历接收时间"></nz-option>
+                    <nz-option nzValue="" nzLabel="全部"></nz-option>
                   </nz-select>
                 </nz-form-control>
               </nz-form-item>
             </div>
+
+
+            <div nz-col nzSpan="2" nzOffset="10">
+              <nz-select [(ngModel)]="searchType3" style="width: 100px;">
+                <nz-option nzValue="allData" nzLabel="全部数据"></nz-option>
+                <nz-option nzValue="positionTypeName" nzLabel="职位类型"></nz-option>
+                <nz-option nzValue="name" nzLabel="姓名"></nz-option>
+                <nz-option nzValue="education" nzLabel="学历"></nz-option>
+                <!--                <nz-option nzValue="Age" nzLabel="年龄"></nz-option>-->
+                <nz-option nzValue="school" nzLabel="学校"></nz-option>
+                <!--                <nz-option nzValue="PhoneNumber" nzLabel="手机号码"></nz-option>-->
+                <nz-option nzValue="positionName" nzLabel="应聘职位"></nz-option>
+                <!--                <nz-option nzValue="reciveTime" nzLabel="时间"></nz-option>-->
+                <!--                <nz-option nzValue="RecruitStage" nzLabel="状态"></nz-option>-->
+              </nz-select>
+            </div>
+
+            <div nz-col nzSpan="6">
+              <nz-input-group nzSearch [nzAddOnAfter]="fushi">
+                <input type="text" nz-input placeholder="input search text" [(ngModel)]="searchValueFu" (keypress)="searchData(searchType3,searchValueFu,orderData3,'复试')"/>
+              </nz-input-group>
+              <ng-template #fushi>
+                <button nz-button nzType="primary" nzSearch (click)="searchData(searchType3,searchValueFu,orderData3,'复试')"><i nz-icon nzType="search"></i></button>
+              </ng-template>
+            </div>
+
           </div>
           <div class="talent-pool-table">
-            <nz-table nzTemplateMode #colList [nzData]="listOfDisplayData" nzTableLayout="fixed">
+            <nz-table nzTemplateMode #colList [nzData]="firstListData" nzTableLayout="fixed">
               <thead>
               <tr>
-                <th>职位类别<br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()" name="position"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search" ></i>
-                  </ng-template>
-                </th>
-                <th>姓名
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchName()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>性别
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>学历
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>年龄
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>手机号码
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>应聘职位
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>简历接受时间
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
+                <th>职位类别</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>学历</th>
+                <th>年龄</th>
+                <th>学校</th>
+                <th>手机号码</th>
+                <th>应聘职位</th>
+                <th>简历接受时间</th>
+                <th>状态</th>
                 <th>操作</th>
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let data of colList.data">
-                <td>{{data.position}}</td>
-                <td>{{data.name}}</td>
-                <td>{{data.sex}}</td>
-                <td>{{data.education}}</td>
-                <td>{{data.age}}</td>
-                <td>{{data.phone}}</td>
-                <td>{{data.applied}}</td>
-                <td>{{data.time}}</td>
+              <tr *ngFor="let data of FirstList.data">
+                <td>{{data.PositionTypeName}}</td>
+                <td>{{data.Name}}</td>
+                <td>{{data.Gender}}</td>
+                <td>{{data.Education}}</td>
+                <td>{{data.Age}}</td>
+                <td>{{data.School}}</td>
+                <td>{{data.PhoneNumber}}</td>
+                <td>{{data.PositionName}}</td>
+                <td>{{data.ReviceTime}}</td>
+                <td >{{data.RecruitStage}}</td>
                 <td>
+                  <a  routerLink="../recruitResumeShow" [queryParams]="{id:data.Id}">查看 | </a>
+
                   <a nz-dropdown [nzDropdownMenu]="menu">
-                    <i nz-icon nzType="caret-down" nzTheme="fill"></i>
+                    状态改变
+                    <!--                    <i nz-icon nzType="caret-down" nzTheme="fill"></i>-->
                   </a>
 
                   <nz-dropdown-menu #menu="nzDropdownMenu">
                     <ul nz-menu nzSelectable>
-                      <li nz-menu-item>初筛通过</li>
-                      <li nz-menu-item>复试通过</li>
-                      <li nz-menu-item>面试通过</li>
-                      <li nz-menu-item>二面通过</li>
-                      <li nz-menu-item nzDanger>筛选淘汰</li>
+
+                      <li nz-menu-item (click)="changeStage(data.Id,'二面')">面试通过</li>
+                      <li nz-menu-item (click)="changeStage(data.Id,'全部通过')">全部通过</li>
+                      <li nz-menu-item nzDanger (click)="changeStage(data.Id,'淘汰')">筛选淘汰</li>
                     </ul>
                   </nz-dropdown-menu>
                 </td>
@@ -461,18 +605,10 @@
             </nz-table>
           </div>
         </nz-tab>
-        <nz-tab nzTitle="面试">
+
+        <nz-tab nzTitle="面试" (nzClick)="getStageData('面试')">
 
           <div nz-row style="margin-top: 20px">
-            <nz-col nzSpan="2">
-              <button nz-button nzType="default">待邀约</button>
-            </nz-col>
-            <nz-col nzSpan="2">
-              <button nz-button nzType="default">待面试</button>
-            </nz-col>
-            <nz-col nzSpan="2">
-              <button nz-button nzType="default">未通过</button>
-            </nz-col>
             <nz-col nzSpan="2">
               <button nz-button nzType="primary" (click)="interviewSchedule()">面试日程</button>
               <nz-modal [(nzVisible)]="visibleInterview" nzTitle="面试日程" (nzOnCancel)="handleCancel()">
@@ -515,119 +651,86 @@
                 </div>
               </nz-modal>
             </nz-col>
-            <div nz-col nzSpan="4" nzOffset="10">
+            <div nz-col nzSpan="4" nzOffset="">
               <nz-form-item>
                 <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="email">排序方式</nz-form-label>
                 <nz-form-control [nzSm]="14" [nzXs]="24" >
-                  <nz-select ngModel="全部">
-                    <nz-option nzValue="年龄" nzLabel="年龄"></nz-option>
-                    <nz-option nzValue="简历接收时间" nzLabel="简历接收时间"></nz-option>
-                    <nz-option nzValue="全部" nzLabel="全部"></nz-option>
+                  <nz-select ngModel="全部" [(ngModel)]="orderData4" (ngModelChange)="searchData(searchType4,searchInterview,orderData4,'面试')">
+                    <nz-option nzValue="Age" nzLabel="年龄"></nz-option>
+                    <nz-option nzValue="reciveTime" nzLabel="简历接收时间"></nz-option>
+                    <nz-option nzValue="" nzLabel="全部"></nz-option>
                   </nz-select>
                 </nz-form-control>
               </nz-form-item>
             </div>
+            <div nz-col nzSpan="2" nzOffset="10">
+              <nz-select [(ngModel)]="searchType4" style="width: 100px;">
+                <nz-option nzValue="allData" nzLabel="全部数据"></nz-option>
+                <nz-option nzValue="positionTypeName" nzLabel="职位类型"></nz-option>
+                <nz-option nzValue="name" nzLabel="姓名"></nz-option>
+                <nz-option nzValue="education" nzLabel="学历"></nz-option>
+                <!--                <nz-option nzValue="Age" nzLabel="年龄"></nz-option>-->
+                <nz-option nzValue="school" nzLabel="学校"></nz-option>
+                <!--                <nz-option nzValue="PhoneNumber" nzLabel="手机号码"></nz-option>-->
+                <nz-option nzValue="positionName" nzLabel="应聘职位"></nz-option>
+                <!--                <nz-option nzValue="reciveTime" nzLabel="时间"></nz-option>-->
+                <!--                <nz-option nzValue="RecruitStage" nzLabel="状态"></nz-option>-->
+              </nz-select>
+            </div>
+
+            <div nz-col nzSpan="6">
+              <nz-input-group nzSearch [nzAddOnAfter]="Interview">
+                <input type="text" nz-input placeholder="input search text" [(ngModel)]="searchInterview" (keypress)="searchData(searchType4,searchInterview,orderData4,'面试')"/>
+              </nz-input-group>
+              <ng-template #Interview>
+                <button nz-button nzType="primary" nzSearch (click)="searchData(searchType4,searchInterview,orderData4,'面试')"><i nz-icon nzType="search"></i></button>
+              </ng-template>
+            </div>
+
+
           </div>
           <div class="talent-pool-table">
-            <nz-table nzTemplateMode #colList [nzData]="listOfDisplayData" nzTableLayout="fixed">
+            <nz-table nzTemplateMode #colList [nzData]="firstListData" nzTableLayout="fixed">
               <thead>
               <tr>
-                <th>职位类别<br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()" name="position"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search" ></i>
-                  </ng-template>
-                </th>
-                <th>姓名
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchName()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>性别
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>学历
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>年龄
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>手机号码
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>应聘职位
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>简历接受时间
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
+                <th>职位类别</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>学历</th>
+                <th>年龄</th>
+                <th>学校</th>
+                <th>手机号码</th>
+                <th>应聘职位</th>
+                <th>简历接受时间</th>
+                <th>状态</th>
                 <th>操作</th>
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let data of colList.data">
-                <td>{{data.position}}</td>
-                <td>{{data.name}}</td>
-                <td>{{data.sex}}</td>
-                <td>{{data.education}}</td>
-                <td>{{data.age}}</td>
-                <td>{{data.phone}}</td>
-                <td>{{data.applied}}</td>
-                <td>{{data.time}}</td>
+              <tr *ngFor="let data of FirstList.data">
+                <td>{{data.PositionTypeName}}</td>
+                <td>{{data.Name}}</td>
+                <td>{{data.Gender}}</td>
+                <td>{{data.Education}}</td>
+                <td>{{data.Age}}</td>
+                <td>{{data.School}}</td>
+                <td>{{data.PhoneNumber}}</td>
+                <td>{{data.PositionName}}</td>
+                <td>{{data.ReviceTime}}</td>
+                <td >{{data.RecruitStage}}</td>
                 <td>
+                  <a  routerLink="../recruitResumeShow" [queryParams]="{id:data.Id}">查看 | </a>
+
                   <a nz-dropdown [nzDropdownMenu]="menu">
-                    <i nz-icon nzType="caret-down" nzTheme="fill"></i>
+                    状态改变
+                    <!--                    <i nz-icon nzType="caret-down" nzTheme="fill"></i>-->
                   </a>
 
                   <nz-dropdown-menu #menu="nzDropdownMenu">
                     <ul nz-menu nzSelectable>
-                      <li nz-menu-item>初筛通过</li>
-                      <li nz-menu-item>复试通过</li>
-                      <li nz-menu-item>面试通过</li>
-                      <li nz-menu-item>二面通过</li>
-                      <li nz-menu-item nzDanger>筛选淘汰</li>
+                      <li nz-menu-item (click)="changeStage(data.Id,'二面')">面试通过</li>
+                      <li nz-menu-item (click)="changeStage(data.Id,'全部通过 ')">全部通过</li>
+                      <li nz-menu-item nzDanger (click)="changeStage(data.Id,'淘汰')">筛选淘汰</li>
                     </ul>
                   </nz-dropdown-menu>
                 </td>
@@ -638,121 +741,88 @@
 <!--          <button nz-button nzType="primary">已淘汰</button>-->
         </nz-tab>
 
-        <nz-tab nzTitle="二面">
+        <nz-tab nzTitle="二面" (nzClick)="getStageData('二面')">
           <div nz-row>
             <div nz-col nzSpan="4">
               <nz-form-item>
                 <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="email">排序方式</nz-form-label>
                 <nz-form-control [nzSm]="14" [nzXs]="24" >
-                  <nz-select ngModel="全部">
-                    <nz-option nzValue="年龄" nzLabel="年龄"></nz-option>
-                    <nz-option nzValue="简历接收时间" nzLabel="简历接收时间"></nz-option>
-                    <nz-option nzValue="全部" nzLabel="全部"></nz-option>
+                  <nz-select ngModel="全部" [(ngModel)]="orderData5" (ngModelChange)="searchData(searchType5,searchValueTwo,orderData5,'二面')">
+                    <nz-option nzValue="Age" nzLabel="年龄"></nz-option>
+                    <nz-option nzValue="reciveTime" nzLabel="简历接收时间"></nz-option>
+                    <nz-option nzValue="" nzLabel="全部"></nz-option>
                   </nz-select>
                 </nz-form-control>
               </nz-form-item>
             </div>
+
+            <div nz-col nzSpan="2" nzOffset="10">
+              <nz-select [(ngModel)]="searchType5" style="width: 100px;">
+                <nz-option nzValue="allData" nzLabel="全部数据"></nz-option>
+                <nz-option nzValue="positionTypeName" nzLabel="职位类型"></nz-option>
+                <nz-option nzValue="name" nzLabel="姓名"></nz-option>
+                <nz-option nzValue="education" nzLabel="学历"></nz-option>
+                <!--                <nz-option nzValue="Age" nzLabel="年龄"></nz-option>-->
+                <nz-option nzValue="school" nzLabel="学校"></nz-option>
+                <!--                <nz-option nzValue="PhoneNumber" nzLabel="手机号码"></nz-option>-->
+                <nz-option nzValue="positionName" nzLabel="应聘职位"></nz-option>
+                <!--                <nz-option nzValue="reciveTime" nzLabel="时间"></nz-option>-->
+                <!--                <nz-option nzValue="RecruitStage" nzLabel="状态"></nz-option>-->
+              </nz-select>
+            </div>
+
+            <div nz-col nzSpan="6">
+              <nz-input-group nzSearch [nzAddOnAfter]="ermian">
+                <input type="text" nz-input placeholder="input search text" [(ngModel)]="searchValueTwo" (keypress)="searchData(searchType5,searchValueTwo,orderData5,'二面')"/>
+              </nz-input-group>
+              <ng-template #ermian>
+                <button nz-button nzType="primary" nzSearch (click)="searchData(searchType5,searchValueTwo,orderData5,'二面')"><i nz-icon nzType="search"></i></button>
+              </ng-template>
+            </div>
+
+
           </div>
           <div class="talent-pool-table">
-            <nz-table nzTemplateMode #colList [nzData]="listOfDisplayData" nzTableLayout="fixed">
+            <nz-table nzTemplateMode #colList [nzData]="firstListData" nzTableLayout="fixed">
               <thead>
               <tr>
-                <th>职位类别<br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()" name="position"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search" ></i>
-                  </ng-template>
-                </th>
-                <th>姓名
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchName()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>性别
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>学历
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>年龄
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>手机号码
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>应聘职位
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>简历接受时间
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
+                <th>职位类别</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>学历</th>
+                <th>年龄</th>
+                <th>学校</th>
+                <th>手机号码</th>
+                <th>应聘职位</th>
+                <th>简历接受时间</th>
+                <th>状态</th>
                 <th>操作</th>
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let data of colList.data">
-                <td>{{data.position}}</td>
-                <td>{{data.name}}</td>
-                <td>{{data.sex}}</td>
-                <td>{{data.education}}</td>
-                <td>{{data.age}}</td>
-                <td>{{data.phone}}</td>
-                <td>{{data.applied}}</td>
-                <td>{{data.time}}</td>
+              <tr *ngFor="let data of FirstList.data">
+                <td>{{data.PositionTypeName}}</td>
+                <td>{{data.Name}}</td>
+                <td>{{data.Gender}}</td>
+                <td>{{data.Education}}</td>
+                <td>{{data.Age}}</td>
+                <td>{{data.School}}</td>
+                <td>{{data.PhoneNumber}}</td>
+                <td>{{data.PositionName}}</td>
+                <td>{{data.ReviceTime}}</td>
+                <td >{{data.RecruitStage}}</td>
                 <td>
+                  <a  routerLink="../recruitResumeShow" [queryParams]="{id:data.Id}">查看 | </a>
+
                   <a nz-dropdown [nzDropdownMenu]="menu">
-                    <i nz-icon nzType="caret-down" nzTheme="fill"></i>
+                    状态改变
+                    <!--                    <i nz-icon nzType="caret-down" nzTheme="fill"></i>-->
                   </a>
 
                   <nz-dropdown-menu #menu="nzDropdownMenu">
                     <ul nz-menu nzSelectable>
-                      <li nz-menu-item>初筛通过</li>
-                      <li nz-menu-item>复试通过</li>
-                      <li nz-menu-item>面试通过</li>
-                      <li nz-menu-item>二面通过</li>
-                      <li nz-menu-item nzDanger>筛选淘汰</li>
+                      <li nz-menu-item (click)="changeStage(data.Id,'全部通过')">全部通过</li>
+                      <li nz-menu-item nzDanger (click)="changeStage(data.Id,'淘汰')">筛选淘汰</li>
                     </ul>
                   </nz-dropdown-menu>
                 </td>
@@ -764,133 +834,136 @@
 
         <nz-tab nzTitle="发放offer">
 
-          <div nz-row style="margin-top: 30px">
+          <div nz-row style="margin-top: 30px;margin-bottom: 30px">
             <nz-col nzSpan="2">
-              <button nz-button nzType="default">发放offer</button>
+              <button nz-button nzType="default" (click)="getOutData(1)">发放offer</button>
             </nz-col>
             <nz-col nzSpan="2">
-              <button nz-button nzType="default">待入职</button>
+              <button nz-button nzType="default" (click)="getPass1()">待入职</button>
             </nz-col>
             <nz-col nzSpan="2">
-              <button nz-button nzType="default">已淘汰</button>
-            </nz-col>
-            <nz-col nzSpan="2">
-              <button nz-button nzType="default">黑名单</button>
+              <button nz-button nzType="default" (click)="getOutData(3)">已淘汰</button>
             </nz-col>
 
-            <div nz-col nzSpan="4">
-              <nz-form-item>
-                <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="email">排序方式</nz-form-label>
-                <nz-form-control [nzSm]="14" [nzXs]="24" >
-                  <nz-select ngModel="全部">
-                    <nz-option nzValue="年龄" nzLabel="年龄"></nz-option>
-                    <nz-option nzValue="简历接收时间" nzLabel="简历接收时间"></nz-option>
-                    <nz-option nzValue="全部" nzLabel="全部"></nz-option>
-                  </nz-select>
-                </nz-form-control>
-              </nz-form-item>
+            <div nz-col nzSpan="2" nzOffset="10">
+              <nz-select [(ngModel)]="searchType6" style="width: 100px;">
+                <nz-option nzValue="allData" nzLabel="全部数据"></nz-option>
+                <nz-option nzValue="positionTypeName" nzLabel="职位类型"></nz-option>
+                <nz-option nzValue="name" nzLabel="姓名"></nz-option>
+                <nz-option nzValue="education" nzLabel="学历"></nz-option>
+                <!--                <nz-option nzValue="Age" nzLabel="年龄"></nz-option>-->
+                <nz-option nzValue="school" nzLabel="学校"></nz-option>
+                <!--                <nz-option nzValue="PhoneNumber" nzLabel="手机号码"></nz-option>-->
+                <nz-option nzValue="positionName" nzLabel="应聘职位"></nz-option>
+                <!--                <nz-option nzValue="reciveTime" nzLabel="时间"></nz-option>-->
+                <!--                <nz-option nzValue="RecruitStage" nzLabel="状态"></nz-option>-->
+              </nz-select>
             </div>
+
+            <div nz-col nzSpan="6">
+              <nz-input-group nzSearch [nzAddOnAfter]="sendOffer">
+                <input type="text" nz-input placeholder="input search text" [(ngModel)]="searchValueOffer" (keypress)="searchData(searchType6,searchValueOffer,orderData6,6)"/>
+              </nz-input-group>
+              <ng-template #sendOffer>
+                <button nz-button nzType="primary" nzSearch (click)="searchData(searchType6,searchValueOffer,orderData6,6)"><i nz-icon nzType="search"></i></button>
+              </ng-template>
+            </div>
+
+
           </div>
           <div class="talent-pool-table">
-            <nz-table nzTemplateMode #colList [nzData]="listOfDisplayData" nzTableLayout="fixed">
+            <nz-table nzTemplateMode #outdata [nzData]="resumeOut" nzTableLayout="fixed">
               <thead>
               <tr>
-                <th>职位类别<br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()" name="position"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search" ></i>
-                  </ng-template>
-                </th>
-                <th>姓名
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchName()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>性别
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>学历
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>年龄
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>手机号码
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>应聘职位
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
-                <th>简历接受时间
-                  <br>
-                  <nz-input-group [nzSuffix]="suffixIconSearch">
-                    <input type="text" nz-input placeholder="请输入..." [(ngModel)]="searchValue" (keyup)="searchPosition()"/>
-                  </nz-input-group>
-                  <ng-template #suffixIconSearch>
-                    <i nz-icon nzType="search"></i>
-                  </ng-template>
-                </th>
+                <th>职位类别</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>学历</th>
+                <th>年龄</th>
+                <th>学校</th>
+                <th>手机号码</th>
+                <th>应聘职位</th>
+                <th>简历接受时间</th>
+                <th>邮件状态</th>
+                <th>状态</th>
                 <th>操作</th>
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let data of colList.data">
-                <td>{{data.position}}</td>
-                <td>{{data.name}}</td>
-                <td>{{data.sex}}</td>
-                <td>{{data.education}}</td>
-                <td>{{data.age}}</td>
-                <td>{{data.phone}}</td>
-                <td>{{data.applied}}</td>
-                <td>{{data.time}}</td>
+              <tr *ngFor="let data of outdata.data">
+                <td>{{data.PositionTypeName}}</td>
+                <td>{{data.Name}}</td>
+                <td>{{data.Gender}}</td>
+                <td>{{data.Education}}</td>
+                <td>{{data.Age}}</td>
+                <td>{{data.School}}</td>
+                <td>{{data.PhoneNumber}}</td>
+                <td>{{data.PositionName}}</td>
+                <td>{{data.ReviceTime}}</td>
+                <td style="color: #cc080e" *ngIf="data.OfferMes == '未发送'">{{data.OfferMes}}</td>
+                <td style="color: #2dcc39" *ngIf="data.OfferMes == '已发送'">{{data.OfferMes}}</td>
+                <td *ngIf="data.OfferMes == null">无</td>
+                <td >{{data.RecruitStage}}</td>
                 <td>
-                  <a nz-dropdown [nzDropdownMenu]="menu">
-                    <i nz-icon nzType="caret-down" nzTheme="fill"></i>
+                  <a  routerLink="../recruitResumeShow" [queryParams]="{id:data.Id}">查看 | </a>
+                  <a *ngIf="data.RecruitStage == '全部通过'&&data.OfferMes=='已发送'">入职</a>
+                    <a  *ngIf="data.RecruitStage == '全部通过'&&data.OfferMes=='未发送'" (click)="OfferModal(data)">发放offer</a>
+                    <nz-modal [(nzVisible)]="isVisibleOffer" nzTitle="Custom Modal Title" (nzOnCancel)="cancelOfferModal()">
+                      <form nz-form (ngSubmit)="submitForm()" [formGroup]="sendOfferData">
+                        <div >
+                          <div style="margin-left: 65px">
+                            <p>收件人：{{resumeOutData.Name}}</p>
+                            <p>电话：{{resumeOutData.PhoneNumber}}</p>
+                            <p>岗位：{{resumeOutData.PositionName}}</p>
+                          </div>
+
+
+                          <nz-form-item>
+                            <nz-form-label [nzSpan]="6" nzFor="email">邮件标题</nz-form-label>
+                            <nz-form-control [nzSpan]="14">
+                              <input nz-input name="text" type="email" id="title" formControlName="Title">
+                            </nz-form-control>
+                          </nz-form-item >
+                          <nz-form-item>
+                            <nz-form-label [nzSpan]="6" nzFor="email">邮件信息</nz-form-label>
+                            <nz-form-control [nzSpan]="14">
+                              <textarea nz-input placeholder="concnoncncoc" [nzAutosize]="{minRows:3, maxRows:5}" formControlName="Message"></textarea>
+                            </nz-form-control>
+                          </nz-form-item >
+                          <nz-form-item>
+                            <nz-form-label [nzSpan]="6" nzFor="email">收件人E-mail</nz-form-label>
+                            <nz-form-control [nzSpan]="14">
+                              <input nz-input name="text" type="email" id="email" formControlName="RecieveMail" [(ngModel)]="email">
+                            </nz-form-control>
+                          </nz-form-item >
+                          <div style="margin-top: 30px;margin-left: 20px">
+                            <button nz-button nzType="primary" (click)="uploader.click()"  style="margin-bottom: 30px"><i nz-icon nzType="upload" nzTheme="outline"></i>上传附件</button>
+                            <input type="file" hidden nz-input #uploader (change)="uploaderImage(uploader)">
+                          </div>
+                        </div>
+                        <div *nzModalFooter>
+                          <button nz-button nzType="default" (click)="handleCancelOffer()">取消</button>
+                          <button nz-button nzType="primary" (click)="handleOkOffer(resumeOutData.Id)">发送</button>
+                        </div>
+                      </form>
+
+                    </nz-modal>
+
+                  <a nz-dropdown [nzDropdownMenu]="menu" *ngIf="data.RecruitStage == '面试淘汰'||data.RecruitStage == '初试淘汰'||data.RecruitStage == '二面淘汰'||data.RecruitStage == '复试淘汰'">
+                    状态改变
+                    <!--                    <i nz-icon nzType="caret-down" nzTheme="fill"></i>-->
                   </a>
 
                   <nz-dropdown-menu #menu="nzDropdownMenu">
                     <ul nz-menu nzSelectable>
-                      <li nz-menu-item>发送offer</li>
-                      <li nz-menu-item>移入人才库</li>
-                      <li nz-menu-item nzDanger>移入黑名单</li>
+                      <li nz-menu-item (click)="changeStage(data.id,'初试')">初试</li>
+                      <li nz-menu-item (click)="changeStage(data.Id,'复试')">复试</li>
+                      <li nz-menu-item (click)="changeStage(data.Id,'面试')">面试</li>
+                      <li nz-menu-item (click)="changeStage(data.Id,'二面')">二面</li>
+<!--                      <li nz-menu-item nzDanger>筛选淘汰</li>-->
                     </ul>
                   </nz-dropdown-menu>
+
                 </td>
               </tr>
               </tbody>
@@ -907,4 +980,4 @@
 
   </nz-content>
 </nz-layout>
-<!--<router-outlet></router-outlet>-->
+<router-outlet></router-outlet>

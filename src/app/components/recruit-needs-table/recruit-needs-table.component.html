@@ -14,10 +14,10 @@
             <nz-form-item>
               <nz-form-label [nzSpan]="6" nzFor="email">申请部门</nz-form-label>
               <nz-form-control >
-                <nz-select ngModel="市场部" formControlName="department">
+                <nz-select ngModel="市场部" formControlName="UserName">
                   <nz-option nzValue="市场部" nzLabel="市场部"></nz-option>
-                  <nz-option nzValue="技术部" nzLabel="技术部"></nz-option>
-                  <nz-option nzValue="行政部" nzLabel="行政部"></nz-option>
+<!--                  <nz-option nzValue="技术部" nzLabel="技术部"></nz-option>-->
+<!--                  <nz-option nzValue="行政部" nzLabel="行政部"></nz-option>-->
                 </nz-select>
               </nz-form-control>
             </nz-form-item>
@@ -26,7 +26,7 @@
             <nz-form-item>
               <nz-form-label [nzSpan]="8" nzFor="email">申请时间</nz-form-label>
               <nz-form-control>
-                <nz-date-picker formControlName="ApplicationTime"></nz-date-picker>
+                <nz-date-picker formControlName="ApplyTime"></nz-date-picker>
               </nz-form-control>
             </nz-form-item>
           </div>
@@ -37,7 +37,7 @@
             <nz-form-item>
               <nz-form-label [nzSpan]="6" nzFor="email">招聘岗位</nz-form-label>
               <nz-form-control >
-                <nz-select ngModel="UI" formControlName="position">
+                <nz-select ngModel="UI" formControlName="Position">
                   <nz-option nzValue="UI" nzLabel="UI"></nz-option>
                   <nz-option nzValue="技术部" nzLabel="技术部"></nz-option>
                   <nz-option nzValue="行政部" nzLabel="行政部"></nz-option>
@@ -49,7 +49,7 @@
             <nz-form-item>
               <nz-form-label [nzSpan]="8" nzFor="email">招聘数量</nz-form-label>
               <nz-form-control [nzSpan]="14">
-                    <nz-input-number [nzMin]="1" [nzMax]="999" [nzStep]="1" style="width: 200px" formControlName="recruitNum"></nz-input-number>
+                    <nz-input-number [nzMin]="1" [nzMax]="999" [nzStep]="1" style="width: 200px" formControlName="ApplyNumber"></nz-input-number>
               </nz-form-control>
             </nz-form-item>
           </div>
@@ -57,7 +57,7 @@
             <nz-form-item>
               <nz-form-label  nzFor="email">编制数量</nz-form-label>
               <nz-form-control [nzSpan]="14">
-                <nz-input-number [nzMin]="1" [nzMax]="999" [nzStep]="1" formControlName="establishmentNum"></nz-input-number>
+                <nz-input-number [nzMin]="1" [nzMax]="999" [nzStep]="1" formControlName="FormationNumber"></nz-input-number>
               </nz-form-control>
             </nz-form-item>
           </div>
@@ -70,7 +70,7 @@
           <nz-form-item>
             <nz-form-label [nzSpan]="6" nzFor="email">在岗数量</nz-form-label>
             <nz-form-control >
-              <nz-input-number [nzMin]="1" [nzMax]="999" [nzStep]="1" formControlName="jobNum"></nz-input-number>
+              <nz-input-number [nzMin]="1" [nzMax]="999" [nzStep]="1" formControlName="OnNumber"></nz-input-number>
             </nz-form-control>
           </nz-form-item>
         </div>
@@ -78,7 +78,7 @@
           <nz-form-item>
             <nz-form-label [nzSpan]="4" nzFor="email">拟招岗位级别</nz-form-label>
             <nz-form-control >
-              <input nz-input placeholder="请输入..." formControlName="positionLevel"/>
+              <nz-input-number [nzMin]="1" [nzMax]="999" [nzStep]="1" formControlName="ClassLevel"></nz-input-number>
             </nz-form-control>
           </nz-form-item>
         </div>
@@ -89,7 +89,7 @@
             <nz-form-item>
               <nz-form-label [nzSpan]="6" nzFor="email">试用薪酬范围</nz-form-label>
               <nz-form-control >
-                <input nz-input placeholder="请输入..." formControlName="probationSalary"/>
+                <input nz-input placeholder="请输入..." formControlName="TrialSalary"/>
               </nz-form-control>
             </nz-form-item>
           </div>
@@ -109,7 +109,7 @@
             <nz-form-item>
               <nz-form-label [nzSpan]="6" nzFor="email">招聘原因</nz-form-label>
               <nz-form-control >
-                <nz-radio-group formControlName="recruitmentReasons">
+                <nz-radio-group formControlName="Reason">
                   <label nz-radio nzValue="新增">新增</label>
                   <label nz-radio nzValue="替换">替换</label>
                   <label nz-radio nzValue="调岗">调岗</label>
@@ -122,7 +122,7 @@
             <nz-form-item>
               <nz-form-label [nzSpan]="4" nzFor="email">招聘方式</nz-form-label>
               <nz-form-control >
-                <nz-radio-group formControlName="RecruitmentMethods">
+                <nz-radio-group formControlName="ApplyMode">
                   <label nz-radio nzValue="校招">校招</label>
                   <label nz-radio nzValue="社招">社招</label>
                   <label nz-radio nzValue="猎头">猎头</label>
@@ -137,7 +137,7 @@
             <nz-form-item>
               <nz-form-label nzFor="email">原因说明</nz-form-label>
               <nz-form-control >
-                  <textarea rows="4" nz-input formControlName="causeDescription"></textarea>
+                  <textarea rows="4" nz-input formControlName="Remakes"></textarea>
               </nz-form-control>
             </nz-form-item>
           </div>
@@ -148,7 +148,7 @@
             <nz-form-item>
               <nz-form-label nzFor="email">参考专业</nz-form-label>
               <nz-form-control >
-                <input nz-input placeholder="请输入..." formControlName="referenceMajor"/>
+                <input nz-input placeholder="请输入..." formControlName="Major"/>
               </nz-form-control>
             </nz-form-item>
           </div>
@@ -159,7 +159,7 @@
             <nz-form-item>
               <nz-form-label nzFor="email">初试面试官</nz-form-label>
               <nz-form-control >
-                <input nz-input placeholder="请输入..." formControlName="firstInterview"/>
+                <input nz-input placeholder="请输入..." formControlName="PreViewer"/>
               </nz-form-control>
             </nz-form-item>
           </div>
@@ -167,23 +167,23 @@
             <nz-form-item>
               <nz-form-label nzFor="email">复试面试官</nz-form-label>
               <nz-form-control >
-                <input nz-input placeholder="请输入..." formControlName="retestInterviewer"/>
+                <input nz-input placeholder="请输入..." formControlName="ReViewer"/>
               </nz-form-control>
             </nz-form-item>
           </div>
         </div>
 
 
-        <div nz-row>
-          <div nz-col nzSpan="12">
-            <nz-form-item>
-              <nz-form-label nzFor="email">工作职责</nz-form-label>
-              <nz-form-control >
-                <textarea rows="4" nz-input formControlName="operatingDuty"></textarea>
-              </nz-form-control>
-            </nz-form-item>
-          </div>
-        </div>
+<!--        <div nz-row>-->
+<!--          <div nz-col nzSpan="12">-->
+<!--            <nz-form-item>-->
+<!--              <nz-form-label nzFor="email">工作职责</nz-form-label>-->
+<!--              <nz-form-control >-->
+<!--                <textarea rows="4" nz-input formControlName="operatingDuty"></textarea>-->
+<!--              </nz-form-control>-->
+<!--            </nz-form-item>-->
+<!--          </div>-->
+<!--        </div>-->
 
         <div nz-row>
           <div nz-col nzSpan="12">
@@ -191,6 +191,17 @@
               <nz-form-label nzFor="email">招聘要求</nz-form-label>
               <nz-form-control >
                 <textarea rows="4" nz-input formControlName="Requirements"></textarea>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+
+        <div nz-row>
+          <div nz-col nzSpan="8">
+            <nz-form-item>
+              <nz-form-label nzFor="email">审批人姓名</nz-form-label>
+              <nz-form-control >
+                <input nz-input placeholder="请输入..." formControlName="ApprovalName"/>
               </nz-form-control>
             </nz-form-item>
           </div>

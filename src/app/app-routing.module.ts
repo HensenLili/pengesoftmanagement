@@ -30,6 +30,7 @@ import { StaffMoveComponent } from './components/staff-move/staff-move.component
 import { StaffFormalComponent } from './components/staff-formal/staff-formal.component';
 import { StaffLeaveComponent } from './components/staff-leave/staff-leave.component';
 import { StaffMoveHistoryComponent } from './components/staff-move-history/staff-move-history.component';
+import {RecruitResumeShowComponent} from "./components/recruit-resume-show/recruit-resume-show.component";
 
 const routes: Routes = [
   {
@@ -75,6 +76,9 @@ const routes: Routes = [
           {
             path: 'recruitApproval',component: RecruitApprovalComponent
           },
+          {
+            path: 'recruitResumeShow',component: RecruitResumeShowComponent
+          }
         ],
       },
       {

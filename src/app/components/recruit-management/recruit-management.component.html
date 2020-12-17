@@ -67,13 +67,12 @@
         <thead>
         <tr>
           <th>招聘岗位</th>
-          <th>工作经验</th>
-          <th>学历</th>
+          <th>招聘数量</th>
           <th>薪资待遇</th>
+          <th>在岗数量</th>
           <th>工作地点</th>
-          <th>招聘人数</th>
           <th>需求部门</th>
-          <th>发布时间</th>
+          <th>申请时间</th>
           <th>状态</th>
           <th>操作</th>
 
@@ -81,15 +80,15 @@
         </thead>
         <tbody>
         <tr *ngFor="let data of basicTable.data">
-          <td>{{ data.name }}</td>
-          <td>{{ data.age }}</td>
-          <td>{{ data.address }}</td>
-          <td>{{ data.address }}</td>
-          <td>{{ data.address }}</td>
-          <td>{{ data.address }}</td>
-          <td>{{ data.address }}</td>
-          <td>{{ data.address }}</td>
-          <td><i nz-icon [nzType]="'check-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#52c41a'"></i></td>
+          <td>{{ data.position }}</td>
+          <td>{{ data.ApplyNumber }}</td>
+          <td>{{ data.TrialSalary }}</td>
+          <td>{{ data.OnNumber }}</td>
+          <td>成都天府新谷9号楼鹏业软件</td>
+          <td>{{ data.UserName }}</td>
+          <td>{{ data.ApplyTime }}</td>
+          <td *ngIf="data.Status == '通过'&&data.Remarks == '未完成'"><i nz-icon [nzType]="'exclamation-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#008ac4'"></i></td>
+          <td *ngIf="data.Status == '通过'&&data.Remarks == '已完成'"><i nz-icon [nzType]="'check-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#52c41a'"></i></td>
           <td>
 
            <a (click)="showModal()">查看</a>
@@ -132,7 +131,7 @@
                 <button nz-button nzType="primary" (click)="handleOk()">确定</button>
               </div>
             </nz-modal>
-            <a (click)="showCompletefirm()" style="color: #34CC5F"> | 完成</a>
+            <a (click)="showCompletefirm(data.ApplyId,'已完成')" style="color: #34CC5F"> | 完成</a>
           </td>
         </tr>
         </tbody>

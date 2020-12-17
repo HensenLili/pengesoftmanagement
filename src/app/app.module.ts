@@ -77,7 +77,6 @@ import { StaffContractComponent } from './components/staff-contract/staff-contra
 import {RecruitDemandComponent} from './components/recruit-demand/recruit-demand.component';
 import { NzTimelineModule } from 'ng-zorro-antd/timeline';
 
-
 import { StaffEmployeeComponent } from './components/staff-employee/staff-employee.component';
 import { StaffBasicInforComponent } from './components/staff-basic-infor/staff-basic-infor.component';
 import { StaffExperienceComponent } from './components/staff-experience/staff-experience.component';
@@ -94,14 +93,13 @@ import { StaffMoveHistoryComponent } from './components/staff-move-history/staff
 import { StaffBasicChangeComponent } from './components/staff-basic-change/staff-basic-change.component';
 import { StaffContractRenewComponent } from './components/staff-contract-renew/staff-contract-renew.component';
 import { TrainingManageComponent } from './views/training-manage/training-manage.component'
-import {StaffRosterComponent} from "./components/staff-roster/staff-roster.component";
-import {StaffContractComponent} from "./components/staff-contract/staff-contract.component";
 // 引入卡片模块
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzStatisticModule } from 'ng-zorro-antd/statistic';
-import { TrainingManageComponent } from './views/training-manage/training-manage.component';
 import { StaffContractManageComponent } from './components/staff-contract-manage/staff-contract-manage.component'
 import { from } from 'rxjs';
+import { RecruitResumeShowComponent } from './components/recruit-resume-show/recruit-resume-show.component';
+import {NzToolTipModule} from "ng-zorro-antd/tooltip";
 
 registerLocaleData(zh);
 
@@ -145,7 +143,8 @@ registerLocaleData(zh);
     StaffBasicChangeComponent,
     StaffContractRenewComponent,
     StaffContractComponent,
-    StaffContractManageComponent
+    StaffContractManageComponent,
+    RecruitResumeShowComponent
 
 
   ],
@@ -173,11 +172,11 @@ registerLocaleData(zh);
     NzAvatarModule,
     NzButtonModule,
     NzDropDownModule,
-    NzTableModule ,
+    NzTableModule,
     FormsModule,
     ReactiveFormsModule,
     NzTabsModule,
-    NzTimelineModule ,
+    NzTimelineModule,
     NzSelectModule,
     NzInputModule,
     NzFormModule,
@@ -191,9 +190,10 @@ registerLocaleData(zh);
     ReactiveFormsModule,
     NgxEchartsModule,
     NzStatisticModule,
-    NzCardModule
+    NzCardModule,
     NgxEchartsModule,
-    NzPopoverModule
+    NzPopoverModule,
+    NzToolTipModule
   ],
   schemas: [
      CUSTOM_ELEMENTS_SCHEMA

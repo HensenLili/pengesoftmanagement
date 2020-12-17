@@ -2,6 +2,8 @@ import { Component, OnInit, Injector} from '@angular/core';
 import {CoreComponent, Dynamic, TabView} from 'pengesoft-ng-lib';
 import {ActivatedRoute, Route, Router} from '@angular/router';
 import {NzModalService} from 'ng-zorro-antd/modal';
+import {ApplyServiceSvr} from "../../services/recruit-apply.service";
+import { Apply } from "../../domains/apply.domain";
 interface Person {
   key: string;
   name: string;
@@ -18,40 +20,31 @@ interface Person {
 export class RecruitManagementComponent extends CoreComponent implements OnInit {
   isVisible = false;
   isVisible2 = false;
-  listOfData: Person[] = [
-    {
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park'
-    },
-    {
-      key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
-    }
-  ];
+  listOfData = [];
   constructor(
     private injector: Injector,
     private modal: NzModalService,
     private router: Router,
-    private  route: ActivatedRoute
+    private  route: ActivatedRoute,
+    private  getDataApply: ApplyServiceSvr,
   ) {
     super(injector);
   }
 
   ngOnInit(): void {
+    this.getAllApplyData();
   }
   showNeedsList(): void{
     this.isVisible2 = true;
   }
+
+  getAllApplyData():void{
+    this.getDataApply. gainByStatus('通过').then(res=>{
+      console.log(res);
+      this.listOfData = res.data;
+    })
+  }
+
 //  简历展示
   showModal(): void {
     this.isVisible = true;
@@ -69,14 +62,18 @@ export class RecruitManagementComponent extends CoreComponent implements OnInit 
     this.isVisible2 = false;
   }
 
-//  删除招聘需求
-  showCompletefirm(): void {
+//  完成招聘需求
+  showCompletefirm(id,msg): void {
     this.modal.confirm({
       nzTitle: '你已完成了这项招聘需求吗？',
-      nzContent: '<b style="color: red;">招聘岗位：前端开发 <br>需求部门：市场 <br>申请时间：2020-12-12</b>',
       nzOkText: '确定',
       nzOkType: 'danger',
-      nzOnOk: () => console.log('OK'),
+      nzOnOk: () => {
+        this.getDataApply.dealRemarks(id,msg).then(res=>{
+          console.log(res);
+          this.getAllApplyData();
+        });
+      },
       nzCancelText: '取消',
       nzOnCancel: () => console.log('Cancel')
     });
