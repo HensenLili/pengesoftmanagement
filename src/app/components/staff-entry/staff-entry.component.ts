@@ -50,7 +50,8 @@ export class StaffEntryComponent extends  CoreComponent implements OnInit {
       this.staffSvr.findByCondition(this.staff,'','').then(res=>{
         this.listOfData = res.data;
         this.listOfDisplayData = [...this.listOfData]
-        console.log(this.listOfDisplayData,2222)
+        console.log(this.listOfDisplayData,2222);
+        console.log(res,3333)
       })
 
     }
@@ -125,6 +126,21 @@ export class StaffEntryComponent extends  CoreComponent implements OnInit {
     })
   }
 
-
+//添加入职弹窗
+addEntry(): void {
+  let editModal=this.modal.create({
+    nzTitle:"添加入职",
+    nzContent:StaffLeaveModalComponent,
+    nzComponentParams:{
+    },
+    nzFooter:null
+  })
+  editModal.afterClose.subscribe(res=>{
+    console.log(res)
+    this.staffSvr.updateStaff(res,null).then(res => {
+    })
+    // this.getAll();
+  })
+}
 
 }

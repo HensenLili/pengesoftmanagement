@@ -1,10 +1,9 @@
 <body>
 
   <header>
-  <button routerLink="/staff/employee">新增员工</button>
-  <button>导入</button>
-  <button>导出</button>
-  <button>生日名单</button>
+  <button nz-button (click)="add()">新增员工</button>
+  <button nz-button>导入</button>
+  <button nz-button>导出</button>
   <button class="warnButton" nz-button nz-popover nzPopoverTitle="注意!" [nzPopoverContent]="attention" nzPopoverPlacement="bottom">
     <i nz-icon nzType="exclamation-circle" nzTheme="fill" class="warn"></i>
     员工提醒
@@ -64,8 +63,12 @@
       <!-- 部门搜索 -->
      <div class="search">
          <div class = "department">
-          <input type="text" nz-input placeholder="  请选择部门" [(ngModel)]="inputdepartment" ng-change="searchDepartment()"/>
-          <button nz-button nzType="default" nzShape="circle" (click)="searchDepartment()"><i nz-icon nzType="search"></i></button>
+           <nz-input-group [nzSuffix]="suffixIconSearch">
+            <input type="text" nz-input placeholder="请搜索部门" (input)="searchDepartment($event)">
+           </nz-input-group>
+         <ng-template #suffixIconSearch>
+           <i nz-icon nzType="search"></i>
+         </ng-template>
          </div>
      </div>
 

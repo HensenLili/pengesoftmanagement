@@ -1,0 +1,51 @@
+<div>
+    <form nz-form >
+        <nz-form-item>
+          <nz-form-label [nzSpan]="6" >姓名</nz-form-label>
+          <nz-form-control [nzSpan]="14">
+            <input nz-input type="text" [(ngModel)]="Name" [ngModelOptions]="{standalone: true}">
+          </nz-form-control>
+        </nz-form-item >
+        <nz-form-item>
+            <nz-form-label [nzSpan]="6" >性别</nz-form-label>
+            <nz-form-control [nzSpan]="14">
+              <input nz-input type="text" [(ngModel)]="Gender" [ngModelOptions]="{standalone: true}">
+            </nz-form-control>
+          </nz-form-item >
+        <nz-form-item>
+            <nz-form-label [nzSpan]="6" >员工编号</nz-form-label>
+            <nz-form-control [nzSpan]="14">
+              <input nz-input type="text" [(ngModel)]="StaffId" [ngModelOptions]="{standalone: true}">
+            </nz-form-control>
+          </nz-form-item >
+          <nz-form-item>
+            <nz-form-label [nzSpan]="6" >证件号</nz-form-label>
+            <nz-form-control [nzSpan]="14">
+              <input nz-input type="text" [(ngModel)]="IdCard" [ngModelOptions]="{standalone: true}">
+            </nz-form-control>
+          </nz-form-item >
+          <nz-form-item>
+            <nz-form-label [nzSpan]="6" >手机号</nz-form-label>
+            <nz-form-control [nzSpan]="14">
+              <input nz-input type="text" [(ngModel)]="PhoneNumber" [ngModelOptions]="{standalone: true}">
+            </nz-form-control>
+          </nz-form-item >
+          <nz-form-item>
+            <nz-form-label [nzSpan]="6" >入职日期</nz-form-label>
+            <nz-form-control [nzSpan]="14">
+              <input nz-input type="date" [(ngModel)]="EntryTime" [ngModelOptions]="{standalone: true}">
+            </nz-form-control>
+          </nz-form-item >
+          <nz-form-item>
+            <nz-form-label [nzSpan]="6" >附件</nz-form-label>
+            <nz-form-control [nzSpan]="14">
+              <button nz-button nzType="primary" (click)="uploader.click()"  style="margin-bottom: 30px"><i nz-icon nzType="upload" nzTheme="outline"></i>上传附件</button>
+              <input type="file" hidden nz-input #uploader (change)="uploaderImage(uploader)">
+            </nz-form-control>
+          </nz-form-item >
+          <div class="button">
+            <button nz-button nzType="primary" (click)='Onclick()'>提交</button>
+            <button  nz-button (click)="cancel()">取消</button>
+        </div>
+        </form>
+</div>

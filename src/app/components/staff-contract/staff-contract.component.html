@@ -3,7 +3,16 @@
   <nz-tab nzTitle="实习协议" (nzSelect)="internship()">
       <!-- 合同管理表头 -->
       <nz-switch [ngModel]="true" nzCheckedChildren="失效" nzUnCheckedChildren="生效"></nz-switch>
-      <input>
+
+      <div class = "searchName">
+        <nz-input-group [nzSuffix]="suffixIconSearch">
+         <input type="text" nz-input placeholder="请搜索姓名" (input)="searchName($event)">
+        </nz-input-group>
+      <ng-template #suffixIconSearch>
+        <i nz-icon nzType="search"></i>
+      </ng-template>
+
+      </div>
       <nz-table #nzTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
           <thead>
             <tr>

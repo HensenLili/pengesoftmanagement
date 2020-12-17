@@ -108,7 +108,8 @@ import { OrganizeDepartmentComponent } from './components/organize-department/or
 import { TrainingPlanComponent } from './components/training-plan/training-plan.component';
 import { TrainingLogComponent } from './components/training-log/training-log.component';
 import { AwardPunishModalComponent } from './components/award-punish-modal/award-punish-modal.component';
-
+import { StaffAddModalComponent } from './components/staff-add-modal/staff-add-modal.component';
+import { StaffAddFormalModalComponent } from './components/staff-add-formal-modal/staff-add-formal-modal.component';
 
 registerLocaleData(zh);
 
@@ -163,7 +164,9 @@ registerLocaleData(zh);
     OrganizeDepartmentComponent,
     TrainingPlanComponent,
     TrainingLogComponent,
-    AwardPunishModalComponent
+    AwardPunishModalComponent,
+    StaffAddModalComponent,
+    StaffAddFormalModalComponent
 
 
 
