@@ -39,7 +39,8 @@ export class RecruitManagementComponent extends CoreComponent implements OnInit 
   }
 
   getAllApplyData():void{
-    this.getDataApply. gainByStatus('通过').then(res=>{
+    const status = '通过';
+    this.getDataApply. gainByStatus(status).then(res=>{
       console.log(res);
       this.listOfData = res.data;
     })
