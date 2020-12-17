@@ -36,11 +36,11 @@
             <tr *ngFor="let data of nzTable.data">
               <td>{{ data.StaffName }}</td>
               <td >{{ data.DepartmentName }}</td>
-              <td >{{ data.PositionName }}</td> 
+              <td >{{ data.PositionName }}</td>
               <td>{{data.StaffTelephone}}</td>
               <td>{{ data.SignTime}}</td>
               <td>{{ data.LoseEfficacyTime}}</td>
-              <td></td>
+              <td>{{data.Status == 1? "生效" : "失效" }}</td>
               <td>
                   <button nz-button nzType="primary" (click)="renewContract(data)"> 续签</button>
                   <button nz-button nzType="primary" (click)="changeContract(data)"> 变更</button>
@@ -52,7 +52,7 @@
   </nz-tab>
   <nz-tab nzTitle="劳动合同" (nzSelect)="labor()">
     <nz-switch [ngModel]="true" nzCheckedChildren="失效" nzUnCheckedChildren="生效"></nz-switch>
-    
+
     <div class = "searchName">
       <nz-input-group [nzSuffix]="suffixIconSearch">
        <input type="text" nz-input placeholder="请搜索姓名" (input)="searchName($event)">
@@ -61,7 +61,7 @@
       <i nz-icon nzType="search"></i>
     </ng-template>
     </div>
-    
+
     <!-- 合同管理表头 -->
     <nz-table #nzTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
         <thead>
@@ -86,11 +86,11 @@
           <tr *ngFor="let data of nzTable.data">
             <td>{{ data.StaffName }}</td>
             <td >{{ data.DepartmentName }}</td>
-            <td >{{ data.PositionName }}</td> 
+            <td >{{ data.PositionName }}</td>
             <td>{{data.StaffTelephone}}</td>
             <td>{{ data.SignTime}}</td>
             <td>{{ data.LoseEfficacyTime}}</td>
-            <td></td>
+            <td>{{data.Status == 1? "生效" : "失效" }}</td>
             <td>
                 <button nz-button nzType="primary" (click)="renewContract(data)"> 续签</button>
                 <button nz-button nzType="primary" (click)="changeContract(data)"> 变更</button>
@@ -136,11 +136,11 @@
         <tr *ngFor="let data of nzTable.data">
           <td>{{ data.StaffName }}</td>
           <td >{{ data.DepartmentName }}</td>
-          <td >{{ data.PositionName }}</td> 
+          <td >{{ data.PositionName }}</td>
           <td>{{data.StaffTelephone}}</td>
           <td>{{ data.SignTime}}</td>
           <td>{{ data.LoseEfficacyTime}}</td>
-          <td></td>
+          <td>{{data.Status == 1? "生效" : "失效" }}</td>
           <td>
               <button nz-button nzType="primary" (click)="renewContract(data)"> 续签</button>
               <button nz-button nzType="primary" (click)="changeContract(data)"> 变更</button>

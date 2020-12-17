@@ -2,8 +2,6 @@
 
   <header>
   <button nz-button (click)="add()">新增员工</button>
-  <button>导入</button>
-  <button>导出</button>
   <button class="warnButton" nz-button nz-popover nzPopoverTitle="注意!" [nzPopoverContent]="attention" nzPopoverPlacement="bottom">
     <i nz-icon nzType="exclamation-circle" nzTheme="fill" class="warn"></i>
     员工提醒
@@ -17,22 +15,6 @@
       </ul>
     </div>
   </ng-template>
-
-
-  <button nz-button nz-dropdown [nzDropdownMenu]="menu">
-      更多
-   <i nz-icon nzType="down"></i>
-   </button>
-  <button class="classButton" (click)="isnav()">收起分类<i nz-icon nzType="up" nzTheme="outline" class="up" *ngIf="navflag"></i></button>
-
-  <!-- 更多下拉 -->
-  <nz-dropdown-menu #menu="nzDropdownMenu">
-      <ul nz-menu>
-        <li nz-menu-item>menu4 1st menu item</li>
-        <li nz-menu-item>menu4 2nd menu item</li>
-        <li nz-menu-item>menu4 3rd menu item</li>
-      </ul>
-    </nz-dropdown-menu>
 
     <!-- 员工分类导航 -->
   <nav [hidden]="true">

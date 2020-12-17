@@ -3,13 +3,13 @@
         <nz-form-item>
           <nz-form-label [nzSpan]="6" >姓名</nz-form-label>
           <nz-form-control [nzSpan]="14">
-            <input nz-input type="text" >
+            <input nz-input type="text" placeholder="张三">
           </nz-form-control>
         </nz-form-item >
         <nz-form-item>
             <nz-form-label [nzSpan]="6" >续签合同类型 </nz-form-label>
             <nz-form-control [nzSpan]="14">
-             <input nz-input type="text" [(ngModel)]="type" [ngModelOptions]="{standalone: true}">
+             <input nz-input type="text" [(ngModel)]="type" [ngModelOptions]="{standalone: true}"  placeholder="实习协议：11;劳动合同：12；兼职协议：13">
             </nz-form-control>
           </nz-form-item >
           <nz-form-item>

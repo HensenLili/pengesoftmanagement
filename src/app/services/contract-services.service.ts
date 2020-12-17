@@ -25,19 +25,19 @@ export class ContractServiceSvr {
   }
 
   /**
-   * 
+   *
    */
   addContract(contract: Contract, memoryFile: File): Promise<Result>{
     const formData = new FormData()
     formData .append('contract', contract.toString())
-    formData .append('memoryFile', memoryFile.toString());
+    formData .append('memoryFile', memoryFile);
     return this.request.post<Result>(this.baseUrl + 'addContract', formData ).then((res) => {
       return new Result(res);
     });
   }
 
   /**
-   * 
+   *
    */
   findByCondition(contract: Contract, staffName: string, positionName: string, yearRange: number): Promise<Result>{
     const httpParams = new HttpParams()
@@ -51,7 +51,7 @@ export class ContractServiceSvr {
   }
 
   /**
-   * 
+   *
    */
   GetVersion(): Promise<string>{
     const httpParams = new HttpParams();
@@ -61,7 +61,7 @@ export class ContractServiceSvr {
   }
 
   /**
-   * 
+   *
    */
   updateContract(Contract: Contract, contractFile: File): Promise<Result>{
     const formData  = new FormData()
@@ -73,7 +73,7 @@ export class ContractServiceSvr {
   }
 
   /**
-   * 
+   *
    */
   findAllContract(): Promise<Result>{
     const httpParams = new HttpParams();
@@ -83,7 +83,7 @@ export class ContractServiceSvr {
   }
 
   /**
-   * 
+   *
    */
   findByStaffId(staffId: string): Promise<Result>{
     const httpParams = new HttpParams()

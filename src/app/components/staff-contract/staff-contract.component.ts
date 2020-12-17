@@ -35,7 +35,7 @@ export class StaffContractComponent implements OnInit {
    this.internship();
   }
 
- 
+
   //实习协议
   internship(){
     this.contract =new Contract({
@@ -70,7 +70,7 @@ export class StaffContractComponent implements OnInit {
         this.listOfDisplayData = [...this.listOfData];
       })
   }
- 
+
 //搜索弹窗
   search(): void {
     this.isSearch = false;
@@ -100,7 +100,8 @@ export class StaffContractComponent implements OnInit {
     "Type":res.Type,
     "EfficacyTime":res.EfficacyTime,
     "LoseEfficacyTime":res.LoseEfficacyTime,
-    "SignTime":res.SignTime
+    "SignTime":res.SignTime,
+     "Status":1
    })
     this.contractSvr.addContract(this.contract,res.file).then(res => {
       console.log(res,22222)
@@ -137,7 +138,7 @@ export class StaffContractComponent implements OnInit {
       nzContent:StaffContractOverModalComponent,
       nzComponentParams:{
        contract:data
-       
+
       },
       nzFooter:null
     })
@@ -154,9 +155,9 @@ export class StaffContractComponent implements OnInit {
       })
     })
   }
- 
-  
- //姓名搜索 
+
+
+ //姓名搜索
  searchName(event):void {
   this.staffName= event.target.value
   this.contract =new Contract({
@@ -166,11 +167,11 @@ export class StaffContractComponent implements OnInit {
    console.log(res)
    this.listOfData = res.data;
    this.listOfDisplayData = [...this.listOfData]
-   
+
    console.log(this.listOfDisplayData,11111);
-   
+
  })
 }
- 
+
 }
 
