@@ -107,6 +107,7 @@ import { OrganizeUnitComponent } from './components/organize-unit/organize-unit.
 import { OrganizeDepartmentComponent } from './components/organize-department/organize-department.component';
 import { TrainingPlanComponent } from './components/training-plan/training-plan.component';
 import { TrainingLogComponent } from './components/training-log/training-log.component';
+import { AwardPunishModalComponent } from './components/award-punish-modal/award-punish-modal.component';
 
 
 registerLocaleData(zh);
@@ -161,7 +162,8 @@ registerLocaleData(zh);
     OrganizeUnitComponent,
     OrganizeDepartmentComponent,
     TrainingPlanComponent,
-    TrainingLogComponent
+    TrainingLogComponent,
+    AwardPunishModalComponent
 
 
 
