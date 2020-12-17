@@ -148,10 +148,10 @@ export class StaffServiceSvr {
    *
    */
   updateStaff(staff: Staff, headImg: File): Promise<Result>{
-    const httpParams = new HttpParams()
-      .append('staff', staff.toString())
-      .append('headImg', headImg.toString());
-    return this.request.post<Result>(this.baseUrl + 'updateStaff', httpParams).then((res) => {
+    const formData = new FormData()
+    formData.append('staff', staff.toString())
+    formData.append('headImg', headImg);
+    return this.request.post<Result>(this.baseUrl + 'updateStaff', formData).then((res) => {
       return new Result(res);
     });
   }

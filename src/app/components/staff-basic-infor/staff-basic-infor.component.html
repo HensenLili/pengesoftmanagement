@@ -46,7 +46,7 @@
                     <li>转正日期：</li>
                     <li>合同年限：</li>
                     <li>合同结束日期：</li>
-                    <li>岗位职责：{{this.mes1.Position.Description}}</li>
+                    <li>岗位职责：</li>
                 </ul>
             </aside>
             <!-- 联系信息 -->
@@ -66,7 +66,7 @@
             </main>
         </div>
         <div *ngIf="isChange">
-            <app-staff-basic-change [messhow]="this.mes1"></app-staff-basic-change>
+            <app-staff-basic-change [mesid]="this.mes1.StaffId"></app-staff-basic-change>
         </div>
 
 

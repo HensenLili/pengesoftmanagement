@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {Component, CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {Component, CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -152,7 +152,6 @@ registerLocaleData(zh);
     StaffBasicChangeComponent,
     StaffContractRenewComponent,
     StaffContractComponent,
-    StaffContractComponent,
     StatementComponent,
     StatementRecruitComponent,
     StaffContractRenewModalComponent,
@@ -188,41 +187,25 @@ registerLocaleData(zh);
     CommonModule,
     FormsModule,
     NzSwitchModule,
-    NzAvatarModule,
-    NzButtonModule,
-    NzDropDownModule,
-    NzTableModule ,
-    FormsModule,
-    ReactiveFormsModule,
     NzTabsModule,
     NzTimelineModule ,
     NzSelectModule,
-    NzGridModule,
     NgxEchartsModule,
-    NzTimelineModule ,
-    NzSelectModule,
-    NzInputModule,
-    NzFormModule,
     NzBreadCrumbModule,
-    NzSelectModule,
     NzRadioModule,
     NzDatePickerModule,
     NzUploadModule,
-    NzTabsModule,
     NzInputNumberModule,
     ReactiveFormsModule,
-    NgxEchartsModule,
     NzStatisticModule,
     NzCardModule,
-    NgxEchartsModule,
     NzPopoverModule,
-    NgxEchartsModule,
     NzCalendarModule,
     NzListModule,
-    NzPopoverModule,
   ],
   schemas: [
-     CUSTOM_ELEMENTS_SCHEMA
+     CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
   ],
   providers: [],
   bootstrap: [AppComponent]
