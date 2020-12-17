@@ -167,6 +167,8 @@ export class StaffContractComponent implements OnInit {
    console.log(res)
    this.listOfData = res.data;
    this.listOfDisplayData = [...this.listOfData]
+   console.log(this.listOfDisplayData,11111);
+   
  })
 }
  

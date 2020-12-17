@@ -165,7 +165,6 @@ registerLocaleData(zh);
     OrganizeUnitComponent,
     OrganizeDepartmentComponent,
     TrainingPlanComponent,
-    TrainingLogComponent
     TrainingLogComponent,
     AwardPunishModalComponent,
     StaffAddModalComponent,
