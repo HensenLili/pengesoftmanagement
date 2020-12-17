@@ -1,7 +1,6 @@
-
 /*****************************************************************************
  *
- * 作   者: 李翔 * 创建时间: 2020/12/17 2:32:06 *
+ * 作   者: 李翔 * 创建时间: 2020/12/17 12:02:49 *
  * Copyright (C) 2008 - 鹏业软件公司
  *
  *****************************************************************************/
@@ -33,7 +32,7 @@ export class Staff extends DataPacket {
   Email: string; // 个人邮箱
   Wechat: string; // 微信
   QQ: string; // qq
-  WorNature: number; // 工作性质
+  WorkNature: number; // 工作性质
   WorkStatus: number; // 工作状态
   StartWorkTime: Date | string; // 开始工作时间
   EntryTime: Date | string; // 入职时间
@@ -62,7 +61,7 @@ export class Staff extends DataPacket {
     Email?: string;
     Wechat?: string;
     QQ?: string;
-    WorNature?: number;
+    WorkNature?: number;
     WorkStatus?: number;
     StartWorkTime?: Date | string;
     EntryTime?: Date | string;
@@ -91,7 +90,7 @@ export class Staff extends DataPacket {
     this.Email = options.Email || '';
     this.Wechat = options.Wechat || '';
     this.QQ = options.QQ || '';
-    this.WorNature = !options.WorNature ? 0 : Number.parseFloat(options.WorNature.toString());
+    this.WorkNature = !options.WorkNature ? 0 : Number.parseFloat(options.WorkNature.toString());
     this.WorkStatus = !options.WorkStatus ? 0 : Number.parseFloat(options.WorkStatus.toString());
     this.StartWorkTime = this.newDate(options.StartWorkTime);
     this.EntryTime = this.newDate(options.EntryTime);
