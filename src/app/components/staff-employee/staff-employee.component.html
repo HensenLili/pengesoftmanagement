@@ -4,26 +4,26 @@
       <button class="whiteButton">返回</button>
       <div class="msg">
       <nz-avatar nzIcon="user" [nzSize]="78"  nzSrc="../../../assets/images/pic1.jpg"></nz-avatar>
-      <article>
-        <div> &nbsp;&nbsp;&nbsp;&nbsp; <span>状态</span> </div>
+      <article *ngIf="this.mes">
+        <div> {{this.mes.Name}} <span>在职</span> </div>
          <hr/>
         <ul>
           <li><i nz-icon [nzType]="'apartment'" nzTheme="outline"></i>部门：</li>
           <li><i nz-icon [nzType]="'coffee'"></i>职位：</li>
-          <li><i nz-icon [nzType]="'calendar'"></i>入职日期：</li>
-          <li><i nz-icon [nzType]="'history'"></i>司龄：</li>
+          <li><i nz-icon [nzType]="'calendar'"></i>入职日期：{{this.mes.EntryTime}}</li>
+          <li><i nz-icon [nzType]="'history'"></i>司龄：{{this.mes.Age}}</li>
         </ul>
-      </article> 
+      </article>
       </div>
       </header>
     <main>
       <div class="card-container" >
-        <nz-tabset class="tab">
+        <nz-tabset class="tab" *ngIf="this.mes">
             <nz-tab nzTitle="基础信息">
-              <div> <app-staff-basic-infor></app-staff-basic-infor> </div>
+              <div> <app-staff-basic-infor [mes]="this.mes"></app-staff-basic-infor> </div>
             </nz-tab>
             <nz-tab nzTitle="个人经历">
-              <app-staff-experience></app-staff-experience>
+              <app-staff-experience [mes]="this.mes"></app-staff-experience>
             </nz-tab>
             <nz-tab nzTitle="合同管理">
               <app-staff-contract-manage></app-staff-contract-manage>
@@ -34,9 +34,9 @@
             <nz-tab nzTitle="成长记录">
               <app-staff-grow-record></app-staff-grow-record>
             </nz-tab>
-      
+
         </nz-tabset>
       </div>
     </main>
-      
+
     </body>

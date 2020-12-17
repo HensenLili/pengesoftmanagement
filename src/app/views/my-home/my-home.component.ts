@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Dynamic} from 'pengesoft-ng-lib';
+import {NzMessageService} from "ng-zorro-antd/message";
 
 @Component({
   selector: 'app-my-home',
@@ -8,6 +9,7 @@ import {Dynamic} from 'pengesoft-ng-lib';
 })
 @Dynamic()
 export class MyHomeComponent implements OnInit {
+  tabs = ['周', '月', '日'];
   // 表单一
   option = {
     tooltip: {
@@ -24,7 +26,7 @@ export class MyHomeComponent implements OnInit {
         name: '部门人数',
         type: 'pie',
         selectedMode: 'single',
-        radius: [0, '30%'],
+        radius: [0, '20%'],
 
         label: {
           position: 'inner'
@@ -41,7 +43,7 @@ export class MyHomeComponent implements OnInit {
       {
         name: '部门人数',
         type: 'pie',
-        radius: ['40%', '55%'],
+        radius: ['30%', '45%'],
         label: {
           formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
           backgroundColor: '#eee',
@@ -56,7 +58,7 @@ export class MyHomeComponent implements OnInit {
           rich: {
             a: {
               color: '#999',
-              lineHeight: 22,
+              lineHeight: 20,
               align: 'center'
             },
             // abg: {
@@ -73,8 +75,8 @@ export class MyHomeComponent implements OnInit {
               height: 0
             },
             b: {
-              fontSize: 16,
-              lineHeight: 33
+              fontSize: 12,
+              lineHeight: 20
             },
             per: {
               color: '#eee',
@@ -97,9 +99,9 @@ export class MyHomeComponent implements OnInit {
   };
 
   option2 = {
-    title: {
-      text: '部门年度变动表'
-    },
+    // title: {
+    //   text: '年度变动表'
+    // },
     tooltip: {
       trigger: 'axis'
     },
@@ -107,15 +109,10 @@ export class MyHomeComponent implements OnInit {
       data: ['建设工程大数据事业部', '数字房产事业部', '行政人事部', '财务部', '财务部']
     },
     grid: {
-      left: '3%',
-      right: '4%',
-      bottom: '3%',
+      top:'50',
+      width:'76%',
+      height:'76%',
       containLabel: true
-    },
-    toolbox: {
-      feature: {
-        saveAsImage: {}
-      }
     },
     xAxis: {
       type: 'category',
@@ -158,9 +155,20 @@ export class MyHomeComponent implements OnInit {
       }
     ]
   };
+  onValueChange(value: Date): void {
+    console.log(`Current value: ${value}`);
+  }
 
+  onPanelChange(change: { date: Date; mode: string }): void {
+    console.log(`Current value: ${change.date}`);
+    console.log(`Current mode: ${change.mode}`);
+  }
+  // 消息通知
+  data = [
+    '按时吃饭按时睡觉'
+  ];
 
-  constructor() { }
+  constructor(public msg: NzMessageService) { }
 
   ngOnInit(): void {
   }

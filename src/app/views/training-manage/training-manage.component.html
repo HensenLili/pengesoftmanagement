@@ -1,17 +1,14 @@
 <!--培训管理-->
 <div class="wrapper">
   <ul nz-menu nzMode="inline" >
-    <li nz-submenu nzTitle="培训管理" nzIcon="setting" class="wrapperlists">
-      <ul>
-        <li nz-menu-item class="wrapperlists" nzSelected>子栏目1</li>
-        <li nz-menu-item class="wrapperlists">子栏目2</li>
-      </ul>
+    <li nz-menu-item nz-tooltip nzTooltipPlacement="right" nzSelected routerLink="trainingplan">
+      <i nz-icon nzType="mail"></i>
+      <span>培训计划</span>
     </li>
-    <li nz-submenu nzTitle="培训日志" nzIcon="setting" class="wrapperlists">
-      <ul>
-        <li nz-menu-item class="wrapperlists">子栏目1</li>
-        <li nz-menu-item class="wrapperlists">子栏目2</li>
-      </ul>
+    <li nz-menu-item nz-tooltip nzTooltipPlacement="right" nzSelected routerLink="traininglog">
+      <i nz-icon nzType="mail"></i>
+      <span>培训日志</span>
     </li>
   </ul>
 </div>
+<router-outlet></router-outlet>

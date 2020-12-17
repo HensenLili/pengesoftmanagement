@@ -1,11 +1,57 @@
 <!--奖惩管理-->
 <div class="wrapper">
   <ul nz-menu nzMode="inline" >
-    <li nz-submenu nzTitle="奖惩管理" nzIcon="setting" class="wrapperlists">
-      <ul>
-        <li nz-menu-item class="wrapperlists" nzSelected>子栏目1</li>
-        <li nz-menu-item class="wrapperlists">子栏目2</li>
-      </ul>
+    <li nz-submenu nzTitle="奖惩管理" nzIcon="setting" class="wrapperlists"> 
     </li>
   </ul>
 </div>
+
+<body>
+  <header>
+    <button nz-button nzType="primary" (click)="add()"><i nz-icon nzType="plus" nzTheme="outline"></i>新增奖惩</button>
+  </header>
+  <nz-table #nzTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
+    <thead>
+      <tr>
+        <th nzCustomFilter>
+          姓名
+          <nz-filter-trigger [(nzVisible)]="visible" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menu">
+            <i nz-icon nzType="search"></i>
+          </nz-filter-trigger>
+        </th>
+        <th>部门</th>
+        <th>奖惩情况</th>
+        <th>奖惩原因</th>
+        <th>时间</th>
+        <th>状态</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of nzTable.data">
+        <td>{{ data.name }}</td>
+        <td>{{ data.department }}</td>
+        <td>{{ data.condition }}</td>
+        <td>{{data.reason}}</td>
+        <td>{{ data.date }}</td>
+        <td><button nz-button nzType="primary">  启用</button></td>
+        <td>
+          <button nz-button nzType="primary">编辑</button>
+          <button nz-button nzType="primary">禁用</button>
+          <button nz-button nzType="primary">删除</button>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+  <nz-dropdown-menu #menu="nzDropdownMenu">
+    <div class="ant-table-filter-dropdown">
+      <div class="search-box">
+        <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue" />
+        <button nz-button nzSize="small" nzType="primary" (click)="search()" class="search-button">
+          搜索
+        </button>
+        <button nz-button nzSize="small" (click)="reset()">取消</button>
+      </div>
+    </div>
+  </nz-dropdown-menu>
+</body>

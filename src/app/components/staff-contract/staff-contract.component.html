@@ -1,8 +1,18 @@
 <body>
 <nz-tabset nzType="card">
-  <nz-tab nzTitle="实习协议" >
+  <nz-tab nzTitle="实习协议" (nzSelect)="internship()">
       <!-- 合同管理表头 -->
       <nz-switch [ngModel]="true" nzCheckedChildren="失效" nzUnCheckedChildren="生效"></nz-switch>
+
+      <div class = "searchName">
+        <nz-input-group [nzSuffix]="suffixIconSearch">
+         <input type="text" nz-input placeholder="请搜索姓名" (input)="searchName($event)">
+        </nz-input-group>
+      <ng-template #suffixIconSearch>
+        <i nz-icon nzType="search"></i>
+      </ng-template>
+      </div>
+
       <nz-table #nzTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
           <thead>
             <tr>
@@ -24,24 +34,34 @@
           <!-- 合同管理表体 -->
           <tbody>
             <tr *ngFor="let data of nzTable.data">
-              <td>{{ data.name }}</td>
-              <td>{{ data.department }}</td>
-              <td>{{ data.job }}</td>
-              <td>{{data.phone}}</td>
-              <td>{{ data.signDate}}</td>
-              <td>{{ data.endDate}}</td>
-              <td>{{ data.status}}</td>
+              <td>{{ data.StaffName }}</td>
+              <td >{{ data.DepartmentName }}</td>
+              <td >{{ data.PositionName }}</td> 
+              <td>{{data.StaffTelephone}}</td>
+              <td>{{ data.SignTime}}</td>
+              <td>{{ data.LoseEfficacyTime}}</td>
+              <td></td>
               <td>
-                  <button nz-button nzType="primary" (click)="addContract()"> 续签</button>
-                  <button nz-button nzType="primary" (click)="changeContract()"> 变更</button>
-                  <button nz-button nzType="primary" (click)="overContract()"> 终止</button>
+                  <button nz-button nzType="primary" (click)="renewContract(data)"> 续签</button>
+                  <button nz-button nzType="primary" (click)="changeContract(data)"> 变更</button>
+                  <button nz-button nzType="primary" (click)="overContract(data)"> 终止</button>
               </td>
             </tr>
           </tbody>
         </nz-table>
   </nz-tab>
-  <nz-tab nzTitle="劳动合同">
+  <nz-tab nzTitle="劳动合同" (nzSelect)="labor()">
     <nz-switch [ngModel]="true" nzCheckedChildren="失效" nzUnCheckedChildren="生效"></nz-switch>
+    
+    <div class = "searchName">
+      <nz-input-group [nzSuffix]="suffixIconSearch">
+       <input type="text" nz-input placeholder="请搜索姓名" (input)="searchName($event)">
+      </nz-input-group>
+    <ng-template #suffixIconSearch>
+      <i nz-icon nzType="search"></i>
+    </ng-template>
+    </div>
+    
     <!-- 合同管理表头 -->
     <nz-table #nzTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
         <thead>
@@ -64,24 +84,34 @@
         <!-- 合同管理表体 -->
         <tbody>
           <tr *ngFor="let data of nzTable.data">
-            <td>{{ data.name }}</td>
-            <td>{{ data.department }}</td>
-            <td>{{ data.job }}</td>
-            <td>{{data.phone}}</td>
-            <td>{{ data.signDate}}</td>
-            <td>{{ data.endDate}}</td>
-            <td>{{ data.status}}</td>
+            <td>{{ data.StaffName }}</td>
+            <td >{{ data.DepartmentName }}</td>
+            <td >{{ data.PositionName }}</td> 
+            <td>{{data.StaffTelephone}}</td>
+            <td>{{ data.SignTime}}</td>
+            <td>{{ data.LoseEfficacyTime}}</td>
+            <td></td>
             <td>
-                <button nz-button nzType="primary" (click)="addContract()"> 续签</button>
-                <button nz-button nzType="primary" (click)="changeContract()"> 变更</button>
-                <button nz-button nzType="primary" (click)="overContract()"> 终止</button>
+                <button nz-button nzType="primary" (click)="renewContract(data)"> 续签</button>
+                <button nz-button nzType="primary" (click)="changeContract(data)"> 变更</button>
+                <button nz-button nzType="primary" (click)="overContract(data)"> 终止</button>
             </td>
           </tr>
         </tbody>
       </nz-table>
 </nz-tab>
-<nz-tab nzTitle="兼职协议">
+<nz-tab nzTitle="兼职协议" (nzSelect)="partTime()">
   <nz-switch [ngModel]="true" nzCheckedChildren="失效" nzUnCheckedChildren="生效"></nz-switch>
+
+  <div class = "searchName">
+    <nz-input-group [nzSuffix]="suffixIconSearch">
+     <input type="text" nz-input placeholder="请搜索姓名" (input)="searchName($event)">
+    </nz-input-group>
+  <ng-template #suffixIconSearch>
+    <i nz-icon nzType="search"></i>
+  </ng-template>
+  </div>
+
   <!-- 合同管理表头 -->
   <nz-table #nzTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
       <thead>
@@ -104,17 +134,17 @@
       <!-- 合同管理表体 -->
       <tbody>
         <tr *ngFor="let data of nzTable.data">
-          <td>{{ data.name }}</td>
-          <td>{{ data.department }}</td>
-          <td>{{ data.job }}</td>
-          <td>{{data.phone}}</td>
-          <td>{{ data.signDate}}</td>
-          <td>{{ data.endDate}}</td>
-          <td>{{ data.status}}</td>
+          <td>{{ data.StaffName }}</td>
+          <td >{{ data.DepartmentName }}</td>
+          <td >{{ data.PositionName }}</td> 
+          <td>{{data.StaffTelephone}}</td>
+          <td>{{ data.SignTime}}</td>
+          <td>{{ data.LoseEfficacyTime}}</td>
+          <td></td>
           <td>
-              <button nz-button nzType="primary" (click)="addContract()"> 续签</button>
-              <button nz-button nzType="primary" (click)="changeContract()"> 变更</button>
-              <button nz-button nzType="primary" (click)="overContract()"> 终止</button>
+              <button nz-button nzType="primary" (click)="renewContract(data)"> 续签</button>
+              <button nz-button nzType="primary" (click)="changeContract(data)"> 变更</button>
+              <button nz-button nzType="primary" (click)="overContract(data)"> 终止</button>
           </td>
         </tr>
       </tbody>
@@ -135,128 +165,5 @@
     </div>
   </div>
 </nz-dropdown-menu>
-<!-- 合同续签弹窗 -->
-<nz-modal [(nzVisible)]="isAdd" nzTitle="合同续签" (nzOnCancel)="addCancel()" (nzOnOk)="addOk()">
-  <form nz-form >
-      <nz-form-item>
-        <nz-form-label [nzSpan]="6" >姓名</nz-form-label>
-        <nz-form-control [nzSpan]="14">
-          <input nz-input type="text" >
-        </nz-form-control>
-      </nz-form-item >
-      <nz-form-item>
-          <nz-form-label [nzSpan]="6" >续签合同类型</nz-form-label>
-          <nz-form-control [nzSpan]="14">
-            <input nz-input type="text" >
-          </nz-form-control>
-        </nz-form-item >
-        <nz-form-item>
-          <nz-form-label [nzSpan]="6" >开始日期</nz-form-label>
-          <nz-form-control [nzSpan]="14">
-            <input nz-input type="date" >
-          </nz-form-control>
-        </nz-form-item >
-        <nz-form-item>
-          <nz-form-label [nzSpan]="6" >结束日期</nz-form-label>
-          <nz-form-control [nzSpan]="14">
-            <input nz-input type="date" >
-          </nz-form-control>
-        </nz-form-item >
-        <nz-form-item>
-          <nz-form-label [nzSpan]="6" >签署日期</nz-form-label>
-          <nz-form-control [nzSpan]="14">
-            <input nz-input type="date" >
-          </nz-form-control>
-        </nz-form-item >
-        <nz-form-item>
-          <nz-form-label [nzSpan]="6" >操作人</nz-form-label>
-          <nz-form-control [nzSpan]="14">
-            <input nz-input type="text" >
-          </nz-form-control>
-        </nz-form-item >
-      </form>
-</nz-modal>
 
- <!-- 合同变更弹窗 -->
- <nz-modal [(nzVisible)]="isChange" nzTitle="合同变更" (nzOnCancel)="changeCancel()" (nzOnOk)="changeOk()">
-  <form nz-form >
-      <nz-form-item>
-        <nz-form-label [nzSpan]="6" >姓名</nz-form-label>
-        <nz-form-control [nzSpan]="14">
-          <input nz-input type="text" >
-        </nz-form-control>
-      </nz-form-item >
-      <nz-form-item>
-          <nz-form-label [nzSpan]="6" >续签合同类型</nz-form-label>
-          <nz-form-control [nzSpan]="14">
-            <input nz-input type="text" >
-          </nz-form-control>
-        </nz-form-item >
-        <nz-form-item>
-          <nz-form-label [nzSpan]="6" >开始日期</nz-form-label>
-          <nz-form-control [nzSpan]="14">
-            <input nz-input type="date" >
-          </nz-form-control>
-        </nz-form-item >
-        <nz-form-item>
-          <nz-form-label [nzSpan]="6" >结束日期</nz-form-label>
-          <nz-form-control [nzSpan]="14">
-            <input nz-input type="date" >
-          </nz-form-control>
-        </nz-form-item >
-        <nz-form-item>
-          <nz-form-label [nzSpan]="6" >签署日期</nz-form-label>
-          <nz-form-control [nzSpan]="14">
-            <input nz-input type="date" >
-          </nz-form-control>
-        </nz-form-item >
-        <nz-form-item>
-          <nz-form-label [nzSpan]="6" >操作人</nz-form-label>
-          <nz-form-control [nzSpan]="14">
-            <input nz-input type="text" >
-          </nz-form-control>
-        </nz-form-item >
-      </form>
-</nz-modal>
- <!-- 合同终止弹窗 -->
- <nz-modal [(nzVisible)]="isOver" nzTitle="合同续签" (nzOnCancel)="overCancel()" (nzOnOk)="overOk()">
-  <form nz-form >
-      <nz-form-item>
-        <nz-form-label [nzSpan]="6" >姓名</nz-form-label>
-        <nz-form-control [nzSpan]="14">
-          <input nz-input type="text" >
-        </nz-form-control>
-      </nz-form-item >
-      <nz-form-item>
-          <nz-form-label [nzSpan]="6" >续签合同类型</nz-form-label>
-          <nz-form-control [nzSpan]="14">
-            <input nz-input type="text" >
-          </nz-form-control>
-        </nz-form-item >
-        <nz-form-item>
-          <nz-form-label [nzSpan]="6" >开始日期</nz-form-label>
-          <nz-form-control [nzSpan]="14">
-            <input nz-input type="date" >
-          </nz-form-control>
-        </nz-form-item >
-        <nz-form-item>
-          <nz-form-label [nzSpan]="6" >结束日期</nz-form-label>
-          <nz-form-control [nzSpan]="14">
-            <input nz-input type="date" >
-          </nz-form-control>
-        </nz-form-item >
-        <nz-form-item>
-          <nz-form-label [nzSpan]="6" >签署日期</nz-form-label>
-          <nz-form-control [nzSpan]="14">
-            <input nz-input type="date" >
-          </nz-form-control>
-        </nz-form-item >
-        <nz-form-item>
-          <nz-form-label [nzSpan]="6" >操作人</nz-form-label>
-          <nz-form-control [nzSpan]="14">
-            <input nz-input type="text" >
-          </nz-form-control>
-        </nz-form-item >
-      </form>
-</nz-modal>
 </body>

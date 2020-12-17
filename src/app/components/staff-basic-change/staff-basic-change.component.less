@@ -9,8 +9,8 @@ ul{
 }
 
     article{
-        width:1120px;
-        height:300px;
+      width:868px;
+      background-color: white !important;
         font-size:14px;
         }
    form{
@@ -18,9 +18,10 @@ ul{
      flex-wrap: wrap;
         nz-form-item{
             width:220px;
-            height:50px;
+            height:36px;
             line-height:50px;
-            margin:0 170px;
+            margin:0 107px;
+          display: flex;
          }
     }
  aside,main{
@@ -30,4 +31,18 @@ ul{
             margin-right:5px;
         }
  }
+[nz-button] {
+  margin-bottom: 12px;
+}
 
+nz-button-group {
+  margin: 0 auto;
+
+}
+
+.ant-btn-group ::ng-deep > .ant-btn:last-child:not(:first-child){
+  padding: 5px 24px 27px 30px;
+}
+.ant-btn-group ::ng-deep > .ant-btn:first-child:not(:last-child){
+  padding: 5px 24px 27px 30px;
+}

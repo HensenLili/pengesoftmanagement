@@ -1,31 +1,28 @@
-<body>
- 
+<div>
+
 <form nz-form  >
     <nz-form-item>
       <nz-form-label [nzSm]="7">姓名</nz-form-label>
       <nz-form-control [nzSm]="12">
-        <input nz-input type="text" placeholder="{{staff.Name}}" formControlName="ItemName" />
-      </nz-form-control>
-    </nz-form-item>
-    <nz-form-item>
-      <nz-form-label [nzSm]="7">操作人</nz-form-label>
-      <nz-form-control [nzSm]="12">
-        <input nz-input type="text" formControlName="operator" />
+        <p>{{staff.Name}}</p>
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
       <nz-form-label [nzSm]="7">转正日期</nz-form-label>
       <nz-form-control [nzSm]="12">
-        <input type="date" nz-input formControlName="formalDate" />
+        <nz-date-picker [(ngModel)]="date" (ngModelChange)="onChange($event)" [ngModelOptions]="{standalone: true}"></nz-date-picker>
       </nz-form-control>
     </nz-form-item>
-    <div>
-        <button nz-button nzType="primary" (click)='Onclick()'>提交</button> 
+  <button nz-button nzType="primary" (click)="uploader.click()"><i nz-icon nzType="upload" nzTheme="outline"></i>上传文件</button>
+    <input type="file" [hidden] nz-input #uploader (change)="uploaderImage(uploader)"><br>
+    <div class="button">
+        <button nz-button nzType="primary" (click)='Onclick()'>提交</button>
         <button  nz-button (click)="cancel()">取消</button>
     </div>
- 
 
-    
+
+
   </form>
-   
-</body>
+
+</div>
+

@@ -1,0 +1,27 @@
+<div>
+  <form nz-form >
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" >姓名</nz-form-label>
+      <nz-form-control [nzSpan]="14">
+        <input nz-input type="text" placeholder="{{00}}">
+      </nz-form-control>
+    </nz-form-item >
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" >终止日期</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <input nz-input type="date" [(ngModel)]="LoseEfficacyTime" [ngModelOptions]="{standalone: true}">
+        </nz-form-control>
+      </nz-form-item >
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" >附件</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <button nz-button nzType="primary" (click)="uploader.click()"  style="margin-bottom: 30px"><i nz-icon nzType="upload" nzTheme="outline"></i>上传附件</button>
+          <input type="file" hidden nz-input #uploader (change)="uploaderImage(uploader)">
+        </nz-form-control>
+      </nz-form-item >
+      <div class="button">
+        <button nz-button nzType="primary" (click)='Onclick()'>提交</button>
+        <button  nz-button (click)="cancel()">取消</button>
+    </div>
+    </form>
+</div>

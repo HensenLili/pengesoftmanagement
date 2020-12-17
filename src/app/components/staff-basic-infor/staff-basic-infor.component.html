@@ -8,24 +8,24 @@
                 <button  nz-button (click)="cancel()"> 取消</button>
             </div>
         </header>
-        
+
         <div>  <hr/>  </div>
         <!-- 基础信息 -->
         <div  *ngIf="isShow">
             <article>
                 <ul>
-                    <li>姓名：张三</li>
-                    <li>毕业时间：</li>
-                    <li>性别：男</li>
-                    <li>籍贯:</li>
-                    <li>民族：汉</li>
-                    <li>身份证号码：</li>
-                    <li>毕业院校：家里蹲大学</li>
-                    <li>生日：</li>
-                    <li>文化程度：</li>
-                    <li>年龄</li>
-                    <li>所学专业：</li>
-                    <li>政治面貌：</li>
+                    <li>姓名：{{this.mes1.Name}}</li>
+                    <li>证件号码：{{this.mes1.IdCard}}</li>
+                    <li>出生日期：{{this.mes1.Birth}}</li>
+                    <li>年龄：{{this.mes1.Age}}</li>
+                    <li>婚姻状况：{{this.mes1.MaritalStatus == 1?"未婚":"已婚"}}</li>
+                    <li>性别：{{this.mes1.Gender}}</li>
+                    <li>最高学历：{{this.mes1.Degree}}</li>
+                    <li>政治面貌：{{this.mes1.Political}}</li>
+                    <li>民族：{{this.mes1.Nation}}</li>
+                    <li>户口类型：{{this.mes1.PositionTypeId == 1?"城镇户口":"农村户口"}}</li>
+                    <li>户籍地址：{{this.mes1.PermanentAddress}}</li>
+                    <li>现居地址：{{this.mes1.CurrentAddress}}</li>
                 </ul>
             </article>
             <!-- 在职信息 -->
@@ -34,18 +34,19 @@
                     <i nz-icon nzType="profile" nzTheme="outline"></i> <b>在职信息</b>
                 </header>
                 <ul>
+                    <li>所属公司/中心：鹏业</li>
                     <li>部门：IT部</li>
-                    <li>鹏业工龄：</li>
-                    <li>岗位：</li>
-                    <li>职业工龄:</li>
-                    <li>岗位类型：</li>
-                    <li>合同类型：</li>
-                    <li>用工形式：</li>
-                    <li>转正时间：</li>
-                    <li>入职时间：</li>
-                    <li>试用期：xx - xx</li>
-                    <li>参加工作时间：</li>
-                    <li>实习协议：</li>
+                    <li>职位：前端开发</li>
+                    <li>工作性质:</li>
+                    <li>员工状态：{{this.mes1.WorkStatus == 11?"实习":"在职"}}</li>
+                    <li>开始工作时间：{{this.mes1.StartWorkTime}}</li>
+                    <li>入职日期：{{this.mes1.EntryTime}}</li>
+                    <li>工龄：{{this.mes1.WorkDays}}</li>
+                    <li>司龄：{{this.mes1.PyDays}}</li>
+                    <li>转正日期：</li>
+                    <li>合同年限：</li>
+                    <li>合同结束日期：</li>
+                    <li>岗位职责：</li>
                 </ul>
             </aside>
             <!-- 联系信息 -->
@@ -54,19 +55,21 @@
                     <i nz-icon nzType="phone" nzTheme="outline"></i> <b>联系信息</b>
                 </header>
                 <ul>
-                    <li>联系电话：</li>
-                    <li>身份证地址：</li>
+                    <li>手机：{{this.mes1.PhoneNumber}}</li>
+                    <li>家庭电话：{{this.mes1.HouserPhoneNumber}}</li>
+                    <li>公司邮箱：{{this.mes1.CompanyEmail}}</li>
+                    <li>个人邮箱：{{this.mes1.Email}}</li>
+                    <li>QQ：{{this.mes1.QQ}}</li>
+                    <li>微信：{{this.mes1.Wechat}}</li>
                     <li>紧急联系人：</li>
-                    <li>现住地址</li>
-                    <li>紧急联系人电话：</li>
                 </ul>
             </main>
         </div>
         <div *ngIf="isChange">
-            <app-staff-basic-change></app-staff-basic-change>
+            <app-staff-basic-change [mesid]="this.mes1.StaffId"></app-staff-basic-change>
         </div>
-    
-    
+
+
     </div>
-      
+
     </body>

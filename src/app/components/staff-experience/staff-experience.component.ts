@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import { Education } from 'src/app/domains/education.domain';
+import { WorkExperience } from 'src/app/domains/workexperience.domain';
+import { EducationServiceSvr } from 'src/app/services/education-service.service';
+import { WorkExperienceServiceSvr } from 'src/app/services/workexperience-services.service';
 
 @Component({
   selector: 'app-staff-experience',
@@ -9,9 +13,40 @@ export class StaffExperienceComponent implements OnInit {
 
   public isWork = false;
   public isEducation = false;
-  constructor() { }
-
+  public messtaffid = ''
+  public file:File
+  constructor(
+    private workexperienSvr : WorkExperienceServiceSvr,
+    private educationSvr:EducationServiceSvr
+  ) { }
+  datalistwork = []
+  dataliststudy = []
+  workstart:''
+  worksend:''
+  workscomp:''
+  worksposi:''
+  workspres:''
+  expstart:''
+  expend:''
+  educatdegree:''
+  educatschool:''
+  educatmajor:''
+  education:Education
+  workExperience :WorkExperience
+  @Input() mes:object
   ngOnInit(): void {
+    // @ts-ignore
+    this.messtaffid = this.mes.StaffId
+    this.workexperienSvr.findByStaffId(this.messtaffid).then(res=>{
+      console.log(res)
+      this.datalistwork = res.data
+    })
+    // @ts-ignore
+    this.educationSvr.findByStaffId(this.messtaffid).then(res=>{
+      console.log(res)
+      this.dataliststudy = res.data
+    })
+
   }
 
   //添加工作经历
@@ -21,18 +56,49 @@ export class StaffExperienceComponent implements OnInit {
   workCancel(){
     this.isWork = false;
   }
-  workOk(){
+  workOk(data){
     this.isWork = false;
+    console.log(data)
+    this.workExperience = new WorkExperience({
+      StaffId: this.messtaffid,
+      StartTime: data[0],
+      EndTime:data[1],
+      Position: data[3],
+      Reason: data[4],
+      Company: data[2]
+    })
+    this.workexperienSvr.addExperience(this.workExperience).then(res=>{
+      console.log(res)
+    })
   }
-
+  uploaderImage(ele: HTMLInputElement): void{
+    const files = ele.files[0];
+    this.file = files;
+    console.log(files);
+  }
   //添加教育经历
   addEducation(){
-    this.isWork = true;
+    this.isEducation = true;
   }
   EducationCancel(){
-    this.isWork = false;
+    this.isEducation = false;
   }
-  EducationOk(){
-    this.isWork = false;
+  EducationOk(data){
+    this.isEducation = false;
+    this.education = new Education({
+      StaffId: this.messtaffid,
+      Name:data[1],
+      Major: data[2],
+      StartTime: data[3],
+      EndTime:data[4],
+      // Img?: string;
+      Degree: data[0]
+    })
+
+    this.educationSvr.addEducation(this.education,this.file).then(res=>{
+      console.log(res)
+    })
   }
+  // 图片上传
+
 }

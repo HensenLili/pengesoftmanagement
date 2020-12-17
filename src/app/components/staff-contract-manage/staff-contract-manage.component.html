@@ -1,4 +1,5 @@
-<div class="work">
+<body>
+<div >
     <header>
        <div><i nz-icon nzType="highlight" nzTheme="outline"></i><b>合同档案</b></div>
         <div><button nz-button (click)="addContract()"><i nz-icon nzType="plus-circle" nzTheme="outline"></i></button><span>添加</span></div>
@@ -8,6 +9,7 @@
     </div>
 </div>
 
+<!-- 添加合同协议弹窗 -->
 <nz-modal [(nzVisible)]="isadd" nzTitle="添加合同协议" (nzOnCancel)="addCancel()" (nzOnOk)="addOk()">
 <form nz-form>
  <nz-form-item>
@@ -65,3 +67,4 @@
  </nz-form-item>
 </form>
 </nz-modal>
+</body>

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NzFormModule } from 'ng-zorro-antd/form';
-import { from } from 'rxjs';
 import { StaffServiceSvr } from '../../services/staffservice.service';
 import{Router,NavigationExtras  } from '@angular/router'
 import { Staff } from 'src/app/domains/staff.domain';
+import{NzModalRef,NzModalService} from 'ng-zorro-antd/modal'
+import{StaffAddModalComponent}from '../../components/staff-add-modal/staff-add-modal.component'
 @Component({
   selector: 'app-staff-roster',
   templateUrl: './staff-roster.component.html',
@@ -12,7 +13,8 @@ import { Staff } from 'src/app/domains/staff.domain';
 export class StaffRosterComponent implements OnInit {
 
   public navflag:boolean = false;
- 
+  public staff:Staff;
+  public DepartmentName:string;
 //定义每个下拉搜索的开关状态
  public isname=false;
  public isidtype = false;
@@ -30,33 +32,87 @@ public inputdepartment:any ='';
  public inputsex:any = '';
  public listOfData:any=[];
  public listOfDisplayData:Array<Staff> = []
- 
+  public count
+  public official
+  public try
+  public wait
+  public practice
+  public leave
+
 
 constructor(
   private staffSvr : StaffServiceSvr,
-  private route :Router
+  private route :Router,
+  private modal:NzModalService
   ) { }
 ngOnInit(): void {
   this.getAll();
-  console.log(this.listOfDisplayData[1]);
+  this.count = this.staffSvr.findCount(0,0,0,0,'','')
 
+  this.official = this.staffSvr.findCount(43,0,0,0,'','')
+
+  this.try = this.staffSvr.findCount(20,0,0,0,'','')
+
+  this.wait = this.staffSvr.findCount(10,0,0,0,'','')
+
+  this.practice = this.staffSvr.findCount(20,0,0,0,'','')
+
+  this.leave = this.staffSvr.findCount(99,0,0,0,'','')
 }
 
 getAll(){
   this.staffSvr.findAllStaff().then(res=>{
     this.listOfData = res.data
-    console.log(this.listOfData);
+    console.log(res);
     this.listOfDisplayData = [...this.listOfData]
-    console.log(this.listOfDisplayData[1]);
   },err=>{
-    console.log(err);  
+    console.log(err);
   })
-  
+
+}
+//新增员工弹窗
+add(): void {
+  let editModal=this.modal.create({
+    nzTitle:"新增员工",
+    nzContent:StaffAddModalComponent,
+    nzComponentParams:{ 
+    },
+    nzFooter:null
+  })
+ 
+  editModal.afterClose.subscribe(res=>{
+    console.log(res)
+    this.staff =new Staff({
+      "StaffId":res.StaffId,
+      "Name":res.Name,
+      "IdCard":res.IdCard,
+      "Gender":res.Gender,
+      "PhoneNumber":res.PhoneNumber,
+      "EntryTime":res.EntryTime
+    })
+    this.staffSvr.addStaff(this.staff,res.file).then(res=>{
+      console.log(res,555);
+      this.getAll();
+     
+
+      
+    })
+    })
+   
 }
 
- //部门搜索  确定
- searchDepartment():void {
-  this.listOfDisplayData = this.listOfData.filter(item=> item.department.indexOf(this.inputdepartment) !== -1);
+ //部门搜索 
+ searchDepartment(event):void {
+   this.staff =new Staff({
+     
+   })
+   this.DepartmentName = event.target.value
+   console.log(this.DepartmentName,55566);
+  this.staffSvr.findByCondition(this.staff,this.DepartmentName,'').then(res=>{
+    console.log(res)
+    this.listOfData = res.data;
+    this.listOfDisplayData = [...this.listOfData]
+  })
 }
 
 //名字搜索  确定
@@ -70,73 +126,19 @@ reset1(): void {
   this.searchName();
 }
 
-//证件类型搜索  确定
-searchIdtype(): void {
-this.isidtype = false;
-this.listOfDisplayData = this.listOfData.filter(item => item.idtype.indexOf(this.inputidtype) !== -1);
-}
-//证件类型搜索 取消
-  reset2(): void {
-this.inputidtype = '';
-this.searchIdtype();
-}
-
-// //证件号搜索  确定
-// searchIdnumber(): void {
-// this.isidnumber = false;
-// this.listOfDisplayData = this.listOfData.filter(item => String(item.idnumber).indexOf(this.inputidnumber) !== -1);
-// }
-// //证件号搜索 取消
-//  reset3(): void {
-// this.inputidtype = '';
-// this.searchIdtype();
-// }
-
-// //手机号搜索  确定
-//  searchPhone(): void {
-// this.isidnumber = false;
-// this.listOfDisplayData = this.listOfData.filter(item => String(item.phone).indexOf(this.inputphone) !== -1);
-// }
-// //手机号搜索 取消
-//  reset4(): void {
-// this.inputphone = '';
-// this.searchPhone();
-// }
-
-// //入职日期搜索  确定
-// searchDate(): void {
-// this.isidnumber = false;
-// this.listOfDisplayData = this.listOfData.filter(item => String(item.dateOfEntry).indexOf(this.inputdate) !== -1);
-// }
-// //手机号搜索 取消
-//   reset5(): void {
-// this.inputdate = '';
-// this.searchDate();
-// }
-
-// //性别搜索  确定
-//  searchSex(): void {
-// this.isidnumber = false;
-// this.listOfDisplayData = this.listOfData.filter(item => String(item.sex).indexOf(this.inputsex) !== -1);
-// }
-// //新版搜索 取消
-//  reset6(): void {
-// this.inputsex = '';
-// this.searchSex();
-// }
 
  // 收起分类点击事件
  isnav(){
   this.navflag  = !this.navflag;
   // console.log(this.navflag);
 }
-Onclick(data:Staff){
-  console.log(data)
-  let extra:NavigationExtras={
-    queryParams:{"data":data}
-  }
-  this.route.navigate(['/staff/employee'],extra)
-}
+// Onclick(data:Staff){
+//   console.log(data)
+//   let extra:NavigationExtras={
+//     queryParams:{"data":data}
+//   }
+//   // this.route.navigate(['/staff/employee'],extra)
+// }
 
 
 }

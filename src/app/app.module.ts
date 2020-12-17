@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {Component, CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {Component, CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -45,8 +45,6 @@ import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 // 引入小图标模块
 import { NzIconModule } from 'ng-zorro-antd/icon';
-// 引入基础信息组件
-// import { BasicInforComponent } from './components/basic-infor/basic-infor.component';
 // 引入栅栏模块
 import {NzGridModule} from 'ng-zorro-antd/grid';
 // 引入下拉菜单模块
@@ -77,6 +75,7 @@ import { StaffContractComponent } from './components/staff-contract/staff-contra
 import {RecruitDemandComponent} from './components/recruit-demand/recruit-demand.component';
 import { NzTimelineModule } from 'ng-zorro-antd/timeline';
 
+
 import { StaffEmployeeComponent } from './components/staff-employee/staff-employee.component';
 import { StaffBasicInforComponent } from './components/staff-basic-infor/staff-basic-infor.component';
 import { StaffExperienceComponent } from './components/staff-experience/staff-experience.component';
@@ -96,7 +95,25 @@ import { TrainingManageComponent } from './views/training-manage/training-manage
 // 引入卡片模块
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzStatisticModule } from 'ng-zorro-antd/statistic';
-import { StaffContractManageComponent } from './components/staff-contract-manage/staff-contract-manage.component'
+
+import {NzCalendarModule} from "ng-zorro-antd/calendar";
+import {NzListModule} from "ng-zorro-antd/list";
+import { StatementComponent } from './views/statement/statement.component';
+import { StatementRecruitComponent } from './components/statement-recruit/statement-recruit.component';
+import { StaffContractRenewModalComponent } from './components/staff-contract-renew-modal/staff-contract-renew-modal.component';
+import { StaffContractChangeModalComponent } from './components/staff-contract-change-modal/staff-contract-change-modal.component';
+import { StaffContractOverModalComponent } from './components/staff-contract-over-modal/staff-contract-over-modal.component';
+import {StaffContractManageComponent} from "./components/staff-contract-manage/staff-contract-manage.component";
+import { OrganizeUnitComponent } from './components/organize-unit/organize-unit.component';
+import { OrganizeDepartmentComponent } from './components/organize-department/organize-department.component';
+import { TrainingPlanComponent } from './components/training-plan/training-plan.component';
+import { TrainingLogComponent } from './components/training-log/training-log.component';
+import { AwardPunishModalComponent } from './components/award-punish-modal/award-punish-modal.component';
+import { StaffAddModalComponent } from './components/staff-add-modal/staff-add-modal.component';
+import { StaffAddFormalModalComponent } from './components/staff-add-formal-modal/staff-add-formal-modal.component';
+import {NzCascaderModule} from "ng-zorro-antd/cascader";
+
+
 import { from } from 'rxjs';
 import { RecruitResumeShowComponent } from './components/recruit-resume-show/recruit-resume-show.component';
 import {NzToolTipModule} from "ng-zorro-antd/tooltip";
@@ -144,7 +161,21 @@ registerLocaleData(zh);
     StaffContractRenewComponent,
     StaffContractComponent,
     StaffContractManageComponent,
-    RecruitResumeShowComponent
+    RecruitResumeShowComponent,
+    StatementComponent,
+    StatementRecruitComponent,
+    StaffContractRenewModalComponent,
+    StaffContractChangeModalComponent,
+    StaffContractOverModalComponent,
+    StaffContractManageComponent,
+    OrganizeUnitComponent,
+    OrganizeDepartmentComponent,
+    TrainingPlanComponent,
+    TrainingLogComponent,
+    AwardPunishModalComponent,
+    StaffAddModalComponent,
+    StaffAddFormalModalComponent
+
 
 
   ],
@@ -169,34 +200,26 @@ registerLocaleData(zh);
     CommonModule,
     FormsModule,
     NzSwitchModule,
-    NzAvatarModule,
-    NzButtonModule,
-    NzDropDownModule,
-    NzTableModule,
-    FormsModule,
-    ReactiveFormsModule,
     NzTabsModule,
-    NzTimelineModule,
+    NzTimelineModule ,
     NzSelectModule,
-    NzInputModule,
-    NzFormModule,
+    NgxEchartsModule,
     NzBreadCrumbModule,
-    NzSelectModule,
     NzRadioModule,
     NzDatePickerModule,
     NzUploadModule,
-    NzTabsModule,
     NzInputNumberModule,
     ReactiveFormsModule,
-    NgxEchartsModule,
     NzStatisticModule,
     NzCardModule,
-    NgxEchartsModule,
     NzPopoverModule,
-    NzToolTipModule
+    NzCalendarModule,
+    NzListModule,
+    NzCascaderModule,
   ],
   schemas: [
-     CUSTOM_ELEMENTS_SCHEMA
+     CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
   ],
   providers: [],
   bootstrap: [AppComponent]
