@@ -107,7 +107,7 @@ import { OrganizeUnitComponent } from './components/organize-unit/organize-unit.
 import { OrganizeDepartmentComponent } from './components/organize-department/organize-department.component';
 import { TrainingPlanComponent } from './components/training-plan/training-plan.component';
 import { TrainingLogComponent } from './components/training-log/training-log.component';
-import { AwardPunishModalComponent } from './components/award-punish-modal/award-punish-modal.component';
+import {NzCascaderModule} from "ng-zorro-antd/cascader";
 
 
 registerLocaleData(zh);
@@ -162,8 +162,7 @@ registerLocaleData(zh);
     OrganizeUnitComponent,
     OrganizeDepartmentComponent,
     TrainingPlanComponent,
-    TrainingLogComponent,
-    AwardPunishModalComponent
+    TrainingLogComponent
 
 
 
@@ -190,7 +189,7 @@ registerLocaleData(zh);
     FormsModule,
     NzSwitchModule,
     NzTabsModule,
-    NzTimelineModule ,
+    NzTimelineModule,
     NzSelectModule,
     NgxEchartsModule,
     NzBreadCrumbModule,
@@ -204,6 +203,7 @@ registerLocaleData(zh);
     NzPopoverModule,
     NzCalendarModule,
     NzListModule,
+    NzCascaderModule,
   ],
   schemas: [
      CUSTOM_ELEMENTS_SCHEMA,

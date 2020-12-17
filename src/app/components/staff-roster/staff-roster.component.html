@@ -1,7 +1,7 @@
 <body>
 
   <header>
-  <button routerLink="/staff/employee">新增员工</button>
+  <button>新增员工</button>
   <button>导入</button>
   <button>导出</button>
   <button>生日名单</button>
@@ -39,22 +39,22 @@
   <nav [hidden]="true">
       <ul>
           <li class="li1"><i nz-icon nzType="team" nzTheme="outline"></i>
-              <b>总员工</b>
+              <b>总员工 {{this.count.__zone_symbol__value.data}}</b>
           </li>
           <li class="li2"><i nz-icon nzType="user" nzTheme="outline"></i>
-              <b>正式</b>
+              <b>正式 {{this.official.__zone_symbol__value.data}}</b>
               </li>
           <li class="li3"><i nz-icon nzType="schedule" nzTheme="outline"> </i>
-              <b>试用期</b>
+              <b>试用期 {{this.try.__zone_symbol__value.data}}</b>
           </li>
           <li class="li1"><i nz-icon nzType="user-add" nzTheme="outline"></i>
-              <b>待入职</b>
+              <b>待入职 {{this.wait.__zone_symbol__value.data}}</b>
           </li>
           <li class="li4"><i nz-icon nzType="user-add" nzTheme="outline"></i>
-              <b>新入职</b>
+              <b>实习期 {{this.practice.__zone_symbol__value.data}}</b>
           </li>
         <li class="li2"><i nz-icon nzType="user-delete" nzTheme="outline"></i>
-              <b>离职</b>
+              <b>离职 {{this.leave.__zone_symbol__value.data}}</b>
         </li>
       </ul>
   </nav>

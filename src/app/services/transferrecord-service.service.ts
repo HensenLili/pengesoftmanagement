@@ -27,10 +27,11 @@ export class TransferRecordServiceSvr {
   /**
    *
    */
-  addTransferRecord(transferRecord: TransferRecord): Promise<Result>{
+  findByCondition(staffName: string, operatorName: string): Promise<Result>{
     const httpParams = new HttpParams()
-      .append('transferRecord', transferRecord.toString());
-    return this.request.post<Result>(this.baseUrl + 'addTransferRecord', httpParams).then((res) => {
+      .append('staffName', staffName.toString())
+      .append('operatorName', operatorName.toString());
+    return this.request.post<Result>(this.baseUrl + 'findByCondition', httpParams).then((res) => {
       return new Result(res);
     });
   }
@@ -38,11 +39,10 @@ export class TransferRecordServiceSvr {
   /**
    *
    */
-  findByCondition(staffName: string, operatorName: string): Promise<Result>{
+  addTransferRecord(transferRecord: TransferRecord): Promise<Result>{
     const httpParams = new HttpParams()
-      .append('staffName', staffName.toString())
-      .append('operatorName', operatorName.toString());
-    return this.request.post<Result>(this.baseUrl + 'findByCondition', httpParams).then((res) => {
+      .append('transferRecord', transferRecord.toString());
+    return this.request.post<Result>(this.baseUrl + 'addTransferRecord', httpParams).then((res) => {
       return new Result(res);
     });
   }
