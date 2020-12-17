@@ -84,10 +84,11 @@ import { StaffLeaveModalComponent } from './components/staff-leave-modal/staff-l
 import { StaffMoveHistoryComponent } from './components/staff-move-history/staff-move-history.component';
 import { StaffBasicChangeComponent } from './components/staff-basic-change/staff-basic-change.component';
 import { StaffContractRenewComponent } from './components/staff-contract-renew/staff-contract-renew.component';
+import { TrainingManageComponent } from './views/training-manage/training-manage.component'
 // 引入卡片模块
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzStatisticModule } from 'ng-zorro-antd/statistic';
-import { TrainingManageComponent } from './views/training-manage/training-manage.component'
+
 import {NzCalendarModule} from "ng-zorro-antd/calendar";
 import {NzListModule} from "ng-zorro-antd/list";
 import { StatementComponent } from './views/statement/statement.component';
@@ -104,6 +105,10 @@ import { AwardPunishModalComponent } from './components/award-punish-modal/award
 import { StaffAddModalComponent } from './components/staff-add-modal/staff-add-modal.component';
 import {NzCascaderModule} from "ng-zorro-antd/cascader";
 
+
+import { from } from 'rxjs';
+import { RecruitResumeShowComponent } from './components/recruit-resume-show/recruit-resume-show.component';
+import {NzToolTipModule} from "ng-zorro-antd/tooltip";
 
 registerLocaleData(zh);
 
@@ -128,7 +133,6 @@ registerLocaleData(zh);
     RecruitOfferComponent,
     StaffRosterComponent,
     StaffContractComponent,
-    RecruitDemandComponent,
     StaffEmployeeComponent,
     StaffBasicInforComponent,
     StaffExperienceComponent,
@@ -145,6 +149,8 @@ registerLocaleData(zh);
     StaffBasicChangeComponent,
     StaffContractRenewComponent,
     StaffContractComponent,
+    StaffContractManageComponent,
+    RecruitResumeShowComponent,
     StatementComponent,
     StatementRecruitComponent,
     StaffContractRenewModalComponent,

@@ -1,7 +1,7 @@
 
 /*****************************************************************************
  *
- * 作   者: 亢远露 * 创建时间: 2020/12/15 11:03:28 *
+ * 作   者: 亢远露 * 创建时间: 2020/12/15 17:54:12 *
  * Copyright (C) 2008 - 鹏业软件公司
  *
  *****************************************************************************/
@@ -23,7 +23,8 @@ export class ResumeMes extends DataPacket {
   PositionName: string; // 职位名称
   PositionTypeName: string; // 职位类别名称
   Revicetime: Date | string; // 接收时间
-  RecruitStage: RecruitStage; // 面试阶段
+  RecruitStage1: RecruitStage; // 面试阶段
+  RecruitStage: string; // 面试阶段信息
 
   constructor(options: {
     Id?: number;
@@ -36,7 +37,8 @@ export class ResumeMes extends DataPacket {
     PositionName?: string;
     PositionTypeName?: string;
     Revicetime?: Date | string;
-    RecruitStage?: RecruitStage;
+    RecruitStage1?: RecruitStage;
+    RecruitStage?: string;
   } = {}) {
     super();
     this.Id = !options.Id ? 0 : Number.parseFloat(options.Id.toString());
@@ -49,7 +51,8 @@ export class ResumeMes extends DataPacket {
     this.PositionName = options.PositionName || '';
     this.PositionTypeName = options.PositionTypeName || '';
     this.Revicetime = this.newDate(options.Revicetime);
-    this.RecruitStage = new RecruitStage(options?.RecruitStage);
+    this.RecruitStage1 = new RecruitStage(options?.RecruitStage1);
+    this.RecruitStage = options.RecruitStage || '';
   }
 }
 

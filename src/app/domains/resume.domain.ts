@@ -1,7 +1,7 @@
 
 /*****************************************************************************
  *
- * 作   者: 亢远露 * 创建时间: 2020/12/15 10:03:52 *
+ * 作   者: 亢远露 * 创建时间: 2020/12/15 17:31:23 *
  * Copyright (C) 2008 - 鹏业软件公司
  *
  *****************************************************************************/
@@ -13,54 +13,57 @@ import {DataPacket, NorDataList} from 'pengesoft-ng-lib';
  */
 export class Resume extends DataPacket {
   ResumeId: number; // id
-  RecruitStageId: string; // 简历阶段id
-  PositionId: string; // 岗位id
-  ChannelId: string; // 招聘渠道id
+  RecruitStageId: number; // 简历阶段id
+  PositionId: number; // 岗位id
+  ChannelId: number; // 招聘渠道id
   Name: string; // 姓名
   Gender: string; // 性别
-  PhoneNumber: string; // 电话
+  PhoneNumber: number; // 电话
   School: string; // 学校
   RecruitForm: string; // 招聘形式
-  Recommend: number; // 是否内推
+  Recommend: string; // 是否内推
   Img: string; // 简历图片
   ReciveTime: Date | string; // 接收时间
   Email: string; // 邮箱
   Education: string; // 学历
   Age: number; // 年龄
+  RecruitStage: string; // 面试阶段信息
 
   constructor(options: {
     ResumeId?: number;
-    RecruitStageId?: string;
-    PositionId?: string;
-    ChannelId?: string;
+    RecruitStageId?: number;
+    PositionId?: number;
+    ChannelId?: number;
     Name?: string;
     Gender?: string;
-    PhoneNumber?: string;
+    PhoneNumber?: number;
     School?: string;
     RecruitForm?: string;
-    Recommend?: number;
+    Recommend?: string;
     Img?: string;
     ReciveTime?: Date | string;
     Email?: string;
     Education?: string;
     Age?: number;
+    RecruitStage?: string;
   } = {}) {
     super();
     this.ResumeId = !options.ResumeId ? 0 : Number.parseFloat(options.ResumeId.toString());
-    this.RecruitStageId = options.RecruitStageId || '';
-    this.PositionId = options.PositionId || '';
-    this.ChannelId = options.ChannelId || '';
+    this.RecruitStageId = !options.RecruitStageId ? 0 : Number.parseFloat(options.RecruitStageId.toString());
+    this.PositionId = !options.PositionId ? 0 : Number.parseFloat(options.PositionId.toString());
+    this.ChannelId = !options.ChannelId ? 0 : Number.parseFloat(options.ChannelId.toString());
     this.Name = options.Name || '';
     this.Gender = options.Gender || '';
-    this.PhoneNumber = options.PhoneNumber || '';
+    this.PhoneNumber = !options.PhoneNumber ? 0 : Number.parseFloat(options.PhoneNumber.toString());
     this.School = options.School || '';
     this.RecruitForm = options.RecruitForm || '';
-    this.Recommend = !options.Recommend ? 0 : Number.parseFloat(options.Recommend.toString());
+    this.Recommend = options.Recommend || '';
     this.Img = options.Img || '';
     this.ReciveTime = this.newDate(options.ReciveTime);
     this.Email = options.Email || '';
     this.Education = options.Education || '';
     this.Age = !options.Age ? 0 : Number.parseFloat(options.Age.toString());
+    this.RecruitStage = options.RecruitStage || '';
   }
 }
 
