@@ -41,6 +41,9 @@ export class RecruitManagementComponent extends CoreComponent implements OnInit 
   getAllApplyData():void{
     const status = '通过';
     this.getDataApply. gainByStatus(status).then(res=>{
+      // if (res.code == 20001){
+      //
+      // }
       console.log(res);
       this.listOfData = res.data;
     })

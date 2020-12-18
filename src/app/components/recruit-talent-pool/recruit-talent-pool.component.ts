@@ -57,6 +57,7 @@ export class RecruitTalentPoolComponent extends CoreComponent implements OnInit 
   @Input()
   ti: string;
   visible = false;
+  // 展示新增简历
   isVisible = false;
   visibleInterview = false;
   // 展示发送offer Modal
@@ -144,7 +145,7 @@ export class RecruitTalentPoolComponent extends CoreComponent implements OnInit 
 
   // 获取所有数据
   getData(): void {
-    console.log(this.orderData);
+    // console.log(this.orderData);
     this.getResumeDataSvr.gainResumeMes(this.orderData).then(res => {
       console.log(res);
       this.listOfDisplayData = res.data;
@@ -169,7 +170,6 @@ export class RecruitTalentPoolComponent extends CoreComponent implements OnInit 
   }
 
   // 获取tab数据（初试，复试，面试，发放offer）
-
   getStageData(type:string): void{
     // console.log(111);
     this.getResumeDataSvr.gainResumeByStage(type,this.orderData).then(res => {
@@ -184,7 +184,7 @@ export class RecruitTalentPoolComponent extends CoreComponent implements OnInit 
   openAdd(): void {
     this.isVisible = true;
   }
-
+  // 表单提交方法
   submitForm(): void {
     console.log(11111);
   }
@@ -198,7 +198,7 @@ export class RecruitTalentPoolComponent extends CoreComponent implements OnInit 
   //添加简历信息
   handleOkAddResume(): void {
     this.isVisible = false;
-    // console.log(this.resumeData.value);
+    console.log(this.resumeData.value);
     const memoryFile = this.file;
     const Pro = new Resume({
       ResumeId: null,
@@ -326,6 +326,19 @@ export class RecruitTalentPoolComponent extends CoreComponent implements OnInit 
 
         })
       }else if(stage == '二面'){
+        this.getResumeDataSvr.gainResumeBy(type,value,order,stage).then(res => {
+          console.log(res);
+          if (res.data.length == 0){
+            this.message.create("error", '查询数据不存在');
+          }else {
+            // searchRes.push(res.data);
+            // console.log(searchRes);
+            this.firstListData = res.data;
+            // this.message.create("success", '查询成功');
+            // console.log(this.listOfDisplayData);
+          }
+        })
+      }else if(stage == '淘汰'){
         this.getResumeDataSvr.gainResumeBy(type,value,order,stage).then(res => {
           console.log(res);
           if (res.data.length == 0){

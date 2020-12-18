@@ -66,12 +66,13 @@
                             <div nz-row>
                               <div nz-col nzSpan="11">
                                 <nz-form-item>
-                                  <nz-form-label [nzSpan]="" nzFor="email" style="margin-right: 20px">选择招聘来源渠道</nz-form-label>
-                                  <nz-form-control [nzSpan]="">
+                                  <nz-form-label [nzSpan]="12" nzFor="email" style="margin-right: 20px">招聘来源渠道</nz-form-label>
+                                  <nz-form-control [nzSpan]="14">
                                     <nz-select ngModel="Boos直聘" formControlName="ChannelId">
-                                      <nz-option nzValue="Boos直聘" nzLabel="Boos直聘"></nz-option>
-                                      <nz-option nzValue="智联招聘" nzLabel="智联招聘"></nz-option>
-                                      <nz-option nzValue="58同城" nzLabel="58同城"></nz-option>
+                                      <nz-option nzValue="7" nzLabel="Boos直聘"></nz-option>
+                                      <nz-option nzValue="6" nzLabel="拉勾网"></nz-option>
+                                      <nz-option nzValue="1" nzLabel="58同城"></nz-option>
+                                      <nz-option nzValue="8" nzLabel="实习僧"></nz-option>
                                     </nz-select>
                                   </nz-form-control>
                                 </nz-form-item>
@@ -158,12 +159,12 @@
                                 <nz-form-item>
                                   <nz-form-label [nzSpan]="" nzFor="email" style="">简历放到</nz-form-label>
                                   <nz-form-control [nzSpan]="">
-                                    <nz-select ngModel="入库" formControlName="RecruitStage">
-                                      <nz-option nzValue="入库" nzLabel="入库"></nz-option>
-                                      <nz-option nzValue="初试通过" nzLabel="初试通过"></nz-option>
-                                      <nz-option nzValue="复试通过" nzLabel="复试通过"></nz-option>
-                                      <nz-option nzValue="面试通过" nzLabel="面试通过"></nz-option>
-                                      <nz-option nzValue="未初试" nzLabel="未初试"></nz-option>
+                                    <nz-select ngModel="初试" formControlName="RecruitStage">
+                                      <nz-option nzValue="初试" nzLabel="初试"></nz-option>
+                                      <nz-option nzValue="复试" nzLabel="复试"></nz-option>
+                                      <nz-option nzValue="面试" nzLabel="面试"></nz-option>
+                                      <nz-option nzValue="二面" nzLabel="二面"></nz-option>
+                                      <nz-option nzValue="全部通过" nzLabel="全部通过"></nz-option>
                                     </nz-select>
                                   </nz-form-control>
                                 </nz-form-item>
@@ -204,7 +205,7 @@
                                   <nz-form-control >
                                     <nz-radio-group formControlName="Recommend">
                                       <label nz-radio nzValue="1">是</label>
-                                      <label nz-radio nzValue="0">否</label>
+                                      <label nz-radio nzValue="2">否</label>
                                     </nz-radio-group>
                                   </nz-form-control>
                                 </nz-form-item>
@@ -402,7 +403,7 @@
                   <nz-dropdown-menu #menu5="nzDropdownMenu">
                     <ul nz-menu nzSelectable>
                       <li nz-menu-item (click)="changeStage(data.d,'初试')">初试</li>
-                      <li nz-menu-item (click)="changIeStage(data.Id,'复试')">复试</li>
+                      <li nz-menu-item (click)="changeStage(data.Id,'复试')">复试</li>
                       <li nz-menu-item (click)="changeStage(data.Id,'面试')">面试</li>
                       <li nz-menu-item (click)="changeStage(data.Id,'二面')">二面</li>
                       <!--                      <li nz-menu-item nzDanger>筛选淘汰</li>-->
@@ -862,10 +863,10 @@
 
             <div nz-col nzSpan="6">
               <nz-input-group nzSearch [nzAddOnAfter]="sendOffer">
-                <input type="text" nz-input placeholder="input search text" [(ngModel)]="searchValueOffer" (keypress)="searchData(searchType6,searchValueOffer,orderData6,6)"/>
+                <input type="text" nz-input placeholder="input search text" [(ngModel)]="searchValueOffer" (keypress)="searchData(searchType6,searchValueOffer,orderData6,'淘汰')"/>
               </nz-input-group>
               <ng-template #sendOffer>
-                <button nz-button nzType="primary" nzSearch (click)="searchData(searchType6,searchValueOffer,orderData6,6)"><i nz-icon nzType="search"></i></button>
+                <button nz-button nzType="primary" nzSearch (click)="searchData(searchType6,searchValueOffer,orderData6 ,'淘汰')"><i nz-icon nzType="search"></i></button>
               </ng-template>
             </div>
 
