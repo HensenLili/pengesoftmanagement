@@ -90,7 +90,6 @@ import {NzCalendarModule} from "ng-zorro-antd/calendar";
 import {NzListModule} from "ng-zorro-antd/list";
 import { StatementComponent } from './views/statement/statement.component';
 import { StatementRecruitComponent } from './components/statement-recruit/statement-recruit.component';
-import { StaffContractRenewModalComponent } from './components/staff-contract-renew-modal/staff-contract-renew-modal.component';
 import { StaffContractChangeModalComponent } from './components/staff-contract-change-modal/staff-contract-change-modal.component';
 import { StaffContractOverModalComponent } from './components/staff-contract-over-modal/staff-contract-over-modal.component';
 import {StaffContractManageComponent} from "./components/staff-contract-manage/staff-contract-manage.component";
@@ -103,6 +102,7 @@ import { StaffAddModalComponent } from './components/staff-add-modal/staff-add-m
 import {NzCascaderModule} from "ng-zorro-antd/cascader";
 import { RecruitResumeShowComponent } from './components/recruit-resume-show/recruit-resume-show.component';
 import {NzToolTipModule} from "ng-zorro-antd/tooltip";
+import { StaffContractRenewModalComponent } from './components/staff-contract-renew-modal/staff-contract-renew-modal.component';
 
 registerLocaleData(zh);
 
@@ -146,7 +146,6 @@ registerLocaleData(zh);
     RecruitResumeShowComponent,
     StatementComponent,
     StatementRecruitComponent,
-    StaffContractRenewModalComponent,
     StaffContractChangeModalComponent,
     StaffContractOverModalComponent,
     StaffContractManageComponent,
@@ -155,7 +154,8 @@ registerLocaleData(zh);
     TrainingPlanComponent,
     TrainingLogComponent,
     AwardPunishModalComponent,
-    StaffAddModalComponent
+    StaffAddModalComponent,
+    StaffContractRenewModalComponent
   ],
   imports: [
     BrowserModule,

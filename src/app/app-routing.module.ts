@@ -123,7 +123,6 @@ const routes: Routes = [
           {path:'staffleave',component:StaffLeaveComponent},
           {path:'staffmovehistory',component:StaffMoveHistoryComponent}
         ]
-
       },
       {
         path: 'awardpunish',
