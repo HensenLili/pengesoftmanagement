@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { StaffContractOverModalComponent } from './staff-contract-over-modal.component';
 
 describe('StaffContractOverModalComponent', () => {

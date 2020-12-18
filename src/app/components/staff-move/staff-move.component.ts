@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Staff } from 'src/app/domains/staff.domain';
 import { StaffServiceSvr } from '../../services/staffservice.service';
 import {TransferRecordServiceSvr} from "../../services/transferrecord-service.service";
+
 @Component({
   selector: 'app-staff-move',
   templateUrl: './staff-move.component.html',
@@ -9,22 +10,24 @@ import {TransferRecordServiceSvr} from "../../services/transferrecord-service.se
 })
 export class StaffMoveComponent implements OnInit {
 
-
-  checked = false;
-  indeterminate = false;
-  listOfCurrentPageData = [];
+  // 定义
+  public checked = false;
+  public indeterminate = false;
+  publiclistOfCurrentPageData = [];
   public staff:Staff;
   public listOfData:any=[];
   public listOfDisplayData:Array<Staff> = []
 
+  constructor(
+    private staffSvr : StaffServiceSvr,
+    private transferSvr : TransferRecordServiceSvr
+    ) { }
+    ngOnInit(): void {
+      this.getAll();
+    }
 
-  ngOnInit(): void {
-    this.getAll();
-  }
-  constructor(private staffSvr : StaffServiceSvr,
-              private transferSvr : TransferRecordServiceSvr) { }
+    // 获取所有调用员工信息
   getAll(){
-
     this.staff = new Staff({
       "WorkStatus":31
     })
@@ -35,60 +38,7 @@ export class StaffMoveComponent implements OnInit {
     })
 
   }
-
-  setOfCheckedId = new Set<number>();
-
-  listOfSelection = [
-    {
-      text: 'Select All Row',
-      onSelect: () => {
-        this.onAllChecked(true);
-      }
-    },
-    {
-      text: 'Select Odd Row',
-      onSelect: () => {
-        this.listOfCurrentPageData.forEach((data, index) => this.updateCheckedSet(data.id, index % 2 !== 0));
-        this.refreshCheckedStatus();
-      }
-    },
-    {
-      text: 'Select Even Row',
-      onSelect: () => {
-        this.listOfCurrentPageData.forEach((data, index) => this.updateCheckedSet(data.id, index % 2 === 0));
-        this.refreshCheckedStatus();
-      }
-    }
-  ];
-
-  updateCheckedSet(id: number, checked: boolean): void {
-    if (checked) {
-      this.setOfCheckedId.add(id);
-    } else {
-      this.setOfCheckedId.delete(id);
-    }
-  }
-
-  onItemChecked(id: number, checked: boolean): void {
-    this.updateCheckedSet(id, checked);
-    this.refreshCheckedStatus();
-  }
-
-  onAllChecked(value: boolean): void {
-    this.listOfCurrentPageData.forEach(item => this.updateCheckedSet(item.id, value));
-    this.refreshCheckedStatus();
-  }
-
-  onCurrentPageDataChange($event): void {
-    this.listOfCurrentPageData = $event;
-    this.refreshCheckedStatus();
-  }
-
-  refreshCheckedStatus(): void {
-    this.checked = this.listOfCurrentPageData.every(item => this.setOfCheckedId.has(item.id));
-    this.indeterminate = this.listOfCurrentPageData.some(item => this.setOfCheckedId.has(item.id)) && !this.checked;
-  }
-
+ 
 
 
 }

@@ -1,207 +1,237 @@
-<article >
+<!-- 基础信息 -->
+<article>
     <form nz-form [formGroup]="itemformGroup">
+
         <nz-form-item>
           <nz-form-label [nzSpan]="8" >姓名</nz-form-label>
           <nz-form-control [nzSpan]="22">
-            <input nz-input type="text" formControlName="Name" [(ngModel)]="messhow.Name" name="Name">
+            <input nz-input type="text" formControlName="Name" [(ngModel)]="mesShow.Name" name="Name">
           </nz-form-control>
         </nz-form-item >
+
         <nz-form-item>
             <nz-form-label [nzSpan]="8" >证件号码</nz-form-label>
             <nz-form-control [nzSpan]="22" >
-              <input nz-input type="text" formControlName="IdCard" [(ngModel)]="messhow.IdCard" name="IdCard">
+              <input nz-input type="text" formControlName="IdCard" [(ngModel)]="mesShow.IdCard" name="IdCard">
             </nz-form-control>
           </nz-form-item >
+
           <nz-form-item>
             <nz-form-label [nzSpan]="8" >出生日期</nz-form-label>
             <nz-form-control [nzSpan]="22" >
-              <input nz-input type="text" formControlName="Birth" [(ngModel)]="messhow.Birth" name="Birth">
+              <input nz-input type="text" formControlName="Birth" [(ngModel)]="mesShow.Birth" name="Birth">
             </nz-form-control>
           </nz-form-item >
+
           <nz-form-item>
             <nz-form-label [nzSpan]="8" >年龄</nz-form-label>
             <nz-form-control [nzSpan]="22">
-              <input nz-input type="text" formControlName="Age"  [(ngModel)]="messhow.Age" name="Age">
+              <input nz-input type="text" formControlName="Age"  [(ngModel)]="mesShow.Age" name="Age">
             </nz-form-control>
           </nz-form-item >
+
           <nz-form-item>
             <nz-form-label [nzSpan]="8" >婚姻状况</nz-form-label>
             <nz-form-control [nzSpan]="22">
-              <input nz-input type="text" formControlName="MaritalStatus"  [(ngModel)]="messhow.MaritalStatus" name="MaritalStatus">
+              <input nz-input type="text" formControlName="MaritalStatus"  [(ngModel)]="mesShow.MaritalStatus" name="MaritalStatus">
             </nz-form-control>
           </nz-form-item >
+
           <nz-form-item>
             <nz-form-label [nzSpan]="8" >性别</nz-form-label>
             <nz-form-control [nzSpan]="22" >
-              <input nz-input type="text" formControlName="Gender" [(ngModel)]="messhow.Gender" name="Gender">
+              <input nz-input type="text" formControlName="Gender" [(ngModel)]="mesShow.Gender" name="Gender">
             </nz-form-control>
           </nz-form-item >
+
           <nz-form-item>
             <nz-form-label [nzSpan]="8" >最高学历</nz-form-label>
             <nz-form-control [nzSpan]="22">
-              <input nz-input type="text" formControlName="Degree" [(ngModel)]="messhow.Degree" name="Degree">
+              <input nz-input type="text" formControlName="Degree" [(ngModel)]="mesShow.Degree" name="Degree">
             </nz-form-control>
           </nz-form-item >
+
           <nz-form-item>
             <nz-form-label [nzSpan]="8" >政治面貌</nz-form-label>
             <nz-form-control [nzSpan]="22">
-              <input nz-input type="text" formControlName="Political" [(ngModel)]="messhow.Political" name="Political" >
+              <input nz-input type="text" formControlName="Political" [(ngModel)]="mesShow.Political" name="Political" >
             </nz-form-control>
           </nz-form-item >
+
           <nz-form-item>
             <nz-form-label [nzSpan]="8" >民族</nz-form-label>
             <nz-form-control [nzSpan]="22">
-              <input nz-input type="text" formControlName="Nation" [(ngModel)]="messhow.Nation" name="Nation" >
+              <input nz-input type="text" formControlName="Nation" [(ngModel)]="mesShow.Nation" name="Nation" >
             </nz-form-control>
           </nz-form-item >
+
           <nz-form-item>
             <nz-form-label [nzSpan]="8" >户口类型</nz-form-label>
             <nz-form-control [nzSpan]="22">
-              <input nz-input type="text" formControlName="PositionTypeId" [(ngModel)]="messhow.PositionTypeId" name="PositionTypeId">
+              <input nz-input type="text" formControlName="PositionTypeId" [(ngModel)]="mesShow.PositionTypeId" name="PositionTypeId">
             </nz-form-control>
           </nz-form-item >
+
           <nz-form-item>
             <nz-form-label [nzSpan]="8" >户籍地址</nz-form-label>
             <nz-form-control [nzSpan]="22">
-              <input nz-input type="text" formControlName="PermanentAddress" [(ngModel)]="messhow.PermanentAddress" name="PermanentAddress" >
+              <input nz-input type="text" formControlName="PermanentAddress" [(ngModel)]="mesShow.PermanentAddress" name="PermanentAddress" >
             </nz-form-control>
           </nz-form-item >
+
       <nz-form-item>
         <nz-form-label [nzSpan]="8" >现居地址</nz-form-label>
         <nz-form-control [nzSpan]="22">
-          <input nz-input type="text" formControlName="CurrentAddress"  [(ngModel)]="messhow.CurrentAddress" name="CurrentAddress">
+          <input nz-input type="text" formControlName="CurrentAddress"  [(ngModel)]="mesShow.CurrentAddress" name="CurrentAddress">
         </nz-form-control>
       </nz-form-item >
-    </form>
 
+    </form>
 </article>
+
 <!-- 在职信息 -->
 <aside>
     <header>
         <i nz-icon nzType="profile" nzTheme="outline"></i> <b>在职信息</b>
     </header>
+
     <form nz-form [formGroup]="itemformGroup">
+
         <nz-form-item>
             <nz-form-label [nzSpan]="8" >所属公司</nz-form-label>
             <nz-form-control [nzSpan]="22">
               <input nz-input type="text" formControlName=""  [disabled]="true">
             </nz-form-control>
           </nz-form-item >
+
           <nz-form-item>
             <nz-form-label [nzSpan]="8" >部门</nz-form-label>
             <nz-form-control [nzSpan]="22">
               <input nz-input type="text"formControlName=""  [disabled]="true">
             </nz-form-control>
           </nz-form-item >
+
           <nz-form-item>
             <nz-form-label [nzSpan]="8" >职位</nz-form-label>
             <nz-form-control [nzSpan]="22">
               <input nz-input type="text" formControlName=""  [disabled]="true">
             </nz-form-control>
           </nz-form-item >
+
           <nz-form-item>
             <nz-form-label [nzSpan]="8" >工作性质</nz-form-label>
             <nz-form-control [nzSpan]="22">
               <input nz-input type="text" formControlName=""  [disabled]="true">
             </nz-form-control>
           </nz-form-item >
+
           <nz-form-item>
             <nz-form-label [nzSpan]="8" >员工状态</nz-form-label>
             <nz-form-control [nzSpan]="22">
-              <input nz-input type="text" formControlName="WorkStatus"  [(ngModel)]="messhow.WorkStatus" name="WorkStatus">
+              <input nz-input type="text" formControlName="WorkStatus"  [(ngModel)]="mesShow.WorkStatus" name="WorkStatus">
             </nz-form-control>
           </nz-form-item >
+
           <nz-form-item>
             <nz-form-label [nzSpan]="8" >开始工作时间</nz-form-label>
             <nz-form-control [nzSpan]="22">
-              <input nz-input type="text" formControlName="StartWorkTime" [(ngModel)]="messhow.StartWorkTime" name="StartWorkTime">
+              <input nz-input type="text" formControlName="StartWorkTime" [(ngModel)]="mesShow.StartWorkTime" name="StartWorkTime">
             </nz-form-control>
           </nz-form-item >
+
           <nz-form-item>
             <nz-form-label [nzSpan]="8" >入职日期</nz-form-label>
             <nz-form-control [nzSpan]="22">
-              <input nz-input type="text" formControlName="EntryTime"  [(ngModel)]="messhow.EntryTime" [disabled]="true" name="EntryTime">
+              <input nz-input type="text" formControlName="EntryTime"  [(ngModel)]="mesShow.EntryTime" [disabled]="true" name="EntryTime">
             </nz-form-control>
           </nz-form-item >
+
           <nz-form-item>
             <nz-form-label [nzSpan]="8" >工龄</nz-form-label>
             <nz-form-control [nzSpan]="22">
-              <input nz-input type="text" formControlName="WorkDays" [(ngModel)]="messhow.WorkDays" [disabled]="true" name="WorkDays">
+              <input nz-input type="text" formControlName="WorkDays" [(ngModel)]="mesShow.WorkDays" [disabled]="true" name="WorkDays">
             </nz-form-control>
           </nz-form-item >
+
           <nz-form-item>
             <nz-form-label [nzSpan]="8" >司龄</nz-form-label>
             <nz-form-control [nzSpan]="22">
-              <input nz-input type="text" formControlName="PyDays" [(ngModel)]="messhow.PyDays" [disabled]="true" name="PyDays">
+              <input nz-input type="text" formControlName="PyDays" [(ngModel)]="mesShow.PyDays" [disabled]="true" name="PyDays">
             </nz-form-control>
           </nz-form-item >
+
           <nz-form-item>
             <nz-form-label [nzSpan]="8" >转正日期</nz-form-label>
             <nz-form-control [nzSpan]="22">
               <input nz-input  type="text"  [disabled]="true">
             </nz-form-control>
           </nz-form-item >
+
           <nz-form-item>
             <nz-form-label [nzSpan]="8" >合同年限</nz-form-label>
             <nz-form-control [nzSpan]="22">
               <input nz-input type="text"   [disabled]="true">
             </nz-form-control>
           </nz-form-item >
+
           <nz-form-item>
             <nz-form-label [nzSpan]="8" >合同结束日期</nz-form-label>
             <nz-form-control [nzSpan]="22">
               <input nz-input  type="text"   [disabled]="true">
             </nz-form-control>
           </nz-form-item >
+
       <nz-form-item>
         <nz-form-label [nzSpan]="8" >岗位职责</nz-form-label>
         <nz-form-control [nzSpan]="22">
           <input nz-input  type="text" formControlName="mes.Position.Description" >
         </nz-form-control>
       </nz-form-item >
-    </form>
 
+    </form>
 </aside>
+
 <!-- 联系信息 -->
 <main>
     <header>
         <i nz-icon nzType="phone" nzTheme="outline"></i> <b>联系信息</b>
     </header>
+
     <form nz-form [formGroup]="itemformGroup">
         <nz-form-item>
             <nz-form-label [nzSpan]="8" >手机</nz-form-label>
             <nz-form-control [nzSpan]="22">
-              <input nz-input type="text" formControlName="PhoneNumber" [(ngModel)]="messhow.PhoneNumber" name="PhoneNumber">
+              <input nz-input type="text" formControlName="PhoneNumber" [(ngModel)]="mesShow.PhoneNumber" name="PhoneNumber">
             </nz-form-control>
           </nz-form-item >
           <nz-form-item>
             <nz-form-label [nzSpan]="8" >家庭电话</nz-form-label>
             <nz-form-control [nzSpan]="22">
-              <input nz-input type="text" formControlName="HouserPhoneNumber"  [(ngModel)]="messhow.HouserPhoneNumber" name="HouserPhoneNumber">
+              <input nz-input type="text" formControlName="HouserPhoneNumber"  [(ngModel)]="mesShow.HouserPhoneNumber" name="HouserPhoneNumber">
             </nz-form-control>
           </nz-form-item >
           <nz-form-item>
             <nz-form-label [nzSpan]="10" >公司邮箱</nz-form-label>
             <nz-form-control [nzSpan]="22">
-              <input nz-input type="text" formControlName="CompanyEmail" [(ngModel)]="messhow.CompanyEmail" name="CompanyEmail">
+              <input nz-input type="text" formControlName="CompanyEmail" [(ngModel)]="mesShow.CompanyEmail" name="CompanyEmail">
             </nz-form-control>
           </nz-form-item >
           <nz-form-item>
             <nz-form-label [nzSpan]="8" >个人邮箱</nz-form-label>
             <nz-form-control [nzSpan]="22">
-              <input nz-input type="text" formControlName="Email" [(ngModel)]="messhow.Email" name="Email">
+              <input nz-input type="text" formControlName="Email" [(ngModel)]="mesShow.Email" name="Email">
             </nz-form-control>
           </nz-form-item >
           <nz-form-item>
             <nz-form-label [nzSpan]="12" >QQ</nz-form-label>
             <nz-form-control [nzSpan]="22">
-              <input nz-input type="text" formControlName="QQ" [(ngModel)]="messhow.QQ" name="QQ">
+              <input nz-input type="text" formControlName="QQ" [(ngModel)]="mesShow.QQ" name="QQ">
             </nz-form-control>
           </nz-form-item >
       <nz-form-item>
         <nz-form-label [nzSpan]="12" >微信</nz-form-label>
         <nz-form-control [nzSpan]="22">
-          <input nz-input type="text" formControlName="Wechat" [(ngModel)]="messhow.Wechat" name="Wechat">
+          <input nz-input type="text" formControlName="Wechat" [(ngModel)]="mesShow.Wechat" name="Wechat">
         </nz-form-control>
       </nz-form-item >
       <nz-form-item>

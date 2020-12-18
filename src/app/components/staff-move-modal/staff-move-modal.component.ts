@@ -132,14 +132,14 @@ const options = [
 })
 
 export class StaffMoveModalComponent extends  CoreComponent implements OnInit {
+
   nzOptions: NzCascaderOption[] = options;
-
   values: string[] = ['zhejiang', 'hangzhou', 'xihu'];
-
-  staff:Staff
-  formGroup:FormGroup;
+  public staff:Staff
+  public formGroup:FormGroup;
   public staffname :'';
   public radioValue=[];
+
   constructor(
     private modal:NzModalRef,
     private injector:Injector,
@@ -148,7 +148,6 @@ export class StaffMoveModalComponent extends  CoreComponent implements OnInit {
     this.formGroup = this.formBuilder.group({
       movename:'',
       movedate:'',
-
       movedepartment:'',
       moveposition:'',
       moveremark:''
@@ -159,13 +158,17 @@ export class StaffMoveModalComponent extends  CoreComponent implements OnInit {
     // @ts-ignore
     this.staffname = this.staff.StaffName
   }
+
+    // 调动弹窗
   Onclick(){
     this.modal.destroy(this.formGroup)
     console.log(this.formGroup)
   }
+  // 调动弹窗
   cancel(){
     this.modal.destroy(null)
   }
+  
   onChanges(values: string[]): void {
     console.log(values, this.values);
   }

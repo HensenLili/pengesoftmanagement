@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./staff-grow-record.component.less']
 })
 export class StaffGrowRecordComponent implements OnInit {
-
+  // 定义
   public isReward = false;
   public isTrain = false;
   public isMove= false;
@@ -16,7 +16,7 @@ export class StaffGrowRecordComponent implements OnInit {
   ngOnInit(): void {
   }
  
-  //奖惩记录
+  //奖惩记录弹窗
   reward(){
     this.isReward = true;
   }
@@ -26,11 +26,11 @@ export class StaffGrowRecordComponent implements OnInit {
   rewardCancel(): void {
     this.isReward = false;
   }
-  //添加奖惩记录
+  //添加奖惩记录弹窗
   addReward(){
   }
 
-  //培训记录
+  //培训记录弹窗
   train(){
     this.isTrain = true;
   }

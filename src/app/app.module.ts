@@ -13,7 +13,6 @@ import zh from '@angular/common/locales/zh';
 import {MyTabViewComponent} from './views/my-tab-view/my-tab-view.component';
 import {NzLayoutModule} from 'ng-zorro-antd/layout';
 import { EmployeesComponent } from './components/employees/employees.component';
-// import { RosterComponent } from './components/roster/roster.component';
 import { RecruitInterviewComponent } from './components/recruit-interview/recruit-interview.component';
 import { RecruitNeedslistComponent } from './components/recruit-needslist/recruit-needslist.component';
 import { RecruitNeedsTableComponent } from './components/recruit-needs-table/recruit-needs-table.component';
@@ -83,12 +82,10 @@ import { StaffLeaveComponent } from './components/staff-leave/staff-leave.compon
 import { StaffLeaveModalComponent } from './components/staff-leave-modal/staff-leave-modal.component';
 import { StaffMoveHistoryComponent } from './components/staff-move-history/staff-move-history.component';
 import { StaffBasicChangeComponent } from './components/staff-basic-change/staff-basic-change.component';
-import { StaffContractRenewComponent } from './components/staff-contract-renew/staff-contract-renew.component';
 import { TrainingManageComponent } from './views/training-manage/training-manage.component'
 // 引入卡片模块
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzStatisticModule } from 'ng-zorro-antd/statistic';
-
 import {NzCalendarModule} from "ng-zorro-antd/calendar";
 import {NzListModule} from "ng-zorro-antd/list";
 import { StatementComponent } from './views/statement/statement.component';
@@ -104,9 +101,6 @@ import { TrainingLogComponent } from './components/training-log/training-log.com
 import { AwardPunishModalComponent } from './components/award-punish-modal/award-punish-modal.component';
 import { StaffAddModalComponent } from './components/staff-add-modal/staff-add-modal.component';
 import {NzCascaderModule} from "ng-zorro-antd/cascader";
-
-
-import { from } from 'rxjs';
 import { RecruitResumeShowComponent } from './components/recruit-resume-show/recruit-resume-show.component';
 import {NzToolTipModule} from "ng-zorro-antd/tooltip";
 
@@ -147,7 +141,6 @@ registerLocaleData(zh);
     StaffLeaveModalComponent,
     StaffMoveHistoryComponent,
     StaffBasicChangeComponent,
-    StaffContractRenewComponent,
     StaffContractComponent,
     StaffContractManageComponent,
     RecruitResumeShowComponent,
@@ -163,9 +156,6 @@ registerLocaleData(zh);
     TrainingLogComponent,
     AwardPunishModalComponent,
     StaffAddModalComponent
-
-
-
   ],
   imports: [
     BrowserModule,

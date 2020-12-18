@@ -11,6 +11,7 @@
     <button nz-button nzType="primary" (click)="add()"><i nz-icon nzType="plus" nzTheme="outline"></i>新增奖惩</button>
   </header>
   <nz-table #nzTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
+    <!-- 表头 -->
     <thead>
       <tr>
         <th nzCustomFilter>
@@ -27,6 +28,7 @@
         <th>操作</th>
       </tr>
     </thead>
+    <!-- 表体 -->
     <tbody>
       <tr *ngFor="let data of nzTable.data">
         <td>{{ data.name }}</td>
@@ -43,6 +45,8 @@
       </tr>
     </tbody>
   </nz-table>
+
+  <!-- 下拉搜索 -->
   <nz-dropdown-menu #menu="nzDropdownMenu">
     <div class="ant-table-filter-dropdown">
       <div class="search-box">
@@ -54,4 +58,5 @@
       </div>
     </div>
   </nz-dropdown-menu>
+
 </body>

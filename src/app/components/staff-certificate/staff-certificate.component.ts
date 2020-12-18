@@ -7,20 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StaffCertificateComponent implements OnInit {
 
+  // 定义
   public isCert = false;
   public isLanguage = false;
-  constructor() { }
 
+  constructor() { }
   ngOnInit(): void {
   }
 
-   //添加工作经历
+   //添加证书弹窗
    addCert(){
     this.isCert = true;
   }
+  // 添加证书弹窗 取消
   certCancel(){
     this.isCert= false;
   }
+  // 添加证书弹窗 确定
   certOk(){
     this.isCert = false;
   }
@@ -29,9 +32,11 @@ export class StaffCertificateComponent implements OnInit {
   addLanguage(){
     this.isLanguage = true;
   }
+  // 添加语言证书 取消
   languageCancel(){
     this.isLanguage = false;
   }
+  // 添加语言证书 确定
   languageOk(){
     this.isLanguage = false;
   }

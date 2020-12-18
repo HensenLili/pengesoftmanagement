@@ -8,20 +8,21 @@ import{NzModalRef} from 'ng-zorro-antd/modal'
   styleUrls: ['./staff-contract-over-modal.component.less']
 })
 export class StaffContractOverModalComponent extends  CoreComponent implements OnInit {
-
+  // 定义
   public contract:Contract;
   public file:File;
   public LoseEfficacyTime:string;
+
   constructor(
     private modal:NzModalRef,
     private injector:Injector
   ) {
     super(injector);
-
    }
-
   ngOnInit(): void {
   }
+
+  // 变更合同弹窗
   Onclick(){
     this.modal.destroy({
       ContractId:this.contract.ContractId,
@@ -30,9 +31,11 @@ export class StaffContractOverModalComponent extends  CoreComponent implements O
       file:this.file
     })
   }
+  // 变更合同弹窗 取消
   cancel(){
     this.modal.destroy(null)
   }
+  // 附件上传
   uploaderImage(ele: HTMLInputElement): void{
     const files = ele.files[0];
     this.file = files;

@@ -1,5 +1,4 @@
 <body>
-
   <header>
   <button nz-button (click)="add()">新增员工</button>
   <button>导入</button>
@@ -8,7 +7,7 @@
     <i nz-icon nzType="exclamation-circle" nzTheme="fill" class="warn"></i>
     员工提醒
   </button>
-
+  <!-- 提醒 -->
   <ng-template #attention class="attention">
     <div>
       <ul>
@@ -17,8 +16,7 @@
       </ul>
     </div>
   </ng-template>
-
-
+ <!-- 下拉导航 -->
   <button nz-button nz-dropdown [nzDropdownMenu]="menu">
       更多
    <i nz-icon nzType="down"></i>
@@ -119,10 +117,5 @@
       </div>
     </nz-dropdown-menu>
 
-
-
-
   </main>
-
-
-  </body>
+</body>

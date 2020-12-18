@@ -4,7 +4,7 @@ import { CoreComponent } from 'pengesoft-ng-lib';
 import { RegularRecordServiceSvr } from 'src/app/services/regular-record.service';
 import { StaffServiceSvr } from '../../services/staffservice.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import{NzModalRef,NzModalService} from 'ng-zorro-antd/modal'
+import {NzModalRef,NzModalService} from 'ng-zorro-antd/modal'
 import {StaffMoveModalComponent} from '../staff-move-modal/staff-move-modal.component'
 import {StaffLeaveModalComponent} from '../staff-leave-modal/staff-leave-modal.component'
 import { DatePipe } from '@angular/common';
@@ -17,17 +17,16 @@ import { DatePipe } from '@angular/common';
 })
 export class StaffFormalComponent extends  CoreComponent  implements OnInit {
 
-
+  // 定义
   public staff:Staff;
   public file:File;
   public date:Date;
   public dataTime:Date
-  datepost:string
-  formGroup:FormGroup;
-  workStatus:number;
+  public datepost:string
+  public formGroup:FormGroup;
+  public workStatus:number;
   public listOfData:any=[];
- public listOfDisplayData:Array<Staff> = []
-
+  public listOfDisplayData:Array<Staff> = []
 
  constructor(
    private staffSvr : StaffServiceSvr,
@@ -43,6 +42,7 @@ export class StaffFormalComponent extends  CoreComponent  implements OnInit {
     this.getRegularRecord();
   }
 
+  // 获取所有转正员工信息
   getAll(){
     this.staff = new Staff({
       "WorkStatus":21
@@ -54,6 +54,7 @@ export class StaffFormalComponent extends  CoreComponent  implements OnInit {
     })
 
   }
+  // 获取转正记录
   getRegularRecord(){
     this.regularSvr.findByCondition('','').then(res=>{
       this.listOfData = res.data;
@@ -61,8 +62,6 @@ export class StaffFormalComponent extends  CoreComponent  implements OnInit {
       console.log(res)
     })
   }
-
-
   //调动弹窗
   showMove(data:Staff): void {
     let editModal=this.modal.create({
@@ -81,7 +80,6 @@ export class StaffFormalComponent extends  CoreComponent  implements OnInit {
       // this.getAll();
     })
   }
-
   //离职弹窗
   showLeave(data:Staff): void {
     let editModal=this.modal.create({
@@ -100,7 +98,6 @@ export class StaffFormalComponent extends  CoreComponent  implements OnInit {
     })
   }
 
-  
   //添加转正弹窗
   addFormal(): void {
     let editModal=this.modal.create({
@@ -127,7 +124,7 @@ export class StaffFormalComponent extends  CoreComponent  implements OnInit {
       this.staffSvr.makeStaffRegular(this.staff.toString(),this.datepost.toString(),this.file).then(res => {
         console.log(res,222)
       })
-      this.getAll();
+        this.getAll();
     })
   }
   

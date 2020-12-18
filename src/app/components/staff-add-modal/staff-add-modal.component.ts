@@ -8,6 +8,7 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 })
 export class StaffAddModalComponent implements OnInit {
 
+  //定义
   public file:File;
   public StaffId:string;
   public Name:string;
@@ -20,10 +21,10 @@ export class StaffAddModalComponent implements OnInit {
     private modal:NzModalRef,
     private msg: NzMessageService,
   ) { }
-
   ngOnInit(): void {
   }
-
+  
+  //添加员工弹窗 提交
   Onclick(){
     this.modal.destroy({
       file:this.file,
@@ -35,9 +36,11 @@ export class StaffAddModalComponent implements OnInit {
       EntryTime:this.EntryTime
     })
   }
+  //添加员工弹窗 取消
   cancel(){
     this.modal.destroy(null)
   }
+  // 附件上传
   uploaderImage(ele: HTMLInputElement): void{
     const files = ele.files[0];
     this.file = files;

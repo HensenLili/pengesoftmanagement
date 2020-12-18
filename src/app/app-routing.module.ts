@@ -24,7 +24,6 @@ import {RecruitNeedsTableComponent} from "./components/recruit-needs-table/recru
 import {RecruitApprovalComponent} from "./components/recruit-approval/recruit-approval.component";
 import {RecruitNeedslistComponent} from "./components/recruit-needslist/recruit-needslist.component";
 import { StaffEmployeeComponent } from './components/staff-employee/staff-employee.component';
-import { StaffContractRenewComponent } from './components/staff-contract-renew/staff-contract-renew.component';
 import { StaffEntryComponent } from './components/staff-entry/staff-entry.component';
 import { StaffMoveComponent } from './components/staff-move/staff-move.component';
 import { StaffFormalComponent } from './components/staff-formal/staff-formal.component';

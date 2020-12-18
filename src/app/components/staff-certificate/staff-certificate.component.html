@@ -1,5 +1,5 @@
 <body>
-
+  <!-- 证书管理 -->
 <div class="cert">
     <header>
        <div><i nz-icon nzType="verified" nzTheme="outline"></i> <b>证书管理</b></div>
@@ -14,6 +14,7 @@
         </ul>
     </article>
 
+    <!-- 添加证书弹窗 -->
     <nz-modal [(nzVisible)]="isCert" nzTitle="添加证书" (nzOnCancel)="certCancel()" (nzOnOk)="certOk()">
         <form nz-form >
             <nz-form-item>
@@ -38,13 +39,15 @@
       </nz-modal>
 </div>
 
-
+<!-- 语言证书管理 -->
 <div class="language">
     <header>
-       <div><i nz-icon nzType="phone" nzTheme="outline"></i> <b>语言证书</b></div>
-        <div><button nz-button (click)="addLanguage()"><i nz-icon nzType="plus-circle" nzTheme="outline"></i></button><span>添加</span></div>
+      <div><i nz-icon nzType="phone" nzTheme="outline"></i> <b>语言证书</b></div>
+      <div><button nz-button (click)="addLanguage()"><i nz-icon nzType="plus-circle" nzTheme="outline"></i></button>
+        <span>添加</span>
+      </div>
     </header>
-    <div>  <hr/>  </div>
+    <div><hr/></div>
     <article>
         <ul>
             <li>语言：</li>
@@ -58,7 +61,8 @@
         </ul>
     </article>
 
-    <nz-modal [(nzVisible)]="isLanguage" nzTitle="添加工作经历" (nzOnCancel)="languageCancel()" (nzOnOk)="languageOk()">
+    <!-- 添加语言证书弹窗 -->
+    <nz-modal [(nzVisible)]="isLanguage" nzTitle="添加语言证书" (nzOnCancel)="languageCancel()" (nzOnOk)="languageOk()">
         <form nz-form >
             <nz-form-item>
               <nz-form-label [nzSm]="7">语言</nz-form-label>
@@ -74,5 +78,6 @@
             </nz-form-item>
            </form>
       </nz-modal>
+
 </div>
 </body>

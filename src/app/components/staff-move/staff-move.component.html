@@ -11,16 +11,10 @@
                     </button>
                </nav>
 
-               <nz-table #rowSelectionTable nzShowSizeChanger [nzData]="listOfData" (nzCurrentPageDataChange)="onCurrentPageDataChange($event)">
+               <nz-table #rowSelectionTable nzShowSizeChanger [nzData]="listOfData" >
                 <!-- 已调动表头 -->
                 <thead>
                   <tr>
-                    <th
-                      [nzSelections]="listOfSelection"
-                      [(nzChecked)]="checked"
-                      [nzIndeterminate]="indeterminate"
-                      (nzCheckedChange)="onAllChecked($event)"
-                    ></th>
                     <th>姓名</th>
                     <th>原部门</th>
                     <th>原职位</th>
@@ -34,7 +28,6 @@
                 <!-- 已调动表体 -->
                 <tbody>
                   <tr *ngFor="let data of rowSelectionTable.data">
-                    <td [nzChecked]="setOfCheckedId.has(data.id)" (nzCheckedChange)="onItemChecked(data.id, $event)"></td>
                     <td>{{ data.StaffName }}</td>
                     <td >{{data.BeforeDepartment}}</td>
                     <td >{{data.BeforePosition}}</td>
@@ -56,9 +49,7 @@
                 <span>导出全部</span>
               </li>
               <li nz-menu-item>
-                <span>
-                  导出部分
-                </span>
+                <span>导出部分</span>
               </li>
             </ul>
           </nz-dropdown-menu>
