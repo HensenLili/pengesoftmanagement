@@ -1,33 +1,39 @@
 <form nz-form>
+
   <nz-form-item>
-    <nz-form-label [nzSpan]="6">姓名</nz-form-label>
-    <nz-form-control [nzSpan]="14">
-      <input nz-input type="text">
-    </nz-form-control>
-  </nz-form-item>
-  <nz-form-item>
-    <nz-form-label [nzSpan]="6">奖惩类型</nz-form-label>
-    <nz-form-control [nzSpan]="14">
-      <nz-select ngModel="奖励">
-        <nz-option nzValue="奖励" nzLabel="奖励"></nz-option>
-        <nz-option nzValue="惩罚" nzLabel="惩罚"></nz-option>
-      </nz-select>
-    </nz-form-control>
-  </nz-form-item>
-  <nz-form-item>
-    <nz-form-label [nzSpan]="6">时间</nz-form-label>
-    <nz-form-control [nzSpan]="14">
-      <input nz-input type="date">
-    </nz-form-control>
-  </nz-form-item>
-  <nz-form-item>
-    <nz-form-label [nzSpan]="6">原因</nz-form-label>
-    <nz-form-control [nzSpan]="14">
-      <textarea rows="4" nz-input></textarea>
-    </nz-form-control>
-  </nz-form-item>
-  <div class="button">
-    <button nz-button nzType="primary" (click)='Onclick()'>提交</button>
-    <button nz-button (click)="cancel()">取消</button>
-  </div>
+       <nz-form-label [nzSpan]="6">姓名</nz-form-label>
+       <nz-form-control [nzSpan]="14">
+        <input nz-input type="text" >
+     </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label [nzSpan]="6">奖惩类型</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+            <nz-select ngModel="奖励">
+                <nz-option nzValue="奖励" nzLabel="奖励"></nz-option>
+                <nz-option nzValue="惩罚" nzLabel="惩罚"></nz-option>
+              </nz-select>
+      </nz-form-control>
+     </nz-form-item>
+
+     <nz-form-item>
+        <nz-form-label [nzSpan]="6">时间</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+         <input nz-input type="date" >
+      </nz-form-control>
+     </nz-form-item>
+
+     <nz-form-item>
+        <nz-form-label [nzSpan]="6">原因</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+            <textarea rows="4" nz-input ></textarea>
+      </nz-form-control>
+     </nz-form-item>
+
+     <div class="button">
+        <button nz-button nzType="primary" (click)='Onclick()'>提交</button>
+        <button  nz-button (click)="cancel()">取消</button>
+    </div>
+
 </form>

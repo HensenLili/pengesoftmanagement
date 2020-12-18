@@ -12,13 +12,9 @@ import{StaffAddModalComponent}from '../../components/staff-add-modal/staff-add-m
 })
 export class StaffRosterComponent implements OnInit {
 
+  // 定义
   public navflag:boolean = false;
   public staff:Staff;
-  public staff1:Staff;
-  public staff2:Staff;
-  public staff3:Staff;
-  public staff4:Staff;
-  public staff5:Staff;
   public DepartmentName:string;
 //定义每个下拉搜索的开关状态
  public isname=false;
@@ -37,13 +33,12 @@ public inputdepartment:any ='';
  public inputsex:any = '';
  public listOfData:any=[];
  public listOfDisplayData:Array<Staff> = []
-  public count
-  public official
-  public try
-  public wait
-  public practice
-  public leave
-
+ public count;
+ public official;
+ public try;
+ public wait;
+ public practice;
+ public leave;
 
 constructor(
   private staffSvr : StaffServiceSvr,
@@ -53,18 +48,14 @@ constructor(
 ngOnInit(): void {
   this.getAll();
   this.count = this.staffSvr.findCount(0,0,0,0,'','')
-
   this.official = this.staffSvr.findCount(43,0,0,0,'','')
-
   this.try = this.staffSvr.findCount(20,0,0,0,'','')
-
   this.wait = this.staffSvr.findCount(10,0,0,0,'','')
-
   this.practice = this.staffSvr.findCount(20,0,0,0,'','')
-
   this.leave = this.staffSvr.findCount(99,0,0,0,'','')
 }
 
+// 获取员工信息
 getAll(){
   this.staffSvr.findAllStaff().then(res=>{
     this.listOfData = res.data
@@ -84,7 +75,6 @@ add(): void {
     },
     nzFooter:null
   })
-
   editModal.afterClose.subscribe(res=>{
     console.log(res)
     this.staff =new Staff({
@@ -97,18 +87,14 @@ add(): void {
     })
     this.staffSvr.addStaff(this.staff,res.file).then(res=>{
       console.log(res,555);
-
-
-
+      this.getAll();
     })
     })
-
 }
 
  //部门搜索
  searchDepartment(event):void {
    this.staff =new Staff({
-
    })
    this.DepartmentName = event.target.value
    console.log(this.DepartmentName,55566);
@@ -130,91 +116,9 @@ reset1(): void {
   this.searchName();
 }
 
-
  // 收起分类点击事件
  isnav(){
-  this.navflag  = !this.navflag;
-  // console.log(this.navflag);
+  this.navflag  = !this.navflag
 }
-// Onclick(data:Staff){
-//   console.log(data)
-//   let extra:NavigationExtras={
-//     queryParams:{"data":data}
-//   }
-//   // this.route.navigate(['/staff/employee'],extra)
-// }
 
-
-  tab1() {
-   this.staff1 = new Staff({
-     "WorkNature":43
-   })
-    this.staffSvr.findByCondition(this.staff1,'','').then(res=>{
-      this.listOfData = res.data
-      console.log(res);
-      this.listOfDisplayData = [...this.listOfData]
-    },err=>{
-      console.log(err);
-    })
-  }
-
-  tab2() {
-    this.getAll()
-  }
-
-  tab3() {
-    this.staff2 = new Staff({
-      "WorkNature":20
-    })
-    this.staffSvr.findByCondition(this.staff2,'','').then(res=>{
-      this.listOfData = res.data
-      console.log(res);
-      this.listOfDisplayData = [...this.listOfData]
-    },err=>{
-      console.log(err);
-    })
-
-  }
-
-  tab4() {
-    this.staff3 = new Staff({
-      "WorkNature":10
-    })
-    this.staffSvr.findByCondition(this.staff3,'','').then(res=>{
-      this.listOfData = res.data
-      console.log(res);
-      this.listOfDisplayData = [...this.listOfData]
-    },err=>{
-      console.log(err);
-    })
-
-  }
-
-  tab5() {
-    this.staff4 = new Staff({
-      "WorkNature":20
-    })
-    this.staffSvr.findByCondition(this.staff4,'','').then(res=>{
-      this.listOfData = res.data
-      console.log(res);
-      this.listOfDisplayData = [...this.listOfData]
-    },err=>{
-      console.log(err);
-    })
-
-  }
-
-  tab6() {
-    this.staff5 = new Staff({
-      "WorkNature":99
-    })
-    this.staffSvr.findByCondition(this.staff5,'','').then(res=>{
-      this.listOfData = res.data
-      console.log(res);
-      this.listOfDisplayData = [...this.listOfData]
-    },err=>{
-      console.log(err);
-    })
-
-  }
 }

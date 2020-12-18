@@ -10,15 +10,16 @@ import {CoreComponent} from "pengesoft-ng-lib";
 })
 export class StaffBasicInforComponent extends CoreComponent implements OnInit {
 
+  //定义
   public isShow = true;
   public isChange = false;
   public isButton = false;
   public isEdit = true;
-  public  staff:Staff
-  public staffid:string
-  mes1 = {}
+  public staff:Staff
+  public staffId:string
+  public mes1 = {}
   constructor(
-      private staffSvr : StaffServiceSvr,
+    private staffSvr : StaffServiceSvr,
     private injector: Injector,
   ) {
     super(injector);
@@ -26,13 +27,12 @@ export class StaffBasicInforComponent extends CoreComponent implements OnInit {
 
   @Input() mes:object
   ngOnInit(): void {
-
     console.log(this.mes)
     // @ts-ignore
     this.staffid = this.mes.StaffId
-    console.log(this.staffid)
+    console.log(this.staffId)
     this.staff = new Staff({
-      "StaffId" : this.staffid
+      "StaffId" : this.staffId
     })
     this.staffSvr.findByCondition(this.staff,'','').then(res=>{
       this.mes1 = res.data[0]

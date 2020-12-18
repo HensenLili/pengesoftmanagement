@@ -1,41 +1,48 @@
 <div>
     <form nz-form >
+
         <nz-form-item>
           <nz-form-label [nzSpan]="6" >姓名</nz-form-label>
           <nz-form-control [nzSpan]="14">
             <input nz-input type="text" placeholder="张三">
           </nz-form-control>
         </nz-form-item >
+
         <nz-form-item>
             <nz-form-label [nzSpan]="6" >续签合同类型 </nz-form-label>
             <nz-form-control [nzSpan]="14">
              <input nz-input type="text" [(ngModel)]="type" [ngModelOptions]="{standalone: true}"  placeholder="实习协议：11;劳动合同：12；兼职协议：13">
             </nz-form-control>
           </nz-form-item >
+
           <nz-form-item>
             <nz-form-label [nzSpan]="6" >续签合同编号</nz-form-label>
             <nz-form-control [nzSpan]="14">
               <input nz-input type="text" [(ngModel)]="ContractId" [ngModelOptions]="{standalone: true}">
             </nz-form-control>
           </nz-form-item >
+
           <nz-form-item>
             <nz-form-label [nzSpan]="6" >开始日期</nz-form-label>
             <nz-form-control [nzSpan]="14">
               <input nz-input type="date" [(ngModel)]="EfficacyTime" [ngModelOptions]="{standalone: true}">
             </nz-form-control>
           </nz-form-item >
+
           <nz-form-item>
             <nz-form-label [nzSpan]="6" >结束日期</nz-form-label>
             <nz-form-control [nzSpan]="14">
               <input nz-input type="date" [(ngModel)]="LoseEfficacyTime" [ngModelOptions]="{standalone: true}">
             </nz-form-control>
           </nz-form-item >
+
           <nz-form-item>
             <nz-form-label [nzSpan]="6" >签署日期</nz-form-label>
             <nz-form-control [nzSpan]="14">
               <input nz-input type="date" [(ngModel)]="SignTime" [ngModelOptions]="{standalone: true}">
             </nz-form-control>
           </nz-form-item >
+
           <nz-form-item>
             <nz-form-label [nzSpan]="6" >附件</nz-form-label>
             <nz-form-control [nzSpan]="14">
@@ -43,9 +50,11 @@
                 <input type="file" hidden nz-input #uploader (change)="uploaderImage(uploader)">
             </nz-form-control>
           </nz-form-item >
+
           <div class="button">
             <button nz-button nzType="primary" (click)='Onclick()'>提交</button>
             <button  nz-button (click)="cancel()">取消</button>
         </div>
-        </form>
+        
+    </form>
 </div>

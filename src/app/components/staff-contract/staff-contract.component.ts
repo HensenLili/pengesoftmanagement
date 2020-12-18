@@ -14,6 +14,7 @@ import {Contract } from 'src/app/domains/contract.domain';
 })
 export class StaffContractComponent implements OnInit {
 
+  // 定义
   public searchValue = '';
   public isSearch = false;
   public isAdd = false;
@@ -22,7 +23,6 @@ export class StaffContractComponent implements OnInit {
   public contract:Contract;
   public staff:Staff;
   public staffName:string;
-  public dataend:{};
   public listOfData:any=[];
   public listOfDisplayData:Array<Staff> = []
 
@@ -46,8 +46,8 @@ export class StaffContractComponent implements OnInit {
         this.listOfData = res.data;
         this.listOfDisplayData = [...this.listOfData];
       })
-
   }
+
   //劳动合同
   labor(){
     this.contract =new Contract({
@@ -59,6 +59,7 @@ export class StaffContractComponent implements OnInit {
         this.listOfDisplayData = [...this.listOfData];
       })
   }
+
   // 兼职协议
   partTime(){
     this.contract =new Contract({
@@ -76,7 +77,7 @@ export class StaffContractComponent implements OnInit {
     this.isSearch = false;
     this.listOfDisplayData = this.listOfData.filter(item=> item.name.indexOf(this.searchValue) !== -1);
   }
-   //搜索取消
+//搜索取消
   reset(): void {
     this.searchValue = '';
     this.search();
@@ -100,8 +101,7 @@ export class StaffContractComponent implements OnInit {
     "Type":res.Type,
     "EfficacyTime":res.EfficacyTime,
     "LoseEfficacyTime":res.LoseEfficacyTime,
-    "SignTime":res.SignTime,
-     "Status":1
+    "SignTime":res.SignTime
    })
     this.contractSvr.addContract(this.contract,res.file).then(res => {
       console.log(res,22222)
@@ -131,6 +131,7 @@ export class StaffContractComponent implements OnInit {
     })
   })
 }
+
   //终止合同弹窗
   overContract(data:Contract): void {
     let editModal=this.modal.create({
@@ -155,7 +156,6 @@ export class StaffContractComponent implements OnInit {
       })
     })
   }
-
 
  //姓名搜索
  searchName(event):void {

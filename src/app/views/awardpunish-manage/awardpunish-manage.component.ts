@@ -7,10 +7,12 @@ import{AwardPunishModalComponent}from '../../components/award-punish-modal/award
   styleUrls: ['./awardpunish-manage.component.less']
 })
 export class AwardpunishManageComponent implements OnInit {
+
+  // 定义
   theme = true;
-  searchValue = '';
-  visible = false;
-  listOfData= [
+  public searchValue = '';
+  public visible = false;
+  public listOfData= [
     {
       name: "张三",
      department:"IT部",
@@ -31,31 +33,29 @@ export class AwardpunishManageComponent implements OnInit {
      condition:"惩罚",
      reason:"在工作区抽烟",
      date:"2020.11.11"
-    },
-  
-    
+    }  
   ];
   listOfDisplayData = [...this.listOfData];
+
   constructor(
     private modal:NzModalService
   ) { }
-
   ngOnInit(): void {
   }
 
- 
-
+  // 搜索取消
   reset(): void {
     this.searchValue = '';
     this.search();
   }
-
+  // 搜索
   search(): void {
     this.visible = false;
     this.listOfDisplayData = this.listOfData.filter((item) => item.name.indexOf(this.searchValue) !== -1);
   }
+
    //添加奖惩弹窗
- add(): void {
+  add(): void {
   let editModal=this.modal.create({
     nzTitle:"添加奖惩",
     nzContent:AwardPunishModalComponent,
@@ -65,11 +65,6 @@ export class AwardpunishManageComponent implements OnInit {
   })
   editModal.afterClose.subscribe(res=>{
     console.log(res)
-   
     })
-  //   this.contractSvr.updateContract(this.contract,res.file).then(res => {
-  //     console.log(res)
-  //   })
-  // })
 }
 }

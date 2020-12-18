@@ -10,12 +10,14 @@ export class AwardPunishModalComponent implements OnInit {
   constructor(
     private modal:NzModalRef
   ) { }
-
   ngOnInit(): void {
   }
+
+  // 添加奖惩弹窗
   Onclick(){
     this.modal.destroy(null)
   }
+  // 添加奖惩弹窗
   cancel(){
     this.modal.destroy(null)
   }

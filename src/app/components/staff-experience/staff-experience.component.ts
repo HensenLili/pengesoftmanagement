@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Education } from 'src/app/domains/education.domain';
 import { WorkExperience } from 'src/app/domains/workexperience.domain';
 import { EducationServiceSvr } from 'src/app/services/education-service.service';
@@ -10,95 +11,101 @@ import { WorkExperienceServiceSvr } from 'src/app/services/workexperience-servic
   styleUrls: ['./staff-experience.component.less']
 })
 export class StaffExperienceComponent implements OnInit {
-
+  // 定义
   public isWork = false;
   public isEducation = false;
-  public messtaffid = ''
   public file:File
+  public dataListWork = []
+  public dataListStudy = []
+  formgroup !: FormGroup;
+  public mesStaffId = ''
+  public education:Education;
+  public workExperience :WorkExperience;
+  @Input() mes:object
+
   constructor(
     private workexperienSvr : WorkExperienceServiceSvr,
     private educationSvr:EducationServiceSvr
   ) { }
-  datalistwork = []
-  dataliststudy = []
-  workstart:''
-  worksend:''
-  workscomp:''
-  worksposi:''
-  workspres:''
-  expstart:''
-  expend:''
-  educatdegree:''
-  educatschool:''
-  educatmajor:''
-  education:Education
-  workExperience :WorkExperience
-  @Input() mes:object
   ngOnInit(): void {
+    this.formgroup =new FormGroup({
+      worksStart:new FormControl(),
+      worksEnd:new FormControl(),
+      worksComp:new FormControl(),
+      worksPosi:new FormControl(),
+      worksPres:new FormControl(),
+      educatSchool:new FormControl(),
+      educatMajor:new FormControl(),
+      expStart:new FormControl(),
+      expEnd:new FormControl(),
+      educatDegree:new FormControl()
+    })
+  
     // @ts-ignore
     this.messtaffid = this.mes.StaffId
-    this.workexperienSvr.findByStaffId(this.messtaffid).then(res=>{
+    this.workexperienSvr.findByStaffId(this.mesStaffId).then(res=>{
       console.log(res)
-      this.datalistwork = res.data
+      this.dataListWork = res.data
     })
     // @ts-ignore
-    this.educationSvr.findByStaffId(this.messtaffid).then(res=>{
+    this.educationSvr.findByStaffId(this.mesStaffId).then(res=>{
       console.log(res)
-      this.dataliststudy = res.data
+      this.dataListStudy = res.data
     })
-
   }
 
-  //添加工作经历
+  // 添加工作经历
   addWork(){
     this.isWork = true;
   }
+  // 添加工作经历 取消
   workCancel(){
     this.isWork = false;
   }
-  workOk(data){
+  // 添加工作经历 确定
+  workOk(){
     this.isWork = false;
-    console.log(data)
+    console.log(this.formgroup)
     this.workExperience = new WorkExperience({
-      StaffId: this.messtaffid,
-      StartTime: data[0],
-      EndTime:data[1],
-      Position: data[3],
-      Reason: data[4],
-      Company: data[2]
+      StaffId: this.mesStaffId,
+      StartTime: this.formgroup.value.worksStart,
+      EndTime:this.formgroup.value.worksEnd,
+      Position: this.formgroup.value.worksPosi,
+      Reason: this.formgroup.value.worksPres,
+      Company: this.formgroup.value.worksComp
     })
     this.workexperienSvr.addExperience(this.workExperience).then(res=>{
       console.log(res)
     })
   }
+  // 附件上传
   uploaderImage(ele: HTMLInputElement): void{
     const files = ele.files[0];
     this.file = files;
     console.log(files);
   }
-  //添加教育经历
+  // 添加教育经历
   addEducation(){
     this.isEducation = true;
   }
+  // 添加教育经历 取消
   EducationCancel(){
     this.isEducation = false;
   }
-  EducationOk(data){
+  // 添加教育经历 确定
+  EducationOk(){
     this.isEducation = false;
     this.education = new Education({
-      StaffId: this.messtaffid,
-      Name:data[1],
-      Major: data[2],
-      StartTime: data[3],
-      EndTime:data[4],
-      // Img?: string;
-      Degree: data[0]
+      StaffId: this.mesStaffId,
+      Name:this.formgroup.value.educatSchool,
+      Major:this.formgroup.value.educatMajor,
+      StartTime: this.formgroup.value.expStart,
+      EndTime:this.formgroup.value.expEnd,
+      Degree: this.formgroup.value.educatDegree
     })
-
     this.educationSvr.addEducation(this.education,this.file).then(res=>{
       console.log(res)
     })
   }
-  // 图片上传
 
 }

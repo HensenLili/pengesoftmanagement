@@ -8,15 +8,13 @@ import { StaffServiceSvr } from '../../services/staffservice.service';
 })
 export class StaffLeaveComponent implements OnInit {
 
-
-  checked = false;
-  indeterminate = false;
+  // 定义
+  public checked = false;
+  public indeterminate = false;
   public staff:Staff;
-  listOfCurrentPageData=[];
-
+  public listOfCurrentPageData=[];
   public listOfData:any=[];
   public listOfDisplayData:Array<Staff> = []
-
   setOfCheckedId = new Set<number>();
 
 
@@ -25,8 +23,9 @@ export class StaffLeaveComponent implements OnInit {
   ngOnInit(): void {
     this.getAll();
   }
-  getAll(){
 
+  // 获取所有离职员工信息
+  getAll(){
     this.staff = new Staff({
       "WorkStatus":99
     })
@@ -35,7 +34,6 @@ export class StaffLeaveComponent implements OnInit {
       this.listOfDisplayData = [...this.listOfData]
       console.log(res);
     })
-
   }
 
   listOfSelection = [

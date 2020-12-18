@@ -1,12 +1,13 @@
 <body>
-
   <header>
   <button nz-button (click)="add()">新增员工</button>
+  <button>导入</button>
+  <button>导出</button>
   <button class="warnButton" nz-button nz-popover nzPopoverTitle="注意!" [nzPopoverContent]="attention" nzPopoverPlacement="bottom">
     <i nz-icon nzType="exclamation-circle" nzTheme="fill" class="warn"></i>
     员工提醒
   </button>
-
+  <!-- 提醒 -->
   <ng-template #attention class="attention">
     <div>
       <ul>
@@ -15,26 +16,41 @@
       </ul>
     </div>
   </ng-template>
+ <!-- 下拉导航 -->
+  <button nz-button nz-dropdown [nzDropdownMenu]="menu">
+      更多
+   <i nz-icon nzType="down"></i>
+   </button>
+  <button class="classButton" (click)="isnav()">收起分类<i nz-icon nzType="up" nzTheme="outline" class="up" *ngIf="navflag"></i></button>
+
+  <!-- 更多下拉 -->
+  <nz-dropdown-menu #menu="nzDropdownMenu">
+      <ul nz-menu>
+        <li nz-menu-item>menu4 1st menu item</li>
+        <li nz-menu-item>menu4 2nd menu item</li>
+        <li nz-menu-item>menu4 3rd menu item</li>
+      </ul>
+    </nz-dropdown-menu>
 
     <!-- 员工分类导航 -->
   <nav [hidden]="true">
       <ul>
-          <li class="li1" (click)="tab2()"><i nz-icon nzType="team" nzTheme="outline"></i>
+          <li class="li1"><i nz-icon nzType="team" nzTheme="outline"></i>
               <b>总员工 {{this.count.__zone_symbol__value.data}}</b>
           </li>
-          <li class="li2" (click)="tab1()"><i nz-icon nzType="user" nzTheme="outline"></i>
+          <li class="li2"><i nz-icon nzType="user" nzTheme="outline"></i>
               <b>正式 {{this.official.__zone_symbol__value.data}}</b>
               </li>
-          <li class="li3" (click)="tab3()"><i nz-icon nzType="schedule" nzTheme="outline"> </i>
+          <li class="li3"><i nz-icon nzType="schedule" nzTheme="outline"> </i>
               <b>试用期 {{this.try.__zone_symbol__value.data}}</b>
           </li>
-          <li class="li1" (click)="tab4()"><i nz-icon nzType="user-add" nzTheme="outline"></i>
+          <li class="li1"><i nz-icon nzType="user-add" nzTheme="outline"></i>
               <b>待入职 {{this.wait.__zone_symbol__value.data}}</b>
           </li>
-          <li class="li4" (click)="tab5()"><i nz-icon nzType="user-add" nzTheme="outline"></i>
+          <li class="li4"><i nz-icon nzType="user-add" nzTheme="outline"></i>
               <b>实习期 {{this.practice.__zone_symbol__value.data}}</b>
           </li>
-        <li class="li2" (click)="tab6()"><i nz-icon nzType="user-delete" nzTheme="outline"></i>
+        <li class="li2"><i nz-icon nzType="user-delete" nzTheme="outline"></i>
               <b>离职 {{this.leave.__zone_symbol__value.data}}</b>
         </li>
       </ul>
@@ -101,10 +117,5 @@
       </div>
     </nz-dropdown-menu>
 
-
-
-
   </main>
-
-
-  </body>
+</body>

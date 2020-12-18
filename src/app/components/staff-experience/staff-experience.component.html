@@ -1,13 +1,12 @@
 <body>
-
 <!-- 工作经历 -->
 <div class="work">
     <header>
-       <div><i nz-icon nzType="highlight" nzTheme="outline"></i><b>工作经历</b></div>
+        <div><i nz-icon nzType="highlight" nzTheme="outline"></i><b>工作经历</b></div>
         <div><button nz-button (click)="addWork()"><i nz-icon nzType="plus-circle" nzTheme="outline"></i></button><span>添加</span></div>
     </header>
     <div>  <hr/>  </div>
-    <article *ngFor="let data of datalistwork">
+    <article *ngFor="let data of dataListWork">
         <ul>
             <li>入职时间：{{data.StartTime}}</li>
             <li>离职时间：{{data.EndTime}}</li>
@@ -15,39 +14,45 @@
             <li>职位：{{data.Position}}</li>
         </ul>
     </article>
+    <!-- 添加工作经历弹窗 -->
+    <nz-modal [(nzVisible)]="isWork" nzTitle="添加工作经历" (nzOnCancel)="workCancel()" (nzOnOk)="workOk()">
+        <form nz-form [FormGroup]="formgroup">
 
-    <nz-modal [(nzVisible)]="isWork" nzTitle="添加工作经历" (nzOnCancel)="workCancel()" (nzOnOk)="workOk([workstart,worksend,workscomp,worksposi,workspres])">
-        <form nz-form >
             <nz-form-item>
               <nz-form-label [nzSm]="7">入职时间</nz-form-label>
               <nz-form-control [nzSm]="12">
-                <input nz-input type="date" [(ngModel)]="workstart" [ngModelOptions]="{standalone: true}" />
+                <input nz-input type="date" formControlName="worksStart"  />
               </nz-form-control>
             </nz-form-item>
+
             <nz-form-item>
              <nz-form-label [nzSm]="7">离职时间</nz-form-label>
              <nz-form-control [nzSm]="12">
-               <input nz-input type="date" [(ngModel)]="worksend" [ngModelOptions]="{standalone: true}" />
+               <input nz-input type="date"formControlName="worksEnd"  />
              </nz-form-control>
            </nz-form-item>
+
            <nz-form-item>
              <nz-form-label [nzSm]="7">任职公司</nz-form-label>
              <nz-form-control [nzSm]="12">
-               <input type="text" nz-input [(ngModel)]="workscomp" [ngModelOptions]="{standalone: true}" />
+               <input type="text" nz-input formControlName="worksComp"  />
              </nz-form-control>
            </nz-form-item>
+
            <nz-form-item>
             <nz-form-label [nzSm]="7">职位</nz-form-label>
             <nz-form-control [nzSm]="12">
-              <input type="text" nz-input [(ngModel)]="worksposi" [ngModelOptions]="{standalone: true}" />
+              <input type="text" nz-input formControlName="worksPosi"  />
             </nz-form-control>
           </nz-form-item>
+
           <nz-form-item>
             <nz-form-label [nzSm]="7">离职原因</nz-form-label>
             <nz-form-control [nzSm]="12">
-              <input type="text" nz-input [(ngModel)]="workspres" [ngModelOptions]="{standalone: true}" />
+              <input type="text" nz-input formControlName="workspres"  />
             </nz-form-control>
           </nz-form-item>
+
            </form>
       </nz-modal>
 </div>
@@ -59,8 +64,7 @@
         <div><button nz-button (click)="addEducation()"><i nz-icon nzType="plus-circle" nzTheme="outline"></i></button><span>添加</span></div>
     </header>
     <div>  <hr/>  </div>
-    <article *ngFor="let data of dataliststudy">
-
+    <article *ngFor="let data of dataListStudy">
         <ul>
             <li>学位：{{data.Degree}}</li>
             <li>学校名称：{{data.Name}}</li>
@@ -69,44 +73,49 @@
             <li>毕业时间：{{data.EndTime}}</li>
         </ul>
     </article>
+    <!-- 添加教育经历弹窗 -->
+    <nz-modal [(nzVisible)]="isEducation" nzTitle="添加教育经历" (nzOnCancel)="EducationCancel()" (nzOnOk)="EducationOk()">
+        <form nz-form [FormGroup]="formgroup">
 
-    <nz-modal [(nzVisible)]="isEducation" nzTitle="添加教育经历" (nzOnCancel)="EducationCancel()" (nzOnOk)="EducationOk([educatdegree,educatschool,educatmajor,expstart,expend])">
-        <form nz-form >
             <nz-form-item>
              <nz-form-label [nzSm]="7">学位</nz-form-label>
              <nz-form-control [nzSm]="12">
-               <input nz-input type="text" [(ngModel)]="educatdegree"  />
+               <input nz-input type="text" fromControlName="educatDegree"  />
              </nz-form-control>
            </nz-form-item>
+
            <nz-form-item>
              <nz-form-label [nzSm]="7">学校名称</nz-form-label>
              <nz-form-control [nzSm]="12">
-               <input type="text" nz-input [(ngModel)]="educatschool" />
+               <input type="text" nz-input fromControlName="educatSchool" />
              </nz-form-control>
            </nz-form-item>
+
            <nz-form-item>
             <nz-form-label [nzSm]="7">专业名称</nz-form-label>
             <nz-form-control [nzSm]="12">
-              <input type="text" nz-input [(ngModel)]="educatmajor" />
+              <input type="text" nz-input fromControlName="educatMajor" />
             </nz-form-control>
           </nz-form-item>
+
           <nz-form-item>
             <nz-form-label [nzSm]="7">入学时间</nz-form-label>
             <nz-form-control [nzSm]="12">
-              <input type="date" nz-input [(ngModel)]="expstart" />
+              <input type="date" nz-input fromControlName="expStart" />
             </nz-form-control>
           </nz-form-item>
+
           <nz-form-item>
             <nz-form-label [nzSm]="7">毕业时间</nz-form-label>
             <nz-form-control [nzSm]="12">
-              <input type="date" nz-input [(ngModel)]="expend" />
+              <input type="date" nz-input fromControlName="expEnd" />
             </nz-form-control>
           </nz-form-item>
-          <button nz-button nzType="primary" (click)="uploader.click()"><i nz-icon nzType="upload" nzTheme="outline"></i>上传学位证明</button>
+
+            <button nz-button nzType="primary" (click)="uploader.click()"><i nz-icon nzType="upload" nzTheme="outline"></i>上传学位证明</button>
             <input type="file" [hidden] nz-input #uploader (change)="uploaderImage(uploader)"><br>
+
            </form>
       </nz-modal>
-</div>
-
-
+  </div>
 </body>

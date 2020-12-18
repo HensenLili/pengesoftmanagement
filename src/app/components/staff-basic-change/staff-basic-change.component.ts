@@ -10,28 +10,33 @@ import {Staff} from "../../domains/staff.domain";
   styleUrls: ['./staff-basic-change.component.less']
 })
 export class StaffBasicChangeComponent extends CoreComponent implements OnInit {
+  //定义
   public mes:object
   public staff:Staff
-  messhow: any;
+  public mesShow: any;
+
   constructor(
     private staffSvr : StaffServiceSvr,
     private injector: Injector,
   ) {
     super(injector);
   }
+
   @Input() mesid:string
   itemformGroup!: FormGroup;
+
   ngOnInit(): void {
     this.staff = new Staff({
       "StaffId" : this.mesid
     })
     this.staffSvr.findByCondition(this.staff,'','').then(res=>{
-      this.messhow = res.data[0]
+      this.mesShow = res.data[0]
       console.log(res.data[0])
     })
-  this.mes = this.messhow
-    console.log(this.messhow,3)
-  this.itemformGroup = new FormGroup({
+
+   this.mes = this.mesShow
+   console.log(this.mesShow,3)
+   this.itemformGroup = new FormGroup({
     Name:new FormControl(),
     IdCard:new FormControl(),
     Birth:new FormControl(),
@@ -59,14 +64,13 @@ export class StaffBasicChangeComponent extends CoreComponent implements OnInit {
   }
 
   Cancel() {
-
   }
 
   Submit() {
-    // @ts-ignore
-    // @ts-ignore
-    const {StaffId} = this.messhow;
-    this.staff = new Staff({
+     // @ts-ignore
+     // @ts-ignore
+      const {StaffId} = this.messhow;
+      this.staff = new Staff({
       "StaffId":StaffId,
       "Name" : this.itemformGroup.value.Name,
       "IdCard" : this.itemformGroup.value.IdCard,
@@ -92,9 +96,10 @@ export class StaffBasicChangeComponent extends CoreComponent implements OnInit {
       "QQ" : this.itemformGroup.value.QQ,
       "Wechat" : this.itemformGroup.value.Wechat,
     })
+
     this.staffSvr.updateStaff(this.staff,null).then(res=>{
       console.log(res)
     })
-  console.log(this.itemformGroup)
+      console.log(this.itemformGroup)
   }
 }

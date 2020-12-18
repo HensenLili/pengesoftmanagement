@@ -1,17 +1,23 @@
 <body>
-<div >
+
+   <div>
     <header>
-       <div><i nz-icon nzType="highlight" nzTheme="outline"></i><b>合同档案</b></div>
-        <div><button nz-button (click)="addContract()"><i nz-icon nzType="plus-circle" nzTheme="outline"></i></button><span>添加</span></div>
+      <div><i nz-icon nzType="highlight" nzTheme="outline"></i><b>合同档案</b></div>
+      <div><button nz-button (click)="addContract()">
+            <i nz-icon nzType="plus-circle" nzTheme="outline"></i>
+           </button>
+           <span>添加</span>
+      </div>
     </header>
-    <div *ngFor="let date of contractList">
-       {{date.name}}
+         <div *ngFor="let date of contractList">
+            {{date.name}}
+         </div>
     </div>
-</div>
 
 <!-- 添加合同协议弹窗 -->
-<nz-modal [(nzVisible)]="isadd" nzTitle="添加合同协议" (nzOnCancel)="addCancel()" (nzOnOk)="addOk()">
+<nz-modal [(nzVisible)]="isAdd" nzTitle="添加合同协议" (nzOnCancel)="addCancel()" (nzOnOk)="addOk()">
 <form nz-form>
+
  <nz-form-item>
     <nz-form-label [nzSpan]="6">合同类型</nz-form-label>
     <nz-form-control [nzSpan]="14">
@@ -22,6 +28,7 @@
           </nz-select>
     </nz-form-control>
  </nz-form-item>
+
  <nz-form-item>
     <nz-form-label [nzSpan]="6">合同开始日期</nz-form-label>
     <nz-form-control [nzSpan]="14">
@@ -30,6 +37,7 @@
           </nz-select>
     </nz-form-control>
  </nz-form-item>
+
  <nz-form-item>
     <nz-form-label [nzSpan]="6">合同结束日期</nz-form-label>
     <nz-form-control [nzSpan]="14">
@@ -38,6 +46,7 @@
           </nz-select>
     </nz-form-control>
  </nz-form-item>
+
  <nz-form-item>
     <nz-form-label [nzSpan]="6">签署日期</nz-form-label>
     <nz-form-control [nzSpan]="14">
@@ -46,6 +55,7 @@
           </nz-select>
     </nz-form-control>
  </nz-form-item>
+
  <nz-form-item>
     <nz-form-label [nzSpan]="6">合同状态</nz-form-label>
     <nz-form-control [nzSpan]="14">
@@ -53,6 +63,7 @@
         <input nz-input type="radio" name="failure" value="失效">失效
     </nz-form-control>
  </nz-form-item>
+
  <nz-form-item>
     <nz-form-label [nzSpan]="6">附件</nz-form-label>
     <nz-form-control [nzSpan]="14">
@@ -65,6 +76,7 @@
       </nz-upload>
     </nz-form-control>
  </nz-form-item>
+
 </form>
 </nz-modal>
 </body>

@@ -9,21 +9,23 @@ import{NzModalRef} from 'ng-zorro-antd/modal'
 })
 export class StaffLeaveModalComponent  extends  CoreComponent implements OnInit {
 
-  staff:Staff
+  // 定义
+  public staff:Staff
  
   constructor(
     private modal:NzModalRef,
     private injector:Injector
     ) { 
     super(injector);
-  
   }
 
   ngOnInit(): void {
   }
+  // 离职弹窗
   Onclick(){
     this.modal.destroy(this.staff.StaffId)
   }
+  // 离职弹窗 取消
   cancel(){
     this.modal.destroy(null)
   }

@@ -4,8 +4,8 @@
             <b>基础信息</b>
             <button nz-button (click)="show()" *ngIf="isEdit">编辑</button>
             <div *ngIf="isButton">
-                <button nz-button  (click)="ok()"> 确定 </button>
-                <button  nz-button (click)="cancel()"> 取消</button>
+            <button nz-button  (click)="ok()"> 确定 </button>
+            <button  nz-button (click)="cancel()"> 取消</button>
             </div>
         </header>
 
@@ -28,6 +28,7 @@
                     <li>现居地址：{{this.mes1.CurrentAddress}}</li>
                 </ul>
             </article>
+
             <!-- 在职信息 -->
             <aside>
                 <header>
@@ -49,6 +50,7 @@
                     <li>岗位职责：</li>
                 </ul>
             </aside>
+
             <!-- 联系信息 -->
             <main>
                 <header>
@@ -68,8 +70,5 @@
         <div *ngIf="isChange">
             <app-staff-basic-change [mesid]="this.mes1.StaffId"></app-staff-basic-change>
         </div>
-
-
     </div>
-
-    </body>
+</body>

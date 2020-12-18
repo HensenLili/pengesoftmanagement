@@ -8,23 +8,25 @@ import { NzUploadChangeParam } from 'ng-zorro-antd/upload';
   styleUrls: ['./staff-contract-manage.component.less']
 })
 export class StaffContractManageComponent implements OnInit {
-
-  public isadd = false;
+  // 定义
+  public isAdd = false;
   public contractList=[{name:111},{name:222}];
-  constructor(private msg: NzMessageService) { }
 
+  constructor(private msg: NzMessageService) { }
   ngOnInit(): void {
   }
 
- 
+  // 添加合同
   addContract(){
-    this.isadd=true;
+    this.isAdd=true;
   }
+  // 添加合同 确定
   addOk(){
-    this.isadd = false;
+    this.isAdd = false;
   }
+  // 添加合同 取消
   addCancel(){
-    this.isadd = false;
+    this.isAdd = false;
   }
 
   handleChange(info: NzUploadChangeParam): void {

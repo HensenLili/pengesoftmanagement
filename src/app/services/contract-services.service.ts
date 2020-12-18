@@ -40,12 +40,12 @@ export class ContractServiceSvr {
    *
    */
   findByCondition(contract: Contract, staffName: string, positionName: string, yearRange: number): Promise<Result>{
-    const httpParams = new HttpParams()
-      .append('contract', contract.toString())
-      .append('staffName', staffName.toString())
-      .append('positionName', positionName.toString())
-      .append('yearRange', yearRange.toString());
-    return this.request.post<Result>(this.baseUrl + 'findByCondition', httpParams).then((res) => {
+    const formData = new FormData()
+    formData.append('contract', contract.toString())
+    formData.append('staffName', staffName)
+    formData.append('positionName', positionName)
+    formData.append('yearRange', yearRange.toString());
+    return this.request.post<Result>(this.baseUrl + 'findByCondition', formData).then((res) => {
       return new Result(res);
     });
   }
@@ -66,7 +66,7 @@ export class ContractServiceSvr {
   updateContract(Contract: Contract, contractFile: File): Promise<Result>{
     const formData  = new FormData()
     formData .append('Contract', Contract.toString())
-    formData .append('contractFile', contractFile.toString());
+    formData .append('contractFile', contractFile);
     return this.request.post<Result>(this.baseUrl + 'updateContract', formData ).then((res) => {
       return new Result(res);
     });
@@ -76,8 +76,8 @@ export class ContractServiceSvr {
    *
    */
   findAllContract(): Promise<Result>{
-    const httpParams = new HttpParams();
-    return this.request.post<Result>(this.baseUrl + 'findAllContract', httpParams).then((res) => {
+    const formdata = new FormData();
+    return this.request.post<Result>(this.baseUrl + 'findAllContract', formdata).then((res) => {
       return new Result(res);
     });
   }
@@ -86,9 +86,9 @@ export class ContractServiceSvr {
    *
    */
   findByStaffId(staffId: string): Promise<Result>{
-    const httpParams = new HttpParams()
-      .append('staffId', staffId.toString());
-    return this.request.post<Result>(this.baseUrl + 'findByStaffId', httpParams).then((res) => {
+    const formdata= new FormData()
+      formdata.append('staffId', staffId.toString());
+    return this.request.post<Result>(this.baseUrl + 'findByStaffId', formdata).then((res) => {
       return new Result(res);
     });
   }

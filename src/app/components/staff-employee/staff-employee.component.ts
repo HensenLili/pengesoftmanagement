@@ -9,13 +9,13 @@ import {ActivatedRoute} from '@angular/router'
   styleUrls: ['./staff-employee.component.less']
 })
 export class StaffEmployeeComponent implements OnInit {
-
-  editStaff = Staff;
-  data:Staff
+  // 定义
+  public editStaff = Staff;
+  public data:Staff
   public list=[]
   public mes = {}
-  constructor( private staffSvr: StaffServiceSvr,private route:ActivatedRoute) { }
 
+  constructor( private staffSvr: StaffServiceSvr,private route:ActivatedRoute) { }
   ngOnInit(): void {
     this.getAll();
     this.route.queryParams.subscribe((data)=>{
@@ -24,6 +24,7 @@ export class StaffEmployeeComponent implements OnInit {
     })
   }
 
+  // 获取全部员信息
     getAll(){
      this.staffSvr.findAllStaff().then(res=>{
       this.list = res.data

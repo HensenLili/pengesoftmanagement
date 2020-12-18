@@ -1,26 +1,27 @@
 <body>
 <nz-tabset nzType="card">
+  <!-- 实习协议 -->
   <nz-tab nzTitle="实习协议" (nzSelect)="internship()">
-      <!-- 合同管理表头 -->
+      <!-- 合同状态开关 -->
       <nz-switch [ngModel]="true" nzCheckedChildren="失效" nzUnCheckedChildren="生效"></nz-switch>
-
+      <!-- 名字搜索 -->
       <div class = "searchName">
         <nz-input-group [nzSuffix]="suffixIconSearch">
-         <input type="text" nz-input placeholder="请搜索姓名" (input)="searchName($event)">
+          <input type="text" nz-input placeholder="请搜索姓名" (input)="searchName($event)">
         </nz-input-group>
-      <ng-template #suffixIconSearch>
-        <i nz-icon nzType="search"></i>
-      </ng-template>
+        <ng-template #suffixIconSearch>
+          <i nz-icon nzType="search"></i>
+        </ng-template>
       </div>
-
+      <!-- 合同管理表头 -->
       <nz-table #nzTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
           <thead>
             <tr>
               <th nzCustomFilter>
                 姓名
-                <nz-filter-trigger [(nzVisible)]="isSearch" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menu">
-                  <i nz-icon nzType="search"></i>
-                </nz-filter-trigger>
+              <nz-filter-trigger [(nzVisible)]="isSearch" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menu">
+              <i nz-icon nzType="search"></i>
+              </nz-filter-trigger>
               </th>
               <th>部门</th>
               <th>职位</th>
@@ -40,7 +41,7 @@
               <td>{{data.StaffTelephone}}</td>
               <td>{{ data.SignTime}}</td>
               <td>{{ data.LoseEfficacyTime}}</td>
-              <td>{{data.Status == 1? "生效" : "失效" }}</td>
+              <td></td>
               <td>
                   <button nz-button nzType="primary" (click)="renewContract(data)"> 续签</button>
                   <button nz-button nzType="primary" (click)="changeContract(data)"> 变更</button>
@@ -50,18 +51,19 @@
           </tbody>
         </nz-table>
   </nz-tab>
+  <!-- 劳动合同 -->
   <nz-tab nzTitle="劳动合同" (nzSelect)="labor()">
+    <!-- 合同状态开关 -->
     <nz-switch [ngModel]="true" nzCheckedChildren="失效" nzUnCheckedChildren="生效"></nz-switch>
-
+    <!-- 名字搜索 -->
     <div class = "searchName">
       <nz-input-group [nzSuffix]="suffixIconSearch">
-       <input type="text" nz-input placeholder="请搜索姓名" (input)="searchName($event)">
+        <input type="text" nz-input placeholder="请搜索姓名" (input)="searchName($event)">
       </nz-input-group>
     <ng-template #suffixIconSearch>
-      <i nz-icon nzType="search"></i>
+        <i nz-icon nzType="search"></i>
     </ng-template>
     </div>
-
     <!-- 合同管理表头 -->
     <nz-table #nzTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
         <thead>
@@ -69,7 +71,7 @@
             <th nzCustomFilter>
               姓名
               <nz-filter-trigger [(nzVisible)]="isSearch" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menu">
-                <i nz-icon nzType="search"></i>
+              <i nz-icon nzType="search"></i>
               </nz-filter-trigger>
             </th>
             <th>部门</th>
@@ -90,7 +92,7 @@
             <td>{{data.StaffTelephone}}</td>
             <td>{{ data.SignTime}}</td>
             <td>{{ data.LoseEfficacyTime}}</td>
-            <td>{{data.Status == 1? "生效" : "失效" }}</td>
+            <td></td>
             <td>
                 <button nz-button nzType="primary" (click)="renewContract(data)"> 续签</button>
                 <button nz-button nzType="primary" (click)="changeContract(data)"> 变更</button>
@@ -100,16 +102,18 @@
         </tbody>
       </nz-table>
 </nz-tab>
+<!-- 兼职协议 -->
 <nz-tab nzTitle="兼职协议" (nzSelect)="partTime()">
+  <!-- 合同状态开关 -->
   <nz-switch [ngModel]="true" nzCheckedChildren="失效" nzUnCheckedChildren="生效"></nz-switch>
-
+  <!-- 名字搜索 -->
   <div class = "searchName">
     <nz-input-group [nzSuffix]="suffixIconSearch">
-     <input type="text" nz-input placeholder="请搜索姓名" (input)="searchName($event)">
+        <input type="text" nz-input placeholder="请搜索姓名" (input)="searchName($event)">
     </nz-input-group>
-  <ng-template #suffixIconSearch>
-    <i nz-icon nzType="search"></i>
-  </ng-template>
+    <ng-template #suffixIconSearch>
+        <i nz-icon nzType="search"></i>
+    </ng-template>
   </div>
 
   <!-- 合同管理表头 -->
@@ -140,7 +144,7 @@
           <td>{{data.StaffTelephone}}</td>
           <td>{{ data.SignTime}}</td>
           <td>{{ data.LoseEfficacyTime}}</td>
-          <td>{{data.Status == 1? "生效" : "失效" }}</td>
+          <td></td>
           <td>
               <button nz-button nzType="primary" (click)="renewContract(data)"> 续签</button>
               <button nz-button nzType="primary" (click)="changeContract(data)"> 变更</button>
@@ -151,7 +155,6 @@
     </nz-table>
 </nz-tab>
 </nz-tabset>
-
 
 <!-- 下拉搜索 -->
 <nz-dropdown-menu #menu="nzDropdownMenu">
