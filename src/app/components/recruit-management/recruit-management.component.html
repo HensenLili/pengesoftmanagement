@@ -2,30 +2,23 @@
   <nz-layout>
     <nz-header>
       <div class="title">
-        <h2 >招聘计划</h2>
+        <h2>招聘计划</h2>
       </div>
       <div class="title" style="margin-left: 20px;">
         <h3> 招聘计划 <span>(5)</span></h3>
       </div>
       <div class="clear"></div>
       <div nz-row>
+        <!--        添加需求-->
         <div class="button1" nz-col nzSpan="2">
-          <button nz-button nzType="primary" class="header-button" style="background-color: #067BFF;color: #ffffff" >
+          <button nz-button nzType="primary" class="header-button" style="background-color: #067BFF;color: #ffffff">
             <a routerLink="../recruitNeeds">添加需求</a></button>
-          <!--        <nz-modal [(nzVisible)]="isVisible2" nzTitle="添加需求" (nzOnCancel)="handleCancel()" [nzStyle]="{width: '70%' }">-->
-          <!--          <div>-->
-          <!--            <app-recruit-needs-table></app-recruit-needs-table>-->
-          <!--          </div>-->
-          <!--          <div *nzModalFooter>-->
-          <!--            <button nz-button nzType="default" (click)="handleCancel()">取消</button>-->
-          <!--            <button nz-button nzType="primary" (click)="handleOk()" >提交</button>-->
-          <!--          </div>-->
-          <!--        </nz-modal>-->
         </div>
+        <!--        状态筛选-->
         <div nz-col nzSpan="4" style="margin-top: 16px">
           <nz-form-item>
             <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="email">选择状态</nz-form-label>
-            <nz-form-control [nzSm]="14" [nzXs]="24" >
+            <nz-form-control [nzSm]="14" [nzXs]="24">
               <nz-select ngModel="全部">
                 <nz-option nzValue="完成" nzLabel="完成"></nz-option>
                 <nz-option nzValue="未完成" nzLabel="未完成"></nz-option>
@@ -33,35 +26,33 @@
               </nz-select>
             </nz-form-control>
           </nz-form-item>
-
         </div>
+        <!--        时间筛选-->
         <div nz-col nzSpan="6" style="margin-top: 16px">
-          <nz-form-item >
+          <nz-form-item>
             <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="email">时间</nz-form-label>
             <nz-form-control [nzSm]="14" [nzXs]="24">
-                <nz-select ngModel="全部" style="width: 150px">
-                  <nz-option nzValue="近一个月" nzLabel="近一个月"></nz-option>
-                  <nz-option nzValue="近三个月" nzLabel="近三个月"></nz-option>
-                  <nz-option nzValue="近半年" nzLabel="近半年"></nz-option>
-                  <nz-option nzValue="全部" nzLabel="全部"></nz-option>
-                </nz-select>
+              <nz-select ngModel="全部" style="width: 150px">
+                <nz-option nzValue="近一个月" nzLabel="近一个月"></nz-option>
+                <nz-option nzValue="近三个月" nzLabel="近三个月"></nz-option>
+                <nz-option nzValue="近半年" nzLabel="近半年"></nz-option>
+                <nz-option nzValue="全部" nzLabel="全部"></nz-option>
+              </nz-select>
             </nz-form-control>
           </nz-form-item>
-
         </div>
-
+        <!--        检索-->
         <div nz-col nzSpan="5" style="margin-top: 16px" nzOffset="6">
           <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
-            <input type="text" nz-input placeholder="请输入搜索内容" />
+            <input type="text" nz-input placeholder="请输入搜索内容"/>
           </nz-input-group>
           <ng-template #suffixIconButton>
             <button nz-button nzType="primary" nzSearch><i nz-icon nzType="search"></i></button>
           </ng-template>
         </div>
-
-
       </div>
     </nz-header>
+    <!--    需求列表-->
     <nz-content>
       <nz-table #basicTable [nzData]="listOfData">
         <thead>
@@ -75,7 +66,6 @@
           <th>申请时间</th>
           <th>状态</th>
           <th>操作</th>
-
         </tr>
         </thead>
         <tbody>
@@ -87,13 +77,20 @@
           <td>成都天府新谷9号楼鹏业软件</td>
           <td>{{ data.UserName }}</td>
           <td>{{ data.ApplyTime }}</td>
-          <td *ngIf="data.Status == '通过'&&data.Remarks == '未完成'"><i nz-icon [nzType]="'exclamation-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#008ac4'"></i></td>
-          <td *ngIf="data.Status == '通过'&&data.Remarks == '已完成'"><i nz-icon [nzType]="'check-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#52c41a'"></i></td>
+          <!--          状态图标切换-->
+          <td *ngIf="data.Status == '通过'&&data.Remarks == '未完成'">
+            <i nz-icon [nzType]="'exclamation-circle'"
+               [nzTheme]="'twotone'"
+               [nzTwotoneColor]="'#008ac4'"></i></td>
+          <td *ngIf="data.Status == '通过'&&data.Remarks == '已完成'">
+            <i nz-icon [nzType]="'check-circle'"
+               [nzTheme]="'twotone'"
+               [nzTwotoneColor]="'#52c41a'"></i></td>
           <td>
-
-           <a (click)="showModal()">查看</a>
-            <nz-modal [(nzVisible)]="isVisible" nzTitle="招聘需求" (nzOnCancel)="handleCancel()" >
-              <div >
+            <a (click)="showModal()">查看</a>
+            <!--            需求展示模态框-->
+            <nz-modal [(nzVisible)]="isVisible" nzTitle="招聘需求" (nzOnCancel)="handleCancel()">
+              <div>
                 <p><b>招聘岗位：</b><span>前端开发工程师</span></p>
                 <p><b>工作经验：</b><span>4年</span></p>
                 <p><b>学历：</b><span>本科</span></p>
@@ -104,7 +101,8 @@
                 <P><b>招聘原因：</b>缺少人员进行业务开发</P>
                 <p><b>发布时间：</b><span>2020-12-10</span></p>
                 <hr>
-                <p><b>工作职责：</b>1.负责前端相关开发工作，熟练使用HTML5/CSS3/jquery开发符合标准的前端页面；
+                <p><b>工作职责：</b>
+                  1.负责前端相关开发工作，熟练使用HTML5/CSS3/jquery开发符合标准的前端页面；
 
                   2.熟练掌握Vue.js，了解框架底层实现原理；
 
@@ -123,8 +121,6 @@
                   3.熟悉各种浏览器和各手机设置的兼容性
 
                   4.团队意识强、性格开朗，紧急时刻有抗压精神；</p>
-
-
               </div>
               <div *nzModalFooter>
                 <button nz-button nzType="default" (click)="handleCancel()">取消</button>
