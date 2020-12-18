@@ -15,8 +15,8 @@ import {keyframes} from "@angular/animations";
 })
 export class RecruitApprovalComponent extends CoreComponent implements OnInit {
   editId: string | null = null;
+  // 展示招聘需求 面板
   isVisible = false;
-  isVisible2 = false;
   listOfData = [];
   constructor(
     private injector: Injector,
@@ -48,9 +48,6 @@ export class RecruitApprovalComponent extends CoreComponent implements OnInit {
   stopEdit(): void {
     this.editId = null;
   }
-  showNeedsList(): void{
-    this.isVisible2 = true;
-  }
 //  简历展示
   showModal(): void {
     this.isVisible = true;
@@ -59,16 +56,15 @@ export class RecruitApprovalComponent extends CoreComponent implements OnInit {
   handleOk(): void {
     console.log('Button ok clicked!');
     this.isVisible = false;
-    this.isVisible2 = false;
   }
 
   handleCancel(): void {
     console.log('Button cancel clicked!');
     this.isVisible = false;
-    this.isVisible2 = false;
   }
   // 审批通过提示
   showSuccess(id,status,mes): void{
+      // 获取点击这条数据的Id
       const Id = Number(id);
     console.log(Id);
     this.modal.success({
