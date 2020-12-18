@@ -115,26 +115,9 @@ export class StaffEntryComponent extends  CoreComponent implements OnInit {
     })
     editModal.afterClose.subscribe(res=>{
       console.log(res)
-      this.staffSvr.updateStaff(res,null).then(res => {
+      this.staffSvr.makeStaffLeave(res,null,null,null,null,null,null).then(res => {
       })
     })
   }
-
-// 添加入职弹窗
-addEntry(): void {
-  let editModal=this.modal.create({
-    nzTitle:"添加入职",
-    nzContent:StaffLeaveModalComponent,
-    nzComponentParams:{
-    },
-    nzFooter:null
-  })
-  editModal.afterClose.subscribe(res=>{
-    console.log(res)
-    this.staffSvr.updateStaff(res,null).then(res => {
-      console.log(res)
-    })
-  })
-}
 
 }

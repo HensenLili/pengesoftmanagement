@@ -28,14 +28,14 @@ export class StaffServiceSvr {
    *
    */
   findCount(workNature: number, workStatus: number, nodeId: number, age: number, degree: string, positionId: string): Promise<Result>{
-    const httpParams = new HttpParams()
-      .append('workNature', workNature.toString())
-      .append('workStatus', workStatus.toString())
-      .append('nodeId', nodeId.toString())
-      .append('age', age.toString())
-      .append('degree', degree.toString())
-      .append('positionId', positionId.toString());
-    return this.request.post<Result>(this.baseUrl + 'findCount', httpParams).then((res) => {
+    const formdata = new FormData()
+    formdata.append('workNature', workNature.toString())
+    formdata.append('workStatus', workStatus.toString())
+    formdata.append('nodeId', nodeId.toString())
+    formdata.append('age', age.toString())
+    formdata.append('degree', degree)
+    formdata.append('positionId', positionId);
+    return this.request.post<Result>(this.baseUrl + 'findCount', formdata).then((res) => {
       return new Result(res);
     });
   }
@@ -44,10 +44,10 @@ export class StaffServiceSvr {
    *
    */
   addStaff(staff: Staff, headImg: File): Promise<Result>{
-    const httpParams = new HttpParams()
-      .append('staff', staff.toString())
-      .append('headImg', headImg.toString());
-    return this.request.post<Result>(this.baseUrl + 'addStaff', httpParams).then((res) => {
+    const formdata = new FormData()
+    formdata .append('staff', staff.toString())
+    formdata.append('headImg', headImg.toString());
+    return this.request.post<Result>(this.baseUrl + 'addStaff', formdata).then((res) => {
       return new Result(res);
     });
   }
@@ -56,10 +56,10 @@ export class StaffServiceSvr {
    *
    */
   updateStaffPosition(staffId: string, positionId: number): Promise<Result>{
-    const httpParams = new HttpParams()
-      .append('staffId', staffId.toString())
-      .append('positionId', positionId.toString());
-    return this.request.post<Result>(this.baseUrl + 'updateStaffPosition', httpParams).then((res) => {
+    const formdata = new FormData()
+    formdata .append('staffId', staffId)
+    formdata.append('positionId', positionId.toString());
+    return this.request.post<Result>(this.baseUrl + 'updateStaffPosition', formdata).then((res) => {
       return new Result(res);
     });
   }
@@ -68,11 +68,11 @@ export class StaffServiceSvr {
    *
    */
   findByCondition(staff: Staff, departmentName: string, positionName: string): Promise<Result>{
-    const httpParams = new HttpParams()
-      .append('staff', staff.toString())
-      .append('departmentName', departmentName.toString())
-      .append('positionName', positionName.toString());
-    return this.request.post<Result>(this.baseUrl + 'findByCondition', httpParams).then((res) => {
+    const formdata = new FormData()
+    formdata.append('staff', staff.toString())
+    formdata.append('departmentName', departmentName)
+    formdata .append('positionName', positionName);
+    return this.request.post<Result>(this.baseUrl + 'findByCondition', formdata).then((res) => {
       return new Result(res);
     });
   }
@@ -81,8 +81,8 @@ export class StaffServiceSvr {
    *
    */
   GetVersion(): Promise<string>{
-    const httpParams = new HttpParams();
-    return this.request.post<string>(this.baseUrl + 'GetVersion', httpParams).then((res) => {
+    const formdata = new FormData();
+    return this.request.post<string>(this.baseUrl + 'GetVersion', formdata).then((res) => {
       return res;
     });
   }
@@ -91,8 +91,8 @@ export class StaffServiceSvr {
    *
    */
   findAllStaff(): Promise<Result>{
-    const httpParams = new HttpParams();
-    return this.request.post<Result>(this.baseUrl + 'findAllStaff', httpParams).then((res) => {
+    const formdata = new FormData();
+    return this.request.post<Result>(this.baseUrl + 'findAllStaff', formdata).then((res) => {
       return new Result(res);
     });
   }
@@ -102,7 +102,7 @@ export class StaffServiceSvr {
    */
   makeStaffRegular(staffId: string, date: string, file: File): Promise<Result>{
     const formData = new FormData()
-    formData.append('staffId', staffId.toString())
+    formData.append('staffId', staffId)
     formData.append('date', date)
     formData.append('memoryFile', file);
     return this.request.post<Result>(this.baseUrl + 'makeStaffRegular', formData).then((res) => {
@@ -114,15 +114,15 @@ export class StaffServiceSvr {
    *
    */
   makeStaffJobTransfer(staffId: string, date: string, transferType: number, beforeId: string, afterId: string, transferFile: File, salaryFile: File): Promise<Result>{
-    const httpParams = new HttpParams()
-      .append('staffId', staffId.toString())
-      .append('date', date.toString())
-      .append('transferType', transferType.toString())
-      .append('beforeId', beforeId.toString())
-      .append('afterId', afterId.toString())
-      .append('transferFile', transferFile.toString())
-      .append('salaryFile', salaryFile.toString());
-    return this.request.post<Result>(this.baseUrl + 'makeStaffJobTransfer', httpParams).then((res) => {
+    const formdata = new FormData()
+    formdata.append('staffId', staffId)
+    formdata.append('date', date)
+    formdata.append('transferType', transferType.toString())
+    formdata.append('beforeId', beforeId)
+    formdata.append('afterId', afterId)
+    formdata.append('transferFile', transferFile)
+    formdata.append('salaryFile', salaryFile);
+    return this.request.post<Result>(this.baseUrl + 'makeStaffJobTransfer', formdata).then((res) => {
       return new Result(res);
     });
   }
@@ -131,15 +131,15 @@ export class StaffServiceSvr {
    *
    */
   makeStaffLeave(staffId: string, date: string, leaveFile: File, leaveApply: File, leaveDeclare: File, productTransfer: File, leaveProve: File): Promise<Result>{
-    const httpParams = new HttpParams()
-      .append('staffId', staffId.toString())
-      .append('date', date.toString())
-      .append('leaveFile', leaveFile.toString())
-      .append('leaveApply', leaveApply.toString())
-      .append('leaveDeclare', leaveDeclare.toString())
-      .append('productTransfer', productTransfer.toString())
-      .append('leaveProve', leaveProve.toString());
-    return this.request.post<Result>(this.baseUrl + 'makeStaffLeave', httpParams).then((res) => {
+    const formdata = new FormData()
+      formdata.append('staffId', staffId)
+      formdata.append('date', date)
+      formdata.append('leaveFile', leaveFile)
+      formdata.append('leaveApply', leaveApply)
+      formdata.append('leaveDeclare', leaveDeclare)
+      formdata.append('productTransfer', productTransfer)
+      formdata.append('leaveProve', leaveProve);
+    return this.request.post<Result>(this.baseUrl + 'makeStaffLeave', formdata).then((res) => {
       return new Result(res);
     });
   }

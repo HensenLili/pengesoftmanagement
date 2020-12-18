@@ -38,7 +38,7 @@ export class StaffFormalModalComponent extends  CoreComponent implements OnInit 
   cancel(){
     this.modal.destroy(null)
   }
-  // 图片上传
+  // 上传
   uploaderImage(ele: HTMLInputElement): void{
     const files = ele.files[0];
     this.file = files;

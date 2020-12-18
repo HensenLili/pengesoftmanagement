@@ -117,7 +117,6 @@ const routes: Routes = [
           {path:'staffroster', component:StaffRosterComponent},
           { path:'employee', component:StaffEmployeeComponent} ,
           {path:'staffcontract',component:StaffContractComponent},
-          {path:'staffcontractrenew',component:StaffContractRenewComponent},
           {path:'staffentry',component:StaffEntryComponent},
           {path:'staffmove',component:StaffMoveComponent},
           {path:'staffformal',component:StaffFormalComponent},
