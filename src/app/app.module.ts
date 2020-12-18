@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {Component, CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {MyHomeComponent} from './views/my-home/my-home.component';
@@ -10,7 +9,6 @@ import {NzModalModule} from 'ng-zorro-antd/modal';
 import {registerLocaleData} from '@angular/common';
 import {CommonModule} from '@angular/common';
 import {NgxEchartsModule} from "ngx-echarts";
-
 import zh from '@angular/common/locales/zh';
 import {MyTabViewComponent} from './views/my-tab-view/my-tab-view.component';
 import {NzLayoutModule} from 'ng-zorro-antd/layout';
@@ -38,7 +36,6 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 // 引入tab模块
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
-
 // 引入头像模块
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 // 引入按键模块
@@ -62,20 +59,16 @@ import {NzInputNumberModule} from 'ng-zorro-antd/input-number';
 import { RecruitApprovalComponent } from './components/recruit-approval/recruit-approval.component';
 import { RecruitOfferComponent } from './components/recruit-offer/recruit-offer.component';
 import { RouterModule } from "@angular/router";
-
 import { ContainerComponent } from './views/container/container.component';
 import { StaffManageComponent } from './views/staff-manage/staff-manage.component'
 import { OrganizeManageComponent } from './views/organize-manage/organize-manage.component';
 import { AwardpunishManageComponent } from './views/awardpunish-manage/awardpunish-manage.component';
 import { RecruitManageComponent } from './views/recruit-manage/recruit-manage.component';
-
 import {NzSwitchModule} from "ng-zorro-antd/switch";
 import { StaffRosterComponent } from './components/staff-roster/staff-roster.component';
 import { StaffContractComponent } from './components/staff-contract/staff-contract.component';
 import {RecruitDemandComponent} from './components/recruit-demand/recruit-demand.component';
 import { NzTimelineModule } from 'ng-zorro-antd/timeline';
-
-
 import { StaffEmployeeComponent } from './components/staff-employee/staff-employee.component';
 import { StaffBasicInforComponent } from './components/staff-basic-infor/staff-basic-infor.component';
 import { StaffExperienceComponent } from './components/staff-experience/staff-experience.component';
@@ -110,7 +103,6 @@ import { TrainingPlanComponent } from './components/training-plan/training-plan.
 import { TrainingLogComponent } from './components/training-log/training-log.component';
 import { AwardPunishModalComponent } from './components/award-punish-modal/award-punish-modal.component';
 import { StaffAddModalComponent } from './components/staff-add-modal/staff-add-modal.component';
-import { StaffAddFormalModalComponent } from './components/staff-add-formal-modal/staff-add-formal-modal.component';
 import {NzCascaderModule} from "ng-zorro-antd/cascader";
 
 
@@ -132,8 +124,6 @@ registerLocaleData(zh);
     AwardpunishManageComponent,
     RecruitManageComponent,
     TrainingManageComponent,
-    // RosterComponent,
-    // BasicInforComponent,
     RecruitManagementComponent,
     RecruitTalentPoolComponent,
     RecruitInterviewComponent,
@@ -141,7 +131,6 @@ registerLocaleData(zh);
     RecruitNeedsTableComponent,
     RecruitApprovalComponent,
     RecruitOfferComponent,
-
     StaffRosterComponent,
     StaffContractComponent,
     StaffEmployeeComponent,
@@ -173,8 +162,7 @@ registerLocaleData(zh);
     TrainingPlanComponent,
     TrainingLogComponent,
     AwardPunishModalComponent,
-    StaffAddModalComponent,
-    StaffAddFormalModalComponent
+    StaffAddModalComponent
 
 
 
